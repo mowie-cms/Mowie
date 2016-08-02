@@ -1,7 +1,7 @@
 <?php
 if (isset($_POST['submit']))
 {
-	$dbtables = "CREATE TABLE IF NOT EXISTS `".$MCONF['db_prefix']."sidebar` (
+	/*$dbtables = "CREATE TABLE IF NOT EXISTS `".$MCONF['db_prefix']."sidebar` (
   `aktiv` text NOT NULL,
   `inhalt_typ` text NOT NULL,
   `inhalt` text NOT NULL
@@ -18,6 +18,6 @@ INSERT INTO `".$MCONF['db_prefix']."sidebar` (`aktiv`, `inhalt_typ`, `inhalt`) V
 	{
 		echo msg('fail', 'Fehler beim Einrichten des Sidebarmoduls.');
 		exit;
-	}
+	}*/
 }
 ?>

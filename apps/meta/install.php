@@ -1,7 +1,7 @@
 <?php
 if (isset($_POST['submit']))
 {
-	$dbtables = "CREATE TABLE IF NOT EXISTS `".$MCONF['db_prefix']."meta` (
+	/*$dbtables = "CREATE TABLE IF NOT EXISTS `".$MCONF['db_prefix']."meta` (
   `meta_name` text NOT NULL,
   `inhalt` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -23,6 +23,6 @@ INSERT INTO `".$MCONF['db_prefix']."meta` (`meta_name`, `inhalt`) VALUES
 	{
 		echo msg('fail', 'Fehler beim Einrichten des Metamoduls.');
 		exit;
-	}
+	}*/
 }
 ?>
