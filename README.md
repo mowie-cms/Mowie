@@ -5,4 +5,4 @@ A lightwight &amp; modern CMS for your Website
 Comming Soon!
 
 # License
-Code copyright by 2016 Cleverdesk.net and contributors. Code released under GPLv3.
+Code copyright by 2016 Mowie and contributors. Code released under GPLv3.
