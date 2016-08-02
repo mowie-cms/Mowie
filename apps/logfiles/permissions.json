@@ -1,0 +1,10 @@
+{
+  "permissions": [
+    {
+      "key": "view_logfiles",
+      "name": "Logfiles ansehen",
+      "description": "",
+      "critical": false
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "permissions": [
+    {
+      "key": "manage_pages",
+      "name": "Seiten verwalten",
+      "description": "",
+      "critical": false
+    },
+    {
+      "key": "admin_manage",
+      "name": "Alle Seiten verwalten",
+      "description": "Administrativ alle Seiten verwalten. Nutzer ohne diese Berechtigung dürfen nur ihnen zugewiesene Seiten bearbeiten.",
+      "critical": false
+    },
+    {
+      "key": "create_new",
+      "name": "Neue Seiten erstellen",
+      "description": "Darf der Nutzer neue Seiten erstellen?",
+      "critical": false
+    },
+    {
+      "key": "grant_permissions",
+      "name": "Berechtigungen vergeben",
+      "description": "Anderen Nutzern erlauben, bestimmte Seiten zu bearbeiten.",
+      "critical": true
+    },
+    {
+      "key": "view_dashboard",
+      "name": "Dashboard ansehen",
+      "description": "Auf dem Dashboard eine Liste von Seiten einsehen.",
+      "critical": false
+    }
+  ]
+}

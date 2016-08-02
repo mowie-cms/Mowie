@@ -1,0 +1,52 @@
+{
+  "permissions": [
+    {
+      "key": "view_dashboard",
+      "name": "Relevante Informationen auf dem Dashboard ansehen.",
+      "description": "",
+      "critical": false
+    },
+    {
+      "key": "manage_system",
+      "name": "Systemeinstellungen vornehmen.",
+      "description": "",
+      "critical": true
+    },
+    {
+      "key": "construction",
+      "name": "Baustellenzustand ändern",
+      "description": "Im Baustellenzustand wird Anstelle der Seite ein Text angezeigt.",
+      "critical": true
+    },
+    {
+      "key": "update",
+      "name": "Systemupdate durchführen",
+      "description": "Nach neuen Versionen des Systems suchen und updaten.",
+      "critical": true
+    },
+    {
+      "key": "db_dump",
+      "name": "Datenbanbackup herunterladen",
+      "description": "Ein komplettes Backup der Datenbank herunterladen.",
+      "critical": false
+    },
+    {
+      "key": "manage_admins",
+      "name": "Administratoren verwalten",
+      "description": "",
+      "critical": true
+    },
+    {
+      "key": "manage_groups",
+      "name": "Admingruppen verwalten",
+      "description": "",
+      "critical": true
+    },
+    {
+      "key": "edit_permissions",
+      "name": "Adminberechtigungen verwalten",
+      "description": "",
+      "critical": true
+    }
+  ]
+}

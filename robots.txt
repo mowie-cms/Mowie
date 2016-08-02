@@ -1,0 +1,7 @@
+User-Agent: *
+Disallow: /admin/
+Disallow: /apps/
+Disallow: /cache/
+Disallow: /Files/
+Disallow: /inc/
+Disallow: /templates_c/

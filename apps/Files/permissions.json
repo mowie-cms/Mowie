@@ -1,0 +1,28 @@
+{
+  "permissions": [
+    {
+      "key": "manage_files",
+      "name": "Dateien verwalten",
+      "description": "Dateien ansehen & verwalten",
+      "critical": false
+    },
+    {
+      "key": "upload",
+      "name": "Dateien hochladen",
+      "description": "",
+      "critical": false
+    },
+    {
+      "key": "create_folder",
+      "name": "Neuen Ordner erstellen",
+      "description": "",
+      "critical": false
+    },
+    {
+      "key": "delete",
+      "name": "Dateien löschen",
+      "description": "",
+      "critical": false
+    }
+  ]
+}
