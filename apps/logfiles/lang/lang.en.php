@@ -10,7 +10,7 @@
 $lang = [];
 $lang['__Lang__'] = 'English (English)';
 $lang['__LangCode__'] = 'en';
-$lang['__Countrycode__'] = 'en_US';
+$lang['__Countrycode__'] = 'en';
 
 $lang['log_detail_title'] = 'Logfile of';
 $lang['log_detail_title_from'] = 'Logfiles from';
