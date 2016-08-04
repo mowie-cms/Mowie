@@ -93,7 +93,7 @@ input[type=checkbox] + label i {
     width: 15px;
     height: 15px;
     margin: 0 10px 0 0;
-    vertical-align: middle;
+    vertical-align: bottom;
     transition: 0.2s ease;
     -webkit-transition: 0.2s ease;
     border-radius: 2px;
@@ -626,7 +626,7 @@ header {
     right: 0;
     height: 35px;
     color: #727272;
-    z-index: 10;
+    z-index: 2;
     font-size: 30px;
     overflow: hidden;
 }
@@ -736,7 +736,7 @@ nav {
     position: fixed;
     top: 0;
     bottom: 0;
-    z-index: 1;
+    z-index: 2;
     /*overflow-x: hidden;
     overflow-y: auto;*/
 }
@@ -780,7 +780,11 @@ nav ul li:hover a {
     color: #4CAF50;
 }
 
-nav ul li a.now, nav ul li a.now:hover, nav ul li.active a, nav ul li.active a:hover, nav ul li.active ul li a.now {
+nav ul li a.now,
+nav ul li a.now:hover,
+nav ul li.active a,
+nav ul li.active a:hover,
+nav ul li.active ul li.active a{
     background: #4CAF50;
     color: #e8e8e8 !important;
 }
@@ -804,6 +808,11 @@ nav ul li ul {
     position: absolute;
     background: #20262b;
     color: #e8e8e8;
+}
+
+nav.no-transition ul li ul, nav.no-transition ul li a{
+    transition: 0s  ease;
+    -webkit-transition: 0s ease;
 }
 
 nav ul li:hover ul li a {
@@ -905,6 +914,17 @@ input[type=checkbox]#show-menu:checked ~ .mobile-overlay {
     bottom: -15px;
     background: rgba(250, 250, 250, 0.5);
     opacity: 1;
+}
+
+.copy{
+    width: calc(100% - 25px);
+    display: block;
+    padding: 13px 0 13px 25px;
+    color: #e8e8e8;
+    font-weight: 600;
+    position: absolute;
+    bottom: 0;
+    font-size: 14px;
 }
 
 /*main*/
@@ -1374,6 +1394,51 @@ img.zoomedin {
     margin-top: 5px;
     word-break: break-all;
     cursor: default;
+}
+
+/*toploading*/
+@-webkit-keyframes toploading-stripes{
+    from{
+        background-position:0 0
+    }
+    to{
+        background-position:40px 0
+    }
+}
+@keyframes toploading-stripes{
+    from{
+        background-position:0 0
+    }
+    to{
+        background-position:40px 0
+    }
+}
+
+.toploading {
+    height: 0;
+    -webkit-animation:toploading-stripes 550ms linear infinite;
+    animation:toploading-stripes 350ms linear infinite;
+    background-image: -webkit-linear-gradient(-45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+    background-image: linear-gradient(-45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+    background-size: 40px 40px;
+    background-color: #4CAF50;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+}
+
+.loader-overlay{
+    opacity: 0.6;
+    background: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    display: none;
 }
 
 /*installer*/

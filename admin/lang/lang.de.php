@@ -20,6 +20,7 @@ $lang['all_fields'] = 'Bitte alle Felder ausfüllen.';
 $lang['error_2fa'] = 'Fehler bei der Anmeldung in zwei Schritten.';
 $lang['wrong_username_or_pass'] = 'Benutzername oder Passwort falsch.';
 $lang['wrong_pass'] = 'Falsches Passwort';
+$lang['404_not_found'] = 'Die Seite wurde nicht gefunden.';
 
 //Dashboard
 $lang['delete_config_success'] = 'Die installationsdatei wurde erfolgreich gelöscht.';

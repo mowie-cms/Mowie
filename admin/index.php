@@ -7,7 +7,7 @@ if (file_exists('install.php'))
 {
 	if (unlink('install.php'))
 	{
-		echo $lang->get('delete_config_success');
+		echo msg('info', $lang->get('delete_config_success'));
 	}
 }
 
@@ -21,12 +21,12 @@ if (hasPerm('view_dashboard'))
 	?>
 	<a href="general_config.php" class="card-blue"><span class="icon">&#xe994;</span><br/>
 		<?php echo $lang->get('general_config');?></a>
-	<a href="../apps/logfiles/index.php" class="card-lime"><span class="icon">&#xe9bb;</span><br/><?php echo $lang->get('logfiles');?></a>
+	<a href=".<?php echo $GLOBALS['MCONF']['home_uri']; ?>apps/logfiles/index.php" class="card-lime"><span class="icon">&#xe9bb;</span><br/><?php echo $lang->get('logfiles');?></a>
 	</div>
 	<div class="cardsContainer cardsContainer-main">
-		<a href="../apps/SimplePages/backend/management.php" class="card-red"><span class="icon">&#xe95c;</span><br/><?php echo $lang->get('manage_pages');?></a>
-		<a href="../apps/SimplePages/berechtigungen.php" class="card-pink"><span class="icon">&#xe905;</span><br/><?php echo $lang->get('manage_contents');?></a>
-		<a href="../apps/Files/index.php" class="card-amber"><span
+		<a href="<?php echo $GLOBALS['MCONF']['home_uri']; ?>apps/SimplePages/backend/management.php" class="card-red"><span class="icon">&#xe95c;</span><br/><?php echo $lang->get('manage_pages');?></a>
+		<a href="<?php echo $GLOBALS['MCONF']['home_uri']; ?>apps/SimplePages/backend/permissions.php" class="card-pink"><span class="icon">&#xe905;</span><br/><?php echo $lang->get('manage_contents');?></a>
+		<a href="<?php echo $GLOBALS['MCONF']['home_uri']; ?>apps/Files/index.php" class="card-amber"><span
 				class="icon">&#xe90e;</span><br/><?php echo $lang->get('manage_files');?></a>
 	</div>
 	<?php

@@ -4,7 +4,7 @@ if (isset($_POST['sidebarconf']))
 	$sidebar_inhalt = 'text';
 	$text = $_POST['sidebar_inhalt'];
 	$active = false;
-	if($_POST['aktiv'] == 'true')
+	if(isset($_POST['active']) && $_POST['active'] == 'true')
 	{
 		$active = true;
 	}
@@ -13,7 +13,7 @@ if (isset($_POST['sidebarconf']))
 	$db->data = ['active' => $active, 'content' => $text];
 	if ($db->update())
 	{
-		echo msg('succes', 'Die &Auml;nderungen der Sidebar wurden erfolgreich gespeichert.');
+		echo msg('success', 'Die &Auml;nderungen der Sidebar wurden erfolgreich gespeichert.');
 	}
 	else
 	{
@@ -30,11 +30,9 @@ else
 	$active = '';
 	if(!$db->data[0]['active']) $active = ' selected';
 	?>
-	<p><span>Sidebar anzeigen:</span>
-		<select name="aktiv" id="aktivswitch" onchange="toggleTextField()">
-			<option value="true">Ja</option>
-			<option value="false"<?php echo $active ?>>Nein</option>
-		</select>
+	<p>
+		<input type="checkbox" name="active" value="y" id="activeswitch" onchange="toggleTextField()"/>
+		<label for="activeswitch"><i></i>Sidebar anzeigen</label>
 	</p>
 	</div>
 	<div id="editorContainer">
@@ -44,14 +42,15 @@ else
 	</div>
 	<input type="hidden" name="sidebarconf" value="smbt"/>
 	<script>
-		if($('#aktivswitch').val() == 'true') {
+		if($('#activeswitch').is(':checked')) {
 			$('#editorContainer').show();
 		}
 		else {
 			$('#editorContainer').hide();
 		}
+
 		function toggleTextField(){
-			if($('#aktivswitch').val() == 'true') {
+			if($('#activeswitch').is(':checked')) {
 				$('#editorContainer').show();
 			}
 			else {

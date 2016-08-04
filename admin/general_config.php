@@ -67,7 +67,7 @@ tinymce();
 				<i class="divider"></i>
 				<h1><?php echo $lang->get('general_database');?></h1>
 				<p>
-					<a href="action.php?dbbackup" class="button"><i class="icon">&#xe964;</i> <?php echo $lang->get('general_create_backup');?>
+					<a href="action.php?dbbackup" class="button" download="download"><i class="icon">&#xe964;</i> <?php echo $lang->get('general_create_backup');?>
 					</a>
 					<a href="<?php
 					echo $MCONF['phpmyadmin'];
@@ -95,7 +95,7 @@ tinymce();
 			}
 			?>
 			<i class="divider"></i>
-			<input type="submit" class="speichern" value="<?php echo $lang->get('general_config');?>Speichern" style="width: auto;" />
+			<input type="submit" class="speichern" value="<?php echo $lang->get('general_save_changes');?>" style="width: auto;" />
 	</form>
 	<?php
 echo '</div>';

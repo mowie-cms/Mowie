@@ -405,7 +405,7 @@ if (isset($_SESSION['user']))
 						$('#content').html('<div><textarea id="text"></textarea></div>');
 						$('#text').load(url);
 					}
-					$('#content').append('<p><?php echo $lang->get('files_url'); ?>:<input type="text" class="select" value="' + url + '" onClick="this.select();"/></p><p><a href="' + webUri + 'apps/Files/index.php?dl=' + url + '" class="button"><i class="icon-download"></i>  <?php echo $lang->get('files_download'); ?></a>  <a onclick="deleteFile(\'' + $('#displayUrl').html() + file + '\');" class="button btn_del"><i class="icon-trash-o"></i>  <?php echo $lang->get('files_delete'); ?></a></p>');
+					$('#content').append('<p><?php echo $lang->get('files_url'); ?>:<input type="text" class="select" value="' + url + '" onClick="this.select();"/></p><p><a href="' + webUri + 'apps/Files/index.php?dl=' + url + '" class="button" download="download"><i class="icon-download"></i>  <?php echo $lang->get('files_download'); ?></a>  <a onclick="deleteFile(\'' + $('#displayUrl').html() + file + '\');" class="button btn_del"><i class="icon-trash-o"></i>  <?php echo $lang->get('files_delete'); ?></a></p>');
 
 					//uuund einbelnden
 					$(".overlay").fadeIn(250);
