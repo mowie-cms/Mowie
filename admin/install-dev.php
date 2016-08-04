@@ -61,7 +61,7 @@ if(isset($_POST['submit']))
 		$CONFIG['Templating']['tpl_title'] = 'title';
 		$CONFIG['Templating']['tpl_content'] = 'content';
 		$CONFIG['Templating']['tpl_webUri'] = 'website_uri';
-		$CONFIG['Versioning']['version'] = '0.6 Beta';
+		$CONFIG['Versioning']['version'] = '0.91 Beta';
 		$CONFIG['Versioning']['version_num'] = 1;
 		$CONFIG['Versioning']['update_uri'] = 'http://cdn.kola-entertainments.de/cms/';
 
