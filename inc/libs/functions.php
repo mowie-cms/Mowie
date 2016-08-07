@@ -229,7 +229,12 @@ function printHeader($title)
     <link rel="stylesheet" href="' . $GLOBALS['MCONF']['web_uri'] . 'admin/assets/admin.css" type="text/css"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
 	<script src="' . $GLOBALS['MCONF']['web_uri'] . 'admin/assets/js/jquery.min.js"></script>
-    <script src="' . $GLOBALS['MCONF']['web_uri'] . 'admin/assets/js/jquery.form.min.js"></script> 
+	
+	<script src="' . $GLOBALS['MCONF']['web_uri'] . 'admin/assets/js/page.js"></script>
+	<script src="' . $GLOBALS['MCONF']['web_uri'] . 'admin/assets/js/page.bodyparser.js"></script>
+	<script>
+	page.base(\'' . $GLOBALS['MCONF']['home_uri'] . '\');
+	</script>
 </head>
 <body>';
 		if (is_loggedin())

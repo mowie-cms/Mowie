@@ -34,7 +34,7 @@ if (hasPerm('edit_permissions'))
 		}
 	} else
 	{
-		echo '<div class="main"><form action="" method="post">';
+		echo '<div class="main"><form action="'.$_SERVER['REQUEST_URI'].'" method="post">';
 		//Admin Groups
 		$db->get();
 		$role_names = [];

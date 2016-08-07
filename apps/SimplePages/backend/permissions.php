@@ -89,7 +89,7 @@ if (hasPerm('grant_permissions'))
 				echo '</td>';
 				?>
 				<td>
-					<form action="" method="post" style="padding:0;margin:0;">
+					<form action="<?php echo $_SERVER['REQUEST_URI']?>" method="post" style="padding:0;margin:0;">
 						<input type="hidden" name="page" value="<?php echo $data['id']; ?>"/>
 						<select name="user" style="margin:0;">
 							<?php

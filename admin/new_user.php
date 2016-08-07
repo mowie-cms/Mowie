@@ -48,7 +48,7 @@ if (hasPerm('manage_admins'))
 		?>
 		<div class="main">
 			<div class="form">
-				<form action="" method="POST">
+				<form action="<?php echo $_SERVER['REQUEST_URI']?>" method="POST">
 					<p><span><?php echo $lang->get('admins_cn_username'); ?>:</span><input type="text" name="userN"/>
 					</p>
 					<p><span><?php echo $lang->get('admins_cn_password'); ?>:</span><input type="password" name="pw1"/>

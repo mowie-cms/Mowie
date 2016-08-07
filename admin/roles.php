@@ -39,7 +39,7 @@ if (hasPerm('manage_groups'))
 				{
 					?>
 					<div class="main" style="text-align: center">
-						<form action="" method="post">
+						<form action="<?php echo $_SERVER['REQUEST_URI']?>" method="post">
 							<p><?php echo $lang->get('admins_roles_delete_confirm');?></p>
 							<input type="submit" name="del" value="<?php echo $lang->get('general_yes');?>"/>
 							<a href="roles.php?members=<?php echo $_GET['members']; ?>" class="button btn_del"><?php echo $lang->get('general_no');?></a>
@@ -65,7 +65,7 @@ if (hasPerm('manage_groups'))
 			{
 				?>
 				<div class="main" style="text-align: center">
-					<form action="" method="post">
+					<form action="<?php echo $_SERVER['REQUEST_URI']?>" method="post">
 						<p><?php echo $lang->get('admins_roles_user_delete_confirm');?></p>
 						<input type="submit" name="del" value="<?php echo $lang->get('general_yes');?>"/>
 						<a href="roles.php?members=<?php echo $_GET['members']; ?>" class="button btn_del"><?php echo $lang->get('general_no');?></a>
@@ -129,7 +129,7 @@ if (hasPerm('manage_groups'))
 				} else
 				{
 					?>
-					<form action="" method="post">
+					<form action="<?php echo $_SERVER['REQUEST_URI']?>" method="post">
 						<?php echo $lang->get('admins_roles_add_user');?>:
 						<select name="user">
 							<?php
@@ -168,7 +168,7 @@ if (hasPerm('manage_groups'))
 			?>
 			<div class="main">
 				<h2><?php echo $lang->get('admins_roles_create_group');?></h2>
-				<form action="" method="post">
+				<form action="<?php echo $_SERVER['REQUEST_URI']?>" method="post">
 					<input type="text" name="group_name" placeholder="<?php echo $lang->get('admins_roles_group_name');?>"/><br/>
 					<input type="submit" name="submit" value="<?php echo $lang->get('admins_roles_create_group');?>"/>
 				</form>

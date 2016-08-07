@@ -32,7 +32,7 @@ if (isset($_GET['to']))
 		<div class="main">
 			<h1><?php printf($lang->get('mail_write_to'), $_GET['to']); ?></h1>
 			<div class="form">
-				<form action="" method="post">
+				<form action="<?php echo $_SERVER['REQUEST_URI']?>" method="post">
 					<p><span><?php echo $lang->get('admins_username'); ?>:</span>
 						<input type="text" value="<?php echo $_SESSION['user']; ?>" name="from"/>
 					</p>

@@ -41,7 +41,7 @@ if (hasPerm('manage_admins') || $uid == $_SESSION['userid'])
 		{
 			?>
 			<div class="main">
-				<form action="?pw_new" method="post">
+				<form action="<?php echo $_SERVER['REQUEST_URI']?>" method="post">
 					<input type="password" name="pw_new"
 						   placeholder="<?php echo $lang->get('user_settings_new_pass'); ?>" autofocus/><br/>
 					<input type="password" name="pw_new2"
@@ -67,7 +67,7 @@ if (hasPerm('manage_admins') || $uid == $_SESSION['userid'])
 				{
 					echo '<div class="main"><p>' . $lang->get('user_settings_new_pass') . '</p>';
 					?>
-					<form action="?pw_new" method="post">
+					<form action="<?php echo parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);?>?pw_new" method="post">
 						<input type="password" name="pw_new"
 							   placeholder="<?php echo $lang->get('user_settings_new_pass'); ?>" autofocus/><br/>
 						<input type="password" name="pw_new2"
@@ -85,7 +85,7 @@ if (hasPerm('manage_admins') || $uid == $_SESSION['userid'])
 		{
 			?>
 			<div class="main">
-			<form action="" method="post">
+			<form action="<?php echo $_SERVER['REQUEST_URI']?>" method="post">
 				<input type="password" name="pw" autofocus
 					   placeholder="<?php echo $lang->get('user_settings_enter_current_pass'); ?>"/><br/>
 				<input type="submit" value="<?php echo $lang->get('confirm'); ?>"/>
@@ -121,7 +121,7 @@ if (hasPerm('manage_admins') || $uid == $_SESSION['userid'])
 			echo '</table>';
 
 			?>
-			<form action="" method="post"><input type="submit" name="smbt"
+			<form action="<?php echo $_SERVER['REQUEST_URI']?>" method="post"><input type="submit" name="smbt"
 												 value="<?php echo $lang->get('user_settings_current_sessions_logout_all'); ?>"/>
 			</form></div>
 			<?php
@@ -157,7 +157,7 @@ if (hasPerm('manage_admins') || $uid == $_SESSION['userid'])
 				?>
 				<p><?php echo $lang->get('user_settings_2fa_deactivate_confirm'); ?></p>
 				<p>
-				<form action="" method="post" style="text-align: center;">
+				<form action="<?php echo $_SERVER['REQUEST_URI']?>" method="post" style="text-align: center;">
 					<input type="submit" name="confirm" value="<?php echo $lang->get('general_yes'); ?>"/>
 					<a onclick="history.back();" class="button btn_del"><?php echo $lang->get('general_no'); ?></a>
 				</form>
@@ -197,7 +197,7 @@ if (hasPerm('manage_admins') || $uid == $_SESSION['userid'])
 				echo '<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&format=svg&data=' . $qrCodeUrl . '" alt=""/></p>';
 				?>
 				<p><?php echo $lang->get('user_settings_2fa_confirm_code'); ?>:</p>
-				<form action="" method="post">
+				<form action="<?php echo $_SERVER['REQUEST_URI']?>" method="post">
 					<p><input type="text" placeholder="<?php echo $lang->get('user_settings_2fa_enter_code'); ?>"
 							  name="2fatest" autocomplete="off"/>
 						<input type="hidden" name="secret" value="<?php echo $secret; ?>"/>
@@ -231,7 +231,7 @@ if (hasPerm('manage_admins') || $uid == $_SESSION['userid'])
 			{
 				?>
 				<div class="main">
-					<form action="" class="form" method="post">
+					<form action="<?php echo $_SERVER['REQUEST_URI']?>" class="form" method="post">
 						<p><span><?php echo $lang->get('username'); ?>:</span><input name="username"
 																					 value="<?php echo $db->data[0]['username'] ?>"/>
 						</p>

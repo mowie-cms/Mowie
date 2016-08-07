@@ -275,7 +275,7 @@ if (hasPerm('manage_pages'))
 					?>
 
 					<span id="response"></span>
-					<form id="edit" method="post" action="" class="form">
+					<form id="edit" method="post" action="<?php echo $_SERVER['REQUEST_URI']?>" class="form">
 						<p><span><?php echo $lang->get('sp_edit_title');?>:</span><input type="text" name="title" value="<?php echo $data[0]['title']; ?>"/>
 						</p>
 						<p><span><?php echo $lang->get('sp_edit_alias');?>:</span><input type="text" name="alias"

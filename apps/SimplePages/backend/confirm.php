@@ -93,7 +93,7 @@ if (isset($_GET['page']))
 						$data_display['lastedit'] = $data_new['lastedit'];
 
 						//echo '<pre>'.print_r($data_old, true).'</pre>';
-						echo '<form action="" method="post"><input type="hidden" name="contentToUpdate" value=\'' . json_encode($data_display) . '\'/><input type="submit" name="confirm" value="'.$lang->get('sp_confirm_confirm').'"/><input type="submit" name="delete" value="'.$lang->get('sp_confirm_delete').'" class="btn_del"/></form>';
+						echo '<form action="<?php echo $_SERVER['REQUEST_URI']?>" method="post"><input type="hidden" name="contentToUpdate" value=\'' . json_encode($data_display) . '\'/><input type="submit" name="confirm" value="'.$lang->get('sp_confirm_confirm').'"/><input type="submit" name="delete" value="'.$lang->get('sp_confirm_delete').'" class="btn_del"/></form>';
 						echo '</div>';
 					}
 					else

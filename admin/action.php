@@ -55,7 +55,7 @@ if (hasPerm('manage_system'))
 					?>
 					<div class="main">
 					<h1><?php echo $lang->get('action_construction_message_edit');?></h1>
-					<form action="" method="post">
+					<form action="<?php echo $_SERVER['REQUEST_URI']?>" method="post">
 					<textarea id="editor" name="constr_message"><?php require('../inc/System/construction2.txt'); ?></textarea>
 						<input type="submit" value="<?php echo $lang->get('general_save_changes');?>"/>
 					</form>

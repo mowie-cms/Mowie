@@ -285,7 +285,7 @@ else
 	?>
 
 	<div class="install-container">
-		<form action="" method="post" class="form">
+		<form action="<?php echo $_SERVER['REQUEST_URI']?>" method="post" class="form">
 			<h2>Language</h2>
 			<span>Select your language:</span>
 			<select name="lang">
