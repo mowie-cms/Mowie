@@ -19,15 +19,15 @@ if (hasPerm('view_dashboard'))
 	echo '<div class="card-orange" title="' . $db->version() . '"><span>' . str_replace(substr($db->version(), strpos($db->version(), '-')), '', $db->version()) . '</span>'.$lang->get('mysql_version').'</div></div><div class="cardsContainer cardsContainer-main">';
 	echo '<div class="card-purple"><span>' . date('H:i:s') . '</span>'.$lang->get('system_time').'</div>';
 	?>
-	<a href="general_config.php" class="card-blue"><span class="icon">&#xe994;</span><br/>
+	<a href="general_config.php" class="card-blue"><span><i class="fa fa-cog"></i></span><br/>
 		<?php echo $lang->get('general_config');?></a>
-	<a href=".<?php echo $GLOBALS['MCONF']['home_uri']; ?>apps/logfiles/index.php" class="card-lime"><span class="icon">&#xe9bb;</span><br/><?php echo $lang->get('logfiles');?></a>
+	<a href=".<?php echo $GLOBALS['MCONF']['home_uri']; ?>apps/logfiles/index.php" class="card-lime"><span><i class="fa fa-list"></i></span><br/><?php echo $lang->get('logfiles');?></a>
 	</div>
 	<div class="cardsContainer cardsContainer-main">
-		<a href="<?php echo $GLOBALS['MCONF']['home_uri']; ?>apps/SimplePages/backend/management.php" class="card-red"><span class="icon">&#xe95c;</span><br/><?php echo $lang->get('manage_pages');?></a>
-		<a href="<?php echo $GLOBALS['MCONF']['home_uri']; ?>apps/SimplePages/backend/permissions.php" class="card-pink"><span class="icon">&#xe905;</span><br/><?php echo $lang->get('manage_contents');?></a>
-		<a href="<?php echo $GLOBALS['MCONF']['home_uri']; ?>apps/Files/index.php" class="card-amber"><span
-				class="icon">&#xe90e;</span><br/><?php echo $lang->get('manage_files');?></a>
+		<a href="<?php echo $GLOBALS['MCONF']['home_uri']; ?>apps/SimplePages/backend/management.php" class="card-red"><span><i class="fa fa-list"></i></span><br/><?php echo $lang->get('manage_pages');?></a>
+		<a href="<?php echo $GLOBALS['MCONF']['home_uri']; ?>apps/SimplePages/backend/permissions.php" class="card-pink"><span><i class="fa fa-lock"></i></span><br/><?php echo $lang->get('manage_contents');?></a>
+		<a href="<?php echo $GLOBALS['MCONF']['home_uri']; ?>apps/Files/index.php" class="card-amber"><span>
+				<i class="fa fa-file"></i></span><br/><?php echo $lang->get('manage_files');?></a>
 	</div>
 	<?php
 }

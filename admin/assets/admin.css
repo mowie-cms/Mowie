@@ -1,5 +1,5 @@
 @import url(fonts.css);
-@import url(icons.css);
+@import url(font-awesome.css);
 
 * {
     margin: 0;
@@ -927,6 +927,87 @@ input[type=checkbox]#show-menu:checked ~ .mobile-overlay {
     font-size: 14px;
 }
 
+/*Langselect*/
+.langselect{
+    width: 24px;
+    text-align: center;
+    display: block;
+    padding: 10px;
+    color: #e8e8e8;
+    font-weight: 600;
+    position: absolute;
+    bottom: 0;
+    left: 240px;
+    font-size: 20px;
+}
+
+.langselect a{
+    color: #e8e8e8;
+}
+
+.langs{
+    position: fixed;
+    left: 245px;
+    bottom: 50px;
+    color: #23282D;
+    font-size: 14px;
+    background: #fff;
+    padding: 10px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+    border-radius: 1px;
+    display: none;
+    text-align: left;
+}
+
+.langs a{
+    color: #23282D;
+    display: block;
+    padding: 10px 6px;
+    -webkit-transition: color 0.2s; /* Safari */
+    transition: color 0.2s;
+}
+
+.langs a:hover{
+    text-decoration: none;
+    color: #388E3C !important;
+}
+
+.langs ul{
+    padding: 0;
+}
+
+.langs:before{
+    content: '';
+    width: 15px;
+    height: 15px;
+    background: #fff;
+    display: block;
+    position: fixed;
+    bottom: 42px;
+    transform: rotate(45deg);
+}
+
+.login_container .langselect{
+    position: relative;
+    left: 0;
+    float: right;
+}
+
+.login_container .langselect a{
+    color: #23282D;
+}
+
+.login_container .langs{
+    left: calc(50vw + 20px);
+    width: 140px;
+    bottom: auto;
+    margin: 10px 140px 0 0;
+}
+
+.login_container .langs:before{
+    display: none;
+}
+
 /*main*/
 .main {
     width: 1156px;
@@ -1101,7 +1182,7 @@ a[class^="card-"]:hover, a[class*=" card-"]:hover {
 
 [class^="message-"]:before, [class*=" message-"]:before {
     /* use !important to prevent issues with browser extensions that change fonts */
-    font-family: 'cmsicons' !important;
+    font-family: 'FontAwesome' !important;
     font-style: normal;
     font-weight: normal;
     font-variant: normal;
@@ -1166,7 +1247,7 @@ table#filesList thead th{
 }
 
 table#filesList thead th:after{
-    font-family: 'cmsicons' !important;
+    font-family: 'FontAwesome' !important;
     font-style: normal;
     font-weight: normal;
     font-variant: normal;

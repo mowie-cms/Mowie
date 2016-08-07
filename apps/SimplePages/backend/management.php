@@ -8,7 +8,7 @@ if (hasPerm('manage_pages'))
 		<p><?php
 			if (hasPerm('create_new'))
 			{
-				echo '<a href="edit.php?new" class="button"><span class="icon">&#xe924;</span>&nbsp;  '.$lang->get('sp_create_new').'</a></p><p>';
+				echo '<a href="edit.php?new" class="button"><i class="fa fa-file-o"></i>&nbsp;  '.$lang->get('sp_create_new').'</a></p><p>';
 			}
 			?></p>
 		<table>
@@ -43,7 +43,7 @@ if (hasPerm('manage_pages'))
 					{
 						echo '<td>'.$lang->get('sp_never').'</td>';
 					}
-					echo '<td><a href="edit.php?id=' . $pageitem['id'] . '"><span class="icon">&#xe905;</span>  '.$lang->get('sp_edit').'</a> | <a href="edit.php?id=' . $pageitem['id'] . '&del"><span class="icon">&#xe9ac;</span>  '.$lang->get('sp_delete').'</a> | <a href="' . $MCONF['web_uri'] . $pageitem['alias'] . '" target="_blank"><span class="icon">&#xea7d;</span>  '.$lang->get('sp_preview').'</a></td>';
+					echo '<td><a href="edit.php?id=' . $pageitem['id'] . '"><i class="fa fa-pencil"></i>  '.$lang->get('sp_edit').'</a> | <a href="edit.php?id=' . $pageitem['id'] . '&del"><i class="fa fa-trash-o"></i>  '.$lang->get('sp_delete').'</a> | <a href="' . $MCONF['web_uri'] . $pageitem['alias'] . '" target="_blank"><i class="fa fa-external-link"></i>  '.$lang->get('sp_preview').'</a></td>';
 					echo '</tr>';
 				}
 			}
@@ -72,7 +72,7 @@ if (hasPerm('manage_pages'))
 						{
 							echo '<td>'.$lang->get('sp_never').'</td>';
 						}
-						echo '<td><a href="edit.php?id=' . $pageitem['id'] . '"><span class="icon">&#xe905;</span>  '.$lang->get('sp_edit').'</a> | <a href="edit.php?id=' . $pageitem['id'] . '&del"><span class="icon">&#xe9ac;</span>  '.$lang->get('sp_delete').'</a> | <a href="' . $MCONF['web_uri'] . $pageitem['alias'] . '" target="_blank"><span class="icon">&#xea7d;</span>  '.$lang->get('sp_preview').'</a></td>';
+						echo '<td><a href="edit.php?id=' . $pageitem['id'] . '"><i class="fa fa-pencil"></i>  '.$lang->get('sp_edit').'</a> | <a href="edit.php?id=' . $pageitem['id'] . '&del"><i class="fa fa-trash-o"></i>  '.$lang->get('sp_delete').'</a> | <a href="' . $MCONF['web_uri'] . $pageitem['alias'] . '" target="_blank"><i class="fa fa-external-link"></i>  '.$lang->get('sp_preview').'</a></td>';
 						echo '</tr>';
 					}
 				}

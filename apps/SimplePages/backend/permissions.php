@@ -68,7 +68,7 @@ if (hasPerm('grant_permissions'))
 			$db->get();
 			foreach ($db->data as $data)
 			{
-				echo '<tr><td><a href="edit.php?id=' . $data['id'] . '">' . $data['title'] . '</a></td><td><a href="' . $MCONF['web_uri'] . $data['alias'] . '" target="_blank">' . $data['title'] . ' <span class="icon">&#xea7d;</span></a></td><td>';
+				echo '<tr><td><a href="edit.php?id=' . $data['id'] . '">' . $data['title'] . '</a></td><td><a href="' . $MCONF['web_uri'] . $data['alias'] . '" target="_blank">' . $data['title'] . ' <i class="fa fa-external-link"></i></a></td><td>';
 
 				$user_count = 1;
 				$db->setCol('simplePages_permissions');

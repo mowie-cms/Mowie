@@ -11,31 +11,28 @@ function msg($typ, $msg = null)
 		$out['msg'] = $msg;
 
 		return '<div class="message-success">' . $msg . '</div>';
-	}
-	elseif ($typ == 'fail')
+	} elseif ($typ == 'fail')
 	{
 		if (!isset($msg)) $msg = 'Fehler. ' . $GLOBALS['texte'][2];
 
 		$out['type'] = 'fail';
 		$out['msg'] = $msg;
 		return '<div class="message-fail">' . $msg . '</div>';
-	}
-	else
+	} else
 	{
 		$out['type'] = 'info';
 		$out['msg'] = $msg;
 		return '<div class="message-info">' . $msg . '</div>';
 	}
 
-	if(isset($_GET['json']))
+	if (isset($_GET['json']))
 	{
 		header('Content-Type: application/json');
 		return json_encode($out);
 
-	}
-	else
+	} else
 	{
-		return '<div class="message-'.$out['type'].'">' . $out['msg'] . '</div>';
+		return '<div class="message-' . $out['type'] . '">' . $out['msg'] . '</div>';
 	}
 }
 
@@ -54,8 +51,7 @@ function rrmdir($dir)
 		}
 		reset($objects);
 		return rmdir($dir);
-	}
-	else
+	} else
 	{
 		return false;
 	}
@@ -64,7 +60,7 @@ function rrmdir($dir)
 //Tinymce
 function tinymce($css = '../../css/tinymce.css', $edit_area = '#editor')
 {
-	if(!isset($_GET['json']))
+	if (!isset($_GET['json']))
 	{
 		echo '<script src="' . $GLOBALS['MCONF']['web_uri'] . 'admin/assets/js/tinymce/tinymce.min.js"></script>
 		<script>
@@ -130,14 +126,14 @@ function calc_filesize($bytes)
 //User eingeloggt?
 function is_loggedin()
 {
-	if(isset($_SESSION['user'], $_SESSION['token']))
+	if (isset($_SESSION['user'], $_SESSION['token']))
 	{
 
 		$GLOBALS['db']->setCol('system_loggedin');
 		$GLOBALS['db']->data['token'] = $_SESSION['token'];
 		$GLOBALS['db']->data['user'] = $_SESSION['userid'];
 		$GLOBALS['db']->get();
-		if(isset($GLOBALS['db']->data[0]['token']))
+		if (isset($GLOBALS['db']->data[0]['token']))
 		{
 			$token = $GLOBALS['db']->data[0]['token'];
 			$GLOBALS['db']->clear();
@@ -157,29 +153,24 @@ function is_loggedin()
 						session_destroy();   // destroy session data in storage
 
 						return false;
-					}
-					else
+					} else
 					{
 						$_SESSION['LAST_ACTIVITY'] = time();
 						return true;
 					}
-				}
-				else
+				} else
 				{
 					return false;
 				}
-			}
-			else
+			} else
 			{
 				return false;
 			}
-		}
-		else
+		} else
 		{
 			return false;
 		}
-	}
-	else
+	} else
 	{
 		return false;
 	}
@@ -193,31 +184,28 @@ function printHeader($title)
 		$title = $GLOBALS['lang']->get('login');
 	}
 
-	if(isset($_REQUEST['direct']))
+	if (isset($_REQUEST['direct']))
 	{
-		if(!is_loggedin())
+		if (!is_loggedin())
 		{
 			header("Content-Type: text/plain");
 			echo 'Login First.';
 			exit;
 		}
-	}
-	elseif (isset($_GET['title']))
+	} elseif (isset($_GET['title']))
 	{
-		if(!is_loggedin())
+		if (!is_loggedin())
 		{
 			header("Content-Type: text/plain");
 			echo 'Login First.';
 			exit;
-		}
-		else
+		} else
 		{
 			header("Content-Type: text/plain");
 			echo $title;
 			exit;
 		}
-	}
-	else
+	} else
 	{
 		//<link rel="stylesheet prefetch" href="' . $GLOBALS['MCONF']['web_uri'] . 'css/video-js.css" type="text/css"/>
 		echo '<!DOCTYPE html>
@@ -244,31 +232,31 @@ function printHeader($title)
     <div class="options" tabindex="0">
     	<input type="checkbox" id="options_menu" />
     	<label for="options_menu">
-			<p><span class="usr_info"><img src="http://www.gravatar.com/avatar/' . md5(strtolower(trim($_SESSION['mail']))) . '?s=40&d=mm" alt=""/>' . $_SESSION['user'] . '</span>  <span class="icon-"></span></p>
+			<p><span class="usr_info"><img src="http://www.gravatar.com/avatar/' . md5(strtolower(trim($_SESSION['mail']))) . '?s=40&d=mm" alt=""/>' . $_SESSION['user'] . '</span>  <span class="fa fa-chevron-down"></span></p>
 			<ul>
-				<li><a href="' . $GLOBALS['MCONF']['web_uri'] . 'admin/user_settings.php"><span class="icon-gear"></span> ' . $GLOBALS['lang']->get('settings') . '</a></li>
-				<li><a href="' . $GLOBALS['MCONF']['web_uri'] . 'admin/logout.php" rel="external"><span class="icon-exit"></span> ' . $GLOBALS['lang']->get('logout') . '</a></li>
+				<li><a href="' . $GLOBALS['MCONF']['web_uri'] . 'admin/user_settings.php"><span class="fa fa-gear"></span> ' . $GLOBALS['lang']->get('settings') . '</a></li>
+				<li><a href="' . $GLOBALS['MCONF']['web_uri'] . 'admin/logout.php" rel="external"><span class="fa fa-sign-out"></span> ' . $GLOBALS['lang']->get('logout') . '</a></li>
 			</ul>
     	</label>
     </div>
 </header>
-<label for="show-menu" class="show-menu"><i class="icon-navicon"></i> </label>
+<label for="show-menu" class="show-menu"><i class="fa fa-bars"></i> </label>
 <input type="checkbox" id="show-menu" role="button">
 <nav id="topnav">
     <header>
     	<a href="' . $GLOBALS['MCONF']['home_uri'] . 'admin/"><img src="' . $GLOBALS['MCONF']['web_uri'] . 'admin/assets/Logo.svg" alt="Mowie CMS"/></a>
     </header>
-    <ul id="menulist"><li><a href="' . $GLOBALS['MCONF']['home_uri'] . '" target="_blank"><i class="icon-external-link"></i>  ' . $GLOBALS['lang']->get('main_page') . '</a></li>
+    <ul id="menulist"><li><a href="' . $GLOBALS['MCONF']['home_uri'] . '" target="_blank"><i class="fa fa-external-link"></i>  ' . $GLOBALS['lang']->get('main_page') . '</a></li>
     <li';
 			if ($title == $GLOBALS['lang']->get('dashboard_title')) echo ' class="active"';
-			echo ' id="mw-menu-admin-"><a href="' . $GLOBALS['MCONF']['home_uri'] . 'admin/"><i class="icon-dashboard"></i>  ' . $GLOBALS['lang']->get('dashboard') . '</a></li>';
+			echo ' id="mw-menu-admin-"><a href="' . $GLOBALS['MCONF']['home_uri'] . 'admin/"><i class="fa fa-dashboard"></i>  ' . $GLOBALS['lang']->get('dashboard') . '</a></li>';
 
 			if (hasPerm('manage_system', 'System'))
 			{
 				echo '<li';
 				if ($title == $GLOBALS['lang']->get('general_config')) echo ' class="active"';
 				echo ' id="mw-menu-admin-general_config"><a href="' . $GLOBALS['MCONF']['home_uri'] . 'admin/general_config.php"><i
-				class="icon-sliders"></i>
+				class="fa fa-sliders"></i>
 			' . $GLOBALS['lang']->get('general_config') . '</a></li>';
 			}
 			if (hasPerm('manage_admins', 'System'))
@@ -276,22 +264,29 @@ function printHeader($title)
 				?>
 				<li<?php
 				if ($title == $GLOBALS['lang']->get('admins_list') || $title == $GLOBALS['lang']->get('admins_create_new') || $title == $GLOBALS['lang']->get('admins_groups') || $title == $GLOBALS['lang']->get('admins_permissions')) echo ' class="active"';
-				?> id="mw-menu-admin-users-top"><a href="<?php echo $GLOBALS['MCONF']['home_uri']; ?>admin/users.php"><i class="icon-users2"></i>
-						<?php echo $GLOBALS['lang']->get('admins_title'); ?><i class="icon-chevron-right sub_menu"></i></a>
+				?> id="mw-menu-admin-users-top"><a href="<?php echo $GLOBALS['MCONF']['home_uri']; ?>admin/users.php"><i
+							class="fa fa-group"></i>
+						<?php echo $GLOBALS['lang']->get('admins_title'); ?><i class="fa fa-chevron-right sub_menu"></i></a>
 					<ul>
-						<li id="mw-menu-admin-users"><a href="<?php echo $GLOBALS['MCONF']['home_uri']; ?>admin/users.php"<?php
+						<li id="mw-menu-admin-users"><a
+								href="<?php echo $GLOBALS['MCONF']['home_uri']; ?>admin/users.php"<?php
 							if ($title == $GLOBALS['lang']->get('admins_list')) echo ' class="active"';
-							?>><i class="icon-users2"></i> <?php echo $GLOBALS['lang']->get('admins_list'); ?></a></li>
-						<li id="mw-menu-admin-roles"><a href="<?php echo $GLOBALS['MCONF']['home_uri']; ?>admin/roles.php"<?php
+							?>><i class="fa fa-group"></i> <?php echo $GLOBALS['lang']->get('admins_list'); ?></a></li>
+						<li id="mw-menu-admin-roles"><a
+								href="<?php echo $GLOBALS['MCONF']['home_uri']; ?>admin/roles.php"<?php
 							if ($title == $GLOBALS['lang']->get('admins_groups')) echo ' class="active"';
-							?>><i class="icon-group"></i> <?php echo $GLOBALS['lang']->get('admins_groups'); ?></a></li>
-						<li id="mw-menu-admin-permissions"><a href="<?php echo $GLOBALS['MCONF']['home_uri']; ?>admin/permissions.php"<?php
-							if ($title == $GLOBALS['lang']->get('admins_permissions')) echo ' class="active"';
-							?>><i class="icon-group"></i> <?php echo $GLOBALS['lang']->get('admins_permissions'); ?></a>
+							?>><i class="fa fa-group"></i> <?php echo $GLOBALS['lang']->get('admins_groups'); ?></a>
 						</li>
-						<li id="mw-menu-admin-new_user"><a href="<?php echo $GLOBALS['MCONF']['home_uri']; ?>admin/new_user.php"<?php
+						<li id="mw-menu-admin-permissions"><a
+								href="<?php echo $GLOBALS['MCONF']['home_uri']; ?>admin/permissions.php"<?php
+							if ($title == $GLOBALS['lang']->get('admins_permissions')) echo ' class="active"';
+							?>><i class="fa fa-group"></i> <?php echo $GLOBALS['lang']->get('admins_permissions'); ?>
+							</a>
+						</li>
+						<li id="mw-menu-admin-new_user"><a
+								href="<?php echo $GLOBALS['MCONF']['home_uri']; ?>admin/new_user.php"<?php
 							if ($title == $GLOBALS['lang']->get('admins_create_new')) echo ' class="active"';
-							?>><i class="icon-user-plus2"></i> <?php echo $GLOBALS['lang']->get('admins_create_new'); ?>
+							?>><i class="fa fa-user-plus"></i> <?php echo $GLOBALS['lang']->get('admins_create_new'); ?>
 							</a></li>
 					</ul>
 				</li>
@@ -331,11 +326,11 @@ function printHeader($title)
 
 							if (array_key_exists('menu_top', $_CONF['menu']))
 							{
-								echo "\n" . '<li' . $now . ' id="mw-menu-apps-'.$mod.'-top"><a href="' . $GLOBALS['MCONF']['home_uri'] . 'apps/' . $mod . '/' . $_CONF['menu']['menu_top'] . '">' . $_CONF['menu_top'] . '</a>' . "\n";
+								echo "\n" . '<li' . $now . ' id="mw-menu-apps-' . $mod . '-top"><a href="' . $GLOBALS['MCONF']['home_uri'] . 'apps/' . $mod . '/' . $_CONF['menu']['menu_top'] . '">' . $_CONF['menu_top'] . '</a>' . "\n";
 							} else
 							{
 								$first_itm = array_keys($_CONF['menu']);
-								echo "\n" . '<li' . $now . ' id="mw-menu-apps-'.$mod.'-top"><a href="' . $GLOBALS['MCONF']['home_uri'] . 'apps/' . $mod . '/' . $_CONF['menu'][$first_itm[0]] . '">' . $_CONF['menu_top'] . '<i class="icon-chevron-right sub_menu"></i></a>' . "\n" . '<ul>';
+								echo "\n" . '<li' . $now . ' id="mw-menu-apps-' . $mod . '-top"><a href="' . $GLOBALS['MCONF']['home_uri'] . 'apps/' . $mod . '/' . $_CONF['menu'][$first_itm[0]] . '">' . $_CONF['menu_top'] . '<i class="fa fa-chevron-right sub_menu"></i></a>' . "\n" . '<ul>';
 								foreach ($_CONF['menu'] as $mod_name_anz => $mod_name_url)
 								{
 									$now = '';
@@ -343,7 +338,7 @@ function printHeader($title)
 									{
 										$now = ' class="active"';
 									}
-									echo '<li' . $now . ' id="mw-menu-apps-'.$mod.'-'.str_replace(['.php', '?', '&'], '', str_replace('/', '-', $mod_name_url)).'"><a href="' . $GLOBALS['MCONF']['home_uri'] . 'apps/' . $mod . '/' . $mod_name_url . '">' . $mod_name_anz . '</a></li>' . "\n";
+									echo '<li' . $now . ' id="mw-menu-apps-' . $mod . '-' . str_replace(['.php', '?', '&'], '', str_replace('/', '-', $mod_name_url)) . '"><a href="' . $GLOBALS['MCONF']['home_uri'] . 'apps/' . $mod . '/' . $mod_name_url . '">' . $mod_name_anz . '</a></li>' . "\n";
 								}
 								echo '</ul></li>' . "\n";
 							}
@@ -354,8 +349,14 @@ function printHeader($title)
 				closedir($handle);
 			}
 			echo '</ul>
-<div class="copy"> © 2016 <a href="http://mowie.cc">Mowie</a></div>
-</nav>
+<div class="copy"> © 2016 <a href="http://mowie.cc">Mowie</a></div><div class="langselect"><a id="langselectbtn"><i class="fa fa-globe"></i> </a><div class="langs">';
+			//Lang
+			$langs = $GLOBALS['lang']->getLangs();
+			foreach ($langs as $lang)
+			{
+				echo '<a onclick="changeLang(\'' . $lang['LangCode'] . '\')">' . $lang['Lang'] . '</a>';
+			}
+			echo '</div></div></nav>
 <label for="show-menu" class="mobile-overlay"></label>
 <div style="height: 40px;"></div>
 <div class="loader-overlay"></div>
@@ -367,6 +368,17 @@ function printHeader($title)
 			<div class="login_wrapper">
 				<img src="<?php echo $GLOBALS['MCONF']['web_uri']; ?>admin/assets/Logo.svg" alt="Mowie"/>
 				<div class="login_container">
+					<div class="langselect"><a id="langselectbtn"><i class="fa fa-globe"></i> </a>
+						<div class="langs">
+							<?php
+							//Lang
+							$langs = $GLOBALS['lang']->getLangs();
+							foreach ($langs as $lang)
+							{
+								echo '<a onclick="changeLang(\'' . $lang['LangCode'] . '\')">' . $lang['Lang'] . '</a>';
+							} ?>
+						</div>
+					</div>
 					<h1><?php echo $GLOBALS['lang']->get('login'); ?></h1>
 					<form action="<?php echo $GLOBALS['MCONF']['web_uri']; ?>admin/login.php" method="post"
 						  id="login">
@@ -382,7 +394,7 @@ function printHeader($title)
 					</form>
 					<div id="msg"></div>
 				</div>
-				<p style="text-align: center;color: #fff;text-shadow: 1px 1px 1px #555;">&copy; 2016 Mowie CMS</p>
+				<p style="text-align: center;color: #fff;text-shadow: 1px 1px 1px #555;">&copy; 2016 <a href="http://mowie.cc" style="color: #fff;">Mowie</a></p>
 			</div>
 			<script>
 				$("#login").submit(function () {
@@ -416,6 +428,21 @@ function printHeader($title)
 					}
 					return false;
 				});
+
+				//Change current Language
+				$('#langselectbtn').click(function () {
+					$('.langs').fadeToggle(100);
+				});
+
+				function changeLang(lang) {
+					$('#msg').html('<div class="spinner-container"><svg class="spinner" style="width:41px;height:40px;" viewBox="0 0 44 44"><circle class="path" cx="22" cy="22" r="20" fill="none" stroke-width="4"></circle> </svg> </div>');
+					$.get('<?php echo $GLOBALS['MCONF']['home_uri'];?>admin/lang.php?set=' + lang, function (data) {
+						console.log(data);
+						if(data == 1){
+							location.reload();
+						}
+					})
+				}
 			</script>
 			</body>
 			</html><?php
@@ -430,20 +457,21 @@ function file_upload_max_size()
 {
 	static $max_size = -1;
 
-	if ($max_size < 0) {
+	if ($max_size < 0)
+	{
 		// Start with post_max_size.
 		$max_size = parse_size(ini_get('post_max_size'));
 
-		if($max_size == 0)
+		if ($max_size == 0)
 		{
 			$max_size = parse_size(ini_get('upload_max_filesize'));
-		}
-		else
+		} else
 		{
 			// If upload_max_size is less, then reduce. Except if upload_max_size is
 			// zero, which indicates no limit.
 			$upload_max = parse_size(ini_get('upload_max_filesize'));
-			if ($upload_max > 0 && $upload_max < $max_size) {
+			if ($upload_max > 0 && $upload_max < $max_size)
+			{
 				$max_size = $upload_max;
 			}
 		}
@@ -470,11 +498,10 @@ function hasPerm($permkey, $scope = '')
 {
 	if (isset($_SESSION['userid']))
 	{
-		if($_SESSION['lvl'] == 1)
+		if ($_SESSION['lvl'] == 1)
 		{
 			return true;
-		}
-		else
+		} else
 		{
 			$scopeUri = '';
 			$pos = strpos($_SERVER['REQUEST_URI'], '/apps/');
@@ -494,13 +521,13 @@ function hasPerm($permkey, $scope = '')
 
 			}
 
-			if($scope == 'System') $scopeUri .= '../admin/';
+			if ($scope == 'System') $scopeUri .= '../admin/';
 
 			//echo $moduluri;
 
-			if (file_exists($scopeUri.'permissions.json'))
+			if (file_exists($scopeUri . 'permissions.json'))
 			{
-				$perms = json_decode(file_get_contents($scopeUri.'permissions.json'), true);
+				$perms = json_decode(file_get_contents($scopeUri . 'permissions.json'), true);
 				$permsTotal = [];
 				foreach ($perms['permissions'] as $perm)
 				{
@@ -521,17 +548,15 @@ function hasPerm($permkey, $scope = '')
 						if ($pos !== false)
 						{
 							require $scopeUri . 'config.php';
-							if(array_key_exists($_CONF['mod_name'], $perms)) $perms_f = $perms[$_CONF['mod_name']];
-						}
-						else
+							if (array_key_exists($_CONF['mod_name'], $perms)) $perms_f = $perms[$_CONF['mod_name']];
+						} else
 						{
 							$perms_f = $perms['System'];
 						}
 						if (in_array($permkey, $perms_f))
 						{
 							return true;
-						}
-						else
+						} else
 						{
 							return false;
 						}
@@ -548,8 +573,7 @@ function hasPerm($permkey, $scope = '')
 				return false;
 			}
 		}
-	}
-	else
+	} else
 	{
 		return false;
 	}
@@ -558,11 +582,10 @@ function hasPerm($permkey, $scope = '')
 //Get Username based on its ID
 function getUserByID($userid)
 {
-	if($userid == $_SESSION['userid'])
+	if ($userid == $_SESSION['userid'])
 	{
 		return $_SESSION['user'];
-	}
-	else
+	} else
 	{
 		$GLOBALS['db']->setCol('system_admins');
 		$GLOBALS['db']->data['id'] = $userid;
@@ -570,8 +593,7 @@ function getUserByID($userid)
 		if (isset($GLOBALS['db']->data[0]))
 		{
 			return $GLOBALS['db']->data[0]['username'];
-		}
-		else
+		} else
 		{
 			return $userid;
 		}
@@ -581,18 +603,18 @@ function getUserByID($userid)
 //Test mail
 function smail($mailaddr, $subject, $message, $header)
 {
-	$mail = 'To: '.$mailaddr."\n";
-	$mail .= 'Subject: '.$subject."\n";
-	$mail .= $header."\n\n";
+	$mail = 'To: ' . $mailaddr . "\n";
+	$mail .= 'Subject: ' . $subject . "\n";
+	$mail .= $header . "\n\n";
 	$mail .= $message;
 
-	if(file_put_contents('mail_'.$mailaddr.'_'.time().'.txt', $mail))
+	if (file_put_contents('mail_' . $mailaddr . '_' . time() . '.txt', $mail))
 	{
 		return true;
-	}
-	else
+	} else
 	{
 		return false;
 	}
 }
+
 ?>

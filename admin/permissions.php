@@ -94,7 +94,7 @@ if (hasPerm('edit_permissions'))
 			foreach ($perms as $perm)
 			{
 				$critical = '';
-				if ($perm['critical'] == true) $critical = '<span class="critical icon-warning" title="'.$lang->get('admins_perms_critical').'"></span>';
+				if ($perm['critical'] == true) $critical = '<span class="critical fa fa-warning" title="'.$lang->get('admins_perms_critical').'"></span>';
 
 				echo '<tr title="' . $perm['description'] . '"><td>' . $critical . $perm['name'] . '</td>';
 				foreach ($role_names as $lvl => $name)

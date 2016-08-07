@@ -38,7 +38,7 @@ if (hasPerm('view_dashboard'))
 	{
 		foreach ($pages as $id => $title)
 		{
-			echo '<a href="' . $MCONF['web_uri'] . 'apps/SimplePages/backend/edit.php?id=' . $id . '"><span class="icon">&#xe905;</span>  ' . $title . '</a><br/>';
+			echo '<a href="' . $MCONF['web_uri'] . 'apps/SimplePages/backend/edit.php?id=' . $id . '"><i class="fa fa-pencil"></i>  ' . $title . '</a><br/>';
 		}
 	}
 	else
@@ -54,7 +54,7 @@ if (hasPerm('view_dashboard'))
 
 		foreach ($pages as $id => $title)
 		{
-			if(in_array($id, $hasPerms)) echo '<a href="' . $MCONF['web_uri'] . 'apps/SimplePages/backend/edit.php?id=' . $id . '"><span class="icon">&#xe905;</span>  ' . $title . '</a><br/>';
+			if(in_array($id, $hasPerms)) echo '<a href="' . $MCONF['web_uri'] . 'apps/SimplePages/backend/edit.php?id=' . $id . '"><i class="fa fa-pencil"></i>  ' . $title . '</a><br/>';
 		}
 	}
 }

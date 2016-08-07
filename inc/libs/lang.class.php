@@ -5,13 +5,14 @@ class lang
 	private $lang;
 	private $langfiles;
 	private $default;
+	private $langs;
 
 	//Determine the user's language
 	function __construct($default = 'en')
 	{
 		$this->default = $default;
 		$this->lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-		if(isset($_SESSION['lang'])) $this->lang = $_SESSION['lang'];
+		if(isset($_COOKIE['lang'])) $this->lang = $_COOKIE['lang'];
 		$this->langfiles = [];
 	}
 
@@ -66,10 +67,20 @@ class lang
 		$this->langfiles[$lang['__LangCode__']] = ['Lang' => $lang['__Lang__'], 'countrycode' => $lang['__Countrycode__'], 'file' => $langfile, 'langstrings' => $langstrings];
 	}
 
-	//Get all available languages
+	//Get all available langstrings
 	public function getAll()
 	{
 		return $this->langfiles;
+	}
+
+	public function getLangs()
+	{
+		$langs = [];
+		foreach ($this->langfiles as $lang => $langdetail)
+		{
+			$langs[$lang] = ['Lang' => $langdetail['Lang'], 'LangCode' => $lang, 'countrycode' => $langdetail['countrycode']];
+		}
+		return $langs;
 	}
 
 	//Get langstrings

@@ -25,7 +25,7 @@ else
 	$db->get();
 	foreach ($db->data as $data)
 	{
-		echo  '<p id="'.$i.'"><span><a onclick="delMeta('.$i.');" title="Meta-Feld löschen" class="del"><i class="icon-trash-o"></i></a>  '.$data['name'].':</span><input type="text" name="metaContent[]" value="' . $data['content'] . '"/><input type="hidden" name="metaName[]" value="'.$data['name'].'"/></p>';
+		echo  '<p id="'.$i.'"><span><a onclick="delMeta('.$i.');" title="Meta-Feld löschen" class="del"><i class="fa fa-trash-o"></i></a>  '.$data['name'].':</span><input type="text" name="metaContent[]" value="' . $data['content'] . '"/><input type="hidden" name="metaName[]" value="'.$data['name'].'"/></p>';
 		$i++;
 	}
 	echo '</div>';
@@ -34,7 +34,7 @@ else
 	<script>
 		function addMeta(){
 			var i = Math.floor((Math.random() * 10000) + 9000);
-			$('#meta_container').append('<p id="' + i + '"><span><a onclick="delMeta(\'' + i + '\');" title="Meta-Feld löschen" class="del"><i class="icon-trash-o"></i></a>  <input type="text" name="metaName[]" placeholder="Name" style="width: 160px; margin-top: 0px;"/>:</span><input type="text" name="metaContent[]" placeholder="Meta-Inhalt" style="margin-top: 5px;"/></p>');
+			$('#meta_container').append('<p id="' + i + '"><span><a onclick="delMeta(\'' + i + '\');" title="Meta-Feld löschen" class="del"><i class="fa fa-trash-o"></i></a>  <input type="text" name="metaName[]" placeholder="Name" style="width: 160px; margin-top: 0px;"/>:</span><input type="text" name="metaContent[]" placeholder="Meta-Inhalt" style="margin-top: 5px;"/></p>');
 		}
 
 		function delMeta(metaCont){

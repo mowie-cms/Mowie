@@ -74,15 +74,15 @@ if (isset($_GET['json']))
 
 		//Verzeichnisse
 		//Wenn man nicht im root-verzeichnis ist, soll .. als ordner angezeigt werden, um auch zurückzukommen
-		//if($dir != '../../Files/') $files['files'][] = ['name' => '..', 'date' => '', 'type' => 'Ordner', 'size' => '', 'icon' => 'folder2'];
-		if (cleanUrl($dir) != '../../Files/') $files['files'][] = ['name' => '..', 'date' => '', 'type' => 'Ordner', 'size' => '-', 'icon' => 'folder2'];
+		//if($dir != '../../Files/') $files['files'][] = ['name' => '..', 'date' => '', 'type' => 'Ordner', 'size' => '', 'icon' => 'folder'];
+		if (cleanUrl($dir) != '../../Files/') $files['files'][] = ['name' => '..', 'date' => '', 'type' => 'Ordner', 'size' => '-', 'icon' => 'folder'];
 
 		$handle = opendir($dir) or die (http_response_code(404));
 		while (false !== ($datei = readdir($handle)))
 		{
 			if ($datei != "." && $datei != ".." && is_dir($dir . $datei))
 			{
-				$files['files'][] = ['name' => $datei, 'date' => date("d.m.Y H:m:s", filemtime($dir . $datei)), 'type' => 'Ordner', 'size' => '-', 'icon' => 'folder2'];
+				$files['files'][] = ['name' => $datei, 'date' => date("d.m.Y H:m:s", filemtime($dir . $datei)), 'type' => 'Ordner', 'size' => '-', 'icon' => 'folder'];
 			}
 		}
 
@@ -258,13 +258,13 @@ if (isset($_SESSION['user']))
 				?>
 				<div id="dropFileArea" style="display: none">
 					<div class="dropmsgcontainer">
-						<div class="dropicon"><i class="icon-cloud-upload"></i></div>
+						<div class="dropicon"><i class="fa fa-cloud-upload"></i></div>
 						<div class="dropmsg">
 							<?php echo $lang->get('files_drag_drop_area'); ?>
 						</div>
 					</div>
 				</div>
-				<button onclick="uploadFileBtn();" class="button" id="upButton"><i class="icon-cloud-upload"></i>&nbsp;&nbsp;<?php echo $lang->get('files_upload'); ?>
+				<button onclick="uploadFileBtn();" class="button" id="upButton"><i class="fa fa-cloud-upload"></i>&nbsp;&nbsp;<?php echo $lang->get('files_upload'); ?>
 				</button>
 				<?php
 			}
@@ -272,13 +272,13 @@ if (isset($_SESSION['user']))
 			{
 				?>
 				<a onclick="newFolder();" class="button"><i
-						class="icon-plus2"></i>&nbsp;&nbsp;<?php echo $lang->get('files_create_dir'); ?></a>
+						class="fa fa-plus"></i>&nbsp;&nbsp;<?php echo $lang->get('files_create_dir'); ?></a>
 				<?php
 			}
 			if (hasPerm('delete'))
 			{
 				?><a onclick="delFolder();" class="button btn_del" id="delFolder" style="display:none;"><i
-				class="icon-trash-o"></i>&nbsp;&nbsp;<?php echo $lang->get('files_delete_current_dir'); ?></a>
+				class="fa fa-trash-o"></i>&nbsp;&nbsp;<?php echo $lang->get('files_delete_current_dir'); ?></a>
 				<?php
 			}
 			?>
@@ -341,16 +341,16 @@ if (isset($_SESSION['user']))
 						$('#files').html('<h3 id="displayUrl">' + data.displayUrl + '</h3><table id="filesList" width="100%"><thead><tr><th><?php echo $lang->get('files_filename'); ?></th><th><?php echo $lang->get('files_last_modified'); ?></th><th><?php echo $lang->get('files_filetype'); ?></th><th><?php echo $lang->get('files_filesize'); ?></th></tr></thead><tbody id="filesContent"></tbody></table><div id="extra"></div>');
 						$.each(data.files, function () {
 							if (this.type == 'Ordner') {
-								var name = '<a href="#folder=' + data.displayUrl + this.name + '"><i class="icon-' + this.icon + '"></i>  ' + this.name;
+								var name = '<a href="#folder=' + data.displayUrl + this.name + '"><i class="fa fa-' + this.icon + '"></i>  ' + this.name;
 							} else// onclick="openFile(\'' + this.name + '\', \'' + this.icon + '\', \'' + webUri + data.displayUrl + this.name + '\');"
 							if (this.name == '..') {
-								var name = '<a onclick="openFile(\'..\', \'' + this.icon + '\', \'' + webUri + data.displayUrl + this.name + '\');"><i class="icon-' + this.icon + '"></i>  ' + this.name;
+								var name = '<a onclick="openFile(\'..\', \'' + this.icon + '\', \'' + webUri + data.displayUrl + this.name + '\');"><i class="fa fa-' + this.icon + '"></i>  ' + this.name;
 							} else {
-								var name = '<a onclick="openFile(\'' + this.name + '\', \'' + this.icon + '\', \'' + webUri + data.displayUrl + this.name + '\');"><i class="icon-' + this.icon + '"></i>  ' + this.name;
+								var name = '<a onclick="openFile(\'' + this.name + '\', \'' + this.icon + '\', \'' + webUri + data.displayUrl + this.name + '\');"><i class="fa fa-' + this.icon + '"></i>  ' + this.name;
 							}
 
 							var static_folder = '';
-							if (this.icon == 'folder2') {
+							if (this.icon == 'folder') {
 								static_folder = ' class="static"';
 							}
 							//$('#filesContent').append('<tr><td>' + name + '</td><td>' + this.date + '</td><td>' + this.type + '</td><td>' + this.size + '</td></tr>');
@@ -381,12 +381,12 @@ if (isset($_SESSION['user']))
 
 			function openFile(file, type, url) {
 				//console.log(file, type);
-				if (type == 'folder2') {
+				if (type == 'folder') {
 					var folder_curr = $('#displayUrl').html();
 					getFiles(folder_curr + file);
 				}
 				else {
-					$('#extra').html('<div class="overlay" style="display:none;"><div class="window"><div class="head">' + file + '<a onclick="closeW();" class="closeMsg"><i class="icon-close"></i></a></div><div id="content"></div></div></div>');
+					$('#extra').html('<div class="overlay" style="display:none;"><div class="window"><div class="head">' + file + '<a onclick="closeW();" class="closeMsg"><i class="fa fa-close"></i></a></div><div id="content"></div></div></div>');
 					if (type == 'file-audio-o') {//Audio
 						$('#content').html('<audio controls src="' + url + '" autoplay></audio>');
 					}
@@ -420,7 +420,7 @@ if (isset($_SESSION['user']))
 						$('#content').html('<div><textarea id="text"></textarea></div>');
 						$('#text').load(url);
 					}
-					$('#content').append('<p><?php echo $lang->get('files_url'); ?>:<input type="text" class="select" value="' + url + '" onClick="this.select();"/></p><p><a href="' + webUri + 'apps/Files/index.php?dl=' + url + '" class="button" download="download"><i class="icon-download"></i>  <?php echo $lang->get('files_download'); ?></a>  <a onclick="deleteFile(\'' + $('#displayUrl').html() + file + '\');" class="button btn_del"><i class="icon-trash-o"></i>  <?php echo $lang->get('files_delete'); ?></a></p>');
+					$('#content').append('<p><?php echo $lang->get('files_url'); ?>:<input type="text" class="select" value="' + url + '" onClick="this.select();"/></p><p><a href="' + webUri + 'apps/Files/index.php?dl=' + url + '" class="button" download="download"><i class="fa fa-download"></i>  <?php echo $lang->get('files_download'); ?></a>  <a onclick="deleteFile(\'' + $('#displayUrl').html() + file + '\');" class="button btn_del"><i class="fa fa-trash-o"></i>  <?php echo $lang->get('files_delete'); ?></a></p>');
 
 					//uuund einbelnden
 					$(".overlay").fadeIn(250);
@@ -443,7 +443,7 @@ if (isset($_SESSION['user']))
 
 			//Neuen ordner
 			function newFolder() {
-				$('#extra').html('<div class="overlay" style="display:none;"><div class="window"><div class="head"><?php echo $lang->get('files_create_dir'); ?><a onclick="closeW();" class="closeMsg"><i class="icon-close"></i></a></div><div id="content"></div></div></div>');
+				$('#extra').html('<div class="overlay" style="display:none;"><div class="window"><div class="head"><?php echo $lang->get('files_create_dir'); ?><a onclick="closeW();" class="closeMsg"><i class="fa fa-close"></i></a></div><div id="content"></div></div></div>');
 				$('#content').append('<p><form onsubmit="newFolderSub();return false;"><input type="text" class="select" placeholder="<?php echo $lang->get('files_enter_name'); ?>" id="folderName" autofocus/><input type="submit" value="<?php echo $lang->get('files_create_dir'); ?>"/></form></p>');
 				$('#folderName').focus();
 				//uuund einbelnden
@@ -477,14 +477,14 @@ if (isset($_SESSION['user']))
 			//Ordner löschen
 			function delFolder() {
 				var file = $('#displayUrl').html();
-				$('#extra').html('<div class="overlay" style="display:none;"><div class="window window-confirm"><div class="head">"' + file + '" <?php echo $lang->get('files_delete_file'); ?><a onclick="closeW();" class="closeMsg"><i class="icon-close"></i></a></div><div id="content"><p><?php echo $lang->get('files_delete_dir_confirm'); ?></p><p><a onclick="confirmDeleteFile(\'' + file + '\', true);" class="button btn_del"><i class="icon-trash-o"></i>&nbsp;&nbsp;<?php echo $lang->get('files_delete'); ?></a><a onclick="closeW();" class="button"><?php echo $lang->get('files_abort'); ?></a></p></div></div></div>');
+				$('#extra').html('<div class="overlay" style="display:none;"><div class="window window-confirm"><div class="head">"' + file + '" <?php echo $lang->get('files_delete_file'); ?><a onclick="closeW();" class="closeMsg"><i class="fa fa-close"></i></a></div><div id="content"><p><?php echo $lang->get('files_delete_dir_confirm'); ?></p><p><a onclick="confirmDeleteFile(\'' + file + '\', true);" class="button btn_del"><i class="fa fa-trash-o"></i>&nbsp;&nbsp;<?php echo $lang->get('files_delete'); ?></a><a onclick="closeW();" class="button"><?php echo $lang->get('files_abort'); ?></a></p></div></div></div>');
 				//uuund einbelnden
 				$(".overlay").fadeIn(250);
 			}
 
 			//Datei Löschen
 			function deleteFile(file) {
-				$('#extra').html('<div class="overlay" style="display:none;"><div class="window window-confirm"><div class="head">"' + file + '" <?php echo $lang->get('files_delete_file'); ?><a onclick="closeW();" class="closeMsg"><i class="icon-close"></i></a></div><div id="content"><p><?php echo $lang->get('files_delete_file_confirm'); ?></b></p><p><a onclick="confirmDeleteFile(\'' + file + '\', false);" class="button btn_del"><i class="icon-trash-o"></i>&nbsp;&nbsp;<?php echo $lang->get('files_delete'); ?></a><a onclick="closeW();" class="button"><?php echo $lang->get('files_abort'); ?></a></p></div></div></div>');
+				$('#extra').html('<div class="overlay" style="display:none;"><div class="window window-confirm"><div class="head">"' + file + '" <?php echo $lang->get('files_delete_file'); ?><a onclick="closeW();" class="closeMsg"><i class="fa fa-close"></i></a></div><div id="content"><p><?php echo $lang->get('files_delete_file_confirm'); ?></b></p><p><a onclick="confirmDeleteFile(\'' + file + '\', false);" class="button btn_del"><i class="fa fa-trash-o"></i>&nbsp;&nbsp;<?php echo $lang->get('files_delete'); ?></a><a onclick="closeW();" class="button"><?php echo $lang->get('files_abort'); ?></a></p></div></div></div>');
 				//uuund einbelnden
 				$(".overlay").fadeIn(250);
 			}

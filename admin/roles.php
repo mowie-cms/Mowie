@@ -144,7 +144,7 @@ if (hasPerm('manage_groups'))
 					<?php
 				}
 
-				if ($_GET['members'] != 1) echo '<a href="roles.php?members=' . $_GET['members'] . '&del" class="button btn_del"><i class="icon-bin"></i> '.$lang->get('admins_roles_delete_group').'</a>';
+				if ($_GET['members'] != 1) echo '<a href="roles.php?members=' . $_GET['members'] . '&del" class="button btn_del"><i class="fa fa-bin"></i> '.$lang->get('admins_roles_delete_group').'</a>';
 				?>
 			</div>
 			<?php
@@ -201,7 +201,7 @@ if (hasPerm('manage_groups'))
 				}
 				?>
 			</table>
-			<p><a class="button" href="roles.php?new"><i class="icon-plus"></i> <?php echo $lang->get('admins_roles_create_group');?></a></p>
+			<p><a class="button" href="roles.php?new"><i class="fa fa-plus"></i> <?php echo $lang->get('admins_roles_create_group');?></a></p>
 		</div>
 		<?php
 	}

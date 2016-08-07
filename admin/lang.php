@@ -5,6 +5,6 @@ require_once '../inc/config.php';
 
 if(isset($_GET['set']))
 {
-	$_SESSION['lang'] = $_GET['set'];
+	setcookie ('lang', $_GET['set'], time()+5184000, '/');
 	echo '1';
 }

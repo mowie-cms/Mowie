@@ -67,11 +67,11 @@ tinymce();
 				<i class="divider"></i>
 				<h1><?php echo $lang->get('general_database');?></h1>
 				<p>
-					<a href="action.php?dbbackup" class="button" download="download"><i class="icon">&#xe964;</i> <?php echo $lang->get('general_create_backup');?>
+					<a href="action.php?dbbackup" class="button" download="download"><i class="fa fa-database"></i> <?php echo $lang->get('general_create_backup');?>
 					</a>
 					<a href="<?php
 					echo $MCONF['phpmyadmin'];
-					?>" class="button" target="_blank"><?php echo $lang->get('general_go_phpmyadmin');?> <i class="icon">&#xea7d;</i></a>
+					?>" class="button" target="_blank"><?php echo $lang->get('general_go_phpmyadmin');?> <i class="fa fa-external-link"></i></a>
 				</p>
 				<?php
 			}

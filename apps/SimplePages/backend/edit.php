@@ -247,7 +247,7 @@ if (hasPerm('manage_pages'))
 					$db->get();
 					if (isset($db->data[0]))
 					{
-						echo '<p><i class="icon-info-circle"></i> ' . sprintf($lang->get('sp_edit_edited_not_confirmed'), date('d.m.Y \u\m H:i', $db->data[0]['lastedit']), getUserByID($db->data[0]['user'])) . '</p>';
+						echo '<p><i class="fa fa-info-circle"></i> ' . sprintf($lang->get('sp_edit_edited_not_confirmed'), date('d.m.Y \u\m H:i', $db->data[0]['lastedit']), getUserByID($db->data[0]['user'])) . '</p>';
 					}
 				}
 

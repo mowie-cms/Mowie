@@ -14,10 +14,10 @@ $_CONF['mod_name'] = 'SimplePages';
 $_CONF['mod_desc'] = 'Wird benutzt, um Einfache statische Seitn zu erzeugen und zu verwalten.';
 $_CONF['base_url'] = '/'; //Basisurl des moduls, wenn es über das Frontend aufgerufen wird
 $_CONF['base_file'] = 'front/page.php'; //Datei, die angezeigt wird, wenn die basisurl aufgerufen wird
-$_CONF['menu_top'] = '<i class="icon-file-text"></i>  '.$GLOBALS['lang']->get('sp_pages'); //Name des Moduls, wie es im Adminbereich im Hauptmenü auftaucht
-$_CONF['menu'] = ['<i class="icon-th-list"></i>  '.$GLOBALS['lang']->get('sp_manage_pages') => 'backend/management.php',
-	'<i class="icon-lock2"></i>  '.$GLOBALS['lang']->get('sp_manage_permissions') => 'backend/permissions.php',
-	'<i class="icon-file"></i>  '.$GLOBALS['lang']->get('sp_create_new') => 'backend/edit.php?new']; //Ein Array mit menüpunkten im adminbereich
+$_CONF['menu_top'] = '<i class="fa fa-file-text"></i>  '.$GLOBALS['lang']->get('sp_pages'); //Name des Moduls, wie es im Adminbereich im Hauptmenü auftaucht
+$_CONF['menu'] = ['<i class="fa fa-th-list"></i>  '.$GLOBALS['lang']->get('sp_manage_pages') => 'backend/management.php',
+	'<i class="fa fa-lock"></i>  '.$GLOBALS['lang']->get('sp_manage_permissions') => 'backend/permissions.php',
+	'<i class="fa fa-file"></i>  '.$GLOBALS['lang']->get('sp_create_new') => 'backend/edit.php?new']; //Ein Array mit menüpunkten im adminbereich
 $_CONF['dashboard'] = 'backend/dashboard.php';
 $_CONF['type'] = 'page';
 $_CONF['install'] = 'install.php';

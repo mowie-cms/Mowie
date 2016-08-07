@@ -9,7 +9,7 @@ if (!isset($_GET['direct']))
 	<script>
 		//Msg
 		function showMsg(msg) {
-			$('#showMsg').html('<div class="snackbar"><a onclick="closeMsg();" class="closeMsg"><i class="icon-close"></i> </a><p>' + msg + '</p></div>');
+			$('#showMsg').html('<div class="snackbar"><a onclick="closeMsg();" class="closeMsg"><i class="fa fa-close"></i> </a><p>' + msg + '</p></div>');
 		}
 
 		function closeMsg() {
@@ -28,6 +28,10 @@ if (!isset($_GET['direct']))
 		}
 
 		//Change current Language
+		$('#langselectbtn').click(function () {
+			$('.langs').fadeToggle(100);
+		});
+
 		function changeLang(lang) {
 			showTopLoader();
 			$.get('<?php echo $MCONF['home_uri'];?>admin/lang.php?set=' + lang, function (data) {
@@ -39,7 +43,6 @@ if (!isset($_GET['direct']))
 				}
 			})
 		}
-
 		$(document).ready(function () {
 			//Router
 			$('#topnav').addClass('no-transition');
