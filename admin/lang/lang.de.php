@@ -22,6 +22,23 @@ $lang['wrong_username_or_pass'] = 'Benutzername oder Passwort falsch.';
 $lang['wrong_pass'] = 'Falsches Passwort';
 $lang['404_not_found'] = 'Die Seite wurde nicht gefunden.';
 
+//Reset Password
+$lang['reset_pass_title'] = 'Passwort zurücksetzen';
+$lang['reset_pass_lost'] = 'Passwort vergessen?';
+$lang['reset_pass_msg'] = 'Bitte geben Sie ihre Email-Adresse ein. Sie erhalten dann eine Emailadresse mit weiteren Instruktionen.';
+$lang['reset_pass_mail'] = 'Email-Adresse';
+$lang['reset_pass_button'] = 'Neues Passwort anfordern';
+$lang['reset_pass_success'] = 'Wir haben ihnen eine Email mit weiteren Instruktionen geschickt.';
+$lang['reset_pass_nomail'] = 'Diese Emailadresse ist nicht vorhanden. Bitte überprüfen sie die Emailadresse auf Tippfehler und probieren es erneut.';
+$lang['reset_pass_error'] = 'Es trat ein Fehler auf.';
+$lang['reset_pass_mail_title'] = 'Passwort auf %1$s zurücksetzen';
+$lang['reset_pass_mail_message'] = "Hallo %1\$s,\n\n um ihr Passwort zurückzusetzen, klicken sie auf den folgenden Link:\n %2\$s \n\n Falls der Link nicht funktioneren sollte, kopieren sie ihn in die Adresszeile des Browsers.\n [Bitte antworten Sie nicht auf diese Email, da sie automatisch generiert wurde.]";
+$lang['reset_pass_link_not_available'] = 'Dieser Account wurde nicht gefunden.';
+$lang['reset_pass_reset'] = 'Passwort zurücksetzen';
+$lang['reset_pass_reset_success'] = 'Das Passwort wurde erfolgreich geändert. Sie können sich jetzt <a href="index.php">Einloggen</a>';
+$lang['reset_pass_reset_fail'] = 'Es trat ein Fehler beim Ändern des Passworts auf.';
+$lang['reset_pass_reset_wrong_id'] = 'Die ID ist falsch.';
+
 //Dashboard
 $lang['delete_config_success'] = 'Die installationsdatei wurde erfolgreich gelöscht.';
 $lang['os'] = 'Betriebssystem';

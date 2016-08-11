@@ -1,9 +1,9 @@
 <?php
-if(file_exists('../inc/config.yml'))
+/*if(file_exists('../inc/config.yml'))
 {
 	header('Location: index.php');
 	exit;
-}
+}*/
 session_name('adminsession');
 session_start();
 require_once '../inc/libs/functions.php';
@@ -64,6 +64,26 @@ if(isset($_POST['submit']))
 		$CONFIG['Versioning']['version'] = '0.91 Beta';
 		$CONFIG['Versioning']['version_num'] = 1;
 		$CONFIG['Versioning']['update_uri'] = 'http://cdn.kola-entertainments.de/cms/';
+
+		$CONFIG['Mail']['smtp'] = false;
+		//Mail Settings
+		if(isset($_POST['mail_smtp']))
+		{
+			if($_POST['mail_host'] != '' && $_POST['mail_user'] != '' && $_POST['mail_pass'] != '' && $_POST['mail_secure'] != '' && $_POST['mail_port'] != '')
+			{
+				$CONFIG['Mail']['smtp'] = true;
+				$config['Mail']['host'] = $_POST['mail_host'];
+				$config['Mail']['username'] = $_POST['mail_user'];
+				$config['Mail']['password'] = $_POST['mail_pass'];
+				$config['Mail']['secure'] = $_POST['mail_secure'];
+				$config['Mail']['port'] = $_POST['mail_port'];
+			}
+			else
+			{
+				echo msg('fail', 'Please provide all SMTP-Informations.');
+				exit;
+			}
+		}
 
 		//Test Passwords
 		if($_POST['db_pw1']!==$_POST['db_pw2'])
@@ -313,6 +333,17 @@ else
 			<span>Page Title</span><input type="text" placeholder="Page Title" name="general_page_title"/><br/>
 			<span>Editor CSS</span><input type="text" placeholder="Editor CSS" name="general_editor_css"/><br/>
 			<span>Template</span><input type="text" placeholder="Template" name="general_template" value="content/template.tpl"/><br/>
+
+			<h2>Mail</h2>
+			<span>Use SMTP</span><input type="checkbox" name="mail_smtp" id="mail_smtp"/><label for="mail_smtp"><i></i> Use SMTP</label> <br/>
+			<span>SMTP-Host</span><input type="text" placeholder="SMTP-Host" name="mail_host"/><br/>
+			<span>SMTP-Username</span><input type="text" placeholder="SMTP-Username" name="mail_user"/><br/>
+			<span>SMTP-Password</span><input type="text" placeholder="SMTP-Password" name="mail_pass"/><br/>
+			<span>Security</span>
+			<input type="radio" name="mail_secure" id="mail_ssl"/><label for="mail_ssl"><i></i> Use SSL</label>
+			<input type="radio" name="mail_secure" id="mail_tls"/><label for="mail_tls"><i></i> Use TLS</label>
+			<br/>
+			<span>Port</span><input type="number" placeholder="Port" name="mail_port"/><br/>
 
 			<h2>First Adminuser</h2>
 			<span>Name</span><input type="text" placeholder="Name" name="admin_name"/><br/>

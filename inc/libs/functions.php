@@ -232,7 +232,9 @@ function printHeader($title)
     <div class="options" tabindex="0">
     	<input type="checkbox" id="options_menu" />
     	<label for="options_menu">
-			<p><span class="usr_info"><img src="http://www.gravatar.com/avatar/' . md5(strtolower(trim($_SESSION['mail']))) . '?s=40&d=mm" alt=""/>' . $_SESSION['user'] . '</span>  <span class="fa fa-chevron-down"></span></p>
+			<p><span class="usr_info">';
+			//<img src="http://www.gravatar.com/avatar/' . md5(strtolower(trim($_SESSION['mail']))) . '?s=40&d=mm" alt=""/>
+			echo $_SESSION['user'] . '</span>  <span class="fa fa-chevron-down"></span></p>
 			<ul>
 				<li><a href="' . $GLOBALS['MCONF']['web_uri'] . 'admin/user_settings.php"><span class="fa fa-gear"></span> ' . $GLOBALS['lang']->get('settings') . '</a></li>
 				<li><a href="' . $GLOBALS['MCONF']['web_uri'] . 'admin/logout.php" rel="external"><span class="fa fa-sign-out"></span> ' . $GLOBALS['lang']->get('logout') . '</a></li>
@@ -390,11 +392,13 @@ function printHeader($title)
 							<input type="text" id="2fa" autocomplete="off"
 								   placeholder="<?php echo $GLOBALS['lang']->get('2fa_code'); ?>"><br/>
 						</div>
+						<a href="reset-pw.php"><?php echo $GLOBALS['lang']->get('reset_pass_lost');?></a><br/>
 						<input type="submit" value="<?php echo $GLOBALS['lang']->get('login'); ?>"/>
 					</form>
 					<div id="msg"></div>
 				</div>
-				<p style="text-align: center;color: #fff;text-shadow: 1px 1px 1px #555;">&copy; 2016 <a href="http://mowie.cc" style="color: #fff;">Mowie</a></p>
+				<p style="text-align: center;color: #fff;text-shadow: 1px 1px 1px #555;">&copy; 2016 <a
+						href="http://mowie.cc" style="color: #fff;">Mowie</a></p>
 			</div>
 			<script>
 				$("#login").submit(function () {
@@ -438,7 +442,7 @@ function printHeader($title)
 					$('#msg').html('<div class="spinner-container"><svg class="spinner" style="width:41px;height:40px;" viewBox="0 0 44 44"><circle class="path" cx="22" cy="22" r="20" fill="none" stroke-width="4"></circle> </svg> </div>');
 					$.get('<?php echo $GLOBALS['MCONF']['home_uri'];?>admin/lang.php?set=' + lang, function (data) {
 						console.log(data);
-						if(data == 1){
+						if (data == 1) {
 							location.reload();
 						}
 					})
@@ -614,6 +618,42 @@ function smail($mailaddr, $subject, $message, $header)
 	} else
 	{
 		return false;
+	}
+}
+
+//SMTP-Mailer
+function mmail($mailaddr, $subject, $message, $from, $html = false)
+{
+	if ($GLOBALS['MCONF']['smtp'])
+	{
+		require_once 'PHP-mailer/class.phpmailer.php';
+		require_once 'PHP-mailer/class.smtp.php';
+
+		$mail = new PHPMailer;
+
+		$mail->isSMTP();
+		$mail->Host = $GLOBALS['MCONF']['smtp_host'];
+		$mail->SMTPAuth = true;
+		$mail->Username = $GLOBALS['MCONF']['smtp_user'];
+		$mail->Password = $GLOBALS['MCONF']['smtp_pass'];
+		$mail->SMTPSecure = $GLOBALS['MCONF']['smtp_secure'];
+		$mail->Port = $GLOBALS['MCONF']['smtp_port'];
+
+		$mail->setFrom($from);
+		$mail->addAddress($mailaddr);
+		$mail->isHTML($html);
+
+		$mail->Subject = $subject;
+		$mail->Body = $message;
+
+		return $mail->send();
+	}
+	else
+	{
+		$header = 'From: ' . $from . "\n";
+		if ($html) $header .= "Content-Type: text/html\n";
+
+		return mail($mailaddr, $subject, $message, $header);
 	}
 }
 

@@ -22,6 +22,23 @@ $lang['wrong_username_or_pass'] = 'Wrong username or password.';
 $lang['wrong_pass'] = 'Wrong password';
 $lang['404_not_found'] = 'The page you requested was not found.';
 
+//Reset Password
+$lang['reset_pass_title'] = 'Reset Password';
+$lang['reset_pass_lost'] = 'Lost Password?';
+$lang['reset_pass_msg'] = 'Please enter your Email-Address. You\'ll get an email with further instructions.';
+$lang['reset_pass_mail'] = 'Email-Adress';
+$lang['reset_pass_button'] = 'Request New Password';
+$lang['reset_pass_success'] = 'We successfully sent you an Email with further instructions.';
+$lang['reset_pass_nomail'] = 'This Email-Address doesn\'t exist. Please check it for typos and try again.';
+$lang['reset_pass_error'] = 'An error occured.';
+$lang['reset_pass_mail_title'] = 'Reset your password on %1$s';
+$lang['reset_pass_mail_message'] = "Hi %1\$s,\n\n to reset your password, click on this link:\n %2\$s \n\n If the link doesn't work, copy and paste the URL in your webbrowser.\n [This is an auto-generated mesage, please do not replay to this email.]";
+$lang['reset_pass_link_not_available'] = 'The account was not found.';
+$lang['reset_pass_reset'] = 'Reset Password';
+$lang['reset_pass_reset_success'] = 'The password was resetted successfully. You can now <a href="index.php">login</a>.';
+$lang['reset_pass_reset_fail'] = 'An Error occured while resetting yout password.';
+$lang['reset_pass_reset_wrong_id'] = 'Wrong ID.';
+
 //Dashboard
 $lang['delete_config_success'] = 'The Install-file was deleted successfully';
 $lang['os'] = 'Operating System';

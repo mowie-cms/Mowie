@@ -667,18 +667,18 @@ header .options input[type=checkbox]:checked + label ul {
     opacity: 1;
 }
 
-header .options p span.icon- {
+header .options p span.fa {
     vertical-align: middle;
     display: inline-block;
     transition: 0.1s ease;
     -webkit-transition: 0.1s ease;
 }
 
-header .options p span.icon-:before {
+header .options p span.fa:before {
     content: "\f078";
 }
 
-header .options input[type=checkbox]:checked + label p span.icon-{
+header .options input[type=checkbox]:checked + label p span.fa{
     transform: rotate(180deg);
 }
 
@@ -811,8 +811,8 @@ nav ul li ul {
 }
 
 nav.no-transition ul li ul, nav.no-transition ul li a{
-    transition: 0s  ease;
-    -webkit-transition: 0s ease;
+    transition: all 0s ease;
+    -webkit-transition: all 0s ease;
 }
 
 nav ul li:hover ul li a {
@@ -842,7 +842,7 @@ nav ul li.active ul li a {
     color: #e8e8e8;
 }
 
-nav [class^="icon-"], nav [class*=" icon-"], nav .icon {
+nav .fa {
     vertical-align: sub;
     font-size: 20px;
     padding-right: 8px;

@@ -307,7 +307,7 @@ if (isset($_SESSION['user']))
 		<script src="<?php echo $MCONF['web_uri']; ?>apps/Files/js/jquery.tablesorter.staticrow.js"></script>
 		<!--<script src="<?php echo $MCONF['web_uri']; ?>apps/Files/js/files.js"></script>-->
 		<script>
-			page('apps/Files/:var', function (ctx, next) {
+			/*page('apps/Files/:var', function (ctx, next) {
 				console.log(ctx);
 
 				if (!window.location.hash) {
@@ -317,7 +317,7 @@ if (isset($_SESSION['user']))
 				}
 				var folder_curr = $('#displayUrl').html();
 				getFiles(url);
-			});
+			});*/
 
 			function getFiles(folder) {
 				var filesContent = '';
@@ -340,9 +340,9 @@ if (isset($_SESSION['user']))
 
 						$('#files').html('<h3 id="displayUrl">' + data.displayUrl + '</h3><table id="filesList" width="100%"><thead><tr><th><?php echo $lang->get('files_filename'); ?></th><th><?php echo $lang->get('files_last_modified'); ?></th><th><?php echo $lang->get('files_filetype'); ?></th><th><?php echo $lang->get('files_filesize'); ?></th></tr></thead><tbody id="filesContent"></tbody></table><div id="extra"></div>');
 						$.each(data.files, function () {
-							if (this.type == 'Ordner') {
+							/*if (this.type == 'Ordner') {
 								var name = '<a href="#folder=' + data.displayUrl + this.name + '"><i class="fa fa-' + this.icon + '"></i>  ' + this.name;
-							} else// onclick="openFile(\'' + this.name + '\', \'' + this.icon + '\', \'' + webUri + data.displayUrl + this.name + '\');"
+							} else// onclick="openFile(\'' + this.name + '\', \'' + this.icon + '\', \'' + webUri + data.displayUrl + this.name + '\');"*/
 							if (this.name == '..') {
 								var name = '<a onclick="openFile(\'..\', \'' + this.icon + '\', \'' + webUri + data.displayUrl + this.name + '\');"><i class="fa fa-' + this.icon + '"></i>  ' + this.name;
 							} else {
@@ -377,7 +377,7 @@ if (isset($_SESSION['user']))
 				}, 300);
 			}
 
-			//getFiles('');
+			getFiles('');
 
 			function openFile(file, type, url) {
 				//console.log(file, type);
