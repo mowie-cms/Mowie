@@ -96,7 +96,7 @@ if (hasPerm('edit_permissions'))
 				$critical = '';
 				if ($perm['critical'] == true) $critical = '<span class="critical fa fa-warning" title="'.$lang->get('admins_perms_critical').'"></span>';
 
-				echo '<tr title="' . $perm['description'] . '"><td>' . $critical . $perm['name'] . '</td>';
+				echo '<tr data-toggle="tooltip" title="' . $perm['description'] . '"><td>' . $critical . $perm['name'] . '</td>';
 				foreach ($role_names as $lvl => $name)
 				{
 					$disable = '';

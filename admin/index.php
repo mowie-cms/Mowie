@@ -31,7 +31,7 @@ if (hasPerm('view_dashboard'))
 	</div>
 	<?php
 }
-echo '<div class="main">';
+echo '<div class="main container">';
 //Find Dashboard files
 $moduluri = '../apps/';
 if ($handle = opendir($moduluri))

@@ -4,6 +4,10 @@
 * {
     margin: 0;
     padding: 0;
+
+    box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
 }
 
 *, *:focus, *:hover, *:active {
@@ -23,6 +27,7 @@ body {
     font-size: 15px;
     color: #212121;
     background: #e6e6e6;
+    line-height: normal;
 }
 
 h1, h2, h3, h4, h5, h6 {

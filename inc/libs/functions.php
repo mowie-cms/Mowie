@@ -214,6 +214,7 @@ function printHeader($title)
     <meta charset="UTF-8">
     <title>' . $title . ' | ' . $GLOBALS['lang']->get('admin_title') . ' | ' . $GLOBALS['MCONF']['title'] . '</title>
     <link rel="shourtcut icon" href="' . $GLOBALS['MCONF']['web_uri'] . 'favicon.ico"/>
+    <link rel="stylesheet" href="' . $GLOBALS['MCONF']['web_uri'] . 'admin/assets/bootstrap.min.css" type="text/css"/>
     <link rel="stylesheet" href="' . $GLOBALS['MCONF']['web_uri'] . 'admin/assets/admin.css" type="text/css"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
 	<script src="' . $GLOBALS['MCONF']['web_uri'] . 'admin/assets/js/jquery.min.js"></script>

@@ -2,8 +2,17 @@
 if (!isset($_GET['direct']))
 {
 	?>
+
+
 	</div>
 	<div id="showMsg"></div>
+	<script src="<?php echo $MCONF['web_uri'] ?>admin/assets/js/bootstrap.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('[data-toggle="tooltip"]').tooltip();
+		});
+	</script>
+
 	<!--<script src="<?php echo $MCONF['web_uri'] ?>admin/assets/js/page.js"></script>
 	<script src="<?php echo $MCONF['web_uri'] ?>admin/assets/js/page.bodyparser.js"></script>-->
 	<script>
