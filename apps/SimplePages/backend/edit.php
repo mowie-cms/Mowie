@@ -99,14 +99,23 @@ if (hasPerm('manage_pages'))
 				}
 				else
 				{
-					//Delete old pages, we only want the newest version in the database
-					$db->clear();
-					$db->setCol('simplePages_pages_confirm');
-					$db->data['page_id'] = $_GET['id'];
-					$db->delete();
+					//If New Page created
+					if(isset($_GET['new']))
+					{
+						$status = 2;
+						$db->setCol('simplePages_pages');
+					}
+					else
+					{
+						//Delete old pages, we only want the newest version in the database
+						$db->clear();
+						$db->setCol('simplePages_pages_confirm');
+						$db->data['page_id'] = $_GET['id'];
+						$db->delete();
 
-					$db->setCol('simplePages_pages_confirm');
-					$db->data['page_id'] = $_GET['id'];
+						$db->setCol('simplePages_pages_confirm');
+						$db->data['page_id'] = $_GET['id'];
+					}
 				}
 			}
 			else
@@ -118,12 +127,16 @@ if (hasPerm('manage_pages'))
 			$db->data['alias'] = str_replace(' ', '-', $_POST['alias']);
 			$db->data['content'] = $_POST['content'];
 			$db->data['user'] = $_SESSION['userid'];
-			$status = 0;
-			if (isset($_POST['status'])) $status = $_POST['status'];
+			if(!isset($status))
+			{
+				$status = 0;
+				if (isset($_POST['status'])) $status = $_POST['status'];
+			}
 			$db->data['status'] = $status;
 			$db->data['meta_description'] = $_POST['meta_description'];
 			$db->data['meta_keywords'] = $_POST['meta_keywords'];
 			$db->data['lastedit'] = time();
+			if(isset($_GET['new'])) $db->data['created'] = time();
 
 			//$db->update(['id' => $_GET['id']]);
 			$id = 0;
@@ -184,13 +197,16 @@ if (hasPerm('manage_pages'))
 			if($confirmationRequierd && ($_SESSION['userid'] != $confirmationUser))
 			{
 				$subject = sprintf($lang->get('sp_edit_confirm_subject'), $_POST['title']);
-				$message = sprintf($lang->get('sp_edit_confirm_message'), $_SESSION['user'], $_POST['title'], $MCONF['web_uri'] . 'apps/SimplePages/backend/confirm.php?page=' . $id);
-				$header = 'From: noreply@' . $_SERVER['SERVER_NAME'] . "\r\n" .
-					'Reply-To: noreply@' . $_SERVER['SERVER_NAME'] . "\r\n" .
-					'X-Mailer: PHP/' . phpversion() .
-					'MIME-Version: 1.0' . "\r\n" .
-					'content-type: text/html; charset=UTF-8' . "\r\n";
-				mail($confirmationUserMail, $subject, $message, $header);
+				if(isset($_GET['new']))
+				{
+					$message = sprintf($lang->get('sp_edit_confirm_message'), $_SESSION['user'], $_POST['title'], $MCONF['web_uri'] . 'apps/SimplePages/backend/confirm.php?page=' . $id);
+				}
+				else
+				{
+					$message = sprintf($lang->get('sp_create_confirm_message'), $_SESSION['user'], $_POST['title'], $MCONF['web_uri'] . 'apps/SimplePages/backend/confirm.php?page=' . $id);
+				}
+
+				mmail($confirmationUserMail, $subject, $message, 'noreply@' . $_SERVER['SERVER_NAME'], true);
 			}
 		}
 		else
@@ -282,7 +298,7 @@ if (hasPerm('manage_pages'))
 														   value="<?php echo $data[0]['alias']; ?>" autocomplete="off"/>
 						</p>
 						<p><span><?php echo $lang->get('sp_edit_public');?>:</span><input type="checkbox" name="status" id="status" value="1"<?php
-							if ($data[0]['status'] == 1) echo ' checked';
+							if ($data[0]['status'] == 1 || isset($_GET['new'])) echo ' checked';
 							?>/><label for="status"><i></i></label></p>
 						<p><span><?php echo $lang->get('sp_edit_keywords');?>:</span><input type="text" name="meta_keywords"
 														value="<?php echo $data[0]['meta_keywords']; ?>"/></p>

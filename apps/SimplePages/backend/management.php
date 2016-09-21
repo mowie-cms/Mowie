@@ -16,6 +16,7 @@ if (hasPerm('manage_pages'))
 			<tr>
 				<th><?php echo $lang->get('sp_page');?></th>
 				<th><?php echo $lang->get('sp_last_edit');?></th>
+				<th><?php echo $lang->get('sp_edit_status');?></th>
 				<th><?php echo $lang->get('sp_action');?></th>
 			</tr>
 			</thead>
@@ -31,6 +32,7 @@ if (hasPerm('manage_pages'))
 
 			if (hasPerm('admin_manage'))//If the User has the persmission to edit every page
 			{
+				$status = [$lang->get('sp_status_inactive'), $lang->get('sp_status_active'), $lang->get('sp_status_pending_confirmation')];
 				foreach ($pages as $id => $pageitem)
 				{
 					echo '<tr>';
@@ -43,6 +45,7 @@ if (hasPerm('manage_pages'))
 					{
 						echo '<td>'.$lang->get('sp_never').'</td>';
 					}
+					echo '<td>'.$status[$pageitem['status']].'</td>';
 					echo '<td><a href="edit.php?id=' . $pageitem['id'] . '"><i class="fa fa-pencil"></i>  '.$lang->get('sp_edit').'</a> | <a href="edit.php?id=' . $pageitem['id'] . '&del"><i class="fa fa-trash-o"></i>  '.$lang->get('sp_delete').'</a> | <a href="' . $MCONF['web_uri'] . $pageitem['alias'] . '" target="_blank"><i class="fa fa-external-link"></i>  '.$lang->get('sp_preview').'</a></td>';
 					echo '</tr>';
 				}

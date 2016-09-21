@@ -11,7 +11,7 @@ if (hasPerm('edit_permissions'))
 		$permArr = [];
 		foreach ($_POST as $perm => $val)
 		{
-			if ($perm != 'smbt')
+			if ($perm != 'smbt' && $val == 'true')
 			{
 				$perm_full = $perm;
 				$perm = explode('_', $perm);

@@ -234,7 +234,7 @@ function printHeader($title)
     	<label for="options_menu">
 			<p><span class="usr_info">';
 			//<img src="http://www.gravatar.com/avatar/' . md5(strtolower(trim($_SESSION['mail']))) . '?s=40&d=mm" alt=""/>
-			echo $_SESSION['user'] . '</span>  <span class="fa fa-chevron-down"></span></p>
+			echo '<img src="http://www.gravatar.com/avatar/' . md5(strtolower(trim($_SESSION['mail']))) . '?s=40&d=mm" alt=""/> '.$_SESSION['user'] . '</span>  <span class="fa fa-chevron-down"></span></p>
 			<ul>
 				<li><a href="' . $GLOBALS['MCONF']['web_uri'] . 'admin/user_settings.php"><span class="fa fa-gear"></span> ' . $GLOBALS['lang']->get('settings') . '</a></li>
 				<li><a href="' . $GLOBALS['MCONF']['web_uri'] . 'admin/logout.php" rel="external"><span class="fa fa-sign-out"></span> ' . $GLOBALS['lang']->get('logout') . '</a></li>

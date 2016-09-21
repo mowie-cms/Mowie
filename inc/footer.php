@@ -55,7 +55,7 @@ if (!isset($_GET['direct']))
 			pageBodyParser();
 
 			function findPage(ctx, next) {
-				//console.log(ctx);
+				console.log(ctx);
 				if(!ctx.init) {
 					if (ctx.body) { //If POST-Request, send Post via ajax
 

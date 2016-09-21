@@ -33,6 +33,11 @@ $lang['sp_preview'] = 'Vorschau';
 $lang['sp_permissions'] = 'Berechtigungen';
 $lang['sp_manage_permission'] = 'Berechtigungen vergeben';
 
+//Status
+$lang['sp_status_inactive'] = 'Inaktiv';
+$lang['sp_status_active'] = 'Aktiv';
+$lang['sp_status_pending_confirmation'] = 'Warte auf Freischaltung';
+
 //Permissions
 $lang['sp_user_already_access'] = '%1$s hat schon Zugriff auf diese Seite.';
 $lang['sp_grant_permissions_success'] = 'Die neuen Berechtigungen wurden erfolgreich vergeben';
@@ -45,7 +50,8 @@ $lang['sp_confirm_success'] = 'Die Änderungen wurden erfolgreich freigeschaltet
 $lang['sp_confirm_fail'] = 'Fehler beim Freischalten der Änderungen.';
 $lang['sp_confirm_delete_success'] = 'Die Änderungen wurden erfolgreich gelöscht.';
 $lang['sp_confirm_delete_fail'] = 'Fehler beim Löschen der Änderungen.';
-$lang['sp_confirm_changed'] = 'Wurde geändert am %1$s von %2$s (Veränderte Felder werden angezeigt)';
+$lang['sp_confirm_changed'] = 'Wurde am %1$s von %2$s geändert (Veränderte Felder werden angezeigt)';
+$lang['sp_confirm_created'] = 'Wurde am %1$s von %2$s erstellt';
 $lang['sp_confirm_confirm'] = 'Freischalten';
 $lang['sp_confirm_delete'] = 'Verwerfen';
 $lang['sp_confirm_no_changes'] = 'Es wurden keine Änderungen zum Freischalten gefunden.';
@@ -65,6 +71,7 @@ $lang['sp_edit_edited_need_confirm'] = 'Diese Änderungen werden öffentlich, so
 $lang['sp_edit_edit_error'] = 'Fehler beim Ändern der Seite.';
 $lang['sp_edit_confirm_subject'] = 'Freischaltung der Seite "%1$s"';
 $lang['sp_edit_confirm_message'] = '%1$s hat die Seite "%2$s" ge&auml;ndert. Diese steht jetzt zum Freischalten f&uuml;r dich bereit. <a href="%3$s">Freischalten</a>';
+$lang['sp_create_confirm_message'] = '%1$s hat die Seite "%2$s" erstellt. Diese steht jetzt zum Freischalten f&uuml;r dich bereit. <a href="%3$s">Freischalten</a>';
 $lang['sp_edit_delete_success'] = 'Die Seite wurde erfolgreich gelöscht.';
 $lang['sp_edit_delete'] = '"%1$s" löschen';
 $lang['sp_edit_delete_confirm'] = 'Soll die Seite "%1$s" wirklich gelöscht werden?<br/><b>Dieser Vorgang kann nicht rückgängig gemacht werden!</b>';

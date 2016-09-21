@@ -33,6 +33,11 @@ $lang['sp_preview'] = 'Preview';
 $lang['sp_permissions'] = 'Permissions';
 $lang['sp_manage_permission'] = 'Grant Permissions';
 
+//Status
+$lang['sp_status_inactive'] = 'Inactive';
+$lang['sp_status_active'] = 'Active';
+$lang['sp_status_pending_confirmation'] = 'Waiting for Confirmation';
+
 //Permissions
 $lang['sp_user_already_access'] = '%1$s has already access to that page.';
 $lang['sp_grant_permissions_success'] = 'The new permissions were granted successfully';
@@ -46,6 +51,7 @@ $lang['sp_confirm_fail'] = 'An error occured while confirming changes.';
 $lang['sp_confirm_delete_success'] = 'Changes were successfully deleted.';
 $lang['sp_confirm_delete_fail'] = 'An error occured while deleting changes.';
 $lang['sp_confirm_changed'] = 'Was changed at %1$s by %2$s (Showing changed Contents)';
+$lang['sp_confirm_created'] = 'Was created at %1$s by %2$s';
 $lang['sp_confirm_confirm'] = 'Confirm';
 $lang['sp_confirm_delete'] = 'Dismiss';
 $lang['sp_confirm_no_changes'] = 'No changes for confirmation were found.';
@@ -65,6 +71,7 @@ $lang['sp_edit_edited_need_confirm'] = 'These changes get public, when %1$s conf
 $lang['sp_edit_edit_error'] = 'An error occured while saving the changes.';
 $lang['sp_edit_confirm_subject'] = 'Confirmation of "%1$s"';
 $lang['sp_edit_confirm_message'] = '%1$s edited the page "%2$s". It is now ready for you to confirm. <a href="%3$s">Confirm</a>';
+$lang['sp_create_confirm_message'] = '%1$s created the page "%2$s". It is now ready for you to confirm. <a href="%3$s">Confirm</a>';
 $lang['sp_edit_delete_success'] = 'The page was deleted successfully.';
 $lang['sp_edit_delete'] = 'Delete "%1$s"';
 $lang['sp_edit_delete_confirm'] = 'Are you sure to delete the page "%1$s"?<br/><b>You cannot undo this!</b>';

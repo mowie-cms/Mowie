@@ -1,764 +1,864 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 219.8 71.8" style="enable-background:new 0 0 219.8 71.8;" xml:space="preserve">
-<style type="text/css">
-	.st0{fill:#E8E8E8;}
-	.st1{clip-path:url(#SVGID_2_);}
-	.st2{fill:#FBC520;}
-	.st3{fill:#FFBA00;}
-	.st4{fill:#8B1A34;}
-	.st5{fill:#991937;}
-	.st6{fill:#E6D380;}
-	.st7{fill:#F8D57D;}
-	.st8{fill:#CACD7F;}
-	.st9{fill:#DED277;}
-	.st10{fill:#FFB25A;}
-	.st11{fill:#FFB040;}
-	.st12{fill:#D78052;}
-	.st13{fill:#C96C4F;}
-	.st14{fill:#77B982;}
-	.st15{fill:#006E7A;}
-	.st16{fill:#00727A;}
-	.st17{fill:#FFC15E;}
-	.st18{fill:#FFAB58;}
-	.st19{fill:#FFC375;}
-	.st20{fill:#FFBF74;}
-	.st21{fill:#FF9035;}
-	.st22{fill:#FF7B1F;}
-	.st23{fill:#E67B53;}
-	.st24{fill:#E38150;}
-	.st25{fill:#7F232D;}
-	.st26{fill:#7B1F2D;}
-	.st27{fill:#EB9C3B;}
-	.st28{fill:#5DAA89;}
-	.st29{fill:#84B084;}
-	.st30{fill:#FFBB00;}
-	.st31{fill:#FF9A00;}
-	.st32{fill:#A31C3A;}
-	.st33{fill:#A71F3A;}
-	.st34{fill:#F8D47F;}
-	.st35{fill:#FFD276;}
-	.st36{fill:#E2CC6F;}
-	.st37{fill:#EBD47B;}
-	.st38{fill:#FFA83A;}
-	.st39{fill:#FFBF4A;}
-	.st40{fill:#BE604C;}
-	.st41{fill:#C86A4C;}
-	.st42{fill:#81BA89;}
-	.st43{fill:#BAC383;}
-	.st44{fill:#007E7E;}
-	.st45{fill:#2F9082;}
-	.st46{fill:#FFA658;}
-	.st47{fill:#FC944E;}
-	.st48{fill:#FFBD71;}
-	.st49{fill:#FFB977;}
-	.st50{fill:#FF7814;}
-	.st51{fill:#DF7650;}
-	.st52{fill:#E89C4D;}
-	.st53{fill:#731A2B;}
-	.st54{fill:#751B2A;}
-	.st55{fill:#EFA33D;}
-	.st56{fill:#EAAF3B;}
-	.st57{fill:#8AAE82;}
-	.st58{fill:#AEB782;}
-	.st59{fill:#FF9B00;}
-	.st60{fill:#FF8D00;}
-	.st61{fill:#A9203A;}
-	.st62{fill:#B5343A;}
-	.st63{fill:#FFD478;}
-	.st64{fill:#FFD776;}
-	.st65{fill:#E9D57D;}
-	.st66{fill:#E4D484;}
-	.st67{fill:#FFBA43;}
-	.st68{fill:#FFA62F;}
-	.st69{fill:#CE714B;}
-	.st70{fill:#E79244;}
-	.st71{fill:#C9C27D;}
-	.st72{fill:#268D82;}
-	.st73{fill:#038D83;}
-	.st74{fill:#FF9D51;}
-	.st75{fill:#FFAC53;}
-	.st76{fill:#FFBC78;}
-	.st77{fill:#FFC47C;}
-	.st78{fill:#D17D4D;}
-	.st79{fill:#E89C4C;}
-	.st80{fill:#F6B857;}
-	.st81{fill:#7B1F2C;}
-	.st82{fill:#8A282F;}
-	.st83{fill:#E4A83B;}
-	.st84{fill:#D97D2E;}
-	.st85{fill:#A7B883;}
-	.st86{fill:#A4BF8A;}
-	.st87{fill:#FF9100;}
-	.st88{fill:#FA9E00;}
-	.st89{fill:#B7383C;}
-	.st90{fill:#B4343F;}
-	.st91{fill:#FFDA77;}
-	.st92{fill:#F8D479;}
-	.st93{fill:#D6D288;}
-	.st94{fill:#B7C68A;}
-	.st95{fill:#FB9831;}
-	.st96{fill:#F48F41;}
-	.st97{fill:#EF9E42;}
-	.st98{fill:#F5A94E;}
-	.st99{fill:#008380;}
-	.st100{fill:#006977;}
-	.st101{fill:#F29C31;}
-	.st102{fill:#FFB052;}
-	.st103{fill:#FFB051;}
-	.st104{fill:#FFC87C;}
-	.st105{fill:#FFCB7E;}
-	.st106{fill:#D98A51;}
-	.st107{fill:#E6A457;}
-	.st108{fill:#F3A944;}
-	.st109{fill:#ED8F45;}
-	.st110{fill:#8A3337;}
-	.st111{fill:#74474C;}
-	.st112{fill:#93BC8B;}
-	.st113{fill:#71B785;}
-	.st114{fill:#F7BE06;}
-	.st115{fill:#B93B44;}
-	.st116{fill:#A22C3B;}
-	.st117{fill:#FACF6E;}
-	.st118{fill:#E8CD7A;}
-	.st119{fill:#B0C38A;}
-	.st120{fill:#A1BC88;}
-	.st121{fill:#D03408;}
-	.st122{fill:#DA4108;}
-	.st123{fill:#F48F43;}
-	.st124{fill:#FFB059;}
-	.st125{fill:#FAAE4C;}
-	.st126{fill:#F5B167;}
-	.st127{fill:#006877;}
-	.st128{fill:#005B72;}
-	.st129{fill:#F4A231;}
-	.st130{fill:#E99F50;}
-	.st131{fill:#FFAC48;}
-	.st132{fill:#FFBC48;}
-	.st133{fill:#FFCD7F;}
-	.st134{fill:#F4C47B;}
-	.st135{fill:#E8AF5C;}
-	.st136{fill:#EE8E3E;}
-	.st137{fill:#E78052;}
-	.st138{fill:#854A49;}
-	.st139{fill:#943938;}
-	.st140{fill:#72B880;}
-	.st141{fill:#4CAE87;}
-	.st142{fill:#F5BF09;}
-	.st143{fill:#FCCE4A;}
-	.st144{fill:#9D2A39;}
-	.st145{fill:#8A1E34;}
-	.st146{fill:#E9CE7B;}
-	.st147{fill:#DDD181;}
-	.st148{fill:#A7BF87;}
-	.st149{fill:#BDC681;}
-	.st150{fill:#DF5008;}
-	.st151{fill:#FFB158;}
-	.st152{fill:#FFBA63;}
-	.st153{fill:#F3AC63;}
-	.st154{fill:#E18F54;}
-	.st155{fill:#006476;}
-	.st156{fill:#006A79;}
-	.st157{fill:#E5964D;}
-	.st158{fill:#CF6E3C;}
-	.st159{fill:#FFBD4B;}
-	.st160{fill:#FFC85C;}
-	.st161{fill:#F6C47A;}
-	.st162{fill:#FAC275;}
-	.st163{fill:#FF8130;}
-	.st164{fill:#FF8E32;}
-	.st165{fill:#E97E55;}
-	.st166{fill:#853135;}
-	.st167{fill:#802830;}
-	.st168{fill:#50AF88;}
-	.st169{fill:#4BA78A;}
-	.st170{fill:#F99E1C;}
-	.st171{fill:#F59322;}
-	.st172{fill:#FFCC79;}
-	.st173{fill:#FFC879;}
-	.st174{fill:#EDB462;}
-	.st175{fill:#DF9555;}
-	.st176{fill:#F6A428;}
-	.st177{fill:#F9B341;}
-	.st178{fill:#A84E3A;}
-	.st179{fill:#9C3838;}
-	.st180{fill:#9EC38A;}
-	.st181{fill:#A1C28A;}
-	.st182{fill:#FF7D00;}
-	.st183{fill:#FF8000;}
-	.st184{fill:#CA5F4B;}
-	.st185{fill:#C25140;}
-	.st186{fill:#FFCE46;}
-	.st187{fill:#FFD45B;}
-	.st188{fill:#C3BD83;}
-	.st189{fill:#D5CB89;}
-	.st190{fill:#E8803E;}
-	.st191{fill:#F89033;}
-	.st192{fill:#FFB049;}
-	.st193{fill:#F8A93F;}
-	.st194{fill:#008883;}
-	.st195{fill:#008A83;}
-	.st196{fill:#EF6401;}
-	.st197{fill:#E35205;}
-	.st198{fill:#FFC064;}
-	.st199{fill:#FFB65E;}
-	.st200{fill:#FAD17E;}
-	.st201{fill:#FFD080;}
-	.st202{fill:#005771;}
-	.st203{fill:#FFC965;}
-	.st204{fill:#FFC53D;}
-	.st205{fill:#CF5B4D;}
-	.st206{fill:#B94046;}
-	.st207{fill:#D9B065;}
-	.st208{fill:#E6C67B;}
-	.st209{fill:#A7C091;}
-	.st210{fill:#A9BF8E;}
-	.st211{fill:#FCCB6A;}
-	.st212{fill:#F8C670;}
-	.st213{fill:#81202C;}
-	.st214{fill:#F09331;}
-	.st215{fill:#FFB438;}
-	.st216{fill:#D4C786;}
-	.st217{fill:#E4C380;}
-	.st218{fill:#FBA168;}
-	.st219{fill:#F18C5A;}
-	.st220{fill:#BE5E44;}
-	.st221{fill:#B04C3C;}
-	.st222{fill:#42AE87;}
-	.st223{fill:#EC7D10;}
-	.st224{fill:#FFC16C;}
-	.st225{fill:#EBA963;}
-	.st226{fill:#FFD25C;}
-	.st227{fill:#922937;}
-	.st228{fill:#D7D38A;}
-	.st229{fill:#9EB681;}
-	.st230{fill:#D57C48;}
-	.st231{fill:#FFCF52;}
-	.st232{fill:#ECBE78;}
-	.st233{fill:#FF8733;}
-	.st234{fill:#F18B5A;}
-	.st235{fill:#2F9C88;}
-	.st236{fill:#D83E06;}
-	.st237{fill:#F89A51;}
-	.st238{fill:#FFB765;}
-	.st239{fill:#FF8C09;}
-	.st240{fill:#C94449;}
-	.st241{fill:#EEAF58;}
-	.st242{fill:#8DB286;}
-	.st243{fill:#FBB937;}
-	.st244{fill:#F7923B;}
-	.st245{fill:#F5D183;}
-	.st246{fill:#E6B35D;}
-	.st247{fill:#F38B3F;}
-	.st248{fill:#AE4E44;}
-	.st249{fill:#66B67D;}
-	.st250{fill:#ED7B0D;}
-	.st251{fill:#FFC46E;}
-	.st252{fill:#F9C87A;}
-	.st253{fill:#FFC333;}
-	.st254{fill:#A3383D;}
-	.st255{fill:#DFD892;}
-	.st256{fill:#75AB83;}
-	.st257{fill:#E2975C;}
-	.st258{fill:#FFCE3F;}
-	.st259{fill:#DCBB79;}
-	.st260{fill:#F38037;}
-	.st261{fill:#F8975F;}
-	.st262{fill:#1D9988;}
-	.st263{fill:#E65003;}
-	.st264{fill:#FFAB5A;}
-	.st265{fill:#FFBD6E;}
-	.st266{fill:#FF942D;}
-	.st267{fill:#D6534F;}
-	.st268{fill:#E49E4F;}
-	.st269{fill:#79AC85;}
-	.st270{fill:#FFC747;}
-	.st271{fill:#DB7335;}
-	.st272{fill:#E9D185;}
-	.st273{fill:#E1BC66;}
-	.st274{fill:#F9974A;}
-	.st275{fill:#B95A48;}
-	.st276{fill:#69B77D;}
-	.st277{fill:#F68800;}
-	.st278{fill:#FFC76E;}
-	.st279{fill:#FBD480;}
-	.st280{fill:#FFCB53;}
-	.st281{fill:#B04A46;}
-	.st282{fill:#CFCF8C;}
-	.st283{fill:#6FA787;}
-	.st284{fill:#E9A964;}
-	.st285{fill:#FFC035;}
-	.st286{fill:#C9B77B;}
-	.st287{fill:#F28441;}
-	.st288{fill:#FFA46B;}
-	.st289{fill:#239C88;}
-	.st290{fill:#E85302;}
-	.st291{fill:#FFC362;}
-	.st292{fill:#FFC172;}
-	.st293{fill:#FF8F35;}
-	.st294{fill:#E46E54;}
-	.st295{fill:#E09949;}
-	.st296{fill:#5EA487;}
-	.st297{fill:#FFCA41;}
-	.st298{fill:#871B32;}
-	.st299{fill:#D5712B;}
-	.st300{fill:#E0D285;}
-	.st301{fill:#D3C472;}
-	.st302{fill:#FFAC5B;}
-	.st303{fill:#C9714D;}
-	.st304{fill:#FDB010;}
-	.st305{fill:#FFD17D;}
-	.st306{fill:#EDBD62;}
-	.st307{fill:#FBA02A;}
-	.st308{fill:#AE5240;}
-	.st309{fill:#87BC86;}
-	.st310{fill:#2D8D82;}
-	.st311{fill:#FF7809;}
-	.st312{fill:#D0604D;}
-	.st313{fill:#FFC241;}
-	.st314{fill:#ADB580;}
-	.st315{fill:#EF8A49;}
-	.st316{fill:#FFB461;}
-	.st317{fill:#008C85;}
-	.st318{fill:#FA7B00;}
-	.st319{fill:#FFCD6E;}
-	.st320{fill:#F0D07C;}
-	.st321{fill:#FFBF54;}
-	.st322{fill:#DE784D;}
-	.st323{fill:#DDA759;}
-	.st324{fill:#5EA489;}
-	.st325{fill:#FAC862;}
-	.st326{fill:#89242D;}
-	.st327{fill:#E3822B;}
-	.st328{fill:#C0C589;}
-	.st329{fill:#FFB574;}
-	.st330{fill:#C96C49;}
-</style>
-<g id="Color">
-</g>
-<g>
-	<path class="st0" d="M111.3,51.3c0,9.6-6.8,16.1-16.9,16.1c-10.2,0-17-6.5-17-16.1c0-9.7,6.8-16.1,17-16.1
-		C104.5,35.2,111.3,41.6,111.3,51.3z M86.5,51.4c0,5.2,3.2,8.7,7.9,8.7c4.6,0,7.9-3.5,7.9-8.7s-3.2-8.7-7.9-8.7S86.5,46.2,86.5,51.4
-		z"/>
-	<path class="st0" d="M145.9,67.1l-6.8-20.8l-6.7,20.8h-9l-11.6-31.5l9.2-0.1l7,22.6l6.8-22.6h8.9l6.9,22.6l6.9-22.6h8.9l-11.5,31.6
-		H145.9z"/>
-	<path class="st0" d="M179.8,26.5c0,2.9-2,5-4.9,5s-4.9-2.1-4.9-5s2-5,4.9-5S179.8,23.6,179.8,26.5z M170.4,67.1V35.5h9v31.6H170.4z
-		"/>
-	<path class="st0" d="M217.2,54h-22.7c1.1,4,4.1,6.3,8.2,6.3c3,0,5.8-1.2,8-3.3l4.8,4.8c-3.2,3.5-7.8,5.6-13.5,5.6
-		c-10.1,0-16.5-6.5-16.5-16c0-9.7,6.6-16.2,16.3-16.2C212.8,35.2,217.9,42.5,217.2,54z M208.7,48.7c-0.1-4.2-2.8-6.9-7-6.9
-		c-4,0-6.7,2.7-7.4,6.9H208.7z"/>
-</g>
-<g>
-	<g>
-		<defs>
-			<polygon id="SVGID_1_" points="57.7,67.1 57.6,29.7 44.9,60.8 32.6,60.8 19.9,29.6 19.9,67 3.4,67 3.4,3.8 23.5,3.8 38.7,38.8 
-				54,3.8 74.1,3.8 74.1,67 57.7,67 			"/>
-		</defs>
-		<clipPath id="SVGID_2_">
-			<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
-		</clipPath>
-		<g class="st1">
-			<polygon class="st2" points="59.9,19.5 62.1,7.2 64.6,14 			"/>
-			<polygon class="st3" points="71.7,15.3 62.1,7.2 64.6,14 			"/>
-			<polygon class="st4" points="74.7,60.2 76.9,47.9 78.4,51.9 78.4,55.9 			"/>
-			<polygon class="st5" points="78.4,49.1 76.9,47.9 78.4,51.9 			"/>
-			<polygon class="st6" points="12.9,36.7 15,24.3 17.5,31.1 			"/>
-			<polygon class="st7" points="24.6,32.4 15,24.3 17.5,31.1 			"/>
-			<polygon class="st8" points="28.1,75 29.9,65 32.3,71.8 29.6,75 			"/>
-			<polygon class="st9" points="39.4,73.1 29.9,65 32.3,71.8 			"/>
-			<polygon class="st10" points="36.4,28.1 38.6,15.8 41,22.6 			"/>
-			<polygon class="st11" points="48.2,23.8 38.6,15.8 41,22.6 			"/>
-			<polygon class="st12" points="51.2,68.8 53.4,56.5 55.9,63.3 			"/>
-			<polygon class="st13" points="63,64.5 53.4,56.5 55.9,63.3 			"/>
-			<polygon class="st14" points="1.1,40.9 -0.8,39.3 -0.8,40.6 			"/>
-			<polygon class="st15" points="6.1,75 6.3,73.6 6.9,75 			"/>
-			<polygon class="st16" points="8,75 6.3,73.6 6.9,75 			"/>
-			<polygon class="st17" points="17.2,12 19.4,-0.3 21.9,6.5 			"/>
-			<polygon class="st18" points="29,7.8 19.4,-0.3 21.9,6.5 			"/>
-			<polygon class="st19" points="32,52.7 34.2,40.4 36.7,47.2 			"/>
-			<polygon class="st20" points="43.8,48.4 34.2,40.4 36.7,47.2 			"/>
-			<polygon class="st21" points="40.7,3.5 42.1,-4.1 44.6,-4.1 45.4,-2.1 			"/>
-			<polygon class="st22" points="52.5,-0.8 48.5,-4.1 44.6,-4.1 45.4,-2.1 			"/>
-			<polygon class="st23" points="55.6,44.2 57.7,31.9 60.2,38.6 			"/>
-			<polygon class="st24" points="67.3,39.9 57.7,31.9 60.2,38.6 			"/>
-			<polygon class="st25" points="72.1,75 72.6,72.5 73.5,75 			"/>
-			<polygon class="st26" points="75.5,75 72.6,72.5 73.5,75 			"/>
-			<polygon class="st27" points="5.5,16.3 -0.8,11.1 -0.8,15.2 			"/>
-			<polygon class="st28" points="8.5,61.3 10.7,49 13.2,55.8 			"/>
-			<polygon class="st29" points="20.3,57 10.7,49 13.2,55.8 			"/>
-			<polygon class="st17" points="17.2,12 19.4,-0.3 21.9,6.5 			"/>
-			<polygon class="st18" points="29,7.8 19.4,-0.3 21.9,6.5 			"/>
-			<polygon class="st19" points="32,52.7 34.2,40.4 36.7,47.2 			"/>
-			<polygon class="st20" points="43.8,48.4 34.2,40.4 36.7,47.2 			"/>
-			<polygon class="st21" points="40.7,3.5 42.1,-4.1 44.6,-4.1 45.4,-2.1 			"/>
-			<polygon class="st22" points="52.5,-0.8 48.5,-4.1 44.6,-4.1 45.4,-2.1 			"/>
-			<polygon class="st23" points="55.6,44.2 57.7,31.9 60.2,38.6 			"/>
-			<polygon class="st24" points="67.3,39.9 57.7,31.9 60.2,38.6 			"/>
-			<polygon class="st25" points="72.1,75 72.6,72.5 73.5,75 			"/>
-			<polygon class="st26" points="75.5,75 72.6,72.5 73.5,75 			"/>
-			<polygon class="st27" points="5.5,16.3 -0.8,11.1 -0.8,15.2 			"/>
-			<polygon class="st28" points="8.5,61.3 10.7,49 13.2,55.8 			"/>
-			<polygon class="st29" points="20.3,57 10.7,49 13.2,55.8 			"/>
-			<polygon class="st30" points="71.7,15.3 62.1,7.2 69.2,8.5 			"/>
-			<polygon class="st31" points="73.9,2.9 62.1,7.2 69.2,8.5 			"/>
-			<polygon class="st32" points="78.4,49.1 76.9,47.9 78.4,48.2 			"/>
-			<polygon class="st33" points="78.4,47.4 76.9,47.9 78.4,48.2 			"/>
-			<polygon class="st34" points="24.6,32.4 15,24.3 22.2,25.6 			"/>
-			<polygon class="st35" points="26.8,20.1 15,24.3 22.2,25.6 			"/>
-			<polygon class="st36" points="39.4,73.1 29.9,65 37,66.3 			"/>
-			<polygon class="st37" points="41.6,60.8 29.9,65 37,66.3 			"/>
-			<polygon class="st38" points="48.2,23.8 38.6,15.8 45.7,17 			"/>
-			<polygon class="st39" points="50.3,11.5 38.6,15.8 45.7,17 			"/>
-			<polygon class="st40" points="63,64.5 53.4,56.5 60.5,57.7 			"/>
-			<polygon class="st41" points="65.1,52.2 53.4,56.5 60.5,57.7 			"/>
-			<polygon class="st42" points="1.1,40.9 -0.8,39.3 -0.8,35.6 			"/>
-			<polygon class="st43" points="3.3,28.6 -0.8,30.1 -0.8,33.5 			"/>
-			<polygon class="st44" points="8,75 6.3,73.6 13.5,74.9 13.5,75 			"/>
-			<polygon class="st45" points="18.1,69.3 6.3,73.6 13.5,74.9 			"/>
-			<polygon class="st46" points="29,7.8 19.4,-0.3 26.5,1 			"/>
-			<polygon class="st47" points="30,-4.1 19.4,-0.3 26.5,1 30.8,-4.1 			"/>
-			<polygon class="st48" points="43.8,48.4 34.2,40.4 41.3,41.7 			"/>
-			<polygon class="st49" points="46,36.1 34.2,40.4 41.3,41.7 			"/>
-			<polygon class="st50" points="52.5,-0.8 48.5,-4.1 51.3,-4.1 			"/>
-			<polygon class="st51" points="67.3,39.9 57.7,31.9 64.9,33.1 			"/>
-			<polygon class="st52" points="69.5,27.6 57.7,31.9 64.9,33.1 			"/>
-			<polygon class="st53" points="75.5,75 72.6,72.5 78.4,73.6 78.4,75 			"/>
-			<polygon class="st54" points="78.4,70.4 72.6,72.5 78.4,73.6 			"/>
-			<polygon class="st55" points="5.5,16.3 -0.8,11.1 -0.8,8.9 3,9.5 			"/>
-			<polygon class="st56" points="7.6,4 -0.8,7.1 -0.8,8.9 3,9.5 			"/>
-			<polygon class="st57" points="20.3,57 10.7,49 17.8,50.2 			"/>
-			<polygon class="st58" points="22.4,44.7 10.7,49 17.8,50.2 			"/>
-			<polygon class="st46" points="29,7.8 19.4,-0.3 26.5,1 			"/>
-			<polygon class="st47" points="30,-4.1 19.4,-0.3 26.5,1 30.8,-4.1 			"/>
-			<polygon class="st48" points="43.8,48.4 34.2,40.4 41.3,41.7 			"/>
-			<polygon class="st49" points="46,36.1 34.2,40.4 41.3,41.7 			"/>
-			<polygon class="st50" points="52.5,-0.8 48.5,-4.1 51.3,-4.1 			"/>
-			<polygon class="st51" points="67.3,39.9 57.7,31.9 64.9,33.1 			"/>
-			<polygon class="st52" points="69.5,27.6 57.7,31.9 64.9,33.1 			"/>
-			<polygon class="st53" points="75.5,75 72.6,72.5 78.4,73.6 78.4,75 			"/>
-			<polygon class="st54" points="78.4,70.4 72.6,72.5 78.4,73.6 			"/>
-			<polygon class="st55" points="5.5,16.3 -0.8,11.1 -0.8,8.9 3,9.5 			"/>
-			<polygon class="st56" points="7.6,4 -0.8,7.1 -0.8,8.9 3,9.5 			"/>
-			<polygon class="st57" points="20.3,57 10.7,49 17.8,50.2 			"/>
-			<polygon class="st58" points="22.4,44.7 10.7,49 17.8,50.2 			"/>
-			<polygon class="st59" points="73.9,2.9 62.1,7.2 66.7,1.7 			"/>
-			<polygon class="st60" points="64.1,-4.1 62.1,7.2 66.7,1.7 64.6,-4.1 			"/>
-			<polygon class="st61" points="78.4,47.4 76.9,47.9 78.4,46.2 			"/>
-			<polygon class="st62" points="78.4,39.7 76.9,47.9 78.4,46.2 			"/>
-			<polygon class="st63" points="26.8,20.1 15,24.3 19.7,18.8 			"/>
-			<polygon class="st64" points="17.2,12 15,24.3 19.7,18.8 			"/>
-			<polygon class="st65" points="41.6,60.8 29.9,65 34.5,59.5 			"/>
-			<polygon class="st66" points="32,52.7 29.9,65 34.5,59.5 			"/>
-			<polygon class="st67" points="50.3,11.5 38.6,15.8 43.2,10.2 			"/>
-			<polygon class="st68" points="40.7,3.5 38.6,15.8 43.2,10.2 			"/>
-			<polygon class="st69" points="65.1,52.2 53.4,56.5 58,50.9 			"/>
-			<polygon class="st70" points="55.6,44.2 53.4,56.5 58,50.9 			"/>
-			<polygon class="st71" points="3.3,28.6 -0.8,30.1 -0.8,27.9 			"/>
-			<polygon class="st72" points="18.1,69.3 6.3,73.6 11,68.1 			"/>
-			<polygon class="st73" points="8.5,61.3 6.3,73.6 11,68.1 			"/>
-			<polygon class="st74" points="30,-4.1 19.4,-0.3 22.6,-4.1 			"/>
-			<polygon class="st75" points="20.1,-4.1 19.4,-0.3 22.6,-4.1 			"/>
-			<polygon class="st76" points="46,36.1 34.2,40.4 38.9,34.9 			"/>
-			<polygon class="st77" points="36.4,28.1 34.2,40.4 38.9,34.9 			"/>
-			<polygon class="st78" points="51.2,68.8 50.1,75 53.5,75 			"/>
-			<polygon class="st79" points="69.5,27.6 57.7,31.9 62.4,26.3 			"/>
-			<polygon class="st80" points="59.9,19.5 57.7,31.9 62.4,26.3 			"/>
-			<polygon class="st81" points="78.4,70.4 72.6,72.5 77.2,67 78.4,67.2 			"/>
-			<polygon class="st82" points="74.7,60.2 72.6,72.5 77.2,67 			"/>
-			<polygon class="st83" points="7.6,4 -0.8,7.1 -0.8,4.4 0.5,2.7 			"/>
-			<polygon class="st84" points="-0.8,4.4 0.5,2.7 -0.8,-1 			"/>
-			<polygon class="st85" points="22.4,44.7 10.7,49 15.3,43.4 			"/>
-			<polygon class="st86" points="12.9,36.7 10.7,49 15.3,43.4 			"/>
-			<polygon class="st87" points="64.1,-4.1 62.1,7.2 59.6,0.4 63.5,-4.1 			"/>
-			<polygon class="st88" points="52.5,-0.8 62.1,7.2 59.6,0.4 			"/>
-			<polygon class="st89" points="78.4,39.7 76.9,47.9 74.4,41.1 78.4,36.5 			"/>
-			<polygon class="st90" points="67.3,39.9 76.9,47.9 74.4,41.1 			"/>
-			<polygon class="st91" points="17.2,12 15,24.3 12.6,17.6 			"/>
-			<polygon class="st92" points="5.5,16.3 15,24.3 12.6,17.6 			"/>
-			<polygon class="st93" points="32,52.7 29.9,65 27.4,58.3 			"/>
-			<polygon class="st94" points="20.3,57 29.9,65 27.4,58.3 			"/>
-			<polygon class="st95" points="40.7,3.5 38.6,15.8 36.1,9 			"/>
-			<polygon class="st96" points="29,7.8 38.6,15.8 36.1,9 			"/>
-			<polygon class="st97" points="55.6,44.2 53.4,56.5 50.9,49.7 			"/>
-			<polygon class="st98" points="43.8,48.4 53.4,56.5 50.9,49.7 			"/>
-			<polygon class="st99" points="8.5,61.3 6.3,73.6 3.9,66.8 			"/>
-			<polygon class="st100" points="-0.8,67.6 6.3,73.6 3.9,66.8 -0.8,66 			"/>
-			<polygon class="st101" points="71.7,15.3 78.4,20.9 78.4,16.4 			"/>
-			<polygon class="st102" points="20.1,-4.1 19.4,-0.3 18,-4.1 			"/>
-			<polygon class="st103" points="14.8,-4.1 19.4,-0.3 18,-4.1 			"/>
-			<polygon class="st104" points="36.4,28.1 34.2,40.4 31.7,33.6 			"/>
-			<polygon class="st105" points="24.6,32.4 34.2,40.4 31.7,33.6 			"/>
-			<polygon class="st106" points="51.2,68.8 50.1,75 46.8,75 46.6,74.3 			"/>
-			<polygon class="st107" points="39.4,73.1 41.8,75 46.8,75 46.6,74.3 			"/>
-			<polygon class="st108" points="59.9,19.5 57.7,31.9 55.3,25.1 			"/>
-			<polygon class="st109" points="48.2,23.8 57.7,31.9 55.3,25.1 			"/>
-			<polygon class="st110" points="74.7,60.2 72.6,72.5 70.1,65.8 			"/>
-			<polygon class="st111" points="63,64.5 72.6,72.5 70.1,65.8 			"/>
-			<polygon class="st112" points="12.9,36.7 10.7,49 8.2,42.2 			"/>
-			<polygon class="st113" points="1.1,40.9 10.7,49 8.2,42.2 			"/>
-			<polygon class="st87" points="52.5,-0.8 62.1,7.2 55,6 			"/>
-			<polygon class="st114" points="50.3,11.5 62.1,7.2 55,6 			"/>
-			<polygon class="st115" points="67.3,39.9 76.9,47.9 69.8,46.7 			"/>
-			<polygon class="st116" points="65.1,52.2 76.9,47.9 69.8,46.7 			"/>
-			<polygon class="st117" points="5.5,16.3 15,24.3 7.9,23.1 			"/>
-			<polygon class="st118" points="3.3,28.6 15,24.3 7.9,23.1 			"/>
-			<polygon class="st119" points="20.3,57 29.9,65 22.7,63.8 			"/>
-			<polygon class="st120" points="18.1,69.3 29.9,65 22.7,63.8 			"/>
-			<polygon class="st121" points="78.4,-3 77.9,-4.1 78.4,-4.1 			"/>
-			<polygon class="st122" points="73.9,2.9 78.4,1.3 78.4,-2.4 			"/>
-			<polygon class="st123" points="29,7.8 38.6,15.8 31.4,14.5 			"/>
-			<polygon class="st124" points="26.8,20.1 38.6,15.8 31.4,14.5 			"/>
-			<polygon class="st125" points="43.8,48.4 53.4,56.5 46.3,55.2 			"/>
-			<polygon class="st126" points="41.6,60.8 53.4,56.5 46.3,55.2 			"/>
-			<polygon class="st127" points="-0.8,67.6 6.3,73.6 -0.8,72.4 -0.8,72.3 			"/>
-			<polygon class="st128" points="2.4,75 6.3,73.6 -0.8,72.4 -0.8,72.4 -0.8,75 			"/>
-			<polygon class="st87" points="52.5,-0.8 62.1,7.2 55,6 			"/>
-			<polygon class="st114" points="50.3,11.5 62.1,7.2 55,6 			"/>
-			<polygon class="st115" points="67.3,39.9 76.9,47.9 69.8,46.7 			"/>
-			<polygon class="st116" points="65.1,52.2 76.9,47.9 69.8,46.7 			"/>
-			<polygon class="st117" points="5.5,16.3 15,24.3 7.9,23.1 			"/>
-			<polygon class="st118" points="3.3,28.6 15,24.3 7.9,23.1 			"/>
-			<polygon class="st119" points="20.3,57 29.9,65 22.7,63.8 			"/>
-			<polygon class="st120" points="18.1,69.3 29.9,65 22.7,63.8 			"/>
-			<polygon class="st121" points="78.4,-3 77.9,-4.1 78.4,-4.1 			"/>
-			<polygon class="st122" points="73.9,2.9 78.4,1.3 78.4,-2.4 			"/>
-			<polygon class="st123" points="29,7.8 38.6,15.8 31.4,14.5 			"/>
-			<polygon class="st124" points="26.8,20.1 38.6,15.8 31.4,14.5 			"/>
-			<polygon class="st125" points="43.8,48.4 53.4,56.5 46.3,55.2 			"/>
-			<polygon class="st126" points="41.6,60.8 53.4,56.5 46.3,55.2 			"/>
-			<polygon class="st127" points="-0.8,67.6 6.3,73.6 -0.8,72.4 -0.8,72.3 			"/>
-			<polygon class="st128" points="2.4,75 6.3,73.6 -0.8,72.4 -0.8,72.4 -0.8,75 			"/>
-			<polygon class="st129" points="71.7,15.3 78.4,20.9 78.4,22.8 74.1,22 			"/>
-			<polygon class="st130" points="69.5,27.6 78.4,24.3 78.4,22.8 74.1,22 			"/>
-			<polygon class="st131" points="14.8,-4.1 19.4,-0.3 12.3,-1.5 11.3,-4.1 			"/>
-			<polygon class="st132" points="7.6,4 19.4,-0.3 12.3,-1.5 			"/>
-			<polygon class="st133" points="24.6,32.4 34.2,40.4 27.1,39.2 			"/>
-			<polygon class="st134" points="22.4,44.7 34.2,40.4 27.1,39.2 			"/>
-			<polygon class="st135" points="39.4,73.1 41.8,75 40.2,75 			"/>
-			<polygon class="st136" points="48.2,23.8 57.7,31.9 50.6,30.6 			"/>
-			<polygon class="st137" points="46,36.1 57.7,31.9 50.6,30.6 			"/>
-			<polygon class="st138" points="63,64.5 72.6,72.5 65.4,71.3 			"/>
-			<polygon class="st139" points="65.7,75 72.6,72.5 65.4,71.3 62.3,75 			"/>
-			<polygon class="st140" points="1.1,40.9 10.7,49 3.6,47.7 			"/>
-			<polygon class="st141" points="-0.8,53.2 10.7,49 3.6,47.7 -0.8,53 			"/>
-			<polygon class="st142" points="50.3,11.5 62.1,7.2 57.4,12.8 			"/>
-			<polygon class="st143" points="59.9,19.5 62.1,7.2 57.4,12.8 			"/>
-			<polygon class="st144" points="65.1,52.2 76.9,47.9 72.3,53.5 			"/>
-			<polygon class="st145" points="74.7,60.2 76.9,47.9 72.3,53.5 			"/>
-			<polygon class="st146" points="3.3,28.6 15,24.3 10.4,29.9 			"/>
-			<polygon class="st147" points="12.9,36.7 15,24.3 10.4,29.9 			"/>
-			<polygon class="st148" points="18.1,69.3 29.9,65 25.2,70.6 			"/>
-			<polygon class="st149" points="28.1,75 29.9,65 25.2,70.6 26.8,75 			"/>
-			<polygon class="st142" points="50.3,11.5 62.1,7.2 57.4,12.8 			"/>
-			<polygon class="st143" points="59.9,19.5 62.1,7.2 57.4,12.8 			"/>
-			<polygon class="st144" points="65.1,52.2 76.9,47.9 72.3,53.5 			"/>
-			<polygon class="st145" points="74.7,60.2 76.9,47.9 72.3,53.5 			"/>
-			<polygon class="st146" points="3.3,28.6 15,24.3 10.4,29.9 			"/>
-			<polygon class="st147" points="12.9,36.7 15,24.3 10.4,29.9 			"/>
-			<polygon class="st148" points="18.1,69.3 29.9,65 25.2,70.6 			"/>
-			<polygon class="st149" points="28.1,75 29.9,65 25.2,70.6 26.8,75 			"/>
-			<polygon class="st150" points="73.9,2.9 78.4,1.3 78.4,3.7 			"/>
-			<polygon class="st151" points="26.8,20.1 38.6,15.8 33.9,21.3 			"/>
-			<polygon class="st152" points="36.4,28.1 38.6,15.8 33.9,21.3 			"/>
-			<polygon class="st153" points="41.6,60.8 53.4,56.5 48.7,62 			"/>
-			<polygon class="st154" points="51.2,68.8 53.4,56.5 48.7,62 			"/>
-			<polygon class="st155" points="2.4,75 6.3,73.6 5.1,75 			"/>
-			<polygon class="st156" points="6.1,75 6.3,73.6 5.1,75 			"/>
-			<polygon class="st157" points="69.5,27.6 78.4,24.3 78.4,26.7 76.6,28.8 			"/>
-			<polygon class="st158" points="78.4,26.7 76.6,28.8 78.4,33.6 			"/>
-			<polygon class="st159" points="7.6,4 19.4,-0.3 14.7,5.3 			"/>
-			<polygon class="st160" points="17.2,12 19.4,-0.3 14.7,5.3 			"/>
-			<polygon class="st161" points="22.4,44.7 34.2,40.4 29.6,46 			"/>
-			<polygon class="st162" points="32,52.7 34.2,40.4 29.6,46 			"/>
-			<polygon class="st163" points="39,-4.1 38.3,-3.3 33.5,-4.1 			"/>
-			<polygon class="st164" points="40.7,3.5 42.1,-4.1 39,-4.1 38.3,-3.3 			"/>
-			<polygon class="st137" points="46,36.1 57.7,31.9 53.1,37.4 			"/>
-			<polygon class="st165" points="55.6,44.2 57.7,31.9 53.1,37.4 			"/>
-			<polygon class="st166" points="65.7,75 72.6,72.5 70.5,75 			"/>
-			<polygon class="st167" points="72.1,75 72.6,72.5 70.5,75 			"/>
-			<polygon class="st168" points="-0.8,53.2 10.7,49 6,54.5 -0.8,53.3 			"/>
-			<polygon class="st169" points="8.5,61.3 10.7,49 6,54.5 			"/>
-			<polygon class="st157" points="69.5,27.6 78.4,24.3 78.4,26.7 76.6,28.8 			"/>
-			<polygon class="st158" points="78.4,26.7 76.6,28.8 78.4,33.6 			"/>
-			<polygon class="st159" points="7.6,4 19.4,-0.3 14.7,5.3 			"/>
-			<polygon class="st160" points="17.2,12 19.4,-0.3 14.7,5.3 			"/>
-			<polygon class="st161" points="22.4,44.7 34.2,40.4 29.6,46 			"/>
-			<polygon class="st162" points="32,52.7 34.2,40.4 29.6,46 			"/>
-			<polygon class="st163" points="39,-4.1 38.3,-3.3 33.5,-4.1 			"/>
-			<polygon class="st164" points="40.7,3.5 42.1,-4.1 39,-4.1 38.3,-3.3 			"/>
-			<polygon class="st137" points="46,36.1 57.7,31.9 53.1,37.4 			"/>
-			<polygon class="st165" points="55.6,44.2 57.7,31.9 53.1,37.4 			"/>
-			<polygon class="st166" points="65.7,75 72.6,72.5 70.5,75 			"/>
-			<polygon class="st167" points="72.1,75 72.6,72.5 70.5,75 			"/>
-			<polygon class="st168" points="-0.8,53.2 10.7,49 6,54.5 -0.8,53.3 			"/>
-			<polygon class="st169" points="8.5,61.3 10.7,49 6,54.5 			"/>
-			<polygon class="st170" points="78.4,15.3 76.3,9.7 71.7,15.3 78.4,16.4 			"/>
-			<polygon class="st171" points="78.4,15.3 76.3,9.7 78.4,10.1 			"/>
-			<polygon class="st172" points="31.7,33.6 29.3,26.9 24.6,32.4 			"/>
-			<polygon class="st173" points="31.7,33.6 29.3,26.9 36.4,28.1 			"/>
-			<polygon class="st174" points="46.6,74.3 44.1,67.5 39.4,73.1 			"/>
-			<polygon class="st175" points="46.6,74.3 44.1,67.5 51.2,68.8 			"/>
-			<polygon class="st176" points="55.3,25.1 52.8,18.3 48.2,23.8 			"/>
-			<polygon class="st177" points="55.3,25.1 52.8,18.3 59.9,19.5 			"/>
-			<polygon class="st178" points="70.1,65.8 67.6,59 63,64.5 			"/>
-			<polygon class="st179" points="70.1,65.8 67.6,59 74.7,60.2 			"/>
-			<polygon class="st180" points="8.2,42.2 5.8,35.4 1.1,40.9 			"/>
-			<polygon class="st181" points="8.2,42.2 5.7,35.4 12.9,36.7 			"/>
-			<polygon class="st182" points="59.6,0.4 58,-4.1 55.3,-4.1 52.5,-0.8 			"/>
-			<polygon class="st183" points="59.6,0.4 58,-4.1 63.5,-4.1 			"/>
-			<polygon class="st184" points="74.4,41.1 72,34.4 67.3,39.9 			"/>
-			<polygon class="st185" points="74.4,41.1 72,34.4 78.4,35.5 78.4,36.5 			"/>
-			<polygon class="st186" points="12.6,17.6 10.1,10.8 5.5,16.3 			"/>
-			<polygon class="st187" points="12.6,17.6 10.1,10.8 17.2,12 			"/>
-			<polygon class="st188" points="27.4,58.3 24.9,51.5 20.3,57 			"/>
-			<polygon class="st189" points="27.4,58.3 24.9,51.5 32,52.7 			"/>
-			<polygon class="st190" points="36.1,9 33.6,2.2 29,7.8 			"/>
-			<polygon class="st191" points="36.1,9 33.6,2.2 40.8,3.5 			"/>
-			<polygon class="st192" points="50.9,49.7 48.5,42.9 43.8,48.5 			"/>
-			<polygon class="st193" points="50.9,49.7 48.4,42.9 55.6,44.2 			"/>
-			<polygon class="st194" points="3.9,66.8 1.4,60 -0.8,62.7 -0.8,66 			"/>
-			<polygon class="st195" points="3.9,66.8 1.4,60 8.5,61.3 			"/>
-			<polygon class="st196" points="73.9,2.9 71.4,-3.8 66.7,1.7 			"/>
-			<polygon class="st197" points="73.9,2.9 71.4,-3.8 78.4,-2.6 78.4,-2.4 			"/>
-			<polygon class="st198" points="26.8,20.1 24.3,13.3 19.7,18.8 			"/>
-			<polygon class="st199" points="26.8,20.1 24.3,13.3 31.5,14.5 			"/>
-			<polygon class="st200" points="41.6,60.8 39.2,54 34.5,59.5 			"/>
-			<polygon class="st201" points="41.6,60.8 39.1,54 46.3,55.2 			"/>
-			<polygon class="st202" points="-0.8,72.3 -0.8,72.3 -0.8,72.4 			"/>
-			<polygon class="st203" points="50.3,11.5 47.9,4.7 43.2,10.3 			"/>
-			<polygon class="st204" points="50.3,11.5 47.9,4.7 55,6 			"/>
-			<polygon class="st205" points="65.1,52.2 62.7,45.4 58,50.9 			"/>
-			<polygon class="st206" points="65.1,52.2 62.7,45.4 69.8,46.7 			"/>
-			<polygon class="st207" points="3.3,28.6 0.8,21.8 -0.8,23.8 -0.8,27.9 			"/>
-			<polygon class="st208" points="3.3,28.6 0.8,21.8 7.9,23.1 			"/>
-			<polygon class="st209" points="18.1,69.3 15.6,62.5 11,68.1 			"/>
-			<polygon class="st210" points="18.1,69.3 15.6,62.5 22.7,63.8 			"/>
-			<polygon class="st211" points="69.5,27.6 67,20.8 62.4,26.3 			"/>
-			<polygon class="st212" points="69.5,27.6 67,20.8 74.2,22 			"/>
-			<polygon class="st213" points="78.4,65.6 77.2,67 78.4,67.2 			"/>
-			<polygon class="st214" points="7.6,4 5.2,-2.8 0.5,2.8 			"/>
-			<polygon class="st215" points="7.6,4 5.2,-2.8 12.3,-1.5 			"/>
-			<polygon class="st216" points="22.5,44.7 20,37.9 15.3,43.4 			"/>
-			<polygon class="st217" points="22.4,44.7 20,37.9 27.1,39.2 			"/>
-			<polygon class="st218" points="46,36.1 43.5,29.3 38.9,34.9 			"/>
-			<polygon class="st219" points="46,36.1 43.5,29.4 50.6,30.6 			"/>
-			<polygon class="st220" points="60.1,75 58.3,70 54.1,75 			"/>
-			<polygon class="st221" points="60.1,75 58.3,70 65.4,71.3 62.3,75 			"/>
-			<polygon class="st222" points="-0.8,47 3.6,47.7 -0.8,52.9 			"/>
-			<polygon class="st223" points="78.4,7.3 76.3,9.7 78.4,10.1 			"/>
-			<polygon class="st224" points="33.9,21.3 29.3,26.9 36.4,28.1 			"/>
-			<polygon class="st225" points="48.7,62 44.1,67.6 51.2,68.8 			"/>
-			<polygon class="st226" points="57.4,12.8 52.8,18.3 59.9,19.6 			"/>
-			<polygon class="st227" points="72.2,53.5 67.6,59 74.7,60.3 			"/>
-			<polygon class="st228" points="10.4,29.9 5.7,35.4 12.9,36.7 			"/>
-			<polygon class="st229" points="25.2,70.6 21.5,75 26.8,75 			"/>
-			<polygon class="st230" points="76.6,28.8 72,34.4 78.4,35.5 78.4,33.6 			"/>
-			<polygon class="st231" points="14.7,5.3 10.1,10.8 17.2,12.1 			"/>
-			<polygon class="st232" points="29.6,46 24.9,51.5 32,52.8 			"/>
-			<polygon class="st233" points="38.3,-3.3 33.6,2.2 40.7,3.5 			"/>
-			<polygon class="st234" points="53.1,37.4 48.4,42.9 55.6,44.2 			"/>
-			<polygon class="st235" points="6,54.5 1.4,60 8.5,61.3 			"/>
-			<polygon class="st236" points="71.6,-4.1 71.4,-3.8 78.4,-2.6 78.4,-3 77.9,-4.1 			"/>
-			<polygon class="st237" points="29,7.8 24.3,13.3 31.5,14.6 			"/>
-			<polygon class="st238" points="43.8,48.5 39.1,54 46.3,55.2 			"/>
-			<polygon class="st202" points="-0.8,72.4 -0.8,72.4 -0.8,72.3 			"/>
-			<polygon class="st239" points="52.5,-0.8 47.9,4.7 55,6 			"/>
-			<polygon class="st240" points="67.3,39.9 62.7,45.4 69.8,46.7 			"/>
-			<polygon class="st241" points="5.4,16.3 0.8,21.9 7.9,23.1 			"/>
-			<polygon class="st242" points="20.3,57 15.6,62.5 22.7,63.8 			"/>
-			<polygon class="st243" points="71.7,15.3 67,20.8 74.1,22.1 			"/>
-			<polygon class="st244" points="6.3,-4.1 5.2,-2.8 12.3,-1.5 11.3,-4.1 			"/>
-			<polygon class="st245" points="24.6,32.4 20,37.9 27.1,39.2 			"/>
-			<polygon class="st246" points="39.4,73.1 37.8,75 40.1,75 			"/>
-			<polygon class="st247" points="48.1,23.8 43.5,29.4 50.6,30.6 			"/>
-			<polygon class="st248" points="63,64.5 58.3,70 65.4,71.3 			"/>
-			<polygon class="st249" points="1.1,41 -0.8,43.2 -0.8,47 3.6,47.7 			"/>
-			<polygon class="st250" points="78.4,7.3 76.3,9.7 73.9,2.9 78.4,3.7 			"/>
-			<polygon class="st251" points="33.9,21.3 29.3,26.9 26.8,20.1 			"/>
-			<polygon class="st252" points="48.7,62 44.1,67.6 41.6,60.8 			"/>
-			<polygon class="st253" points="57.4,12.8 52.8,18.3 50.3,11.5 			"/>
-			<polygon class="st254" points="72.2,53.5 67.6,59 65.1,52.2 			"/>
-			<polygon class="st255" points="10.4,29.9 5.8,35.4 3.3,28.6 			"/>
-			<polygon class="st256" points="25.2,70.6 21.5,75 20.2,75 18.1,69.3 			"/>
-			<polygon class="st257" points="76.6,28.8 72,34.4 69.5,27.6 			"/>
-			<polygon class="st258" points="14.7,5.3 10.1,10.8 7.6,4 			"/>
-			<polygon class="st259" points="29.6,46 24.9,51.5 22.4,44.7 			"/>
-			<polygon class="st260" points="38.3,-3.3 33.6,2.2 31.3,-4.1 33.5,-4.1 			"/>
-			<polygon class="st261" points="53.1,37.4 48.4,42.9 46,36.1 			"/>
-			<polygon class="st262" points="6,54.5 1.4,60.1 -0.8,54 -0.8,53.3 			"/>
-			<polygon class="st263" points="71.7,-4.1 71.4,-3.8 71.3,-4.1 			"/>
-			<polygon class="st264" points="29,7.8 24.3,13.3 21.9,6.5 			"/>
-			<polygon class="st265" points="43.8,48.5 39.2,54 36.7,47.2 			"/>
-			<polygon class="st266" points="52.5,-0.8 47.9,4.7 45.4,-2.1 			"/>
-			<polygon class="st267" points="67.3,39.9 62.7,45.4 60.2,38.6 			"/>
-			<polygon class="st268" points="5.4,16.3 0.8,21.9 -0.8,17.4 -0.8,15.2 			"/>
-			<polygon class="st269" points="20.3,57 15.6,62.6 13.2,55.8 			"/>
-			<polygon class="st270" points="71.7,15.3 67,20.8 64.6,14 			"/>
-			<polygon class="st271" points="6.3,-4.1 5.2,-2.8 4.7,-4.1 			"/>
-			<polygon class="st272" points="24.6,32.4 20,37.9 17.5,31.1 			"/>
-			<polygon class="st273" points="39.4,73.1 37.8,75 33.5,75 32.3,71.8 			"/>
-			<polygon class="st274" points="48.1,23.8 43.5,29.4 41,22.6 			"/>
-			<polygon class="st275" points="63,64.5 58.3,70.1 55.8,63.3 			"/>
-			<polygon class="st276" points="1.1,41 -0.8,43.2 -0.8,40.6 			"/>
-			<polygon class="st277" points="69.2,8.5 76.3,9.7 73.9,2.9 			"/>
-			<polygon class="st278" points="22.2,25.6 29.3,26.9 26.8,20.1 			"/>
-			<polygon class="st279" points="37,66.3 44.1,67.6 41.6,60.8 			"/>
-			<polygon class="st280" points="45.7,17 52.8,18.3 50.3,11.5 			"/>
-			<polygon class="st281" points="60.5,57.7 67.6,59 65.1,52.2 			"/>
-			<polygon class="st282" points="-0.8,34.3 5.8,35.4 3.3,28.6 -0.8,33.5 			"/>
-			<polygon class="st283" points="13.4,74.9 14.5,75 20.2,75 18.1,69.3 			"/>
-			<polygon class="st284" points="64.9,33.1 72,34.4 69.5,27.6 			"/>
-			<polygon class="st285" points="3,9.5 10.1,10.8 7.6,4 			"/>
-			<polygon class="st286" points="17.8,50.2 24.9,51.5 22.4,44.7 			"/>
-			<polygon class="st287" points="26.5,1 33.6,2.2 31.3,-4.1 30.8,-4.1 			"/>
-			<polygon class="st288" points="41.3,41.7 48.5,42.9 46,36.1 			"/>
-			<polygon class="st289" points="-0.8,59.7 1.4,60.1 -0.8,53.9 			"/>
-			<polygon class="st290" points="69.6,-4.1 71.4,-3.8 71.3,-4.1 			"/>
-			<polygon class="st291" points="17.2,12 24.3,13.3 21.9,6.5 			"/>
-			<polygon class="st292" points="32,52.7 39.2,54 36.7,47.2 			"/>
-			<polygon class="st293" points="40.7,3.5 47.9,4.7 45.4,-2.1 			"/>
-			<polygon class="st294" points="55.6,44.2 62.7,45.4 60.2,38.6 			"/>
-			<polygon class="st295" points="-0.8,21.6 0.8,21.9 -0.8,17.3 			"/>
-			<polygon class="st296" points="8.5,61.3 15.6,62.6 13.2,55.7 			"/>
-			<polygon class="st297" points="59.9,19.5 67,20.8 64.6,14 			"/>
-			<polygon class="st298" points="74.7,60.2 78.4,60.9 78.4,55.9 			"/>
-			<polygon class="st299" points="-0.8,-3.8 5.2,-2.8 4.7,-4.1 -0.8,-4.1 			"/>
-			<polygon class="st300" points="12.9,36.7 20,37.9 17.5,31.1 			"/>
-			<polygon class="st301" points="33.5,75 32.3,71.8 29.6,75 			"/>
-			<polygon class="st302" points="36.4,28.1 43.5,29.4 41,22.6 			"/>
-			<polygon class="st303" points="51.2,68.8 58.3,70.1 55.8,63.3 			"/>
-			<polygon class="st304" points="69.2,8.5 76.3,9.7 71.7,15.3 			"/>
-			<polygon class="st305" points="22.2,25.6 29.3,26.9 24.6,32.4 			"/>
-			<polygon class="st306" points="37,66.3 44.1,67.5 39.5,73.1 			"/>
-			<polygon class="st307" points="45.7,17 52.8,18.3 48.2,23.8 			"/>
-			<polygon class="st308" points="60.5,57.7 67.6,59 63,64.5 			"/>
-			<polygon class="st309" points="-0.8,34.3 5.8,35.4 1.1,41 -0.8,35.6 			"/>
-			<polygon class="st310" points="13.4,74.9 14.5,75 13.5,75 			"/>
-			<polygon class="st311" points="55.3,-4.1 52.5,-0.8 51.3,-4.1 			"/>
-			<polygon class="st312" points="64.9,33.1 72,34.4 67.3,39.9 			"/>
-			<polygon class="st313" points="3,9.5 10.1,10.8 5.5,16.3 			"/>
-			<polygon class="st314" points="17.8,50.2 24.9,51.5 20.3,57 			"/>
-			<polygon class="st315" points="26.5,1 33.6,2.2 29,7.8 			"/>
-			<polygon class="st316" points="41.3,41.7 48.5,42.9 43.8,48.5 			"/>
-			<polygon class="st317" points="-0.8,59.7 1.4,60 -0.8,62.7 			"/>
-			<polygon class="st318" points="69.7,-4.1 71.4,-3.8 66.8,1.7 64.6,-4.1 			"/>
-			<polygon class="st319" points="17.2,12 24.3,13.3 19.7,18.8 			"/>
-			<polygon class="st320" points="32,52.7 39.2,54 34.5,59.5 			"/>
-			<polygon class="st321" points="40.7,3.5 47.9,4.7 43.2,10.3 			"/>
-			<polygon class="st322" points="55.6,44.2 62.7,45.4 58,51 			"/>
-			<polygon class="st323" points="-0.8,21.6 0.8,21.9 -0.8,23.8 			"/>
-			<polygon class="st324" points="8.5,61.3 15.6,62.5 11,68.1 			"/>
-			<polygon class="st321" points="40.7,3.5 47.9,4.7 43.2,10.3 			"/>
-			<polygon class="st322" points="55.6,44.2 62.7,45.4 58,51 			"/>
-			<polygon class="st323" points="-0.8,21.6 0.8,21.9 -0.8,23.8 			"/>
-			<polygon class="st324" points="8.5,61.3 15.6,62.5 11,68.1 			"/>
-			<polygon class="st325" points="59.9,19.5 67,20.8 62.4,26.3 			"/>
-			<polygon class="st326" points="74.7,60.2 78.4,60.9 78.4,65.7 77.2,67 			"/>
-			<polygon class="st327" points="-0.8,-3.8 5.2,-2.8 0.5,2.8 -0.8,-1 			"/>
-			<polygon class="st328" points="12.9,36.7 20,37.9 15.3,43.5 			"/>
-			<polygon class="st329" points="36.4,28.1 43.5,29.4 38.9,34.9 			"/>
-			<polygon class="st330" points="51.2,68.8 58.3,70 54.1,75 53.5,75 			"/>
-		</g>
-	</g>
-</g>
-</svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generator: Adobe Illustrator 19.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="Ebene_1"
+   x="0px"
+   y="0px"
+   viewBox="0 0 219.8 71.8"
+   style="enable-background:new 0 0 219.8 71.8;"
+   xml:space="preserve"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="Logo.svg"><metadata
+     id="metadata832"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
+     id="defs830"><defs
+       id="defs20"><path
+         id="SVGID_1_"
+         d="m 57.7,67.1 -0.1,-37.4 -12.7,31.1 -12.3,0 -12.7,-31.2 0,37.4 -16.5,0 0,-63.2 20.1,0 15.2,35 15.3,-35 20.1,0 0,63.2 -16.4,0 z"
+         inkscape:connector-curvature="0" /></defs><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath6257"><use
+         height="100%"
+         width="100%"
+         y="0"
+         x="0"
+         id="use6259"
+         style="overflow:visible"
+         xlink:href="#SVGID_1_"
+         transform="matrix(11.109351,0,0,12.734021,-206.26252,-195.62743)" /></clipPath></defs><sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="999"
+     id="namedview828"
+     showgrid="false"
+     inkscape:zoom="2.6842584"
+     inkscape:cx="72.64999"
+     inkscape:cy="20.875089"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="Ebene_1" /><style
+     type="text/css"
+     id="style3">
+	.st0{clip-path:url(#SVGID_2_);}
+	.st1{fill-rule:evenodd;clip-rule:evenodd;fill:#FBC520;}
+	.st2{fill-rule:evenodd;clip-rule:evenodd;fill:#FFBA00;}
+	.st3{fill-rule:evenodd;clip-rule:evenodd;fill:#8B1A34;}
+	.st4{fill-rule:evenodd;clip-rule:evenodd;fill:#991937;}
+	.st5{fill-rule:evenodd;clip-rule:evenodd;fill:#E6D380;}
+	.st6{fill-rule:evenodd;clip-rule:evenodd;fill:#F8D57D;}
+	.st7{fill-rule:evenodd;clip-rule:evenodd;fill:#CACD7F;}
+	.st8{fill-rule:evenodd;clip-rule:evenodd;fill:#DED277;}
+	.st9{fill-rule:evenodd;clip-rule:evenodd;fill:#FFB25A;}
+	.st10{fill-rule:evenodd;clip-rule:evenodd;fill:#FFB040;}
+	.st11{fill-rule:evenodd;clip-rule:evenodd;fill:#D78052;}
+	.st12{fill-rule:evenodd;clip-rule:evenodd;fill:#C96C4F;}
+	.st13{fill-rule:evenodd;clip-rule:evenodd;fill:#77B982;}
+	.st14{fill-rule:evenodd;clip-rule:evenodd;fill:#006E7A;}
+	.st15{fill-rule:evenodd;clip-rule:evenodd;fill:#00727A;}
+	.st16{fill-rule:evenodd;clip-rule:evenodd;fill:#FFC15E;}
+	.st17{fill-rule:evenodd;clip-rule:evenodd;fill:#FFAB58;}
+	.st18{fill-rule:evenodd;clip-rule:evenodd;fill:#FFC375;}
+	.st19{fill-rule:evenodd;clip-rule:evenodd;fill:#FFBF74;}
+	.st20{fill-rule:evenodd;clip-rule:evenodd;fill:#FF9035;}
+	.st21{fill-rule:evenodd;clip-rule:evenodd;fill:#FF7B1F;}
+	.st22{fill-rule:evenodd;clip-rule:evenodd;fill:#E67B53;}
+	.st23{fill-rule:evenodd;clip-rule:evenodd;fill:#E38150;}
+	.st24{fill-rule:evenodd;clip-rule:evenodd;fill:#7F232D;}
+	.st25{fill-rule:evenodd;clip-rule:evenodd;fill:#7B1F2D;}
+	.st26{fill-rule:evenodd;clip-rule:evenodd;fill:#EB9C3B;}
+	.st27{fill-rule:evenodd;clip-rule:evenodd;fill:#5DAA89;}
+	.st28{fill-rule:evenodd;clip-rule:evenodd;fill:#84B084;}
+	.st29{fill-rule:evenodd;clip-rule:evenodd;fill:#FFBB00;}
+	.st30{fill-rule:evenodd;clip-rule:evenodd;fill:#FF9A00;}
+	.st31{fill-rule:evenodd;clip-rule:evenodd;fill:#A31C3A;}
+	.st32{fill-rule:evenodd;clip-rule:evenodd;fill:#A71F3A;}
+	.st33{fill-rule:evenodd;clip-rule:evenodd;fill:#F8D47F;}
+	.st34{fill-rule:evenodd;clip-rule:evenodd;fill:#FFD276;}
+	.st35{fill-rule:evenodd;clip-rule:evenodd;fill:#E2CC6F;}
+	.st36{fill-rule:evenodd;clip-rule:evenodd;fill:#EBD47B;}
+	.st37{fill-rule:evenodd;clip-rule:evenodd;fill:#FFA83A;}
+	.st38{fill-rule:evenodd;clip-rule:evenodd;fill:#FFBF4A;}
+	.st39{fill-rule:evenodd;clip-rule:evenodd;fill:#BE604C;}
+	.st40{fill-rule:evenodd;clip-rule:evenodd;fill:#C86A4C;}
+	.st41{fill-rule:evenodd;clip-rule:evenodd;fill:#81BA89;}
+	.st42{fill-rule:evenodd;clip-rule:evenodd;fill:#BAC383;}
+	.st43{fill-rule:evenodd;clip-rule:evenodd;fill:#007E7E;}
+	.st44{fill-rule:evenodd;clip-rule:evenodd;fill:#2F9082;}
+	.st45{fill-rule:evenodd;clip-rule:evenodd;fill:#FFA658;}
+	.st46{fill-rule:evenodd;clip-rule:evenodd;fill:#FC944E;}
+	.st47{fill-rule:evenodd;clip-rule:evenodd;fill:#FFBD71;}
+	.st48{fill-rule:evenodd;clip-rule:evenodd;fill:#FFB977;}
+	.st49{fill-rule:evenodd;clip-rule:evenodd;fill:#FF7814;}
+	.st50{fill-rule:evenodd;clip-rule:evenodd;fill:#DF7650;}
+	.st51{fill-rule:evenodd;clip-rule:evenodd;fill:#E89C4D;}
+	.st52{fill-rule:evenodd;clip-rule:evenodd;fill:#731A2B;}
+	.st53{fill-rule:evenodd;clip-rule:evenodd;fill:#751B2A;}
+	.st54{fill-rule:evenodd;clip-rule:evenodd;fill:#EFA33D;}
+	.st55{fill-rule:evenodd;clip-rule:evenodd;fill:#EAAF3B;}
+	.st56{fill-rule:evenodd;clip-rule:evenodd;fill:#8AAE82;}
+	.st57{fill-rule:evenodd;clip-rule:evenodd;fill:#AEB782;}
+	.st58{fill-rule:evenodd;clip-rule:evenodd;fill:#FF9B00;}
+	.st59{fill-rule:evenodd;clip-rule:evenodd;fill:#FF8D00;}
+	.st60{fill-rule:evenodd;clip-rule:evenodd;fill:#A9203A;}
+	.st61{fill-rule:evenodd;clip-rule:evenodd;fill:#B5343A;}
+	.st62{fill-rule:evenodd;clip-rule:evenodd;fill:#FFD478;}
+	.st63{fill-rule:evenodd;clip-rule:evenodd;fill:#FFD776;}
+	.st64{fill-rule:evenodd;clip-rule:evenodd;fill:#E9D57D;}
+	.st65{fill-rule:evenodd;clip-rule:evenodd;fill:#E4D484;}
+	.st66{fill-rule:evenodd;clip-rule:evenodd;fill:#FFBA43;}
+	.st67{fill-rule:evenodd;clip-rule:evenodd;fill:#FFA62F;}
+	.st68{fill-rule:evenodd;clip-rule:evenodd;fill:#CE714B;}
+	.st69{fill-rule:evenodd;clip-rule:evenodd;fill:#E79244;}
+	.st70{fill-rule:evenodd;clip-rule:evenodd;fill:#C9C27D;}
+	.st71{fill-rule:evenodd;clip-rule:evenodd;fill:#268D82;}
+	.st72{fill-rule:evenodd;clip-rule:evenodd;fill:#038D83;}
+	.st73{fill-rule:evenodd;clip-rule:evenodd;fill:#FF9D51;}
+	.st74{fill-rule:evenodd;clip-rule:evenodd;fill:#FFAC53;}
+	.st75{fill-rule:evenodd;clip-rule:evenodd;fill:#FFBC78;}
+	.st76{fill-rule:evenodd;clip-rule:evenodd;fill:#FFC47C;}
+	.st77{fill-rule:evenodd;clip-rule:evenodd;fill:#D17D4D;}
+	.st78{fill-rule:evenodd;clip-rule:evenodd;fill:#E89C4C;}
+	.st79{fill-rule:evenodd;clip-rule:evenodd;fill:#F6B857;}
+	.st80{fill-rule:evenodd;clip-rule:evenodd;fill:#7B1F2C;}
+	.st81{fill-rule:evenodd;clip-rule:evenodd;fill:#8A282F;}
+	.st82{fill-rule:evenodd;clip-rule:evenodd;fill:#E4A83B;}
+	.st83{fill-rule:evenodd;clip-rule:evenodd;fill:#D97D2E;}
+	.st84{fill-rule:evenodd;clip-rule:evenodd;fill:#A7B883;}
+	.st85{fill-rule:evenodd;clip-rule:evenodd;fill:#A4BF8A;}
+	.st86{fill-rule:evenodd;clip-rule:evenodd;fill:#FF9100;}
+	.st87{fill-rule:evenodd;clip-rule:evenodd;fill:#FA9E00;}
+	.st88{fill-rule:evenodd;clip-rule:evenodd;fill:#B7383C;}
+	.st89{fill-rule:evenodd;clip-rule:evenodd;fill:#B4343F;}
+	.st90{fill-rule:evenodd;clip-rule:evenodd;fill:#FFDA77;}
+	.st91{fill-rule:evenodd;clip-rule:evenodd;fill:#F8D479;}
+	.st92{fill-rule:evenodd;clip-rule:evenodd;fill:#D6D288;}
+	.st93{fill-rule:evenodd;clip-rule:evenodd;fill:#B7C68A;}
+	.st94{fill-rule:evenodd;clip-rule:evenodd;fill:#FB9831;}
+	.st95{fill-rule:evenodd;clip-rule:evenodd;fill:#F48F41;}
+	.st96{fill-rule:evenodd;clip-rule:evenodd;fill:#EF9E42;}
+	.st97{fill-rule:evenodd;clip-rule:evenodd;fill:#F5A94E;}
+	.st98{fill-rule:evenodd;clip-rule:evenodd;fill:#008380;}
+	.st99{fill-rule:evenodd;clip-rule:evenodd;fill:#006977;}
+	.st100{fill-rule:evenodd;clip-rule:evenodd;fill:#F29C31;}
+	.st101{fill-rule:evenodd;clip-rule:evenodd;fill:#FFB052;}
+	.st102{fill-rule:evenodd;clip-rule:evenodd;fill:#FFB051;}
+	.st103{fill-rule:evenodd;clip-rule:evenodd;fill:#FFC87C;}
+	.st104{fill-rule:evenodd;clip-rule:evenodd;fill:#FFCB7E;}
+	.st105{fill-rule:evenodd;clip-rule:evenodd;fill:#D98A51;}
+	.st106{fill-rule:evenodd;clip-rule:evenodd;fill:#E6A457;}
+	.st107{fill-rule:evenodd;clip-rule:evenodd;fill:#F3A944;}
+	.st108{fill-rule:evenodd;clip-rule:evenodd;fill:#ED8F45;}
+	.st109{fill-rule:evenodd;clip-rule:evenodd;fill:#8A3337;}
+	.st110{fill-rule:evenodd;clip-rule:evenodd;fill:#74474C;}
+	.st111{fill-rule:evenodd;clip-rule:evenodd;fill:#93BC8B;}
+	.st112{fill-rule:evenodd;clip-rule:evenodd;fill:#71B785;}
+	.st113{fill-rule:evenodd;clip-rule:evenodd;fill:#F7BE06;}
+	.st114{fill-rule:evenodd;clip-rule:evenodd;fill:#B93B44;}
+	.st115{fill-rule:evenodd;clip-rule:evenodd;fill:#A22C3B;}
+	.st116{fill-rule:evenodd;clip-rule:evenodd;fill:#FACF6E;}
+	.st117{fill-rule:evenodd;clip-rule:evenodd;fill:#E8CD7A;}
+	.st118{fill-rule:evenodd;clip-rule:evenodd;fill:#B0C38A;}
+	.st119{fill-rule:evenodd;clip-rule:evenodd;fill:#A1BC88;}
+	.st120{fill-rule:evenodd;clip-rule:evenodd;fill:#D03408;}
+	.st121{fill-rule:evenodd;clip-rule:evenodd;fill:#DA4108;}
+	.st122{fill-rule:evenodd;clip-rule:evenodd;fill:#F48F43;}
+	.st123{fill-rule:evenodd;clip-rule:evenodd;fill:#FFB059;}
+	.st124{fill-rule:evenodd;clip-rule:evenodd;fill:#FAAE4C;}
+	.st125{fill-rule:evenodd;clip-rule:evenodd;fill:#F5B167;}
+	.st126{fill-rule:evenodd;clip-rule:evenodd;fill:#006877;}
+	.st127{fill-rule:evenodd;clip-rule:evenodd;fill:#005B72;}
+	.st128{fill-rule:evenodd;clip-rule:evenodd;fill:#F4A231;}
+	.st129{fill-rule:evenodd;clip-rule:evenodd;fill:#E99F50;}
+	.st130{fill-rule:evenodd;clip-rule:evenodd;fill:#FFAC48;}
+	.st131{fill-rule:evenodd;clip-rule:evenodd;fill:#FFBC48;}
+	.st132{fill-rule:evenodd;clip-rule:evenodd;fill:#FFCD7F;}
+	.st133{fill-rule:evenodd;clip-rule:evenodd;fill:#F4C47B;}
+	.st134{fill-rule:evenodd;clip-rule:evenodd;fill:#E8AF5C;}
+	.st135{fill-rule:evenodd;clip-rule:evenodd;fill:#EE8E3E;}
+	.st136{fill-rule:evenodd;clip-rule:evenodd;fill:#E78052;}
+	.st137{fill-rule:evenodd;clip-rule:evenodd;fill:#854A49;}
+	.st138{fill-rule:evenodd;clip-rule:evenodd;fill:#943938;}
+	.st139{fill-rule:evenodd;clip-rule:evenodd;fill:#72B880;}
+	.st140{fill-rule:evenodd;clip-rule:evenodd;fill:#4CAE87;}
+	.st141{fill-rule:evenodd;clip-rule:evenodd;fill:#F5BF09;}
+	.st142{fill-rule:evenodd;clip-rule:evenodd;fill:#FCCE4A;}
+	.st143{fill-rule:evenodd;clip-rule:evenodd;fill:#9D2A39;}
+	.st144{fill-rule:evenodd;clip-rule:evenodd;fill:#8A1E34;}
+	.st145{fill-rule:evenodd;clip-rule:evenodd;fill:#E9CE7B;}
+	.st146{fill-rule:evenodd;clip-rule:evenodd;fill:#DDD181;}
+	.st147{fill-rule:evenodd;clip-rule:evenodd;fill:#A7BF87;}
+	.st148{fill-rule:evenodd;clip-rule:evenodd;fill:#BDC681;}
+	.st149{fill-rule:evenodd;clip-rule:evenodd;fill:#DF5008;}
+	.st150{fill-rule:evenodd;clip-rule:evenodd;fill:#FFB158;}
+	.st151{fill-rule:evenodd;clip-rule:evenodd;fill:#FFBA63;}
+	.st152{fill-rule:evenodd;clip-rule:evenodd;fill:#F3AC63;}
+	.st153{fill-rule:evenodd;clip-rule:evenodd;fill:#E18F54;}
+	.st154{fill-rule:evenodd;clip-rule:evenodd;fill:#006476;}
+	.st155{fill-rule:evenodd;clip-rule:evenodd;fill:#006A79;}
+	.st156{fill-rule:evenodd;clip-rule:evenodd;fill:#E5964D;}
+	.st157{fill-rule:evenodd;clip-rule:evenodd;fill:#CF6E3C;}
+	.st158{fill-rule:evenodd;clip-rule:evenodd;fill:#FFBD4B;}
+	.st159{fill-rule:evenodd;clip-rule:evenodd;fill:#FFC85C;}
+	.st160{fill-rule:evenodd;clip-rule:evenodd;fill:#F6C47A;}
+	.st161{fill-rule:evenodd;clip-rule:evenodd;fill:#FAC275;}
+	.st162{fill-rule:evenodd;clip-rule:evenodd;fill:#FF8130;}
+	.st163{fill-rule:evenodd;clip-rule:evenodd;fill:#FF8E32;}
+	.st164{fill-rule:evenodd;clip-rule:evenodd;fill:#E97E55;}
+	.st165{fill-rule:evenodd;clip-rule:evenodd;fill:#853135;}
+	.st166{fill-rule:evenodd;clip-rule:evenodd;fill:#802830;}
+	.st167{fill-rule:evenodd;clip-rule:evenodd;fill:#50AF88;}
+	.st168{fill-rule:evenodd;clip-rule:evenodd;fill:#4BA78A;}
+	.st169{fill-rule:evenodd;clip-rule:evenodd;fill:#F99E1C;}
+	.st170{fill-rule:evenodd;clip-rule:evenodd;fill:#F59322;}
+	.st171{fill-rule:evenodd;clip-rule:evenodd;fill:#FFCC79;}
+	.st172{fill-rule:evenodd;clip-rule:evenodd;fill:#FFC879;}
+	.st173{fill-rule:evenodd;clip-rule:evenodd;fill:#EDB462;}
+	.st174{fill-rule:evenodd;clip-rule:evenodd;fill:#DF9555;}
+	.st175{fill-rule:evenodd;clip-rule:evenodd;fill:#F6A428;}
+	.st176{fill-rule:evenodd;clip-rule:evenodd;fill:#F9B341;}
+	.st177{fill-rule:evenodd;clip-rule:evenodd;fill:#A84E3A;}
+	.st178{fill-rule:evenodd;clip-rule:evenodd;fill:#9C3838;}
+	.st179{fill-rule:evenodd;clip-rule:evenodd;fill:#9EC38A;}
+	.st180{fill-rule:evenodd;clip-rule:evenodd;fill:#A1C28A;}
+	.st181{fill-rule:evenodd;clip-rule:evenodd;fill:#FF7D00;}
+	.st182{fill-rule:evenodd;clip-rule:evenodd;fill:#FF8000;}
+	.st183{fill-rule:evenodd;clip-rule:evenodd;fill:#CA5F4B;}
+	.st184{fill-rule:evenodd;clip-rule:evenodd;fill:#C25140;}
+	.st185{fill-rule:evenodd;clip-rule:evenodd;fill:#FFCE46;}
+	.st186{fill-rule:evenodd;clip-rule:evenodd;fill:#FFD45B;}
+	.st187{fill-rule:evenodd;clip-rule:evenodd;fill:#C3BD83;}
+	.st188{fill-rule:evenodd;clip-rule:evenodd;fill:#D5CB89;}
+	.st189{fill-rule:evenodd;clip-rule:evenodd;fill:#E8803E;}
+	.st190{fill-rule:evenodd;clip-rule:evenodd;fill:#F89033;}
+	.st191{fill-rule:evenodd;clip-rule:evenodd;fill:#FFB049;}
+	.st192{fill-rule:evenodd;clip-rule:evenodd;fill:#F8A93F;}
+	.st193{fill-rule:evenodd;clip-rule:evenodd;fill:#008883;}
+	.st194{fill-rule:evenodd;clip-rule:evenodd;fill:#008A83;}
+	.st195{fill-rule:evenodd;clip-rule:evenodd;fill:#EF6401;}
+	.st196{fill-rule:evenodd;clip-rule:evenodd;fill:#E35205;}
+	.st197{fill-rule:evenodd;clip-rule:evenodd;fill:#FFC064;}
+	.st198{fill-rule:evenodd;clip-rule:evenodd;fill:#FFB65E;}
+	.st199{fill-rule:evenodd;clip-rule:evenodd;fill:#FAD17E;}
+	.st200{fill-rule:evenodd;clip-rule:evenodd;fill:#FFD080;}
+	.st201{fill-rule:evenodd;clip-rule:evenodd;fill:#005771;}
+	.st202{fill-rule:evenodd;clip-rule:evenodd;fill:#FFC965;}
+	.st203{fill-rule:evenodd;clip-rule:evenodd;fill:#FFC53D;}
+	.st204{fill-rule:evenodd;clip-rule:evenodd;fill:#CF5B4D;}
+	.st205{fill-rule:evenodd;clip-rule:evenodd;fill:#B94046;}
+	.st206{fill-rule:evenodd;clip-rule:evenodd;fill:#D9B065;}
+	.st207{fill-rule:evenodd;clip-rule:evenodd;fill:#E6C67B;}
+	.st208{fill-rule:evenodd;clip-rule:evenodd;fill:#A7C091;}
+	.st209{fill-rule:evenodd;clip-rule:evenodd;fill:#A9BF8E;}
+	.st210{fill-rule:evenodd;clip-rule:evenodd;fill:#FCCB6A;}
+	.st211{fill-rule:evenodd;clip-rule:evenodd;fill:#F8C670;}
+	.st212{fill-rule:evenodd;clip-rule:evenodd;fill:#81202C;}
+	.st213{fill-rule:evenodd;clip-rule:evenodd;fill:#F09331;}
+	.st214{fill-rule:evenodd;clip-rule:evenodd;fill:#FFB438;}
+	.st215{fill-rule:evenodd;clip-rule:evenodd;fill:#D4C786;}
+	.st216{fill-rule:evenodd;clip-rule:evenodd;fill:#E4C380;}
+	.st217{fill-rule:evenodd;clip-rule:evenodd;fill:#FBA168;}
+	.st218{fill-rule:evenodd;clip-rule:evenodd;fill:#F18C5A;}
+	.st219{fill-rule:evenodd;clip-rule:evenodd;fill:#BE5E44;}
+	.st220{fill-rule:evenodd;clip-rule:evenodd;fill:#B04C3C;}
+	.st221{fill-rule:evenodd;clip-rule:evenodd;fill:#42AE87;}
+	.st222{fill-rule:evenodd;clip-rule:evenodd;fill:#EC7D10;}
+	.st223{fill-rule:evenodd;clip-rule:evenodd;fill:#FFC16C;}
+	.st224{fill-rule:evenodd;clip-rule:evenodd;fill:#EBA963;}
+	.st225{fill-rule:evenodd;clip-rule:evenodd;fill:#FFD25C;}
+	.st226{fill-rule:evenodd;clip-rule:evenodd;fill:#922937;}
+	.st227{fill-rule:evenodd;clip-rule:evenodd;fill:#D7D38A;}
+	.st228{fill-rule:evenodd;clip-rule:evenodd;fill:#9EB681;}
+	.st229{fill-rule:evenodd;clip-rule:evenodd;fill:#D57C48;}
+	.st230{fill-rule:evenodd;clip-rule:evenodd;fill:#FFCF52;}
+	.st231{fill-rule:evenodd;clip-rule:evenodd;fill:#ECBE78;}
+	.st232{fill-rule:evenodd;clip-rule:evenodd;fill:#FF8733;}
+	.st233{fill-rule:evenodd;clip-rule:evenodd;fill:#F18B5A;}
+	.st234{fill-rule:evenodd;clip-rule:evenodd;fill:#2F9C88;}
+	.st235{fill-rule:evenodd;clip-rule:evenodd;fill:#D83E06;}
+	.st236{fill-rule:evenodd;clip-rule:evenodd;fill:#F89A51;}
+	.st237{fill-rule:evenodd;clip-rule:evenodd;fill:#FFB765;}
+	.st238{fill-rule:evenodd;clip-rule:evenodd;fill:#FF8C09;}
+	.st239{fill-rule:evenodd;clip-rule:evenodd;fill:#C94449;}
+	.st240{fill-rule:evenodd;clip-rule:evenodd;fill:#EEAF58;}
+	.st241{fill-rule:evenodd;clip-rule:evenodd;fill:#8DB286;}
+	.st242{fill-rule:evenodd;clip-rule:evenodd;fill:#FBB937;}
+	.st243{fill-rule:evenodd;clip-rule:evenodd;fill:#F7923B;}
+	.st244{fill-rule:evenodd;clip-rule:evenodd;fill:#F5D183;}
+	.st245{fill-rule:evenodd;clip-rule:evenodd;fill:#E6B35D;}
+	.st246{fill-rule:evenodd;clip-rule:evenodd;fill:#F38B3F;}
+	.st247{fill-rule:evenodd;clip-rule:evenodd;fill:#AE4E44;}
+	.st248{fill-rule:evenodd;clip-rule:evenodd;fill:#66B67D;}
+	.st249{fill-rule:evenodd;clip-rule:evenodd;fill:#ED7B0D;}
+	.st250{fill-rule:evenodd;clip-rule:evenodd;fill:#FFC46E;}
+	.st251{fill-rule:evenodd;clip-rule:evenodd;fill:#F9C87A;}
+	.st252{fill-rule:evenodd;clip-rule:evenodd;fill:#FFC333;}
+	.st253{fill-rule:evenodd;clip-rule:evenodd;fill:#A3383D;}
+	.st254{fill-rule:evenodd;clip-rule:evenodd;fill:#DFD892;}
+	.st255{fill-rule:evenodd;clip-rule:evenodd;fill:#75AB83;}
+	.st256{fill-rule:evenodd;clip-rule:evenodd;fill:#E2975C;}
+	.st257{fill-rule:evenodd;clip-rule:evenodd;fill:#FFCE3F;}
+	.st258{fill-rule:evenodd;clip-rule:evenodd;fill:#DCBB79;}
+	.st259{fill-rule:evenodd;clip-rule:evenodd;fill:#F38037;}
+	.st260{fill-rule:evenodd;clip-rule:evenodd;fill:#F8975F;}
+	.st261{fill-rule:evenodd;clip-rule:evenodd;fill:#1D9988;}
+	.st262{fill-rule:evenodd;clip-rule:evenodd;fill:#E65003;}
+	.st263{fill-rule:evenodd;clip-rule:evenodd;fill:#FFAB5A;}
+	.st264{fill-rule:evenodd;clip-rule:evenodd;fill:#FFBD6E;}
+	.st265{fill-rule:evenodd;clip-rule:evenodd;fill:#FF942D;}
+	.st266{fill-rule:evenodd;clip-rule:evenodd;fill:#D6534F;}
+	.st267{fill-rule:evenodd;clip-rule:evenodd;fill:#E49E4F;}
+	.st268{fill-rule:evenodd;clip-rule:evenodd;fill:#79AC85;}
+	.st269{fill-rule:evenodd;clip-rule:evenodd;fill:#FFC747;}
+	.st270{fill-rule:evenodd;clip-rule:evenodd;fill:#DB7335;}
+	.st271{fill-rule:evenodd;clip-rule:evenodd;fill:#E9D185;}
+	.st272{fill-rule:evenodd;clip-rule:evenodd;fill:#E1BC66;}
+	.st273{fill-rule:evenodd;clip-rule:evenodd;fill:#F9974A;}
+	.st274{fill-rule:evenodd;clip-rule:evenodd;fill:#B95A48;}
+	.st275{fill-rule:evenodd;clip-rule:evenodd;fill:#69B77D;}
+	.st276{fill-rule:evenodd;clip-rule:evenodd;fill:#F68800;}
+	.st277{fill-rule:evenodd;clip-rule:evenodd;fill:#FFC76E;}
+	.st278{fill-rule:evenodd;clip-rule:evenodd;fill:#FBD480;}
+	.st279{fill-rule:evenodd;clip-rule:evenodd;fill:#FFCB53;}
+	.st280{fill-rule:evenodd;clip-rule:evenodd;fill:#B04A46;}
+	.st281{fill-rule:evenodd;clip-rule:evenodd;fill:#CFCF8C;}
+	.st282{fill-rule:evenodd;clip-rule:evenodd;fill:#6FA787;}
+	.st283{fill-rule:evenodd;clip-rule:evenodd;fill:#E9A964;}
+	.st284{fill-rule:evenodd;clip-rule:evenodd;fill:#FFC035;}
+	.st285{fill-rule:evenodd;clip-rule:evenodd;fill:#C9B77B;}
+	.st286{fill-rule:evenodd;clip-rule:evenodd;fill:#F28441;}
+	.st287{fill-rule:evenodd;clip-rule:evenodd;fill:#FFA46B;}
+	.st288{fill-rule:evenodd;clip-rule:evenodd;fill:#239C88;}
+	.st289{fill-rule:evenodd;clip-rule:evenodd;fill:#E85302;}
+	.st290{fill-rule:evenodd;clip-rule:evenodd;fill:#FFC362;}
+	.st291{fill-rule:evenodd;clip-rule:evenodd;fill:#FFC172;}
+	.st292{fill-rule:evenodd;clip-rule:evenodd;fill:#FF8F35;}
+	.st293{fill-rule:evenodd;clip-rule:evenodd;fill:#E46E54;}
+	.st294{fill-rule:evenodd;clip-rule:evenodd;fill:#E09949;}
+	.st295{fill-rule:evenodd;clip-rule:evenodd;fill:#5EA487;}
+	.st296{fill-rule:evenodd;clip-rule:evenodd;fill:#FFCA41;}
+	.st297{fill-rule:evenodd;clip-rule:evenodd;fill:#871B32;}
+	.st298{fill-rule:evenodd;clip-rule:evenodd;fill:#D5712B;}
+	.st299{fill-rule:evenodd;clip-rule:evenodd;fill:#E0D285;}
+	.st300{fill-rule:evenodd;clip-rule:evenodd;fill:#D3C472;}
+	.st301{fill-rule:evenodd;clip-rule:evenodd;fill:#FFAC5B;}
+	.st302{fill-rule:evenodd;clip-rule:evenodd;fill:#C9714D;}
+	.st303{fill-rule:evenodd;clip-rule:evenodd;fill:#FDB010;}
+	.st304{fill-rule:evenodd;clip-rule:evenodd;fill:#FFD17D;}
+	.st305{fill-rule:evenodd;clip-rule:evenodd;fill:#EDBD62;}
+	.st306{fill-rule:evenodd;clip-rule:evenodd;fill:#FBA02A;}
+	.st307{fill-rule:evenodd;clip-rule:evenodd;fill:#AE5240;}
+	.st308{fill-rule:evenodd;clip-rule:evenodd;fill:#87BC86;}
+	.st309{fill-rule:evenodd;clip-rule:evenodd;fill:#2D8D82;}
+	.st310{fill-rule:evenodd;clip-rule:evenodd;fill:#FF7809;}
+	.st311{fill-rule:evenodd;clip-rule:evenodd;fill:#D0604D;}
+	.st312{fill-rule:evenodd;clip-rule:evenodd;fill:#FFC241;}
+	.st313{fill-rule:evenodd;clip-rule:evenodd;fill:#ADB580;}
+	.st314{fill-rule:evenodd;clip-rule:evenodd;fill:#EF8A49;}
+	.st315{fill-rule:evenodd;clip-rule:evenodd;fill:#FFB461;}
+	.st316{fill-rule:evenodd;clip-rule:evenodd;fill:#008C85;}
+	.st317{fill-rule:evenodd;clip-rule:evenodd;fill:#FA7B00;}
+	.st318{fill-rule:evenodd;clip-rule:evenodd;fill:#FFCD6E;}
+	.st319{fill-rule:evenodd;clip-rule:evenodd;fill:#F0D07C;}
+	.st320{fill-rule:evenodd;clip-rule:evenodd;fill:#FFBF54;}
+	.st321{fill-rule:evenodd;clip-rule:evenodd;fill:#DE784D;}
+	.st322{fill-rule:evenodd;clip-rule:evenodd;fill:#DDA759;}
+	.st323{fill-rule:evenodd;clip-rule:evenodd;fill:#5EA489;}
+	.st324{fill-rule:evenodd;clip-rule:evenodd;fill:#FAC862;}
+	.st325{fill-rule:evenodd;clip-rule:evenodd;fill:#89242D;}
+	.st326{fill-rule:evenodd;clip-rule:evenodd;fill:#E3822B;}
+	.st327{fill-rule:evenodd;clip-rule:evenodd;fill:#C0C589;}
+	.st328{fill-rule:evenodd;clip-rule:evenodd;fill:#FFB574;}
+	.st329{fill-rule:evenodd;clip-rule:evenodd;fill:#C96C49;}
+</style><g
+     id="Color" /><g
+     id="g4381"><path
+       style="fill:#e8e8e8;fill-opacity:1"
+       inkscape:connector-curvature="0"
+       id="path10"
+       d="m 111.3,51.3 c 0,9.6 -6.8,16.1 -16.9,16.1 -10.2,0 -17,-6.5 -17,-16.1 0,-9.7 6.8,-16.1 17,-16.1 10.1,0 16.9,6.4 16.9,16.1 z m -24.8,0.1 c 0,5.2 3.2,8.7 7.9,8.7 4.6,0 7.9,-3.5 7.9,-8.7 0,-5.2 -3.2,-8.7 -7.9,-8.7 -4.7,0 -7.9,3.5 -7.9,8.7 z" /><path
+       style="fill:#e8e8e8;fill-opacity:1"
+       inkscape:connector-curvature="0"
+       id="path12"
+       d="m 145.9,67.1 -6.8,-20.8 -6.7,20.8 -9,0 -11.6,-31.5 9.2,-0.1 7,22.6 6.8,-22.6 8.9,0 6.9,22.6 6.9,-22.6 8.9,0 -11.5,31.6 -9,0 z" /><path
+       style="fill:#e8e8e8;fill-opacity:1"
+       inkscape:connector-curvature="0"
+       id="path14"
+       d="m 179.8,26.5 c 0,2.9 -2,5 -4.9,5 -2.9,0 -4.9,-2.1 -4.9,-5 0,-2.9 2,-5 4.9,-5 2.9,0 4.9,2.1 4.9,5 z m -9.4,40.6 0,-31.6 9,0 0,31.6 -9,0 z" /><path
+       style="fill:#e8e8e8;fill-opacity:1"
+       inkscape:connector-curvature="0"
+       id="path16"
+       d="m 217.2,54 -22.7,0 c 1.1,4 4.1,6.3 8.2,6.3 3,0 5.8,-1.2 8,-3.3 l 4.8,4.8 c -3.2,3.5 -7.8,5.6 -13.5,5.6 -10.1,0 -16.5,-6.5 -16.5,-16 0,-9.7 6.6,-16.2 16.3,-16.2 11,0 16.1,7.3 15.4,18.8 z m -8.5,-5.3 c -0.1,-4.2 -2.8,-6.9 -7,-6.9 -4,0 -6.7,2.7 -7.4,6.9 l 14.4,0 z" /><g
+       clip-path="url(#clipPath6257)"
+       id="g4248"
+       transform="matrix(0.09001426,0,0,0.07852979,19.133084,15.227911)"><path
+         id="path4"
+         d="M -51,705 -216,726 93,716 Z"
+         inkscape:connector-curvature="0"
+         style="fill:#96793f;stroke:#96793f;stroke-width:1.50999999" /><path
+         id="path6"
+         d="m 440,713 -347,3 546,7 z"
+         inkscape:connector-curvature="0"
+         style="fill:#72ad5e;stroke:#72ad5e;stroke-width:1.50999999" /><path
+         id="path8"
+         d="M 654,26 551,229 694,213 Z"
+         inkscape:connector-curvature="0"
+         style="fill:#a0c170;stroke:#a0c170;stroke-width:1.50999999" /><path
+         id="path10-3"
+         d="m 672,-69 -18,95 40,187 z"
+         inkscape:connector-curvature="0"
+         style="fill:#9da257;stroke:#9da257;stroke-width:1.50999999" /><path
+         id="path12-6"
+         d="M 647,447 534,601 726,515 Z"
+         inkscape:connector-curvature="0"
+         style="fill:#56b15c;stroke:#56b15c;stroke-width:1.50999999" /><path
+         id="path14-7"
+         d="M 534,601 639,723 726,515 Z"
+         inkscape:connector-curvature="0"
+         style="fill:#35a255;stroke:#35a255;stroke-width:1.50999999" /><path
+         id="path16-5"
+         d="m 694,213 -25,72 57,230 z"
+         inkscape:connector-curvature="0"
+         style="fill:#82b869;stroke:#82b869;stroke-width:1.50999999" /><path
+         id="path18"
+         d="m 669,285 -22,162 79,68 z"
+         inkscape:connector-curvature="0"
+         style="fill:#70b45e;stroke:#70b45e;stroke-width:1.50999999" /><path
+         id="path20"
+         d="m 534,601 4,73 101,49 z"
+         inkscape:connector-curvature="0"
+         style="fill:#3da255;stroke:#3da255;stroke-width:1.50999999" /><path
+         id="path22"
+         d="M 576,23 551,229 654,26 Z"
+         inkscape:connector-curvature="0"
+         style="fill:#adba67;stroke:#adba67;stroke-width:1.50999999" /><path
+         id="path24"
+         d="M 516,304 647,447 669,285 Z"
+         inkscape:connector-curvature="0"
+         style="fill:#92cb71;stroke:#92cb71;stroke-width:1.50999999" /><path
+         id="path26"
+         d="m 659,-189 -72,118 85,2 z"
+         inkscape:connector-curvature="0"
+         style="fill:#9f8041;stroke:#9f8041;stroke-width:1.50999999" /><path
+         id="path28"
+         d="m 551,229 118,56 25,-72 z"
+         inkscape:connector-curvature="0"
+         style="fill:#9dcd85;stroke:#9dcd85;stroke-width:1.50999999" /><path
+         id="path30"
+         d="m 516,304 1,149 130,-6 z"
+         inkscape:connector-curvature="0"
+         style="fill:#91cf6d;stroke:#91cf6d;stroke-width:1.50999999" /><path
+         id="path32"
+         d="M 517,453 534,601 647,447 Z"
+         inkscape:connector-curvature="0"
+         style="fill:#72c164;stroke:#72c164;stroke-width:1.50999999" /><path
+         id="path34"
+         d="m 587,-71 -11,94 78,3 z"
+         inkscape:connector-curvature="0"
+         style="fill:#ad9f53;stroke:#ad9f53;stroke-width:1.50999999" /><path
+         id="path36"
+         d="m 587,-71 67,97 18,-95 z"
+         inkscape:connector-curvature="0"
+         style="fill:#a5914b;stroke:#a5914b;stroke-width:1.50999999" /><path
+         id="path38"
+         d="m 538,674 -98,39 199,10 z"
+         inkscape:connector-curvature="0"
+         style="fill:#459e53;stroke:#459e53;stroke-width:1.50999999" /><path
+         id="path40"
+         d="m 553,-217 34,146 72,-118 z"
+         inkscape:connector-curvature="0"
+         style="fill:#a27c3e;stroke:#a27c3e;stroke-width:1.50999999" /><path
+         id="path42"
+         d="m 551,229 -35,75 153,-19 z"
+         inkscape:connector-curvature="0"
+         style="fill:#a9d787;stroke:#a9d787;stroke-width:1.50999999" /><path
+         id="path44"
+         d="m 291,-226 163,47 99,-38 z"
+         inkscape:connector-curvature="0"
+         style="fill:#c08a49;stroke:#c08a49;stroke-width:1.50999999" /><path
+         id="path46"
+         d="m 163,682 -70,34 347,-3 z"
+         inkscape:connector-curvature="0"
+         style="fill:#92bb7a;stroke:#92bb7a;stroke-width:1.50999999" /><path
+         id="path48"
+         d="m 517,453 -54,78 71,70 z"
+         inkscape:connector-curvature="0"
+         style="fill:#7dc666;stroke:#7dc666;stroke-width:1.50999999" /><path
+         id="path50"
+         d="M 417,207 551,229 576,23 Z"
+         inkscape:connector-curvature="0"
+         style="fill:#c1d579;stroke:#c1d579;stroke-width:1.50999999" /><path
+         id="path52"
+         d="M 409,16 417,207 576,23 Z"
+         inkscape:connector-curvature="0"
+         style="fill:#d0cb6b;stroke:#d0cb6b;stroke-width:1.50999999" /><path
+         id="path54"
+         d="m 414,-78 -5,94 167,7 z"
+         inkscape:connector-curvature="0"
+         style="fill:#d2b15b;stroke:#d2b15b;stroke-width:1.50999999" /><path
+         id="path56"
+         d="m 553,-217 -99,38 133,108 z"
+         inkscape:connector-curvature="0"
+         style="fill:#b48743;stroke:#b48743;stroke-width:1.50999999" /><path
+         id="path58"
+         d="M 414,-78 576,23 587,-71 Z"
+         inkscape:connector-curvature="0"
+         style="fill:#c2a254;stroke:#c2a254;stroke-width:1.50999999" /><path
+         id="path60"
+         d="m 454,-179 -40,101 173,7 z"
+         inkscape:connector-curvature="0"
+         style="fill:#c6974b;stroke:#c6974b;stroke-width:1.50999999" /><path
+         id="path62"
+         d="m -96,-227 129,37 258,-36 z"
+         inkscape:connector-curvature="0"
+         style="fill:#dd7348;stroke:#dd7348;stroke-width:1.50999999" /><path
+         id="path64"
+         d="m 516,304 -70,13 71,136 z"
+         inkscape:connector-curvature="0"
+         style="fill:#b1dd77;stroke:#b1dd77;stroke-width:1.50999999" /><path
+         id="path66"
+         d="m 417,207 99,97 35,-75 z"
+         inkscape:connector-curvature="0"
+         style="fill:#c6e692;stroke:#c6e692;stroke-width:1.50999999" /><path
+         id="path68"
+         d="m 417,207 29,110 70,-13 z"
+         inkscape:connector-curvature="0"
+         style="fill:#cbe98d;stroke:#cbe98d;stroke-width:1.50999999" /><path
+         id="path70"
+         d="m 534,601 -94,112 98,-39 z"
+         inkscape:connector-curvature="0"
+         style="fill:#57ae59;stroke:#57ae59;stroke-width:1.50999999" /><path
+         id="path72"
+         d="m 446,317 -23,162 94,-26 z"
+         inkscape:connector-curvature="0"
+         style="fill:#abdb6f;stroke:#abdb6f;stroke-width:1.50999999" /><path
+         id="path74"
+         d="M 463,531 440,713 534,601 Z"
+         inkscape:connector-curvature="0"
+         style="fill:#6bbb5f;stroke:#6bbb5f;stroke-width:1.50999999" /><path
+         id="path76"
+         d="m 409,16 -61,43 69,148 z"
+         inkscape:connector-curvature="0"
+         style="fill:#e3d678;stroke:#e3d678;stroke-width:1.50999999" /><path
+         id="path78"
+         d="M 336,571 440,713 463,531 Z"
+         inkscape:connector-curvature="0"
+         style="fill:#82c567;stroke:#82c567;stroke-width:1.50999999" /><path
+         id="path80"
+         d="m 423,479 40,52 54,-78 z"
+         inkscape:connector-curvature="0"
+         style="fill:#95d168;stroke:#95d168;stroke-width:1.50999999" /><path
+         id="path82"
+         d="m 319,646 -156,36 277,31 z"
+         inkscape:connector-curvature="0"
+         style="fill:#8abf73;stroke:#8abf73;stroke-width:1.50999999" /><path
+         id="path84"
+         d="m 336,571 -17,75 121,67 z"
+         inkscape:connector-curvature="0"
+         style="fill:#83c36b;stroke:#83c36b;stroke-width:1.50999999" /><path
+         id="path86"
+         d="m 334,412 89,67 23,-162 z"
+         inkscape:connector-curvature="0"
+         style="fill:#bee37a;stroke:#bee37a;stroke-width:1.50999999" /><path
+         id="path88"
+         d="m 423,479 -87,92 127,-40 z"
+         inkscape:connector-curvature="0"
+         style="fill:#9ad36e;stroke:#9ad36e;stroke-width:1.50999999" /><path
+         id="path90"
+         d="m 417,207 -100,83 129,27 z"
+         inkscape:connector-curvature="0"
+         style="fill:#ddf199;stroke:#ddf199;stroke-width:1.50999999" /><path
+         id="path92"
+         d="m 291,-226 123,148 40,-101 z"
+         inkscape:connector-curvature="0"
+         style="fill:#d79550;stroke:#d79550;stroke-width:1.50999999" /><path
+         id="path94"
+         d="m 317,290 17,122 112,-95 z"
+         inkscape:connector-curvature="0"
+         style="fill:#d7ef8b;stroke:#d7ef8b;stroke-width:1.50999999" /><path
+         id="path96"
+         d="m 300,-43 109,59 5,-94 z"
+         inkscape:connector-curvature="0"
+         style="fill:#e8b464;stroke:#e8b464;stroke-width:1.50999999" /><path
+         id="path98"
+         d="m 291,-226 9,183 114,-35 z"
+         inkscape:connector-curvature="0"
+         style="fill:#e9a35f;stroke:#e9a35f;stroke-width:1.50999999" /><path
+         id="path100"
+         d="M 348,59 274,227 417,207 Z"
+         inkscape:connector-curvature="0"
+         style="fill:#edea90;stroke:#edea90;stroke-width:1.50999999" /><path
+         id="path102"
+         d="m 334,412 2,159 87,-92 z"
+         inkscape:connector-curvature="0"
+         style="fill:#b1de76;stroke:#b1de76;stroke-width:1.50999999" /><path
+         id="path104"
+         d="m 274,227 43,63 100,-83 z"
+         inkscape:connector-curvature="0"
+         style="fill:#eff7a6;stroke:#eff7a6;stroke-width:1.50999999" /><path
+         id="path106"
+         d="M 300,-43 348,59 409,16 Z"
+         inkscape:connector-curvature="0"
+         style="fill:#edc36f;stroke:#edc36f;stroke-width:1.50999999" /><path
+         id="path108"
+         d="m 33,-190 140,13 118,-49 z"
+         inkscape:connector-curvature="0"
+         style="fill:#e58b5a;stroke:#e58b5a;stroke-width:1.50999999" /><path
+         id="path110"
+         d="m 291,-226 -72,141 81,42 z"
+         inkscape:connector-curvature="0"
+         style="fill:#f5a66f;stroke:#f5a66f;stroke-width:1.50999999" /><path
+         id="path112"
+         d="M 317,290 196,419 334,412 Z"
+         inkscape:connector-curvature="0"
+         style="fill:#e0f299;stroke:#e0f299;stroke-width:1.50999999" /><path
+         id="path114"
+         d="m 334,412 -138,7 140,152 z"
+         inkscape:connector-curvature="0"
+         style="fill:#c6e78a;stroke:#c6e78a;stroke-width:1.50999999" /><path
+         id="path116"
+         d="m 196,419 -12,146 152,6 z"
+         inkscape:connector-curvature="0"
+         style="fill:#bee18e;stroke:#bee18e;stroke-width:1.50999999" /><path
+         id="path118"
+         d="m 209,211 65,16 74,-168 z"
+         inkscape:connector-curvature="0"
+         style="fill:#faf0a2;stroke:#faf0a2;stroke-width:1.50999999" /><path
+         id="path120"
+         d="M 160,31 209,211 348,59 Z"
+         inkscape:connector-curvature="0"
+         style="fill:#ffe197;stroke:#ffe197;stroke-width:1.50999999" /><path
+         id="path122"
+         d="M 300,-43 160,31 348,59 Z"
+         inkscape:connector-curvature="0"
+         style="fill:#fecb85;stroke:#fecb85;stroke-width:1.50999999" /><path
+         id="path124"
+         d="m 184,565 135,81 17,-75 z"
+         inkscape:connector-curvature="0"
+         style="fill:#a3d484;stroke:#a3d484;stroke-width:1.50999999" /><path
+         id="path126"
+         d="m 173,-177 46,92 72,-141 z"
+         inkscape:connector-curvature="0"
+         style="fill:#f09a69;stroke:#f09a69;stroke-width:1.50999999" /><path
+         id="path128"
+         d="m 149,359 47,60 121,-129 z"
+         inkscape:connector-curvature="0"
+         style="fill:#ebf29d;stroke:#ebf29d;stroke-width:1.50999999" /><path
+         id="path130"
+         d="M 184,565 163,682 319,646 Z"
+         inkscape:connector-curvature="0"
+         style="fill:#9fcb81;stroke:#9fcb81;stroke-width:1.50999999" /><path
+         id="path132"
+         d="M 274,227 149,359 317,290 Z"
+         inkscape:connector-curvature="0"
+         style="fill:#f7fbb3;stroke:#f7fbb3;stroke-width:1.50999999" /><path
+         id="path134"
+         d="M 209,211 149,359 274,227 Z"
+         inkscape:connector-curvature="0"
+         style="fill:#fcf8b0;stroke:#fcf8b0;stroke-width:1.50999999" /><path
+         id="path136"
+         d="M 219,-85 160,31 300,-43 Z"
+         inkscape:connector-curvature="0"
+         style="fill:#ffba7c;stroke:#ffba7c;stroke-width:1.50999999" /><path
+         id="path138"
+         d="m 60,529 124,36 12,-146 z"
+         inkscape:connector-curvature="0"
+         style="fill:#c4d578;stroke:#c4d578;stroke-width:1.50999999" /><path
+         id="path140"
+         d="m 160,31 -56,148 105,32 z"
+         inkscape:connector-curvature="0"
+         style="fill:#fede8b;stroke:#fede8b;stroke-width:1.50999999" /><path
+         id="path142"
+         d="m 104,179 45,180 60,-148 z"
+         inkscape:connector-curvature="0"
+         style="fill:#fff0a6;stroke:#fff0a6;stroke-width:1.50999999" /><path
+         id="path144"
+         d="M 173,-177 47,-26 219,-85 Z"
+         inkscape:connector-curvature="0"
+         style="fill:#f79d5e;stroke:#f79d5e;stroke-width:1.50999999" /><path
+         id="path146"
+         d="M 47,-26 160,31 219,-85 Z"
+         inkscape:connector-curvature="0"
+         style="fill:#fdae68;stroke:#fdae68;stroke-width:1.50999999" /><path
+         id="path148"
+         d="m 104,179 -29,171 74,9 z"
+         inkscape:connector-curvature="0"
+         style="fill:#f7e290;stroke:#f7e290;stroke-width:1.50999999" /><path
+         id="path150"
+         d="M 70,408 60,529 196,419 Z"
+         inkscape:connector-curvature="0"
+         style="fill:#d4d371;stroke:#d4d371;stroke-width:1.50999999" /><path
+         id="path152"
+         d="M 33,-190 47,-26 173,-177 Z"
+         inkscape:connector-curvature="0"
+         style="fill:#f0844c;stroke:#f0844c;stroke-width:1.50999999" /><path
+         id="path154"
+         d="M 60,529 163,682 184,565 Z"
+         inkscape:connector-curvature="0"
+         style="fill:#acc470;stroke:#acc470;stroke-width:1.50999999" /><path
+         id="path156"
+         d="m 149,359 -79,49 126,11 z"
+         inkscape:connector-curvature="0"
+         style="fill:#e1e081;stroke:#e1e081;stroke-width:1.50999999" /><path
+         id="path158"
+         d="m 60,529 33,187 70,-34 z"
+         inkscape:connector-curvature="0"
+         style="fill:#a0b564;stroke:#a0b564;stroke-width:1.50999999" /><path
+         id="path160"
+         d="M 25,19 104,179 160,31 Z"
+         inkscape:connector-curvature="0"
+         style="fill:#fec070;stroke:#fec070;stroke-width:1.50999999" /><path
+         id="path162"
+         d="M 47,-26 25,19 160,31 Z"
+         inkscape:connector-curvature="0"
+         style="fill:#fca860;stroke:#fca860;stroke-width:1.50999999" /><path
+         id="path164"
+         d="m 75,350 -5,58 79,-49 z"
+         inkscape:connector-curvature="0"
+         style="fill:#e8d97c;stroke:#e8d97c;stroke-width:1.50999999" /><path
+         id="path166"
+         d="M 60,529 -51,705 93,716 Z"
+         inkscape:connector-curvature="0"
+         style="fill:#a1a256;stroke:#a1a256;stroke-width:1.50999999" /><path
+         id="path168"
+         d="M 25,19 -37,66 104,179 Z"
+         inkscape:connector-curvature="0"
+         style="fill:#fdb266;stroke:#fdb266;stroke-width:1.50999999" /><path
+         id="path170"
+         d="M -73,227 75,350 104,179 Z"
+         inkscape:connector-curvature="0"
+         style="fill:#ffd28c;stroke:#ffd28c;stroke-width:1.50999999" /><path
+         id="path172"
+         d="M -37,66 -73,227 104,179 Z"
+         inkscape:connector-curvature="0"
+         style="fill:#feb86f;stroke:#feb86f;stroke-width:1.50999999" /><path
+         id="path174"
+         d="M -94,550 -51,705 60,529 Z"
+         inkscape:connector-curvature="0"
+         style="fill:#8aae82;fill-opacity:1;stroke:#b09b51;stroke-width:1.50999999" /><path
+         id="path176"
+         d="m -73,227 0,130 148,-7 z"
+         inkscape:connector-curvature="0"
+         style="fill:#f5bc74;stroke:#f5bc74;stroke-width:1.50999999" /><path
+         id="path178"
+         d="m 33,-190 -135,83 149,81 z"
+         inkscape:connector-curvature="0"
+         style="fill:#ef6d41;stroke:#ef6d41;stroke-width:1.50999999" /><path
+         id="path180"
+         d="M -46,406 60,529 70,408 Z"
+         inkscape:connector-curvature="0"
+         style="fill:#d7bf62;stroke:#d7bf62;stroke-width:1.50999999" /><path
+         id="path182"
+         d="m -46,406 116,2 5,-58 z"
+         inkscape:connector-curvature="0"
+         style="fill:#e5c76d;stroke:#e5c76d;stroke-width:1.50999999" /><path
+         id="path184"
+         d="m -73,357 27,49 121,-56 z"
+         inkscape:connector-curvature="0"
+         style="fill:#e9ba68;stroke:#e9ba68;stroke-width:1.50999999" /><path
+         id="path186"
+         d="M -46,406 -94,550 60,529 Z"
+         inkscape:connector-curvature="0"
+         style="fill:#caa958;stroke:#caa958;stroke-width:1.50999999" /><path
+         id="path188"
+         d="M -102,-107 25,19 47,-26 Z"
+         inkscape:connector-curvature="0"
+         style="fill:#f77f4a;stroke:#f77f4a;stroke-width:1.50999999" /><path
+         id="path190"
+         d="M -102,-107 -37,66 25,19 Z"
+         inkscape:connector-curvature="0"
+         style="fill:#f7804a;stroke:#f7804a;stroke-width:1.50999999" /><path
+         id="path192"
+         d="m -96,-227 -6,120 135,-83 z"
+         inkscape:connector-curvature="0"
+         style="fill:#df4c34;stroke:#df4c34;stroke-width:1.50999999" /><path
+         id="path194"
+         d="m -152,422 -2,104 60,24 z"
+         inkscape:connector-curvature="0"
+         style="fill:#5daa89;fill-opacity:1;stroke:#5daa89;stroke-width:1.50999999;stroke-opacity:1" /><path
+         id="path196"
+         d="M -94,550 -216,726 -51,705 Z"
+         inkscape:connector-curvature="0"
+         style="fill:#008380;fill-opacity:1;stroke:none;stroke-width:1.50999999;stroke-opacity:1" /><path
+         id="path198"
+         d="m -152,422 58,128 48,-144 z"
+         inkscape:connector-curvature="0"
+         style="fill:#ce9c4e;stroke:#ce9c4e;stroke-width:1.50999999" /><path
+         id="path200"
+         d="M -191,194 -73,227 -37,66 Z"
+         inkscape:connector-curvature="0"
+         style="fill:#f79f61;stroke:#f79f61;stroke-width:1.50999999" /><path
+         id="path202"
+         d="M -146,36 -191,194 -37,66 Z"
+         inkscape:connector-curvature="0"
+         style="fill:#f28950;stroke:#f28950;stroke-width:1.50999999" /><path
+         id="path204"
+         d="M -102,-107 -146,36 -37,66 Z"
+         inkscape:connector-curvature="0"
+         style="fill:#f07243;stroke:#f07243;stroke-width:1.50999999" /><path
+         id="path206"
+         d="m -73,357 -79,65 106,-16 z"
+         inkscape:connector-curvature="0"
+         style="fill:#dea458;stroke:#dea458;stroke-width:1.50999999" /><path
+         id="path208"
+         d="m -234,338 161,19 0,-130 z"
+         inkscape:connector-curvature="0"
+         style="fill:#eda264;stroke:#eda264;stroke-width:1.50999999" /><path
+         id="path210"
+         d="m -220,-90 74,126 44,-143 z"
+         inkscape:connector-curvature="0"
+         style="fill:#e44f34;stroke:#e44f34;stroke-width:1.50999999" /><path
+         id="path212"
+         d="m -179,-181 77,74 6,-120 z"
+         inkscape:connector-curvature="0"
+         style="fill:#d5352a;stroke:#d5352a;stroke-width:1.50999999" /><path
+         id="path214"
+         d="M -154,526 -216,726 -94,550 Z"
+         inkscape:connector-curvature="0"
+         style="fill:#008a83;fill-opacity:1;stroke:none;stroke-width:1.50999999;stroke-opacity:1" /><path
+         id="path216"
+         d="m -234,338 82,84 79,-65 z"
+         inkscape:connector-curvature="0"
+         style="fill:#edaa63;fill-opacity:1;stroke:#edaa63;stroke-width:1.50999999;stroke-opacity:1" /><path
+         id="path218"
+         d="M -191,194 -234,338 -73,227 Z"
+         inkscape:connector-curvature="0"
+         style="fill:#f09d6e;stroke:#f09d6e;stroke-width:1.50999999" /><path
+         id="path220"
+         d="m -179,-181 -41,91 118,-17 z"
+         inkscape:connector-curvature="0"
+         style="fill:#d6362a;stroke:#d6362a;stroke-width:1.50999999" /><path
+         id="path222"
+         d="m -234,338 80,188 2,-104 z"
+         inkscape:connector-curvature="0"
+         style="fill:#4ba78a;fill-opacity:1;stroke:#4ba78a;stroke-width:1.50999999;stroke-opacity:1" /><path
+         id="path224"
+         d="m -220,-90 29,284 45,-158 z"
+         inkscape:connector-curvature="0"
+         style="fill:#e36f42;stroke:#e36f42;stroke-width:1.50999999" /><path
+         id="path226"
+         d="m -234,338 18,388 62,-200 z"
+         inkscape:connector-curvature="0"
+         style="fill:#2f9c88;fill-opacity:1;stroke:none;stroke-width:1.50999999" /><path
+         id="path228"
+         d="m -220,-90 -14,428 43,-144 z"
+         inkscape:connector-curvature="0"
+         style="fill:#df8655;stroke:#df8655;stroke-width:1.50999999" /></g></g></svg>
