@@ -9,6 +9,7 @@ class page extends Smarty
 	private $title;
 	private $tplAssign = [];
 	private $templateFile;
+	private $domain;
 
 	//url fkt
 	public function setUrl($url)
@@ -114,5 +115,11 @@ class page extends Smarty
 		}
 
 		echo preg_replace_callback('/{[A-Za-z0-9_:,\-\|]+}/', 'page_key', $tplFile);
+	}
+
+	public function getDomain()
+	{
+		$this->domain = $_SERVER['HTTP_HOST'];
+		return $this->domain;
 	}
 }

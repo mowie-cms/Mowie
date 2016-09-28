@@ -1,11 +1,11 @@
 <?php
 if (hasPerm('view_dashboard'))
 {
-	$lang->set('Seiten zum Freischalten', 'sp_pages_confirm', 'de');
+	$lang->set('Seiten zum Freischalten', 'sp_edit_pages_to_confirm', 'de');
 	$lang->set('Seiten, die Sie editieren d&uuml;rfen', 'sp_edit_pages_to_edit', 'de');
 
-	$lang->set('Seiten zum Freischalten', 'sp_pages_confirm', 'en');
-	$lang->set('Seiten, die Sie editieren d&uuml;rfen', 'sp_edit_pages_to_edit', 'en');
+	$lang->set('Pages pending confirmation', 'sp_edit_pages_to_confirm', 'en');
+	$lang->set('Pages you can edit', 'sp_edit_pages_to_edit', 'en');
 
 	//If pages are available for confirmation, show them
 	$config = parse_ini_file('../apps/SimplePages/backend/confirm.ini');

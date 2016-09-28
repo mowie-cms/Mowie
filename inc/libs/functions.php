@@ -207,6 +207,43 @@ function printHeader($title)
 		}
 	} else
 	{
+		//Get Apps, build app-menu (We're building the menu here and output it later because we want the name of the current app to use ist for App-CSS)
+		$appmenu = '';
+		$apps = $GLOBALS['apps']->getApps();
+		$appCurr = '';
+		foreach ($apps as $app => $appconf)
+		{
+			if (isset($appconf['menu_top']) && $appconf['menu_top'] !== '')
+			{
+				$now = '';
+				if (strpos($_SERVER['REQUEST_URI'], $app) !== false)
+				{
+					$now = ' class="active"';
+					$appCurr = $app;
+				}
+
+				if (array_key_exists('menu_top', $appconf['menu']))
+				{
+					$appmenu .= "\n" . '<li' . $now . ' id="mw-menu-apps-' . $app . '-top"><a href="' . $GLOBALS['MCONF']['home_uri'] . 'apps/' . $app . '/' . $appconf['menu']['menu_top'] . '">' . $appconf['menu_top'] . '</a>' . "\n";
+				} else
+				{
+					$first_itm = array_keys($appconf['menu']);
+					$appmenu .= "\n" . '<li' . $now . ' id="mw-menu-apps-' . $app . '-top"><a href="' . $GLOBALS['MCONF']['home_uri'] . 'apps/' . $app . '/' . $appconf['menu'][$first_itm[0]] . '">' . $appconf['menu_top'] . '<i class="fa fa-chevron-right sub_menu"></i></a>' . "\n" . '<ul>';
+					foreach ($appconf['menu'] as $app_name => $app_name_url)
+					{
+						$now = '';
+						if (strpos($_SERVER['REQUEST_URI'], $app_name_url) !== false && strpos($_SERVER['REQUEST_URI'], $app) !== false)
+						{
+							$now = ' class="active"';
+						}
+						$appmenu .= '<li' . $now . ' id="mw-menu-apps-' . $app . '-' . str_replace(['.php', '?', '&'], '', str_replace('/', '-', $app_name_url)) . '"><a href="' . $GLOBALS['MCONF']['home_uri'] . 'apps/' . $app . '/' . $app_name_url . '">' . $app_name . '</a></li>' . "\n";
+					}
+					$appmenu .= '</ul></li>' . "\n";
+				}
+				$appconf['menu_top'] = '';
+			}
+		}
+
 		//<link rel="stylesheet prefetch" href="' . $GLOBALS['MCONF']['web_uri'] . 'css/video-js.css" type="text/css"/>
 		echo '<!DOCTYPE html>
 <html lang="de">
@@ -224,6 +261,19 @@ function printHeader($title)
 	<script>
 	page.base(\'' . $GLOBALS['MCONF']['home_uri'] . '\');
 	</script>
+	
+';
+
+	//Get App-CSS and output it
+		if(isset($apps[$appCurr]['css']))
+		{
+			foreach ($apps[$appCurr]['css'] as $style)
+			{
+				echo '	<link rel="stylesheet" href="' . $GLOBALS['MCONF']['web_uri'] . 'apps/'.$appCurr.'/'.$style.'" type="text/css"/>';
+			}
+		}
+
+echo '
 </head>
 <body>';
 		if (is_loggedin())
@@ -295,62 +345,9 @@ function printHeader($title)
 				</li>
 				<?php
 			}
-			$moduluri = '../apps/';
-			$pos = strpos($_SERVER['REQUEST_URI'], '/apps/');
-			if ($pos !== false)
-			{
-				$moduluri = '../';
-				$rel = explode('/', str_replace($GLOBALS['MCONF']['home_uri'] . 'apps/', '', $_SERVER['REQUEST_URI']));
-				$count = count($rel);
-				$count = $count - 1;
 
-				$i = 1;
-				while ($i < $count)
-				{
-					$moduluri .= '../';
-					$i++;
-				}
-			}
+			echo $appmenu;
 
-			if ($handle = opendir($moduluri))
-			{
-				while (false !== ($mod = readdir($handle)))
-				{
-					if ($mod != "." && $mod != ".." && is_dir($moduluri . $mod))
-					{
-						require $moduluri . $mod . '/config.php';
-						if ($_CONF['menu_top'] !== '')
-						{
-							$now = '';
-							if (strpos($_SERVER['REQUEST_URI'], $mod) !== false)
-							{
-								$now = ' class="active"';
-							}
-
-							if (array_key_exists('menu_top', $_CONF['menu']))
-							{
-								echo "\n" . '<li' . $now . ' id="mw-menu-apps-' . $mod . '-top"><a href="' . $GLOBALS['MCONF']['home_uri'] . 'apps/' . $mod . '/' . $_CONF['menu']['menu_top'] . '">' . $_CONF['menu_top'] . '</a>' . "\n";
-							} else
-							{
-								$first_itm = array_keys($_CONF['menu']);
-								echo "\n" . '<li' . $now . ' id="mw-menu-apps-' . $mod . '-top"><a href="' . $GLOBALS['MCONF']['home_uri'] . 'apps/' . $mod . '/' . $_CONF['menu'][$first_itm[0]] . '">' . $_CONF['menu_top'] . '<i class="fa fa-chevron-right sub_menu"></i></a>' . "\n" . '<ul>';
-								foreach ($_CONF['menu'] as $mod_name_anz => $mod_name_url)
-								{
-									$now = '';
-									if (strpos($_SERVER['REQUEST_URI'], $mod_name_url) !== false && strpos($_SERVER['REQUEST_URI'], $mod) !== false)
-									{
-										$now = ' class="active"';
-									}
-									echo '<li' . $now . ' id="mw-menu-apps-' . $mod . '-' . str_replace(['.php', '?', '&'], '', str_replace('/', '-', $mod_name_url)) . '"><a href="' . $GLOBALS['MCONF']['home_uri'] . 'apps/' . $mod . '/' . $mod_name_url . '">' . $mod_name_anz . '</a></li>' . "\n";
-								}
-								echo '</ul></li>' . "\n";
-							}
-							$_CONF['menu_top'] = '';
-						}
-					}
-				}
-				closedir($handle);
-			}
 			echo '</ul>
 <div class="copy"> © 2016 <a href="http://mowie.cc">Mowie</a></div><div class="langselect"><a id="langselectbtn"><i class="fa fa-globe"></i> </a><div class="langs">';
 			//Lang
@@ -528,7 +525,7 @@ function hasPerm($permkey, $scope = '')
 
 			if ($scope == 'System') $scopeUri .= '../admin/';
 
-			//echo $moduluri;
+			//echo $appuri;
 
 			if (file_exists($scopeUri . 'permissions.json'))
 			{

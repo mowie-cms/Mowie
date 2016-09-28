@@ -13,7 +13,7 @@
         {$menu}
     <div class="seite">
         {$sidebar}
-        {$inhalt}
+        {$content}
         {$test}
         {$test2}
 	</div>

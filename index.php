@@ -1,4 +1,5 @@
 <?php
+
 //Check if installed
 if (file_exists('inc/config.yml'))
 {
@@ -6,7 +7,8 @@ if (file_exists('inc/config.yml'))
     require_once 'inc/libs/Smarty/Smarty.class.php';
 	require_once 'inc/config.php';
 	require_once 'inc/libs/functions.php';
-    require_once 'inc/page.php';
+	require_once 'inc/page.php';
+	require_once 'inc/apps.php';
 
     //Under Construction?
 	if (file_exists('inc/System/construction.txt'))
@@ -30,47 +32,62 @@ if (file_exists('inc/config.yml'))
 		}
 		$page->setResponseCode(404);
 
+		$apps = new apps();
 		//Search apps and execute them if necessary
-		$appdir = 'apps/';
-		if ($handle = opendir($appdir))
+		foreach ($apps->getApps() as $app => $appconf)
 		{
-			while (false !== ($app = readdir($handle)))
+			$appUri = 'apps/'.$app.'/';
+			//If the App should run from one domain only
+			if((isset($appconf['domain']) && $page->getDomain() == $appconf['domain']) || !isset($appconf['domain']) || (isset($appconf['domain']) && $appconf['domain'] === ''))
 			{
-				if ($app != "." && $app != ".." && !is_file($appdir . $app))
+			//If we have an alias which equals the current url, execute it
+			if(isset($appconf['alias']))
+			{
+				if(array_key_exists($page->getUrl(), $appconf['alias']))
 				{
-					$appUri = $appdir.$app;
-					if (file_exists($appUri.'/config.php'))
-					{
-						require $appUri.'/config.php';
-						if(isset($_CONF['type']))//typ vorhanden?
-						{
-							if($_CONF['type'] == 'page')//Seite, die inhalte ausgibt
-							{
-								if(isset($_CONF['base_url_file']))
-								{
-									if($_CONF['base_url'] == $page->getUrl())
-									{
-										require $appUri.'/' . $_CONF['base_url_file'];
-									}
-								}
-								if(isset($_CONF['base_url']) && file_exists($appUri.'/' . $_CONF['base_file']))
-								{
-									if($_CONF['base_url'] == $page->getBaseUrl())
-									{
-										require $appUri.'/' . $_CONF['base_file'];
-									}
-								}
-							}
-							if($_CONF['type'] == 'static' && isset($_CONF['base_file']) && file_exists($appUri.'/'.$_CONF['base_file']))
-							{
-								require $appUri.'/'.$_CONF['base_file'];
-							}
-						}
-						$_CONF = [];
-					}
+					require $appUri. $appconf['alias'][$page->getUrl()];
 				}
 			}
-			closedir($handle);
+
+			//If we have a type
+			if(isset($appconf['type']))
+			{
+				//Page for (more or less) dynamic content
+				if($appconf['type'] == 'page')
+				{
+					//If we have a base_url_file and the current url equals base_url, execute base_url_file
+					if(isset($appconf['base_url_file']))
+					{
+						if($appconf['base_url'] == $page->getUrl())
+						{
+							require $appUri . $appconf['base_url_file'];
+						}
+					}
+
+					//if we have a base_url and a base_file which exists and the current baseUrl equals base_url, execute base_file
+					if(isset($appconf['base_url']) && file_exists($appUri.'/' . $appconf['base_file']))
+					{
+						if($appconf['base_url'] == $page->getBaseUrl())
+						{
+							require $appUri. $appconf['base_file'];
+						}
+					}
+				}
+
+				//Static
+				if($appconf['type'] == 'static' && isset($appconf['base_file']) && file_exists($appUri.'/'.$appconf['base_file']))
+				{
+					require $appUri.$appconf['base_file'];
+				}
+			}
+
+			//If the App should run from one domain only
+			/*if(isset($appconf['domain']) && $page->getDomain() == $appconf['domain'])
+			{
+				echo 'ff';*/
+			}
+
+			$appconf = [];
 		}
 
 		if($page->getResponseCode() == 404)
@@ -89,7 +106,7 @@ if (file_exists('inc/config.yml'))
 		$page->assign('copyright', $copy);
 
 		// dat ganze ausgeben
-		http_response_code($page->getresponseCode());
+		http_response_code($page->getResponseCode());
 		$page->assign($MCONF['tpl_title'], $page->getTitle(). ' | ' . $MCONF['title']);
 		$page->assign($MCONF['tpl_content'], $page->getContent());
 		$page->assign($MCONF['tpl_webUri'], $MCONF['web_uri']);

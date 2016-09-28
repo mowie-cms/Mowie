@@ -26,6 +26,10 @@ if(file_exists($path.'lang/') && is_dir($path.'lang/'))
 	$lang->setLangFolder( $path.'lang/');
 }
 
+//init Apps
+require_once $path.'../../inc/apps.php';
+$apps = new apps();
+
 //Require appsConfig
 require_once $path.'config.php';
 

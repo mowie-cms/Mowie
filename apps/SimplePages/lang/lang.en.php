@@ -19,7 +19,7 @@ $lang['sp_create_new'] = 'Create New Page';
 $lang['sp_confirm'] = 'Confirm Changes';
 
 $lang['sp_edit_pages_to_edit'] = 'Pages you can edit';
-$lang['sp_edit_pages_to_confirm'] = 'Pages to confirm';
+$lang['sp_edit_pages_to_confirm'] = 'Pages pending confirmation';
 
 //Manage Pages
 $lang['sp_page'] = 'Page';

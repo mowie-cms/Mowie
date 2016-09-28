@@ -18,7 +18,7 @@ $lang['sp_manage_permissions'] = 'Berechtigungen verwalten';
 $lang['sp_create_new'] = 'Neue Seite erstellen';
 $lang['sp_confirm'] = 'Änderungen Freischalten';
 
-$lang['sp_edit_pages_to_edit'] = 'Seiten, die Sie editieren d&uuml;rfen';
+$lang['sp_edit_pages_to_edit'] = 'Pages you can edit';
 $lang['sp_edit_pages_to_confirm'] = 'Seiten zum Freischalten';
 
 //Manage Pages

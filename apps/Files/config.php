@@ -7,3 +7,5 @@ $_CONF['mod_desc'] = 'Ein Modul zum Anzeigen & Uploaden von Dateien';
 $_CONF['menu_top'] = '<i class="fa fa-folder"></i> '.$GLOBALS['lang']->get('files_title');
 $_CONF['menu'] = ['menu_top' => 'index.php'];
 $_CONF['type'] = 'none';
+
+$_CONF['css'] = ['css/files.css'];
