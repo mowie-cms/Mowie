@@ -13,47 +13,48 @@ if (file_exists('install.php'))
 
 if (hasPerm('view_dashboard'))
 {
-	echo '<div class="cardsContainer cardsContainer-main"><div class="card-yellow" title="' . php_uname() . '"><span>' . substr(php_uname(), 0, strpos(php_uname(), ' ')) . '</span>'.$lang->get('os').'</div>';
-	echo '<div class="card-green" title="' . $_SERVER['SERVER_SOFTWARE'] . '"><span>' . $_SERVER['SERVER_SOFTWARE'] . '</span>'.$lang->get('server_software').'</div>';
-	echo '<div class="card-indigo" title="' . PHP_VERSION . '"><span>' . str_replace(substr(PHP_VERSION, strpos(PHP_VERSION, '-')), '', PHP_VERSION) . '</span>'.$lang->get('php_version').'</div>';
-	echo '<div class="card-orange" title="' . $db->version() . '"><span>' . str_replace(substr($db->version(), strpos($db->version(), '-')), '', $db->version()) . '</span>'.$lang->get('mysql_version').'</div></div><div class="cardsContainer cardsContainer-main">';
-	echo '<div class="card-purple"><span>' . date('H:i:s') . '</span>'.$lang->get('system_time').'</div>';
+	echo '<div class="cardsContainer cardsContainer-main"><div class="card-yellow" title="' . php_uname() . '"><span>' . substr(php_uname(), 0, strpos(php_uname(), ' ')) . '</span>' . $lang->get('os') . '</div>';
+	echo '<div class="card-green" title="' . $_SERVER['SERVER_SOFTWARE'] . '"><span>' . $_SERVER['SERVER_SOFTWARE'] . '</span>' . $lang->get('server_software') . '</div>';
+	echo '<div class="card-indigo" title="' . PHP_VERSION . '"><span>' . str_replace(substr(PHP_VERSION, strpos(PHP_VERSION, '-')), '', PHP_VERSION) . '</span>' . $lang->get('php_version') . '</div>';
+	echo '<div class="card-orange" title="' . $db->version() . '"><span>' . str_replace(substr($db->version(), strpos($db->version(), '-')), '', $db->version()) . '</span>' . $lang->get('mysql_version') . '</div></div><div class="cardsContainer cardsContainer-main">';
+	echo '<div class="card-purple"><span>' . date('H:i:s') . '</span>' . $lang->get('system_time') . '</div>';
 	?>
 	<a href="general_config.php" class="card-blue"><span><i class="fa fa-cog"></i></span><br/>
-		<?php echo $lang->get('general_config');?></a>
-	<a href=".<?php echo $GLOBALS['MCONF']['home_uri']; ?>apps/logfiles/index.php" class="card-lime"><span><i class="fa fa-list"></i></span><br/><?php echo $lang->get('logfiles');?></a>
+		<?php echo $lang->get('general_config'); ?></a>
+	<a href=".<?php echo $GLOBALS['MCONF']['home_uri']; ?>apps/logfiles/index.php" class="card-lime"><span><i
+				class="fa fa-list"></i></span><br/><?php echo $lang->get('logfiles'); ?></a>
 	</div>
 	<div class="cardsContainer cardsContainer-main">
-		<a href="<?php echo $GLOBALS['MCONF']['home_uri']; ?>apps/SimplePages/backend/management.php" class="card-red"><span><i class="fa fa-list"></i></span><br/><?php echo $lang->get('manage_pages');?></a>
-		<a href="<?php echo $GLOBALS['MCONF']['home_uri']; ?>apps/SimplePages/backend/permissions.php" class="card-pink"><span><i class="fa fa-lock"></i></span><br/><?php echo $lang->get('manage_contents');?></a>
+		<a href="<?php echo $GLOBALS['MCONF']['home_uri']; ?>apps/SimplePages/backend/management.php"
+		   class="card-red"><span><i class="fa fa-list"></i></span><br/><?php echo $lang->get('manage_pages'); ?></a>
+		<a href="<?php echo $GLOBALS['MCONF']['home_uri']; ?>apps/SimplePages/backend/permissions.php"
+		   class="card-pink"><span><i class="fa fa-lock"></i></span><br/><?php echo $lang->get('manage_contents'); ?>
+		</a>
 		<a href="<?php echo $GLOBALS['MCONF']['home_uri']; ?>apps/Files/index.php" class="card-amber"><span>
-				<i class="fa fa-file"></i></span><br/><?php echo $lang->get('manage_files');?></a>
+				<i class="fa fa-file"></i></span><br/><?php echo $lang->get('manage_files'); ?></a>
 	</div>
 	<?php
 }
 echo '<div class="main container">';
 //Find Dashboard files
-$moduluri = '../apps/';
-if ($handle = opendir($moduluri))
+
+$apps = new apps();
+$appUri = '../apps/';
+foreach ($apps->getApps() as $app => $appconf)
 {
-	while (false !== ($mod = readdir($handle)))
+
+	require $appUri . $app . '/config.php';
+	if (isset($_CONF['dashboard']) && $_CONF['dashboard'] != '')
 	{
-		if ($mod != "." && $mod != ".." && is_dir($moduluri . $mod))
+		if (file_exists($appUri . $app . '/' . $_CONF['dashboard']))
 		{
-			require $moduluri . $mod . '/config.php';
-			if(isset($_CONF['dashboard']) && $_CONF['dashboard'] != '')
-			{
-				if (file_exists($moduluri . $mod . '/' . $_CONF['dashboard']))
-				{
-					echo '<div class="box">';
-					require $moduluri . $mod . '/' . $_CONF['dashboard'];
-					echo '</div>';
-				}
-			}
-			$_CONF['dashboard'] = '';
+			echo '<div class="box">';
+			require $appUri . $app . '/' . $_CONF['dashboard'];
+			echo '</div>';
 		}
 	}
-	closedir($handle);
+	$_CONF['dashboard'] = '';
+		
 }
 echo '</div>';
 require_once '../inc/footer.php';

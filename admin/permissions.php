@@ -66,22 +66,17 @@ if (hasPerm('edit_permissions'))
 		$permsTotal = [];
 		$permsTotal['System'] = json_decode(file_get_contents('permissions.json'), true);
 		$permsTotal['System'] = $permsTotal['System']['permissions'];
-		$moduluri = '../apps/';
-		if ($handle = opendir($moduluri))
+
+		$apps = new apps();
+		$appUri = '../apps/';
+		foreach ($apps->getApps() as $app => $appconf)
 		{
-			while (false !== ($mod = readdir($handle)))
+			if (file_exists($appUri . '/' . $app . '/permissions.json'))
 			{
-				if ($mod != "." && $mod != ".." && is_dir($moduluri . $mod))
-				{
-					if (file_exists($moduluri . '/' . $mod . '/permissions.json'))
-					{
-						require $moduluri . '/' . $mod . '/config.php';
-						$permsTotal[$_CONF['mod_name']] = json_decode(file_get_contents($moduluri . '/' . $mod . '/permissions.json'), true);
-						$permsTotal[$_CONF['mod_name']] = $permsTotal[$_CONF['mod_name']]['permissions'];
-					}
-				}
+				require $appUri . '/' . $app . '/config.php';
+				$permsTotal[$_CONF['mod_name']] = json_decode(file_get_contents($appUri . '/' . $app . '/permissions.json'), true);
+				$permsTotal[$_CONF['mod_name']] = $permsTotal[$_CONF['mod_name']]['permissions'];
 			}
-			closedir($handle);
 		}
 
 		//print_r($permsTotal);

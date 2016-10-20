@@ -12,9 +12,19 @@ class apps
 	public function __construct()
 	{
 		//Find the app directory
+		$i = 1;
 		$appdir = 'apps/';
-		$rel = explode('/', str_replace($GLOBALS['MCONF']['home_uri'], '', $_SERVER['SCRIPT_NAME']));
+		if($GLOBALS['MCONF']['home_uri'] == '/')
+		{
+			$rel = explode('/', $_SERVER['SCRIPT_NAME']);
+			$i++;
+		}
+		else
+		{
+			$rel = explode('/', str_replace($GLOBALS['MCONF']['home_uri'], '', $_SERVER['SCRIPT_NAME']));
+		}
 		$count = count($rel);
+		//print_r($rel);exit;
 		//if (strpos($_SERVER['REQUEST_URI'], '/apps/') !== false && $count !== 1) $count = $count - 1; $appdir = '';
 
 		$i = 1;

@@ -1,6 +1,9 @@
 <?php
 require_once '../../../inc/autoload.php';
 printHeader($lang->get('sp_confirm'));
+
+require_once 'confirmConfig.php';
+
 if (isset($_GET['page']))
 {
 	if ($_SESSION['userid'] == $confirmationUser)

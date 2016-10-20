@@ -16,8 +16,7 @@ if (isset($_GET['dbbackup']) && is_loggedin() && hasPerm('db_dump'))
 	if ($backup['error'])
 	{
 		echo msg('fail', $lang->get('action_backup_fail'));
-	}
-	else
+	} else
 	{
 		header("Cache-Control: public");
 		header("content-Description: File Transfer");
@@ -27,137 +26,136 @@ if (isset($_GET['dbbackup']) && is_loggedin() && hasPerm('db_dump'))
 		echo $backup['msg'];
 		exit;
 	}
-}
-else
+} else
 {
 	printHeader($lang->get('action_edit_content'));
 }
 if (hasPerm('manage_system'))
 {
 	//construction
-		if (isset($_GET['construction']))
+	if (isset($_GET['construction']))
+	{
+		if (isset($_GET['constr_message']))
 		{
-			if (isset($_GET['constr_message']))
+			if (isset($_POST['constr_message']))
 			{
-				if (isset($_POST['constr_message']))
+				if (file_put_contents('../inc/System/construction2.txt', $_POST['constr_message']))
 				{
-					if (file_put_contents('../inc/System/construction2.txt', $_POST['constr_message']))
-					{
-						copy('../inc/System/construction2.txt', '../inc/System/construction.txt');
-						echo msg('succes', $lang->get('action_construction_message_success').' <a href="general_config.php">'.$lang->get('back').'</a>');
-					} else
-					{
-						echo msg('fail', $lang->get('action_try_again_later').' <a href="general_config.php">'.$lang->get('back').'</a>');
-					}
+					copy('../inc/System/construction2.txt', '../inc/System/construction.txt');
+					echo msg('succes', $lang->get('action_construction_message_success') . ' <a href="general_config.php">' . $lang->get('back') . '</a>');
 				} else
 				{
-					tinymce();
-					?>
-					<div class="main">
-					<h1><?php echo $lang->get('action_construction_message_edit');?></h1>
-					<form action="<?php echo $_SERVER['REQUEST_URI']?>" method="post">
-					<textarea id="editor" name="constr_message"><?php require('../inc/System/construction2.txt'); ?></textarea>
-						<input type="submit" value="<?php echo $lang->get('general_save_changes');?>"/>
-					</form>
-					</div>
-					<?php
+					echo msg('fail', $lang->get('action_try_again_later') . ' <a href="general_config.php">' . $lang->get('back') . '</a>');
 				}
 			} else
 			{
-				if(hasPerm('construction'))
+				tinymce();
+				?>
+				<div class="main">
+					<h1><?php echo $lang->get('action_construction_message_edit'); ?></h1>
+					<form action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="post">
+						<textarea id="editor"
+								  name="constr_message"><?php require('../inc/System/construction2.txt'); ?></textarea>
+						<input type="submit" value="<?php echo $lang->get('general_save_changes'); ?>"/>
+					</form>
+				</div>
+				<?php
+			}
+		} else
+		{
+			if (hasPerm('construction'))
+			{
+				if (!file_exists('../inc/System/construction.txt'))
 				{
-					if (!file_exists('../inc/System/construction.txt'))
+					if (isset($_GET['confirm']))
 					{
-						if (isset($_GET['confirm']))
+						if (copy('../inc/System/construction2.txt', '../inc/System/construction.txt'))
 						{
-							if (copy('../inc/System/construction2.txt', '../inc/System/construction.txt'))
-							{
-								echo msg('succes', $lang->get('action_construction_success').' <a href="general_config.php">'.$lang->get('back').'</a>');
-							} else
-							{
-								echo msg('fail', $lang->get('action_try_again_later').' <a href="general_config.php">'.$lang->get('back').'</a>');
-							}
+							echo msg('succes', $lang->get('action_construction_success') . ' <a href="general_config.php">' . $lang->get('back') . '</a>');
 						} else
 						{
-							?>
-							<div class="main">
-							<p style="text-align: center;">
-								<?php echo $lang->get('action_construction_confirm');?><br/>
-								<a href="action.php?construction&confirm" class="button"><?php echo $lang->get('general_yes');?></a>
-								<a href="general_config.php" class="button btn_del"><?php echo $lang->get('general_no');?></a>
-							</p>
-							</div>
-							<?php
+							echo msg('fail', $lang->get('action_try_again_later') . ' <a href="general_config.php">' . $lang->get('back') . '</a>');
 						}
 					} else
 					{
-						if (isset($_GET['confirm']))
-						{
-							if (unlink('../inc/System/construction.txt'))
-							{
-								echo msg('succes', $lang->get('action_construction_removed_success').' <a href="general_config.php">'.$lang->get('back').'</a>');
-							} else
-							{
-								echo msg('fail', $lang->get('action_try_again_later').' <a href="general_config.php">'.$lang->get('back').'</a>');
-							}
-						} else
-						{
-							?>
-							<div class="main">
+						?>
+						<div class="main">
 							<p style="text-align: center;">
-								<?php echo $lang->get('action_construction_remove');?><br/>
-								<a href="action.php?construction&confirm" class="button"><?php echo $lang->get('general_yes');?></a>
-								<a href="general_config.php" class="button btn_del"><?php echo $lang->get('general_no');?></a>
+								<?php echo $lang->get('action_construction_confirm'); ?><br/>
+								<a href="action.php?construction&confirm"
+								   class="button"><?php echo $lang->get('general_yes'); ?></a>
+								<a href="general_config.php"
+								   class="button btn_del"><?php echo $lang->get('general_no'); ?></a>
 							</p>
-							</div>
-							<?php
-						}
+						</div>
+						<?php
 					}
-				}
-			}
-		}
-		//Generelle Änderungen
-		if (isset($_GET['general']))
-		{
-			//Header
-			if(hasPerm('edit_title'))
-			{
-				$titel = $_POST['titel'];
-				if (file_put_contents('../inc/System/page_title.txt', $titel))
-				{
-					echo msg('succes', $lang->get('action_change_page_title_success'));
 				} else
 				{
-					echo msg('fail', $lang->get('action_try_again_later'));
-				}
-			}
-			$moduluri = '../apps/';
-			if ($handle = opendir($moduluri))
-			{
-				while (false !== ($mod = readdir($handle)))
-				{
-					if ($mod != "." && $mod != ".." && is_dir($moduluri . $mod))
+					if (isset($_GET['confirm']))
 					{
-						require $moduluri . $mod . '/config.php';
-						if (isset($_CONF['general_conf']) && $_CONF['general_conf'] != '' && file_exists($moduluri . $mod . '/' . $_CONF['general_conf']))
+						if (unlink('../inc/System/construction.txt'))
 						{
-							//echo '<li class="divider"></li>';
-							require $moduluri . $mod . '/' . $_CONF['general_conf'];
+							echo msg('succes', $lang->get('action_construction_removed_success') . ' <a href="general_config.php">' . $lang->get('back') . '</a>');
+						} else
+						{
+							echo msg('fail', $lang->get('action_try_again_later') . ' <a href="general_config.php">' . $lang->get('back') . '</a>');
 						}
+					} else
+					{
+						?>
+						<div class="main">
+							<p style="text-align: center;">
+								<?php echo $lang->get('action_construction_remove'); ?><br/>
+								<a href="action.php?construction&confirm"
+								   class="button"><?php echo $lang->get('general_yes'); ?></a>
+								<a href="general_config.php"
+								   class="button btn_del"><?php echo $lang->get('general_no'); ?></a>
+							</p>
+						</div>
+						<?php
 					}
 				}
-				closedir($handle);
 			}
 		}
-	//Update
-	if(isset($_GET['update']))
+	}
+	//Generelle Änderungen
+	if (isset($_GET['general']))
 	{
-		if(hasPerm('update'))
+		//Header
+		if (hasPerm('edit_title'))
 		{
-			$version_remote = json_decode(file_get_contents($MCONF['update_uri'].'version.json'));
+			$titel = $_POST['titel'];
+			if (file_put_contents('../inc/System/page_title.txt', $titel))
+			{
+				echo msg('succes', $lang->get('action_change_page_title_success'));
+			} else
+			{
+				echo msg('fail', $lang->get('action_try_again_later'));
+			}
+		}
+
+		$apps = new apps();
+		$appUri = '../apps/';
+		foreach ($apps->getApps() as $app => $appconf)
+		{
+			require $appUri . $app . '/config.php';
+			if (isset($_CONF['general_conf']) && $_CONF['general_conf'] != '' && file_exists($appUri . $app . '/' . $_CONF['general_conf']))
+			{
+				//echo '<li class="divider"></li>';
+				require $appUri . $app . '/' . $_CONF['general_conf'];
+			}
+		}
+	}
+	//Update
+	if (isset($_GET['update']))
+	{
+		if (hasPerm('update'))
+		{
+			$version_remote = json_decode(file_get_contents($MCONF['update_uri'] . 'version.json'));
 			if ($version_remote->versionNum > $MCONF['version_num'])
 			{
-				if (copy($MCONF['update_uri'].'update.v' . $version_remote->versionNum . '.incremental.zip', 'update.zip'))
+				if (copy($MCONF['update_uri'] . 'update.v' . $version_remote->versionNum . '.incremental.zip', 'update.zip'))
 				{
 					if (md5_file('update.zip') == $version_remote->md5)
 					{
@@ -193,10 +191,10 @@ if (hasPerm('manage_system'))
 							//Jetzt altes update entfernen
 							if (rrmdir('updateNeu') && $isUp && unlink('update.zip'))
 							{
-								echo msg('succes', $lang->get('action_update_success').' <a href="general_config.php">'.$lang->get('back').'</a>');
+								echo msg('succes', $lang->get('action_update_success') . ' <a href="general_config.php">' . $lang->get('back') . '</a>');
 							} else
 							{
-								echo msg('fail', $lang->get('action_update_fail').' <a href="general_config.php">'.$lang->get('back').'</a>');
+								echo msg('fail', $lang->get('action_update_fail') . ' <a href="general_config.php">' . $lang->get('back') . '</a>');
 							}
 						} else
 						{
@@ -216,8 +214,7 @@ if (hasPerm('manage_system'))
 			}
 		}
 	}
-}
-else
+} else
 {
 	echo msg('info', $lang->get('missing_permission'));
 }

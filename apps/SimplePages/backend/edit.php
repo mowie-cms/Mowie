@@ -1,6 +1,9 @@
 <?php
 require_once '../../../inc/autoload.php';
 printHeader($lang->get('sp_edit'));
+
+require_once 'confirmConfig.php';
+
 if (hasPerm('manage_pages'))
 {
 	tinymce();
@@ -130,8 +133,13 @@ if (hasPerm('manage_pages'))
 			if(!isset($status))
 			{
 				$status = 0;
-				if (isset($_POST['status'])) $status = $_POST['status'];
+				if (isset($_POST['status']))
+				{
+					$status = $_POST['status'];
+					if($_POST['status'] == 'true') $status = 1;
+				}
 			}
+
 			$db->data['status'] = $status;
 			$db->data['meta_description'] = $_POST['meta_description'];
 			$db->data['meta_keywords'] = $_POST['meta_keywords'];
@@ -294,7 +302,7 @@ if (hasPerm('manage_pages'))
 					<form id="edit" method="post" action="<?php echo $_SERVER['REQUEST_URI']?>" class="form">
 						<p><span><?php echo $lang->get('sp_edit_title');?>:</span><input type="text" name="title" value="<?php echo $data[0]['title']; ?>"/>
 						</p>
-						<p><span><?php echo $lang->get('sp_edit_alias');?>:</span><input type="text" name="alias"
+						<p><span data-toggle="tooltip" title="Die URL der Seite, ohne '/' am Anfang."><?php echo $lang->get('sp_edit_alias');?>:</span><input type="text" name="alias"
 														   value="<?php echo $data[0]['alias']; ?>" autocomplete="off"/>
 						</p>
 						<p><span><?php echo $lang->get('sp_edit_public');?>:</span><input type="checkbox" name="status" id="status" value="1"<?php
