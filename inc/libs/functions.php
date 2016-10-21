@@ -655,4 +655,23 @@ function mmail($mailaddr, $subject, $message, $from, $html = false)
 	}
 }
 
+//File exists on remote Server
+function remote_file_exists($url)
+{
+	$ch = curl_init($url);
+	curl_setopt($ch, CURLOPT_NOBODY, true);
+	curl_exec($ch);
+	$retcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+	curl_close($ch);
+
+	if($retcode == 200)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
 ?>

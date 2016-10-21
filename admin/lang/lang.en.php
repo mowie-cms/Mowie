@@ -89,6 +89,7 @@ $lang['general_update'] = 'Update';
 $lang['general_database'] = 'Database';
 $lang['general_create_backup'] = 'Create Database Backup';
 $lang['general_go_phpmyadmin'] = 'phpmyadmin';
+$lang['general_showChangelog'] = 'Show Changelog';
 
 /*
  * Manage Admins
@@ -203,6 +204,7 @@ $lang['action_update_item_succss'] = '"%1$s" was successfully updated.';
 $lang['action_update_item_fail'] = 'An error occured while updating "%1$s"';
 $lang['action_update_succss'] = 'Mowie CMS was updated successfully.';
 $lang['action_update_fail'] = 'An error occured while updating.';
+$lang['action_update_config_fail'] = 'An error occured while updating the config file.';
 $lang['action_update_fail_unzip'] = 'An error occured while unpacking the update.';
 $lang['action_update_md5_fake'] = 'The downloaded file has a wrong checksum.';
 $lang['action_update_fail_copy'] = 'An error occured while downloading the update. <b>Hint:</b> The webserver needs writing permissions in the folder /admin!';

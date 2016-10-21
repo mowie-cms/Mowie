@@ -48,11 +48,26 @@ tinymce();
 				</p>
 				<p>
 					<?php
-					$version_remote = json_decode(file_get_contents($MCONF['update_uri'] . 'version.json'));
-					if ($version_remote->versionNum > $MCONF['version_num'])
+					//Check for newer Version
+					$nextVersion = $MCONF['version_num'] + 1;
+
+					if(remote_file_exists($MCONF['update_uri'] . 'v' . $nextVersion . '/version.json'))
 					{
-						echo $lang->get('general_new_version') . ' <b>' . $version_remote->version . '</b> <a href="action.php?update" class="button">' . $lang->get('general_update') . '</a>';
-					} else
+						$version_remote = json_decode(file_get_contents($MCONF['update_uri'] . 'v' . $nextVersion . '/version.json'));
+						if ($version_remote->versionNum > $MCONF['version_num'])
+						{
+							echo $lang->get('general_new_version') . ' <b>' . $version_remote->version . '</b> <a href="action.php?update" class="button">' . $lang->get('general_update') . '</a>';
+
+							//Check for Changelog
+							if(remote_file_exists($MCONF['update_uri'] . 'v' . $nextVersion . '/changelog.md'))
+							{
+								echo '<a href="action.php?showChangelog&v='.$nextVersion.'" class="button"><i class="fa fa-list-alt" aria-hidden="true"></i>&nbsp;&nbsp;Changelog</a>';
+							}
+						} else
+						{
+							echo $lang->get('general_version_current_new');
+						}
+					}else
 					{
 						echo $lang->get('general_version_current_new');
 					}

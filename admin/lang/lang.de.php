@@ -89,6 +89,7 @@ $lang['general_update'] = 'Update';
 $lang['general_database'] = 'Datenbank';
 $lang['general_create_backup'] = 'Datenbank Backup erstellen';
 $lang['general_go_phpmyadmin'] = 'Zu phpmyadmin';
+$lang['general_showChangelog'] = 'Changelog anzeigen';
 
 /*
  * Manage Admins
@@ -203,6 +204,7 @@ $lang['action_update_item_succss'] = '"%1$s" wurde erfolgreich upgedatet.';
 $lang['action_update_item_fail'] = 'Fehler beim Updaten von "%1$s"';
 $lang['action_update_succss'] = 'Mowie CMS wurde erfolgreich upgedatet.';
 $lang['action_update_fail'] = 'Fehler beim Updaten.';
+$lang['action_update_config_fail'] = 'Beim Bearbeiten der Configdatei ist ein Fehler aufgetreten.';
 $lang['action_update_fail_unzip'] = 'Fehler beim Entpacken des Updates.';
 $lang['action_update_md5_fake'] = 'Die Heruntergeladene Datei ist vermutlich falsch.';
 $lang['action_update_fail_copy'] = 'Fehler beim Herunterladen des Updates. <b>Hinweis:</b> Der Nutzer, unter welchem der Webserver läuft, muss im Verzeichnis /admin Schreibrechte haben!';

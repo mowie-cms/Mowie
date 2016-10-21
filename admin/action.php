@@ -1,5 +1,7 @@
 <?php
 require_once '../inc/autoload_adm.php';
+require_once '../inc/libs/YAML/autoload.php';
+use Symfony\Component\Yaml\Yaml;
 //Datenbank Backup
 if (isset($_GET['dbbackup']) && is_loggedin() && hasPerm('db_dump'))
 {
@@ -26,15 +28,13 @@ if (isset($_GET['dbbackup']) && is_loggedin() && hasPerm('db_dump'))
 		echo $backup['msg'];
 		exit;
 	}
-} else
-{
-	printHeader($lang->get('action_edit_content'));
 }
 if (hasPerm('manage_system'))
 {
 	//construction
 	if (isset($_GET['construction']))
 	{
+		printHeader($lang->get('action_construction_message_edit'));
 		if (isset($_GET['constr_message']))
 		{
 			if (isset($_POST['constr_message']))
@@ -119,9 +119,11 @@ if (hasPerm('manage_system'))
 			}
 		}
 	}
-	//Generelle Änderungen
+
+	//General Changes
 	if (isset($_GET['general']))
 	{
+		printHeader($lang->get('general_config'));
 		//Header
 		if (hasPerm('edit_title'))
 		{
@@ -147,66 +149,97 @@ if (hasPerm('manage_system'))
 			}
 		}
 	}
+
 	//Update
 	if (isset($_GET['update']))
 	{
+		printHeader($lang->get('general_update'));
 		if (hasPerm('update'))
 		{
-			$version_remote = json_decode(file_get_contents($MCONF['update_uri'] . 'version.json'));
-			if ($version_remote->versionNum > $MCONF['version_num'])
+			$nextVersion = $MCONF['version_num'] + 1;
+
+			//Check for version.json on the remote server
+			$dUri = $MCONF['update_uri'] . 'v' . $nextVersion . '/';
+			if(remote_file_exists($dUri . 'version.json'))
 			{
-				if (copy($MCONF['update_uri'] . 'update.v' . $version_remote->versionNum . '.incremental.zip', 'update.zip'))
+				$version_remote = json_decode(file_get_contents($dUri . 'version.json'));
+				//Check if the remote version is newer
+				if ($version_remote->versionNum > $MCONF['version_num'])
 				{
-					if (md5_file('update.zip') == $version_remote->md5)
+					//Download the update
+					if (copy($dUri . 'update.v' . $version_remote->versionNum . '.incremental.zip', 'update.zip'))
 					{
-						if (!file_exists('updateNeu/'))
+						//Check for md5 hash
+						if (md5_file('update.zip') == $version_remote->md5)
 						{
-							mkdir('updateNeu/');
-						}
-						$zip = new ZipArchive;
-						$res = $zip->open('update.zip');
-						if ($res === true)
-						{
-							$zip->extractTo('updateNeu/');
-							$zip->close();
-							$updateInfos = json_decode(file_get_contents('updateNeu/filesToUpdate.json'));
-							//array mit dateine erstellen
-							$isUp = false;
-							$fTU = [];
-							foreach ($updateInfos->files as $num => $file)
+							//unzip to temporary folder
+							$updateTmpDir = 'updateTmp/';
+							if (!file_exists($updateTmpDir))
 							{
-								$fTU[] = $file;
-								$upNeu = 'updateNeu/' . $file;
-								$upRem = '../' . $file;
-								if (copy($upNeu, $upRem))
+								if(mkdir($updateTmpDir, 0777) === false)
 								{
-									echo msg('succes', sprintf($lang->get('action_update_item_succss'), $file));
-									$isUp = true;
-								} else
-								{
-									echo msg('fail', sprintf($lang->get('action_update_item_fail'), $file));
+									echo msg('fail', 'Error creating temporary folder.');
 								}
 							}
 
-							//Jetzt altes update entfernen
-							if (rrmdir('updateNeu') && $isUp && unlink('update.zip'))
+							$zip = new ZipArchive;
+							$res = $zip->open('update.zip');
+							if ($res === true)
 							{
-								echo msg('succes', $lang->get('action_update_success') . ' <a href="general_config.php">' . $lang->get('back') . '</a>');
+								$zip->extractTo($updateTmpDir);
+								$zip->close();
+								$updateInfos = json_decode(file_get_contents($updateTmpDir . 'filesToUpdate.json'));
+
+								$isUp = false;
+								$fTU = [];
+								foreach ($updateInfos->files as $num => $file)
+								{
+									$fTU[] = $file;
+									$upNeu = $updateTmpDir . $file;
+									$upRem = '../' . $file;
+									if (copy($upNeu, $upRem))
+									{
+										echo msg('succes', sprintf($lang->get('action_update_item_succss'), $file));
+										$isUp = true;
+									} else
+									{
+										echo msg('fail', sprintf($lang->get('action_update_item_fail'), $file));
+									}
+								}
+
+								//Update Version in Config File
+								$config = Yaml::parse(file_get_contents('../inc/config.yml', FILE_USE_INCLUDE_PATH));
+								$config['Versioning']['version'] = $version_remote->version;
+								$config['Versioning']['version_num'] = $version_remote->versionNum;
+								$configfile = Yaml::dump($config);
+								if (!file_put_contents('../inc/config.yml', $configfile))
+								{
+									echo msg('fail', $lang->get('action_update_config_fail'));
+								}
+
+								//Remove "old" update
+								if (rrmdir($updateTmpDir) && $isUp && unlink('update.zip'))
+								{
+									echo msg('succes', $lang->get('action_update_succss') . ' <a href="general_config.php">' . $lang->get('back') . '</a>');
+								} else
+								{
+									echo msg('fail', $lang->get('action_update_fail') . ' <a href="general_config.php">' . $lang->get('back') . '</a>');
+								}
 							} else
 							{
-								echo msg('fail', $lang->get('action_update_fail') . ' <a href="general_config.php">' . $lang->get('back') . '</a>');
+								echo msg('fail', $lang->get('action_update_fail_unzip'));
 							}
 						} else
 						{
-							echo msg('fail', $lang->get('action_update_fail_unzip'));
+							echo msg('fail', $lang->get('action_update_md5_fake'));
 						}
 					} else
 					{
-						echo msg('fail', $lang->get('action_update_md5_fake'));
+						echo msg('fail', $lang->get('action_update_fail_copy'));
 					}
 				} else
 				{
-					echo msg('fail', $lang->get('action_update_fail_copy'));
+					echo msg('info', $lang->get('general_version_current_new'));
 				}
 			} else
 			{
@@ -214,8 +247,37 @@ if (hasPerm('manage_system'))
 			}
 		}
 	}
+
+	//Show Changelog
+	if(isset($_GET['showChangelog']))
+	{
+		printHeader($lang->get('general_showChangelog'));
+		echo '<div class="main">';
+		if(hasPerm('update'))
+		{
+			if(isset($_GET['v']))
+			{
+				if(remote_file_exists($MCONF['update_uri'] . 'v' . $_GET['v'] . '/changelog.md'))
+				{
+					require_once '../inc/libs/Parsedown.php';
+					$Parsedown = new Parsedown();
+					echo $Parsedown->text(file_get_contents($MCONF['update_uri'] . 'v' . $_GET['v'] . '/changelog.md'));
+				}
+			}
+			else
+			{
+				echo 'Missing Version.';
+			}
+		}
+		else
+		{
+			echo msg('info', $lang->get('missing_permission'));
+		}
+		echo '</div>';
+	}
 } else
 {
+	printHeader($lang->get('action_edit_content'));
 	echo msg('info', $lang->get('missing_permission'));
 }
 require_once '../inc/footer.php';

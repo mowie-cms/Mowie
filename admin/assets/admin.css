@@ -35,6 +35,10 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 400;
 }
 
+ul{
+    padding-left: 20px;
+}
+
 /*Inputs und co*/
 input, textarea {
     font-size: 15px;
@@ -52,6 +56,7 @@ input, textarea {
     background-repeat: no-repeat;
     transition: 0.2s ease;
     -webkit-transition: 0.2s ease;
+    color: #212121;
 }
 
 textarea {
@@ -80,6 +85,11 @@ input:invalid:focus, textarea:invalid:focus {
     outline: none;
     border: 0;
 }
+
+/*Placeholder*
+::-webkit-input-placeholder, :-moz-placeholder, ::-moz-placeholder, :-ms-input-placeholder, ::placeholder {
+    color: #ccc !important;
+}*/
 
 /*Checkbox*/
 input[type=checkbox] {
@@ -760,6 +770,7 @@ nav header {
 
 nav ul {
     padding-top: 20px;
+    padding-left: 0;
 }
 
 nav ul li {

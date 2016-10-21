@@ -62,8 +62,8 @@ if (isset($_POST['submit']))
 		$CONFIG['Templating']['tpl_title'] = 'title';
 		$CONFIG['Templating']['tpl_content'] = 'content';
 		$CONFIG['Templating']['tpl_webUri'] = 'website_uri';
-		$CONFIG['Versioning']['version'] = '0.91 Beta';
-		$CONFIG['Versioning']['version_num'] = 1;
+		$CONFIG['Versioning']['version'] = '0.93 Beta';
+		$CONFIG['Versioning']['version_num'] = 4;
 		$CONFIG['Versioning']['update_uri'] = 'http://cdn.kola-entertainments.de/cms/';
 
 		$CONFIG['Mail']['smtp'] = false;
@@ -73,11 +73,11 @@ if (isset($_POST['submit']))
 			if ($_POST['mail_host'] != '' && $_POST['mail_user'] != '' && $_POST['mail_pass'] != '' && $_POST['mail_secure'] != '' && $_POST['mail_port'] != '')
 			{
 				$CONFIG['Mail']['smtp'] = true;
-				$config['Mail']['host'] = $_POST['mail_host'];
-				$config['Mail']['username'] = $_POST['mail_user'];
-				$config['Mail']['password'] = $_POST['mail_pass'];
-				$config['Mail']['secure'] = $_POST['mail_secure'];
-				$config['Mail']['port'] = $_POST['mail_port'];
+				$CONFIG['Mail']['host'] = $_POST['mail_host'];
+				$CONFIG['Mail']['username'] = $_POST['mail_user'];
+				$CONFIG['Mail']['password'] = $_POST['mail_pass'];
+				$CONFIG['Mail']['secure'] = $_POST['mail_secure'];
+				$CONFIG['Mail']['port'] = $_POST['mail_port'];
 			} else
 			{
 				echo msg('fail', 'Please provide all SMTP-Informations.');
