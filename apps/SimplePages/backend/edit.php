@@ -20,77 +20,6 @@ if (hasPerm('manage_pages'))
 				$content = strip_tags($content);
 			}
 
-			/*if (!$confirmationRequierd)
-			{
-				$time = time();
-				$seite = str_replace('-', ' ', $seite);
-				$seite = str_replace('ä', '&auml;', $seite);
-				$seite = str_replace('ö', '&ouml;', $seite);
-				$seite = str_replace('ü', '&uuml;', $seite);
-				//echo $seite;
-				$stmt = $DBH->prepare("UPDATE " . $MCONF['db_prefix'] . "seiten SET inhalt=:inhalt, datel=:datel, userl=:userl WHERE name=:seite");
-				$stmt->bindParam(':inhalt', $content);
-				$stmt->bindParam(':datel', $time);
-				$stmt->bindParam(':userl', $_SESSION['user']);
-				$stmt->bindParam(':seite', $seite);
-
-				if ($stmt->execute())
-				{
-					echo msg('succes', 'Die Seite "' . $seite . '" wurde erfolgreich ge&auml;ndert. <a href="management.php">Zurück</a>');
-				} else
-				{
-					echo msg('fail');
-				}
-			} else
-			{
-				$bnutzrid = $_SESSION['user'];
-				//echo $seite;
-				$seite = str_replace('-', ' ', $seite);
-				$seite = str_replace('ä', '&auml;', $seite);
-				$seite = str_replace('ö', '&ouml;', $seite);
-				$seite = str_replace('ü', '&uuml;', $seite);
-				//echo $seite;
-				if ($_SESSION['user'] === $confirmationUser)
-				{
-					$time = time();
-					$STH = $DBH->prepare("UPDATE " . $MCONF['db_prefix'] . "seiten SET inhalt=:inhalt, datel=:datel, userl=:userl WHERE name=:seite");
-					$STH->bindParam(':inhalt', $content);
-					$STH->bindParam(':datel', $time);
-					$STH->bindParam(':userl', $_SESSION['user']);
-					$STH->bindParam(':seite', $seite);
-
-					if ($STH->execute())
-					{
-						$STH2 = $DBH->prepare("DELETE FROM " . $MCONF['db_prefix'] . "seitenneu WHERE name=:name");
-						$STH2->bindParam(':name', $seite);
-						if ($STH2->execute())
-						{
-							echo msg('succes', 'Die Seite "' . $seite . '" wurde erfolgreich ge&auml;ndert. <a href="management.php">Zurück</a>');
-						} else
-						{
-							echo msg('fail');
-						}
-					} else
-					{
-						echo msg('fail');
-					}
-				} else
-				{
-					$time = time();
-					$stmt2 = $DBH->prepare("INSERT INTO " . $MCONF['db_prefix'] . "seitenneu (name, inhalt, geaendertby, datum) VALUES (:name, :inhalt, :geaendertby, :datum)");
-					$stmt2->bindParam(':name', $seite);
-					$stmt2->bindParam(':inhalt', $content);
-					$stmt2->bindParam(':geaendertby', $bnutzrid);
-					$stmt2->bindParam(':datum', $time);
-
-					if ($stmt2->execute() and freischaltemail($seite))
-					{
-						echo msg('succes', 'Die Seite ' . $seite . ' wurde erfolgreich ge&auml;ndert. Diese &Auml;nderungen werden &ouml;ffentlich, sobald ' . $confirmationUser . ' sie Freigegeben hat. <a href="management.php">Zurück</a>');
-					} else
-					{
-						echo msg('fail');
-					}
-				}*/
 			//
 			$db->clear();
 			//If a confirmation by user is requiered, insert it in another table and send an email
@@ -145,6 +74,8 @@ if (hasPerm('manage_pages'))
 			$db->data['meta_keywords'] = $_POST['meta_keywords'];
 			$db->data['lastedit'] = time();
 			if(isset($_GET['new'])) $db->data['created'] = time();
+
+			//print_r($_POST);
 
 			//$db->update(['id' => $_GET['id']]);
 			$id = 0;

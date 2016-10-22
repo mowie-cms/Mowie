@@ -70,10 +70,19 @@ if (!isset($_GET['direct']))
 
 						var isAjax = false;
 						var requestData = 'direct=true';
+						var editorname = '';
+						if (typeof(tinyMCE) != "undefined") {editorname = $('#' + tinyMCE.activeEditor.id).attr("name");}//Get the new Content, not the old
+
 						for (var key in ctx.body) {
 							if (!ctx.body.hasOwnProperty(key)) continue;
 
-							requestData += '&' + key + '=' + ctx.body[key];
+							//If we have content edited with tinymce, we want the new content to be passed with the POST-Request
+							if(key == editorname) {
+								console.log(tinyMCE.activeEditor.getContent());
+								requestData += '&' + key + '=' + tinyMCE.activeEditor.getContent();
+							} else {
+								requestData += '&' + key + '=' + ctx.body[key];
+							}
 							if(key == 'ajax') isAjax = true;
 						}
 

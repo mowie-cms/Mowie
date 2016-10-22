@@ -46,11 +46,14 @@ $MCONF['update_uri'] = $config['Versioning']['update_uri'];
 
 //Mailer
 $MCONF['smtp'] = $config['Mail']['smtp'];
-$MCONF['smtp_host'] = $config['Mail']['host'];
-$MCONF['smtp_user'] = $config['Mail']['username'];
-$MCONF['smtp_pass'] = $config['Mail']['password'];
-$MCONF['smtp_secure'] = $config['Mail']['secure'];
-$MCONF['smtp_port'] = $config['Mail']['port'];
+if($MCONF['smtp'] === true)
+{
+	$MCONF['smtp_host'] = $config['Mail']['host'];
+	$MCONF['smtp_user'] = $config['Mail']['username'];
+	$MCONF['smtp_pass'] = $config['Mail']['password'];
+	$MCONF['smtp_secure'] = $config['Mail']['secure'];
+	$MCONF['smtp_port'] = $config['Mail']['port'];
+}
 
 require_once 'libs/lang.class.php';
 
