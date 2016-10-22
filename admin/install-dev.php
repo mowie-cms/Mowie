@@ -9,6 +9,7 @@ session_start();
 require_once '../inc/libs/functions.php';
 require_once '../inc/libs/lang.class.php';
 require_once '../inc/libs/db-mysql.php';
+require_once '../inc/apps.php';
 require_once '../inc/libs/YAML/autoload.php';
 use Symfony\Component\Yaml\Yaml;
 
@@ -262,7 +263,7 @@ RewriteRule . "' . $_POST['general_home_url'] . 'index.php" [L]
 			exit;
 		}
 		//Apps
-		$apps = new apps();
+		$apps = new apps(2);
 		$appUri = '../apps/';
 		foreach ($apps->getApps() as $app => $appconf)
 		{
@@ -343,7 +344,7 @@ RewriteRule . "' . $_POST['general_home_url'] . 'index.php" [L]
 			<span>Confirm Password</span><input type="password" placeholder="Confirm Password" name="admin_pw2"/><br/>
 			<?php
 			//Apps
-			$apps = new apps();
+			$apps = new apps(2);
 			$appUri = '../apps/';
 			foreach ($apps->getApps() as $app => $appconf)
 			{
