@@ -35,7 +35,7 @@
             }
         }
         else {
-            if (nodeName !== 'INPUT' && nodeName !== 'BUTTON') {
+            if (nodeName !== 'INPUT'){//} && nodeName !== 'BUTTON') {
                 return; // something other than a submit button was clicked
             }
             else if (nodeName === 'INPUT' && el.type !== 'submit') {

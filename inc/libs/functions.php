@@ -261,9 +261,7 @@ function printHeader($title)
 	<script>
 	page.base(\'' . $GLOBALS['MCONF']['home_uri'] . '\');
 	</script>
-	
 ';
-
 	//Get App-CSS and output it
 		if(isset($apps[$appCurr]['css']))
 		{

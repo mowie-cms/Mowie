@@ -52,11 +52,11 @@ if (!isset($_GET['direct']))
 				}
 			})
 		}
+
 		$(document).ready(function () {
+
 			//Router
 			$('#topnav').addClass('no-transition');
-
-			///page.base('<?php echo $MCONF['home_uri'];?>');
 
 			page('*', findPage);
 			page();
@@ -64,27 +64,29 @@ if (!isset($_GET['direct']))
 			pageBodyParser();
 
 			function findPage(ctx, next) {
-				console.log(ctx);
 				if(!ctx.init) {
 					if (ctx.body) { //If POST-Request, send Post via ajax
 
 						var isAjax = false;
 						var requestData = 'direct=true';
 						var editorname = '';
-						if (typeof(tinyMCE) != "undefined") {editorname = $('#' + tinyMCE.activeEditor.id).attr("name");}//Get the new Content, not the old
+						//console.log(typeof(tinyMCE));
+						if (typeof(tinyMCE) != "undefined" && tinyMCE.activeEditor != null) {editorname = $('#' + tinyMCE.activeEditor.id).attr("name");}//Get the new Content, not the old
 
 						for (var key in ctx.body) {
 							if (!ctx.body.hasOwnProperty(key)) continue;
 
 							//If we have content edited with tinymce, we want the new content to be passed with the POST-Request
 							if(key == editorname) {
-								console.log(tinyMCE.activeEditor.getContent());
-								requestData += '&' + key + '=' + tinyMCE.activeEditor.getContent();
+								console.log(tinyMCE);
+								requestData += '&' + key + '=' + encodeURIComponent(tinyMCE.activeEditor.getContent());
 							} else {
-								requestData += '&' + key + '=' + ctx.body[key];
+								requestData += '&' + key + '=' + encodeURIComponent(ctx.body[key]);
 							}
 							if(key == 'ajax') isAjax = true;
 						}
+
+						console.log(requestData);
 
 						if(!isAjax) {
 							$.ajax({
