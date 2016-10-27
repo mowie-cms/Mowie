@@ -548,7 +548,7 @@ function hasPerm($permkey, $scope = '')
 						if ($pos !== false)
 						{
 							require $scopeUri . 'config.php';
-							if (array_key_exists($_CONF['mod_name'], $perms)) $perms_f = $perms[$_CONF['mod_name']];
+							if (array_key_exists($_CONF['app_name'], $perms)) $perms_f = $perms[$_CONF['app_name']];
 						} else
 						{
 							$perms_f = $perms['System'];

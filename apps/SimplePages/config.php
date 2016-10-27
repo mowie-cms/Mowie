@@ -10,8 +10,8 @@ $GLOBALS['lang']->set('Manage Pages', 'sp_manage_pages', 'en');
 $GLOBALS['lang']->set('Manage Permissions', 'sp_manage_permissions', 'en');
 $GLOBALS['lang']->set('Create New Page', 'sp_create_new', 'en');
 
-$_CONF['mod_name'] = 'SimplePages';
-$_CONF['mod_desc'] = 'Wird benutzt, um Einfache statische Seitn zu erzeugen und zu verwalten.';
+$_CONF['app_name'] = 'SimplePages';
+$_CONF['app_desc'] = 'Wird benutzt, um Einfache statische Seitn zu erzeugen und zu verwalten.';
 $_CONF['base_url'] = '/'; //Basisurl des moduls, wenn es über das Frontend aufgerufen wird
 $_CONF['base_file'] = 'front/page.php'; //Datei, die angezeigt wird, wenn die basisurl aufgerufen wird
 $_CONF['menu_top'] = '<i class="fa fa-file-text"></i>  '.$GLOBALS['lang']->get('sp_pages'); //Name des Moduls, wie es im Adminbereich im Hauptmenü auftaucht

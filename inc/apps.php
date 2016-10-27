@@ -63,4 +63,17 @@ class apps
 	{
 		return $this->apps;
 	}
+
+	//has app?
+	public function appExists($name)
+	{
+		foreach ($this->apps as $appDir => $app)
+		{
+			if($app['app_name'] == $name)
+			{
+				return true;
+			}
+		}
+		return false;
+	}
 }

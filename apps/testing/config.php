@@ -1,6 +1,6 @@
 <?php
-$_CONF['mod_name'] = 'Appname';
-$_CONF['mod_desc'] = 'Appbeschreibung';
+$_CONF['app_name'] = 'Appname';
+$_CONF['app_desc'] = 'Appbeschreibung';
 //$_CONF['base_url'] = 'demoapp/';
 
 $_CONF['base_file'] = 'test.php';
