@@ -3,11 +3,28 @@ require_once '../inc/autoload_adm.php';
 
 printHeader($lang->get('dashboard_title'));
 
+//Delete installation files
 if (file_exists('install.php'))
 {
 	if (unlink('install.php'))
 	{
 		echo msg('info', $lang->get('delete_config_success'));
+	}
+}
+
+$installedApps = $apps->getApps();
+foreach ($installedApps as $appuri => $installedApp)
+{
+	if(array_key_exists('install', $installedApp))
+	{
+		$appInstaller = '../apps/' . $appuri . '/' . $installedApp['install'];
+		if (file_exists($appInstaller))
+		{
+			if (unlink($appInstaller))
+			{
+				echo msg('info', $lang->get('delete_config_success'. $installedApp['app_name']));
+			}
+		}
 	}
 }
 
