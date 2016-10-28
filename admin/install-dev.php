@@ -1,9 +1,9 @@
 <?php
-/*if(file_exists('../inc/config.yml'))
+if(file_exists('../inc/config.yml'))
 {
 	header('Location: index.php');
 	exit;
-}*/
+}
 session_name('adminsession');
 session_start();
 require_once '../inc/libs/functions.php';
@@ -21,6 +21,12 @@ $lang->setLangFolder('lang/');
 	<title>Installation</title>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
 	<link rel="stylesheet" href="assets/admin.css" type="text/css">
+	<script src="assets/js/jquery.min.js"></script>
+	<script>
+		function fadeInput(input) {
+			$('#' + input).fadeToggle(200);
+		}
+	</script>
 </head>
 <body style="background: url('assets/bglogin.jpg') no-repeat center fixed;">
 <img src="http://server/SelfCMS/Version2/admin/assets/Logo.svg" alt="Mowie" class="install-logo"/>
@@ -104,47 +110,7 @@ if (isset($_POST['submit']))
 		//Create Tables
 		if ($db->query('SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
-CREATE TABLE `' . $_POST['db_prefix'] . 'meta_meta` (
-  `name` text NOT NULL,
-  `content` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-CREATE TABLE `' . $_POST['db_prefix'] . 'sidebar_sidebar` (
-  `active` tinyint(1) NOT NULL,
-  `content` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-INSERT INTO `' . $_POST['db_prefix'] . 'sidebar_sidebar` (`active`, `content`) VALUES
-(0, \'\');
-CREATE TABLE `' . $_POST['db_prefix'] . 'simplePages_pages` (
-  `id` int(11) NOT NULL,
-  `title` text CHARACTER SET utf8 NOT NULL,
-  `alias` longtext CHARACTER SET utf8 NOT NULL,
-  `content` text CHARACTER SET utf8 NOT NULL,
-  `user` int(11) NOT NULL,
-  `status` int(11) NOT NULL,
-  `meta_description` text CHARACTER SET utf8 NOT NULL,
-  `meta_keywords` longtext CHARACTER SET utf8 NOT NULL,
-  `created` int(11) NOT NULL,
-  `lastedit` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-CREATE TABLE `' . $_POST['db_prefix'] . 'simplePages_pages_confirm` (
-  `id` int(11) NOT NULL,
-  `page_id` int(11) NOT NULL,
-  `title` text CHARACTER SET utf8 NOT NULL,
-  `alias` longtext CHARACTER SET utf8 NOT NULL,
-  `content` text CHARACTER SET utf8 NOT NULL,
-  `user` int(11) NOT NULL,
-  `status` int(11) NOT NULL,
-  `meta_description` text CHARACTER SET utf8 NOT NULL,
-  `meta_keywords` longtext CHARACTER SET utf8 NOT NULL,
-  `created` int(11) NOT NULL,
-  `lastedit` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-CREATE TABLE `' . $_POST['db_prefix'] . 'simplePages_permissions` (
-  `id` int(11) NOT NULL,
-  `page` int(11) NOT NULL,
-  `user` int(11) NOT NULL,
-  `lastedit` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 CREATE TABLE `' . $_POST['db_prefix'] . 'system_admins` (
   `id` int(11) NOT NULL,
   `username` text NOT NULL,
@@ -166,12 +132,7 @@ CREATE TABLE `' . $_POST['db_prefix'] . 'system_roles` (
   `name` text COLLATE utf8_unicode_ci NOT NULL,
   `permissions` longtext COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-ALTER TABLE `' . $_POST['db_prefix'] . 'simplePages_pages`
-  ADD PRIMARY KEY (`id`);
-ALTER TABLE `' . $_POST['db_prefix'] . 'simplePages_pages_confirm`
-  ADD PRIMARY KEY (`id`);
-ALTER TABLE `' . $_POST['db_prefix'] . 'simplePages_permissions`
-  ADD PRIMARY KEY (`id`);
+
 ALTER TABLE `' . $_POST['db_prefix'] . 'system_admins`
   ADD PRIMARY KEY (`id`);
 ALTER TABLE `' . $_POST['db_prefix'] . 'system_loggedin`
@@ -179,13 +140,6 @@ ALTER TABLE `' . $_POST['db_prefix'] . 'system_loggedin`
   
 ALTER TABLE `' . $_POST['db_prefix'] . 'system_roles`
   ADD PRIMARY KEY (`id`);
-ALTER TABLE `' . $_POST['db_prefix'] . 'simplePages_pages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
-ALTER TABLE `' . $_POST['db_prefix'] . 'simplePages_pages_confirm`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-ALTER TABLE `' . $_POST['db_prefix'] . 'simplePages_permissions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
-  
 ALTER TABLE `' . $_POST['db_prefix'] . 'system_admins`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 ALTER TABLE `' . $_POST['db_prefix'] . 'system_loggedin`
@@ -326,8 +280,11 @@ RewriteRule . "' . $_POST['general_home_url'] . 'index.php" [L]
 										value="content/template.tpl"/><br/>
 
 			<h2>Mail</h2>
-			<span>Use SMTP</span><input type="checkbox" name="mail_smtp" id="mail_smtp"/><label for="mail_smtp"><i></i>
-				Use SMTP</label> <br/>
+			<span>&nbsp;</span><input type="checkbox" name="mail_smtp" id="mail_smtp" onchange="fadeInput('mailInput');"/><label for="mail_smtp"><i></i>
+				Use SMTP</label>
+
+			<br/>
+			<div id="mailInput" style="display: none">
 			<span>SMTP-Host</span><input type="text" placeholder="SMTP-Host" name="mail_host"/><br/>
 			<span>SMTP-Username</span><input type="text" placeholder="SMTP-Username" name="mail_user"/><br/>
 			<span>SMTP-Password</span><input type="text" placeholder="SMTP-Password" name="mail_pass"/><br/>
@@ -335,7 +292,10 @@ RewriteRule . "' . $_POST['general_home_url'] . 'index.php" [L]
 			<input type="radio" name="mail_secure" id="mail_ssl"/><label for="mail_ssl"><i></i> Use SSL</label>
 			<input type="radio" name="mail_secure" id="mail_tls"/><label for="mail_tls"><i></i> Use TLS</label>
 			<br/>
-			<span>Port</span><input type="number" placeholder="Port" name="mail_port"/><br/>
+			<span>Port</span><input type="number" placeholder="Port" name="mail_port"/>
+
+				<br/>
+			</div>
 
 			<h2>First Adminuser</h2>
 			<span>Name</span><input type="text" placeholder="Name" name="admin_name"/><br/>
