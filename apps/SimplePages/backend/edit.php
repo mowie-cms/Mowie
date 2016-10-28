@@ -145,6 +145,11 @@ if (hasPerm('manage_pages'))
 					$message = sprintf($lang->get('sp_create_confirm_message'), $_SESSION['user'], $_POST['title'], $MCONF['web_uri'] . 'apps/SimplePages/backend/confirm.php?page=' . $id);
 				}
 
+				//Get the user's email
+				$db->setCol('system_admins');
+				$db->data['id'] = $confirmationUser;
+				$db->get();
+				if(isset($db->data[0]))	$confirmationUserMail = $db->data[0]['mail'];
 				mmail($confirmationUserMail, $subject, $message, 'noreply@' . $_SERVER['SERVER_NAME'], true);
 			}
 		}
