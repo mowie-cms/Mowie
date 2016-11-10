@@ -40,39 +40,29 @@ tinymce();
 			{
 				?>
 				<i class="divider"></i>
-				<h1><?php echo $lang->get('general_version'); ?></h1>
-				<p><?php echo $lang->get('general_version_current'); ?>:
+				<h1><?php echo $lang->get('update_version'); ?></h1>
+				<p><?php echo $lang->get('update_version_current'); ?>:
 					<?php
 					echo $MCONF['version'];
 					?>
 				</p>
 				<p>
-					<?php
-					//Check for newer Version
-					$nextVersion = $MCONF['version_num'] + 1;
-
-					if(remote_file_exists($MCONF['update_uri'] . 'v' . $nextVersion . '/version.json'))
-					{
-						$version_remote = json_decode(file_get_contents($MCONF['update_uri'] . 'v' . $nextVersion . '/version.json'));
-						if ($version_remote->versionNum > $MCONF['version_num'])
-						{
-							echo $lang->get('general_new_version') . ' <b>' . $version_remote->version . '</b> <a href="action.php?update" class="button">' . $lang->get('general_update') . '</a>';
-
-							//Check for Changelog
-							if(remote_file_exists($MCONF['update_uri'] . 'v' . $nextVersion . '/changelog.md'))
-							{
-								echo '<a href="action.php?showChangelog&v='.$nextVersion.'" class="button"><i class="fa fa-list-alt" aria-hidden="true"></i>&nbsp;&nbsp;Changelog</a>';
-							}
-						} else
-						{
-							echo $lang->get('general_version_current_new');
-						}
-					}else
-					{
-						echo $lang->get('general_version_current_new');
-					}
-					?>
+				<div id="checkUpdate">
+					<div class="spinner-container" style="margin: 0;">
+						<svg class="spinner" style="width:41px;height:40px;" viewBox="0 0 44 44">
+							<circle class="path" cx="22" cy="22" r="20" fill="none" stroke-width="4"></circle>
+						</svg>
+					</div>
+					<div style="margin: -35px 0 0 55px;padding-bottom: 10px;">Überprüfe auf Updates...</div>
+				</div>
 				</p>
+
+				<script>
+					$.get('update.php?checkUpdate', function (data) {
+						$('#checkUpdate').html('');
+						$('#checkUpdate').html(data);
+					});
+				</script>
 				<?php
 			}
 
@@ -110,8 +100,8 @@ tinymce();
 			<i class="divider"></i>
 			<input type="submit" class="speichern" value="<?php echo $lang->get('general_save_changes'); ?>"
 				   style="width: auto;"/>
+		</div>
 	</form>
 <?php
-echo '</div>';
 require_once '../inc/footer.php';
 ?>

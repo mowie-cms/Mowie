@@ -82,14 +82,9 @@ $lang['general_end_construction_mode'] = 'End Construction Mode';
 $lang['general_start_construction_mode'] = 'Start Construction Mode';
 $lang['general_edit_message'] = 'Edit Construction Message';
 $lang['general_version'] = 'Version';
-$lang['general_version_current'] = 'Installed Version';
-$lang['general_new_version'] = 'New Version Available!';
-$lang['general_version_current_new'] = 'Installed Version is up-to-date';
-$lang['general_update'] = 'Update';
 $lang['general_database'] = 'Database';
 $lang['general_create_backup'] = 'Create Database Backup';
 $lang['general_go_phpmyadmin'] = 'phpmyadmin';
-$lang['general_showChangelog'] = 'Show Changelog';
 
 /*
  * Manage Admins
@@ -200,11 +195,22 @@ $lang['action_construction_confirm'] = 'Are you sure you want to enable construc
 $lang['action_construction_removed_success'] = 'Construction Mode was successfully disabled.';
 $lang['action_construction_remove'] = 'Are you sure you want to disable construction mode?';
 $lang['action_change_page_title_success'] = 'Page Title was successfully edited.';
-$lang['action_update_item_succss'] = '"%1$s" was successfully updated.';
-$lang['action_update_item_fail'] = 'An error occured while updating "%1$s"';
-$lang['action_update_succss'] = 'Mowie CMS was updated successfully.';
-$lang['action_update_fail'] = 'An error occured while updating.';
-$lang['action_update_config_fail'] = 'An error occured while updating the config file.';
-$lang['action_update_fail_unzip'] = 'An error occured while unpacking the update.';
-$lang['action_update_md5_fake'] = 'The downloaded file has a wrong checksum.';
-$lang['action_update_fail_copy'] = 'An error occured while downloading the update. <b>Hint:</b> The webserver needs writing permissions in the folder /admin!';
+
+
+//Update
+$lang['update_title'] = 'Update';
+$lang['update_showChangelog'] = 'Show Changelog';
+$lang['update_item_succss'] = '"%1$s" was successfully updated.';
+$lang['update_item_fail'] = 'An error occured while updating "%1$s"';
+$lang['update_succss'] = 'Mowie CMS was updated successfully.';
+$lang['update_app_succss'] = '"%1$s" was updated successfully.';
+$lang['update_fail'] = 'An error occured while updating.';
+$lang['update_config_fail'] = 'An error occured while updating the config file.';
+$lang['update_fail_unzip'] = 'An error occured while unpacking the update.';
+$lang['update_md5_fake'] = 'The downloaded file has a wrong checksum.';
+$lang['update_fail_copy'] = 'An error occured while downloading the update. <b>Hint:</b> The webserver needs writing permissions in the folder /admin!';
+$lang['update_version'] = 'Version';
+$lang['update_version_current'] = 'Installed Version';
+$lang['update_new_version'] = 'New Version Available!';
+$lang['update_version_current_new'] = 'Installed Version is up-to-date';
+$lang['update_app_update_available'] = 'App-Update - New Version for "%1$s" available: %2$s';

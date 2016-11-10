@@ -7,8 +7,8 @@
 .mce-toolbar .mce-btn { background: #fff; border: 0; }
 .mce-toolbar .mce-btn i { color: #555; }
 .mce-toolbar .mce-btn:hover i { color: #333; }
-.mce-primary { background: #6ba72b; }
-.mce-primary:hover { background: #68a029; }
+.mce-primary { background: #4CAF50; }
+.mce-primary:hover { background: #4CAF50; }
 .mce-btn-group:not(:first-child) { border-left: 3px solid #fff; }
 .mce-menu-item:hover { background: #eee; }
 .mce-menu-item.mce-disabled * { color: #ddd !important; }

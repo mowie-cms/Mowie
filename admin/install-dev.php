@@ -71,7 +71,7 @@ if (isset($_POST['submit']))
 		$CONFIG['Templating']['tpl_webUri'] = 'website_uri';
 		$CONFIG['Versioning']['version'] = '0.94 Beta';
 		$CONFIG['Versioning']['version_num'] = 5;
-		$CONFIG['Versioning']['update_uri'] = 'https://cdn.kola-entertainments.de/cms/';
+		$CONFIG['Versioning']['update_uri'][] = 'https://cdn.kola-entertainments.de/cms/';
 
 		$CONFIG['Mail']['smtp'] = false;
 		//Mail Settings

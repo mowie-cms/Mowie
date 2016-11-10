@@ -81,15 +81,9 @@ $lang['general_construction_mode'] = 'Baustellenzustand';
 $lang['general_end_construction_mode'] = 'Baustellenzustand aufheben';
 $lang['general_start_construction_mode'] = 'Seite in Baustellenzustand versetzen';
 $lang['general_edit_message'] = 'Meldung bearbeiten';
-$lang['general_version'] = 'Version';
-$lang['general_version_current'] = 'Installierte Version';
-$lang['general_new_version'] = 'Neue Version verfügbar!';
-$lang['general_version_current_new'] = 'Die installierte Version ist aktuell.';
-$lang['general_update'] = 'Update';
 $lang['general_database'] = 'Datenbank';
 $lang['general_create_backup'] = 'Datenbank Backup erstellen';
 $lang['general_go_phpmyadmin'] = 'Zu phpmyadmin';
-$lang['general_showChangelog'] = 'Changelog anzeigen';
 
 /*
  * Manage Admins
@@ -200,11 +194,21 @@ $lang['action_construction_confirm'] = 'Wollen Sie die Webseite wirklich in den 
 $lang['action_construction_removed_success'] = 'Der Baustellenzustand wurde erfolgreich aufgehoben.';
 $lang['action_construction_remove'] = 'Wollen Sie den Baustellenzustand wirklich aufheben?';
 $lang['action_change_page_title_success'] = 'Die Änderungen des Seitentitels wurden erfolgreich gespeichert.';
-$lang['action_update_item_succss'] = '"%1$s" wurde erfolgreich upgedatet.';
-$lang['action_update_item_fail'] = 'Fehler beim Updaten von "%1$s"';
-$lang['action_update_succss'] = 'Mowie CMS wurde erfolgreich upgedatet.';
-$lang['action_update_fail'] = 'Fehler beim Updaten.';
-$lang['action_update_config_fail'] = 'Beim Bearbeiten der Configdatei ist ein Fehler aufgetreten.';
-$lang['action_update_fail_unzip'] = 'Fehler beim Entpacken des Updates.';
-$lang['action_update_md5_fake'] = 'Die Heruntergeladene Datei ist vermutlich falsch.';
-$lang['action_update_fail_copy'] = 'Fehler beim Herunterladen des Updates. <b>Hinweis:</b> Der Nutzer, unter welchem der Webserver läuft, muss im Verzeichnis /admin Schreibrechte haben!';
+
+//Update
+$lang['update_title'] = 'Update';
+$lang['update_showChangelog'] = 'Changelog anzeigen';
+$lang['update_item_succss'] = '"%1$s" wurde erfolgreich upgedatet.';
+$lang['update_item_fail'] = 'Fehler beim Updaten von "%1$s"';
+$lang['update_succss'] = 'Mowie CMS wurde erfolgreich upgedatet.';
+$lang['update_app_succss'] = '"%1$s" wurde erfolgreich upgedatet.';
+$lang['update_fail'] = 'Fehler beim Updaten.';
+$lang['update_config_fail'] = 'Beim Bearbeiten der Configdatei ist ein Fehler aufgetreten.';
+$lang['update_fail_unzip'] = 'Fehler beim Entpacken des Updates.';
+$lang['update_md5_fake'] = 'Die Heruntergeladene Datei ist vermutlich falsch.';
+$lang['update_fail_copy'] = 'Fehler beim Herunterladen des Updates. <b>Hinweis:</b> Der Nutzer, unter welchem der Webserver läuft, muss im Verzeichnis /admin Schreibrechte haben!';
+$lang['update_version'] = 'Version';
+$lang['update_version_current'] = 'Installierte Version';
+$lang['update_new_version'] = 'Neue Version verfügbar!';
+$lang['update_version_current_new'] = 'Die installierte Version ist aktuell.';
+$lang['update_app_update_available'] = 'App-Update - Neue Version für "%1$s" verfügbar: %2$s';
