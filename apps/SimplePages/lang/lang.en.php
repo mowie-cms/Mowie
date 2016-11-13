@@ -82,3 +82,10 @@ $lang['sp_edit_edit_page'] = 'Edit "%1$s"';
 $lang['sp_edit_last_edited'] = 'Last modified by %1$s at %2$s';
 $lang['sp_edit_save'] = 'Save';
 $lang['sp_edit_no_page_defined'] = 'No page defined.';
+
+//Stream
+$lang['sp_stream_cofirmed'] = '{user} confirmed contents of a page.';
+$lang['sp_stream_page_edited'] = '{user} edited a page.';
+$lang['sp_stream_page_created'] = '{user} created a page.';
+$lang['sp_stream_page_deleted'] = '{user} deleted a page.';
+$lang['sp_stream_granted_permissions'] = '{user} granted permissions.';

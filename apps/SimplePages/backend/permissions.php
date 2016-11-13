@@ -41,6 +41,7 @@ if (hasPerm('grant_permissions'))
 					if ($db->insert())
 					{
 						echo msg('succes', $lang->get('sp_grant_permissions_success'));
+						stream_message('{user} granted permissions.', 3);
 					} else
 					{
 						echo msg('fail', $lang->get('sp_grant_permissions_fail'));

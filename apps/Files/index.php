@@ -162,6 +162,7 @@ elseif (isset($_GET['del'], $_POST['file']))
 				if (rrmdir('../../' . $_POST['file']))
 				{
 					echo 'success';
+					stream_message('{user} deleted a folder.', 3);
 				} else
 				{
 					echo 'fail';
@@ -171,6 +172,7 @@ elseif (isset($_GET['del'], $_POST['file']))
 				if (unlink('../../' . $_POST['file']))
 				{
 					echo 'success';
+					stream_message('{user} deleted a file.', 3);
 				} else
 				{
 					echo 'fail';
@@ -208,6 +210,7 @@ elseif (isset($_GET['upload']))
 				if (move_uploaded_file($_FILES['file']['tmp_name'], '../../' . $_GET['upload'] . $filename))
 				{
 					echo 'success';
+					stream_message('{user} uploaded a file.', 3);
 				} else
 				{
 					echo 'fail';
@@ -229,6 +232,7 @@ elseif (isset($_GET['newFolder']))
 			if (mkdir('../../' . $_POST['dir'] . str_replace(' ', '-', $_POST['name'])))
 			{
 				echo 'success';
+				stream_message('{user} created a folder.', 3);
 			} else
 			{
 				echo 'fail';
@@ -246,8 +250,6 @@ else
 {
 	printHeader($lang->get('files_title'));
 }
-if (isset($_SESSION['user']))
-{
 	if (hasPerm('manage_files'))
 	{
 		?>
@@ -685,5 +687,4 @@ if (isset($_SESSION['user']))
 		echo msg('info', 'Fehlende Berechtigung. {back}');
 	}
 	require_once '../../inc/footer.php';
-}
 ?>

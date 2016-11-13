@@ -45,6 +45,7 @@ if (isset($_GET['page']))
 					$db->data['page_id'] = $_GET['page'];
 					$db->delete();
 					echo msg('success', $lang->get('sp_confirm_success') . ' <a href="management.php">' . $lang->get('back') . '</a>');
+					stream_message('{user} confirmed contents of a page.', 3);
 				} else
 				{
 					echo msg('fail', $lang->get('sp_confirm_fail') . ' <a href="management.php">' . $lang->get('back') . '</a>');

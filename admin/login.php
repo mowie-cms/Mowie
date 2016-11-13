@@ -48,6 +48,7 @@ if($db->data[0]['id'] != '')
 				if($authenticator->verifyCode($db->data[0]['secret'], $_POST['2fa'], 3))
 				{
 					echo 'success';
+					stream_message('{user} has logged in.', 4);
 				}
 				else
 				{

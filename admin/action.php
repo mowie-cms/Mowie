@@ -20,6 +20,7 @@ if (isset($_GET['dbbackup']) && is_loggedin() && hasPerm('db_dump'))
 		echo msg('fail', $lang->get('action_backup_fail'));
 	} else
 	{
+		stream_message('{user} made a database-backup.', 4);
 		header("Cache-Control: public");
 		header("content-Description: File Transfer");
 		header('Content-Disposition: attachment; filename=Backup_' . str_replace(' ', '_', $MCONF['title']) . '_' . date('Y-m-d_h-d') . '.sql');
@@ -43,6 +44,7 @@ if (hasPerm('manage_system'))
 				{
 					copy('../inc/System/construction2.txt', '../inc/System/construction.txt');
 					echo msg('succes', $lang->get('action_construction_message_success') . ' <a href="general_config.php">' . $lang->get('back') . '</a>');
+					stream_message('{user} edited the construction-mode message.', 2);
 				} else
 				{
 					echo msg('fail', $lang->get('action_try_again_later') . ' <a href="general_config.php">' . $lang->get('back') . '</a>');
@@ -72,6 +74,7 @@ if (hasPerm('manage_system'))
 						if (copy('../inc/System/construction2.txt', '../inc/System/construction.txt'))
 						{
 							echo msg('succes', $lang->get('action_construction_success') . ' <a href="general_config.php">' . $lang->get('back') . '</a>');
+							stream_message('{user} put the site into construction mode.', 2);
 						} else
 						{
 							echo msg('fail', $lang->get('action_try_again_later') . ' <a href="general_config.php">' . $lang->get('back') . '</a>');
@@ -97,6 +100,7 @@ if (hasPerm('manage_system'))
 						if (unlink('../inc/System/construction.txt'))
 						{
 							echo msg('succes', $lang->get('action_construction_removed_success') . ' <a href="general_config.php">' . $lang->get('back') . '</a>');
+							stream_message('{user} put the site into production mode.', 2);
 						} else
 						{
 							echo msg('fail', $lang->get('action_try_again_later') . ' <a href="general_config.php">' . $lang->get('back') . '</a>');
@@ -131,6 +135,7 @@ if (hasPerm('manage_system'))
 			if (file_put_contents('../inc/System/page_title.txt', $titel))
 			{
 				echo msg('succes', $lang->get('action_change_page_title_success'));
+				stream_message('{user} edited the page title.', 2);
 			} else
 			{
 				echo msg('fail', $lang->get('action_try_again_later'));
@@ -144,7 +149,6 @@ if (hasPerm('manage_system'))
 			require $appUri . $app . '/config.php';
 			if (isset($_CONF['general_conf']) && $_CONF['general_conf'] != '' && file_exists($appUri . $app . '/' . $_CONF['general_conf']))
 			{
-				//echo '<li class="divider"></li>';
 				require $appUri . $app . '/' . $_CONF['general_conf'];
 			}
 		}

@@ -94,6 +94,7 @@ if (hasPerm('manage_pages'))
 						{
 							echo msg('succes', sprintf($lang->get('sp_edit_created'), $_POST['title']).' <a href="management.php">'.$lang->get('back').'</a>');
 						}
+						stream_message('{user} created a page.', 3);
 					}
 					else
 					{
@@ -113,6 +114,7 @@ if (hasPerm('manage_pages'))
 					if ($db->insert())
 					{
 						echo msg('succes', sprintf($lang->get('sp_edit_edited'), $_POST['title']).' '.sprintf($lang->get('sp_edit_edited_need_confirm'), getUserByID($confirmationUser)).' <a href="management.php">'.$lang->get('back').'</a>');
+						stream_message('{user} edited a page.', 3);
 					}
 					else
 					{
@@ -124,6 +126,7 @@ if (hasPerm('manage_pages'))
 					if ($db->update(['id' => $_GET['id']]))
 					{
 						echo msg('succes', sprintf($lang->get('sp_edit_edited'), $_POST['title']).' <a href="management.php">'.$lang->get('back').'</a>');
+						stream_message('{user} edited a page.', 3);
 					}
 					else
 					{
@@ -163,6 +166,7 @@ if (hasPerm('manage_pages'))
 					if ($db->delete())
 					{
 						echo msg('succes', $lang->get('sp_edit_delete_success').' <a href="management.php">'.$lang->get('back').'</a>');
+						stream_message('{user} deleted a page.', 3);
 					}
 					else
 					{

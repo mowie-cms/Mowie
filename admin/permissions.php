@@ -26,6 +26,7 @@ if (hasPerm('edit_permissions'))
 			if ($db->update(['id' => $lvl]))
 			{
 				echo msg('success', $lang->get('admins_perms_set_success').' {back}');
+				stream_message('{user} edited permissions.', 3);
 			}
 			else
 			{

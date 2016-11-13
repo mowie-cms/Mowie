@@ -82,3 +82,10 @@ $lang['sp_edit_edit_page'] = '"%1$s" bearbeiten';
 $lang['sp_edit_last_edited'] = 'Zuletzt bearbeitet von %1$s am %2$s';
 $lang['sp_edit_save'] = 'Speichern';
 $lang['sp_edit_no_page_defined'] = 'Es ist keine Seite definiert.';
+
+//Stream
+$lang['sp_stream_cofirmed'] = '{user} hat Seitenänderungen freigeschaltet.';
+$lang['sp_stream_page_edited'] = '{user} hat eine Seite bearbeitet.';
+$lang['sp_stream_page_created'] = '{user} hat eine Seite erstellt.';
+$lang['sp_stream_page_deleted'] = '{user} hat eine Seite gelöscht.';
+$lang['sp_stream_granted_permissions'] = '{user} hat Berechtigungen vergeben.';

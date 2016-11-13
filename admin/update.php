@@ -219,10 +219,12 @@ if (isset($_GET['update']))
 										if(isset($_GET['appUpdate']))
 										{
 											echo msg('succes', sprintf($lang->get('update_app_succss'), $_CONF['app_name']) . ' <a href="general_config.php">' . $lang->get('back') . '</a>');
+											stream_message('{user} updated an app.', 2);
 										}
 										else
 										{
 											echo msg('succes', $lang->get('update_succss') . ' <a href="general_config.php">' . $lang->get('back') . '</a>');
+											stream_message('{user} updated the system.', 2);
 										}
 									} else
 									{

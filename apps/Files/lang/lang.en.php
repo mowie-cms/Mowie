@@ -45,3 +45,9 @@ $lang['files_too_large_file'] = 'This file is too big!';
 $lang['files_processing'] = 'Processing file...';
 $lang['files_upload_finished'] = 'Upload finished.';
 $lang['files_upload_failed'] = 'Upload failed.';
+
+//Stream Messages
+$lang['files_stream_deleted_folder'] = '{user} deleted a folder.';
+$lang['files_stream_deleted_file'] = '{user} deleted a file.';
+$lang['files_stream_uploaded'] = '{user} uploaded a file.';
+$lang['files_stream_created_folder'] = '{user} created a folder.';

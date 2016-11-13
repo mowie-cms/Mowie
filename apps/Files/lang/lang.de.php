@@ -4,7 +4,7 @@
  *
  * -----------------
  * LANGUAGE: German
- * Files apps
+ * Files app
  * -----------------
  */
 $lang = [];
@@ -45,3 +45,9 @@ $lang['files_too_large_file'] = 'Die ausgewählte Datei ist zu groß!';
 $lang['files_processing'] = 'Datei wird verarbeitet...';
 $lang['files_upload_finished'] = 'Upload abgeschlossen.';
 $lang['files_upload_failed'] = 'Upload fehlgeschlagen.';
+
+//Stream Messages
+$lang['files_stream_deleted_folder'] = '{user} hat einen Ordner gelöscht.';
+$lang['files_stream_deleted_file'] = '{user} hat eine Datei gelöscht.';
+$lang['files_stream_uploaded'] = '{user} hat eine Datei hochgeladen.';
+$lang['files_stream_created_folder'] = '{user} hat einen Ordner erstellt.';

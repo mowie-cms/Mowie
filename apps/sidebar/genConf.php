@@ -13,7 +13,8 @@ if (isset($_POST['sidebarconf']))
 	$db->data = ['active' => $active, 'content' => $text];
 	if ($db->update())
 	{
-		echo msg('success', 'Die &Auml;nderungen der Sidebar wurden erfolgreich gespeichert.');
+		echo msg('success', $lang->get('sidebar_edit_success'));
+		stream_message('{user} edited sidebar.', 3);
 	}
 	else
 	{
@@ -22,7 +23,7 @@ if (isset($_POST['sidebarconf']))
 }
 else
 {
-	echo '<h1>Sidebar</h1>';
+	echo '<h1>'.$lang->get('sidebar_title').'</h1>';
 
 	$db->setCol('sidebar_sidebar');
 	$db->get();
@@ -32,11 +33,11 @@ else
 	?>
 	<p>
 		<input type="checkbox" name="active" value="y" id="activeswitch" onchange="toggleTextField()"/>
-		<label for="activeswitch"><i></i>Sidebar anzeigen</label>
+		<label for="activeswitch"><i></i><?php echo $lang->get('sidebar_show');?></label>
 	</p>
 	</div>
 	<div id="editorContainer">
-	Sidebar-Inhalt:
+		<?php echo $lang->get('sidebar_content');?>:
 	<br/>
 	<textarea type="text" name="sidebar_inhalt" id="editor"><?php echo $db->data[0]['content']; ?></textarea>
 	</div>

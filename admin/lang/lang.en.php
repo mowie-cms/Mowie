@@ -222,3 +222,22 @@ $lang['update_new_version'] = 'New Version Available!';
 $lang['update_version_current_new'] = 'Installed Version is up-to-date';
 $lang['update_app_update_available'] = 'App-Update - New Version for "%1$s" available: %2$s';
 $lang['update_log'] = '{user} updated the System.';
+
+//Stream Messages
+$lang['stream_saved_settings'] = '{user} changed it\'s username and/or email-adress.';
+$lang['stream_logged_out'] = '{user} has logged out.';
+$lang['stream_logged_in'] = '{user} has logged in.';
+$lang['stream_pass_changed'] = '{user}\'s password was changed.';
+$lang['stream_db_backup'] = '{user} made a database-backup.';
+$lang['stream_construction_mode'] = '{user} put the site into construction mode.';
+$lang['stream_construction_mode_message'] = '{user} edited the construction-mode message.';
+$lang['stream_construction_mode_delete'] = '{user} put the site into production mode.';
+$lang['stream_edited_page_title'] = '{user} edited the page title.';
+$lang['stream_created_user'] = '{user} created a new user.';
+$lang['stream_edited_permissions'] = '{user} edited permissions.';
+$lang['stream_added_group'] = '{user} added a group.';
+$lang['stream_deleted_group'] = '{user} deleted a group.';
+$lang['stream_deleted_user'] = '{user} deleted an user.';
+$lang['stream_created_group'] = '{user} created a new group.';
+$lang['stream_system_update'] = '{user} updated the system';
+$lang['stream_app_update'] = '{user} updated an app.';

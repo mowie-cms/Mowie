@@ -28,6 +28,7 @@ if (hasPerm('manage_admins') || $uid == $_SESSION['userid'])
 					if ($db->update(['id' => $user]))
 					{
 						echo msg('succes', $lang->get('user_settings_pw_change_success') . ' <a href="index.php">' . $lang->get('back_dashboard') . '</a>');
+						stream_message('{user}\'s password was changed.', 4);
 					} else
 					{
 						echo msg('fail', $lang->get('user_settings_pw_change_fail') . ' {back}');
@@ -218,6 +219,7 @@ if (hasPerm('manage_admins') || $uid == $_SESSION['userid'])
 			if ($db->update(['id' => $uid]))
 			{
 				echo msg('success', $lang->get('user_settings_settings_success') . ' {back}');
+				stream_message('{user} changed it\'s username and/or email-adress.', 4);
 			} else
 			{
 				echo msg('fail', $lang->get('user_settings_settings_fail') . ' {back}');

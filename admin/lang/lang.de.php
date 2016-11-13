@@ -220,3 +220,22 @@ $lang['update_new_version'] = 'Neue Version verfügbar!';
 $lang['update_version_current_new'] = 'Die installierte Version ist aktuell.';
 $lang['update_app_update_available'] = 'App-Update - Neue Version für "%1$s" verfügbar: %2$s';
 $lang['update_log'] = '{user} hat das System geupdated.';
+
+//Stream Messages
+$lang['stream_saved_settings'] = '{user} hat seinen Benutzername/Email-Adresse geändert.';
+$lang['stream_logged_out'] = '{user} hat sich ausgeloggt.';
+$lang['stream_logged_in'] = '{user} hat sich eingeloggt.';
+$lang['stream_pass_changed'] = '{user}\'s passwort wurde geändert.';
+$lang['stream_db_backup'] = '{user} hat ein Datenbank-Backup gemacht.';
+$lang['stream_construction_mode'] = '{user} hat die Seite in Baustellenmodus versetzt.';
+$lang['stream_construction_mode_message'] = '{user} hat die Baustellenmodus-Nachricht geändert.';
+$lang['stream_construction_mode_delete'] = '{user} hat den Baustellenmodus beendet.';
+$lang['stream_edited_page_title'] = '{user} hat den Seitentitel geändert.';
+$lang['stream_created_user'] = '{user} hat einen neuen Nutzer erstellt.';
+$lang['stream_edited_permissions'] = '{user} hat die Berechtigungen bearbeitet.';
+$lang['stream_added_group'] = '{user} hat eine Gruppe hinzugefügt.';
+$lang['stream_deleted_group'] = '{user} hat eine Gruppe gelöscht.';
+$lang['stream_deleted_user'] = '{user} hat einen Nutzer gelöscht.';
+$lang['stream_created_group'] = '{user} hat eine neue Gruppe erstellt.';
+$lang['stream_system_update'] = '{user} hat das System geupdated.';
+$lang['stream_app_update'] = '{user} hat eine App geupdated.';
