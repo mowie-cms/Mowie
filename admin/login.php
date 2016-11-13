@@ -68,6 +68,8 @@ if($db->data[0]['id'] != '')
 		$_SESSION['lvl'] = $db->data[0]['lvl'];
 		$_SESSION['mail'] = $db->data[0]['mail'];
 		$_SESSION['guestview'] = 'true';
+		
+		stream_message('{user} has logged in.', 4);
 	}
 	else
 	{

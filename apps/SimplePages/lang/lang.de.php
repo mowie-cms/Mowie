@@ -84,8 +84,8 @@ $lang['sp_edit_save'] = 'Speichern';
 $lang['sp_edit_no_page_defined'] = 'Es ist keine Seite definiert.';
 
 //Stream
-$lang['sp_stream_cofirmed'] = '{user} hat Seitenänderungen freigeschaltet.';
-$lang['sp_stream_page_edited'] = '{user} hat eine Seite bearbeitet.';
-$lang['sp_stream_page_created'] = '{user} hat eine Seite erstellt.';
-$lang['sp_stream_page_deleted'] = '{user} hat eine Seite gelöscht.';
-$lang['sp_stream_granted_permissions'] = '{user} hat Berechtigungen vergeben.';
+$lang['sp_stream_cofirmed'] = '{user} hat Seitenänderungen der Seite "{extra}" freigeschaltet.';
+$lang['sp_stream_page_edited'] = '{user} hat die Seite "{extra}" bearbeitet.';
+$lang['sp_stream_page_created'] = '{user} hat die Seite "{extra}" erstellt.';
+$lang['sp_stream_page_deleted'] = '{user} hat die Seite "{extra}" gelöscht.';
+$lang['sp_stream_granted_permissions'] = '{user} hat Berechtigungen an "{extra}" vergeben.';

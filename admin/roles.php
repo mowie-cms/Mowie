@@ -14,7 +14,7 @@ if (hasPerm('manage_groups'))
 			if ($db->update(['id' => $_POST['user']]))
 			{
 				echo msg('success', $lang->get('admins_roles_added_success').' <a href="roles.php?members=' . $_GET['members'] . '">'.$lang->get('back').'</a>');
-				stream_message('{user} added a group.', 2);
+				stream_message('{user} added a user to the group "{extra}".', 2, $_GET['members']);
 			} else
 			{
 				echo msg('fail', $lang->get('admins_roles_added_fail').' <a href="roles.php?members=' . $_GET['members'] . '">'.$lang->get('back').'</a>');
@@ -32,7 +32,7 @@ if (hasPerm('manage_groups'))
 					if ($db->delete(['id' => $_GET['members']]))
 					{
 						echo msg('success', $lang->get('admins_roles_delete_success').' <a href="roles.php">'.$lang->get('back').'</a>');
-						stream_message('{user} deleted a group.', 2);
+						stream_message('{user} deleted the group "{extra}".', 2, $_GET['members']);
 					} else
 					{
 						echo msg('fail', $lang->get('admins_roles_delete_fail').' <a href="roles.php">'.$lang->get('back').'</a>');
@@ -59,7 +59,7 @@ if (hasPerm('manage_groups'))
 				if ($db->update(['id' => $_GET['deluser']]))
 				{
 					echo msg('success', $lang->get('admins_roles_user_delete_success').' <a href="roles.php?members=' . $_GET['members'] . '">'.$lang->get('back').'</a>');
-					stream_message('{user} deleted an user.', 2);
+					stream_message('{user} deleted the user "{extra}".', 2, $_GET['deluser']);
 				} else
 				{
 					echo msg('fail', $lang->get('admins_roles_user_delete_fail').' <a href="roles.php?members=' . $_GET['members'] . '">'.$lang->get('back').'</a>');
@@ -162,7 +162,7 @@ if (hasPerm('manage_groups'))
 			if ($db->insert())
 			{
 				echo msg('success', $lang->get('admins_roles_create_group_success').' <a href="roles.php">'.$lang->get('back').'</a>');
-				stream_message('{user} created a new group.', 2);
+				stream_message('{user} created the group "{extra}".', 2, $_POST['group_name']. ' ('.$db->lastID().')');
 			} else
 			{
 				echo msg('fail', $lang->get('admins_roles_create_group_fail').' <a href="roles.php">'.$lang->get('back').'</a>');

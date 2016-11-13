@@ -41,7 +41,7 @@ if (hasPerm('grant_permissions'))
 					if ($db->insert())
 					{
 						echo msg('succes', $lang->get('sp_grant_permissions_success'));
-						stream_message('{user} granted permissions.', 3);
+						stream_message('{user} granted permissions to "{extra}".', 3, getUserByID($_POST['user']). ' ('.$_POST['user'].')');
 					} else
 					{
 						echo msg('fail', $lang->get('sp_grant_permissions_fail'));

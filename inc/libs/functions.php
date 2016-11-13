@@ -680,7 +680,7 @@ function remote_file_exists($url)
 }
 
 //New Message to the stream
-function stream_message($msg, $lvl, $time = null, $user = null)
+function stream_message($msg, $lvl, $extra = '', $time = null, $user = null)
 {
 	if(!isset($time)) $time = time();
 	if(!isset($user)) $user = $_SESSION['userid'];
@@ -691,6 +691,7 @@ function stream_message($msg, $lvl, $time = null, $user = null)
 	$db->data['user'] = intval($user);
 	$db->data['lvl'] = $lvl;
 	$db->data['message'] = $msg;
+	$db->data['extra'] = $extra;
 	return $db->insert();
 }
 

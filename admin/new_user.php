@@ -27,7 +27,7 @@ if (hasPerm('manage_admins'))
 					if ($db->insert())
 					{
 						echo msg('succes', sprintf($lang->get('admins_cn_success'), $_POST['userN']) . ' <a href="users.php">' . $lang->get('back') . '</a>');
-						stream_message('{user} created a new user.', 2);
+						stream_message('{user} created the new user "{extra}".', 2, $_POST['userN']);
 					} else
 					{
 						echo msg('fail', $lang->get('admins_cn_fail') . ' {back}');

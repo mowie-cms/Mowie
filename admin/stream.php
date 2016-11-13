@@ -17,11 +17,14 @@ if(isset($_GET['getStream']) && is_loggedin())
 	{
 		if(in_array($stream['lvl'], $loglevel))
 		{
+			$message = str_replace('{user}', getUserByID($stream['user']), $lang->get($stream['message']));
+			$message = str_replace('{extra}', $stream['extra'], $message);
+
 			$streamData[] = [
 				'id' => $stream['id'],
 				'time' => $stream['time'],
 				'user' => $stream['user'],
-				'message' => str_replace('{user}', getUserByID($stream['user']), $lang->get($stream['message']))
+				'message' => $message
 			];
 		}
 	}
@@ -41,7 +44,9 @@ $db->setCol('system_stream');
 $db->get(null, null, 'id', 'DESC', 200);
 foreach ($db->data as $stream)
 {
-	echo '<p><b>'.date('d.m.Y H:i', $stream['time']).':</b> '.str_replace('{user}', getUserByID($stream['user']), $lang->get($stream['message'])).'</p>';
+	$message = str_replace('{user}', getUserByID($stream['user']), $lang->get($stream['message']));
+	$message = str_replace('{extra}', $stream['extra'], $message);
+	echo '<p><b>'.date('d.m.Y H:i', $stream['time']).':</b> '.$message.'</p>';
 }
 
 echo '</div>';

@@ -84,8 +84,8 @@ $lang['sp_edit_save'] = 'Save';
 $lang['sp_edit_no_page_defined'] = 'No page defined.';
 
 //Stream
-$lang['sp_stream_cofirmed'] = '{user} confirmed contents of a page.';
-$lang['sp_stream_page_edited'] = '{user} edited a page.';
-$lang['sp_stream_page_created'] = '{user} created a page.';
-$lang['sp_stream_page_deleted'] = '{user} deleted a page.';
-$lang['sp_stream_granted_permissions'] = '{user} granted permissions.';
+$lang['sp_stream_cofirmed'] = '{user} confirmed contents of the page "{extra}".';
+$lang['sp_stream_page_edited'] = '{user} edited the page "{extra}".';
+$lang['sp_stream_page_created'] = '{user} created the page "{extra}".';
+$lang['sp_stream_page_deleted'] = '{user} deleted the page "{extra}".';
+$lang['sp_stream_granted_permissions'] = '{user} granted permissions to "{extra}".';
