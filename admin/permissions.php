@@ -74,8 +74,8 @@ if (hasPerm('edit_permissions'))
 			if (file_exists($appUri . '/' . $app . '/permissions.json'))
 			{
 				require $appUri . '/' . $app . '/config.php';
-				$permsTotal[$_CONF['mod_name']] = json_decode(file_get_contents($appUri . '/' . $app . '/permissions.json'), true);
-				$permsTotal[$_CONF['mod_name']] = $permsTotal[$_CONF['mod_name']]['permissions'];
+				$permsTotal[$_CONF['app_name']] = json_decode(file_get_contents($appUri . '/' . $app . '/permissions.json'), true);
+				$permsTotal[$_CONF['app_name']] = $permsTotal[$_CONF['app_name']]['permissions'];
 			}
 		}
 

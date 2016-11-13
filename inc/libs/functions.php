@@ -278,6 +278,12 @@ echo '
 		{
 			echo '<div class="toploading"></div> <header>
     <span id="title">' . $title . '</span>
+    <div style="float: right;">
+    <div class="stream"><a onclick="showStream();"><i class="fa fa-bell-o" aria-hidden="true"></i></a><div id="streamContent"><div class="spinner-container" style="margin: 12px auto 0;">
+						<svg class="spinner" style="width:41px;height:40px;" viewBox="0 0 44 44">
+							<circle class="path" cx="22" cy="22" r="20" fill="none" stroke-width="4"></circle>
+						</svg>
+					</div></div></div>
     <div class="options" tabindex="0">
     	<input type="checkbox" id="options_menu" />
     	<label for="options_menu">
@@ -289,6 +295,7 @@ echo '
 				<li><a href="' . $GLOBALS['MCONF']['web_uri'] . 'admin/logout.php" rel="external"><span class="fa fa-sign-out"></span> ' . $GLOBALS['lang']->get('logout') . '</a></li>
 			</ul>
     	</label>
+    </div>
     </div>
 </header>
 <label for="show-menu" class="show-menu"><i class="fa fa-bars"></i> </label>
@@ -670,6 +677,21 @@ function remote_file_exists($url)
 	{
 		return false;
 	}
+}
+
+//New Message to the stream
+function stream_message($msg, $lvl, $time = null, $user = null)
+{
+	if(!isset($time)) $time = time();
+	if(!isset($user)) $user = $_SESSION['userid'];
+
+	global $db;
+	$db->setCol('system_stream');
+	$db->data['time'] = $time;
+	$db->data['user'] = intval($user);
+	$db->data['lvl'] = $lvl;
+	$db->data['message'] = $msg;
+	return $db->insert();
 }
 
 ?>

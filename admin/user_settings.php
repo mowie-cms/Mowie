@@ -222,6 +222,47 @@ if (hasPerm('manage_admins') || $uid == $_SESSION['userid'])
 			{
 				echo msg('fail', $lang->get('user_settings_settings_fail') . ' {back}');
 			}
+
+			//Log-Level
+			$loglevel = '';
+			$loglevelA = [];
+			if(isset($_POST['level_1']) && $_POST['level_1'] == 'true') $loglevelA[] = 1;
+			if(isset($_POST['level_2']) && $_POST['level_2'] == 'true') $loglevelA[] = 2;
+			if(isset($_POST['level_3']) && $_POST['level_3'] == 'true') $loglevelA[] = 3;
+			if(isset($_POST['level_4']) && $_POST['level_4'] == 'true') $loglevelA[] = 4;
+			$loglevel = json_encode($loglevelA);
+
+			//Get the current status
+			$db->setCol('system_show_stream');
+			$db->data['user'] = $_SESSION['userid'];
+			$db->get();
+			if(isset($db->data[0]))//If we already have stream settings saved, update them
+			{
+				$db->setCol('system_show_stream');
+				$db->data['level']  = $loglevel;
+				if($db->update(['user' => $_SESSION['userid']]))
+				{
+					echo msg('success', $lang->get('user_settings_log_level_success') . ' {back}');
+				}
+				else
+				{
+					echo msg('fail', $lang->get('user_settings_log_level_fail') . ' {back}');
+				}
+			}
+			else //Otherwise insert them
+			{
+				$db->setCol('system_show_stream');
+				$db->data['user'] = $_SESSION['userid'];
+				$db->data['level']  = $loglevel;
+				if($db->insert())
+				{
+					echo msg('success', $lang->get('user_settings_log_level_success'));
+				}
+				else
+				{
+					echo msg('fail', $lang->get('user_settings_log_level_fail'));
+				}
+			}
 		} else
 		{
 			$db->data['id'] = $uid;
@@ -288,7 +329,26 @@ if (hasPerm('manage_admins') || $uid == $_SESSION['userid'])
 								echo $lang->get('general_inactive') . '. <a href="?2fa">' . $lang->get('general_activate') . '</a>';
 							}
 							}
-							?></p>
+							?><br/></p>
+						<p><span><?php echo $lang->get('user_settings_log_level'); ?>:</span>
+							<?php
+							$db->setCol('system_show_stream');
+							$db->data['user'] = $_SESSION['userid'];
+							$db->get();
+							$loglevel = json_decode($db->data[0]['level']);
+							?>
+							<input type="checkbox" name="level_1" id="level_1"<?php if(in_array(1, $loglevel)) echo ' checked="checked"';?>/>
+							<label for="level_1"><i></i> <?php echo $lang->get('user_settings_log_level_1'); ?></label><div style="clear: both;"></div>
+							<span>&nbsp;</span>
+							<input type="checkbox" name="level_2" id="level_2"<?php if(in_array(2, $loglevel)) echo ' checked="checked"';?>/>
+							<label for="level_2"><i></i> <?php echo $lang->get('user_settings_log_level_2'); ?></label><div style="clear: both;"></div>
+							<span>&nbsp;</span>
+							<input type="checkbox" name="level_3" id="level_3"<?php if(in_array(3, $loglevel)) echo ' checked="checked"';?>/>
+							<label for="level_3"><i></i> <?php echo $lang->get('user_settings_log_level_3'); ?></label><div style="clear: both;"></div>
+							<span>&nbsp;</span>
+							<input type="checkbox" name="level_4" id="level_4"<?php if(in_array(4, $loglevel)) echo ' checked="checked"';?>/>
+							<label for="level_4"><i></i> <?php echo $lang->get('user_settings_log_level_4'); ?></label>
+						</p>
 						<p><input type="submit" name="smbt" value="<?php echo $lang->get('general_save_changes'); ?>"/>
 						</p>
 					</form>

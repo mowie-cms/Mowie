@@ -173,6 +173,13 @@ $lang['user_settings_settings_fail'] = 'Fehler beim Speichern der Änderungen de
 $lang['user_settings_settings_pass'] = 'Passwort ändern';
 $lang['user_settings_last_login'] = 'Letzter Login';
 $lang['user_settings_show_current_sessions'] = 'Offene Anmeldungen anzeigen';
+$lang['user_settings_log_level'] = 'Log-Level für Benachrichtigung';
+$lang['user_settings_log_level_1'] = 'Nur wichtiges';
+$lang['user_settings_log_level_2'] = 'System-Mitteilungen';
+$lang['user_settings_log_level_3'] = 'Änderungen';
+$lang['user_settings_log_level_4'] = 'Generelle Mitteilungen';
+$lang['user_settings_log_level_fail'] = 'Fehler beim Speichern des Log-Levels.';
+$lang['user_settings_log_level_success'] = 'Die Änderungen des Log-Levels wurden erfolgreich gespeichert.';
 
 //Mail
 $lang['mail_write'] = 'Email schreiben';
@@ -212,3 +219,4 @@ $lang['update_version_current'] = 'Installierte Version';
 $lang['update_new_version'] = 'Neue Version verfügbar!';
 $lang['update_version_current_new'] = 'Die installierte Version ist aktuell.';
 $lang['update_app_update_available'] = 'App-Update - Neue Version für "%1$s" verfügbar: %2$s';
+$lang['update_log'] = '{user} hat das System geupdated.';

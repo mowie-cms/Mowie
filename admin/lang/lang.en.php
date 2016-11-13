@@ -174,6 +174,13 @@ $lang['user_settings_settings_fail'] = 'An error occured while saving user-setti
 $lang['user_settings_settings_pass'] = 'Update Password';
 $lang['user_settings_last_login'] = 'Last Login';
 $lang['user_settings_show_current_sessions'] = 'Show Current Sessions';
+$lang['user_settings_log_level'] = 'Log-Level';
+$lang['user_settings_log_level_1'] = 'Important Only';
+$lang['user_settings_log_level_2'] = 'System-Messages';
+$lang['user_settings_log_level_3'] = 'Edits';
+$lang['user_settings_log_level_4'] = 'General Messages';
+$lang['user_settings_log_level_fail'] = 'An error occured while saving Log-Levels.';
+$lang['user_settings_log_level_success'] = 'The Log-Levels were saved successfully.';
 
 //Mail
 $lang['mail_write'] = 'Write Email';
@@ -214,3 +221,4 @@ $lang['update_version_current'] = 'Installed Version';
 $lang['update_new_version'] = 'New Version Available!';
 $lang['update_version_current_new'] = 'Installed Version is up-to-date';
 $lang['update_app_update_available'] = 'App-Update - New Version for "%1$s" available: %2$s';
+$lang['update_log'] = '{user} updated the System.';

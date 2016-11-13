@@ -252,4 +252,5 @@ if (isset($_GET['update']))
 			echo msg('info', $lang->get('update_version_current_new'));
 		}
 	}
+	require_once '../inc/footer.php';
 }

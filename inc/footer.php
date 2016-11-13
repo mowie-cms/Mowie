@@ -13,9 +13,13 @@ if (!isset($_GET['direct']))
 		});
 	</script>
 
+	<script src="<?php echo $MCONF['web_uri'] ?>admin/assets/js/moment.js"></script>
+
 	<!--<script src="<?php echo $MCONF['web_uri'] ?>admin/assets/js/page.js"></script>
 	<script src="<?php echo $MCONF['web_uri'] ?>admin/assets/js/page.bodyparser.js"></script>-->
 	<script>
+		moment.locale('de');
+
 		//Msg
 		function showMsg(msg) {
 			$('#showMsg').html('<div class="snackbar"><a onclick="closeMsg();" class="closeMsg"><i class="fa fa-close"></i> </a><p>' + msg + '</p></div>');
@@ -51,6 +55,22 @@ if (!isset($_GET['direct']))
 					showMsg('Error.');
 				}
 			})
+		}
+
+		//showStream
+		function showStream()
+		{
+			$('#streamContent').fadeToggle(100,function() {
+				if($('#streamContent').is(":visible")) {
+					$.getJSON('<?php echo $MCONF['home_uri'];?>admin/stream.php?getStream&limit=10', function (streamData) {
+						$('#streamContent').html('');
+						$.each(streamData, function (key, val) {
+							$('#streamContent').append('<p>' + val.message + ' (' + moment(val.time * 1000).fromNow() + ')</p>');
+						});
+						$('#streamContent').append('<a href="<?php echo $MCONF['home_uri'];?>admin/stream.php" class="button">Mehr</a>');
+					});
+				}
+			});
 		}
 
 		$(document).ready(function () {

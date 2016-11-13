@@ -643,7 +643,7 @@ header {
     color: #727272;
     z-index: 2;
     font-size: 30px;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 header:after {
@@ -653,7 +653,7 @@ header:after {
 }
 
 header .options {
-    display: block;
+    display: inline-block;
     float: right;
     font-size: 15px;
     text-align: right;
@@ -661,11 +661,12 @@ header .options {
     -moz-user-select: -moz-none;
     -webkit-user-select: none;
     user-select: none;
-    position: fixed;
+    /*position: fixed;
     top: -9px;
-    right: 10px;
+    right: 10px;*/
     background: #fff;
     height: 65px;
+    margin-top: -15px;
 }
 
 header .options span {
@@ -1179,9 +1180,52 @@ a[class^="card-"]:hover, a[class*=" card-"]:hover {
 
 .form span {
     float: left;
-    width: 200px;
+    width: 230px;
     text-align: left;
     padding-top: 5px;
+}
+
+/*Stream*/
+header .stream{
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.stream a{
+    color: #727272;
+    font-size: 30px;
+}
+
+.stream #streamContent{
+    background: #fff;
+    padding: 10px 10px 20px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+    border-radius: 1px;
+    z-index: 1;
+    font-size: 14px;
+
+    width: 300px;
+    max-height: 200px;
+    overflow: auto;
+    position: absolute;
+    margin-left: -150px;
+    margin-top: 5px;
+
+    display: none;
+}
+
+.stream #streamContent p:last-child{
+    margin-bottom: 10px;
+}
+
+.stream .button{
+    width: calc(100% + 20px);
+    margin: 10px -10px 0;
+    padding: 0;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 0;
+    background: #BDBDBD;
 }
 
 /*Msgs*/
