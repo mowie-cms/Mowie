@@ -42,6 +42,7 @@ class lang
 						foreach ($lang as $langKey => $langString)
 						{
 							$langstrings[$langKey] = $langString;
+							//echo '<pre>'.$langKey.': '.$langString.'</pre>';
 						}
 
 						//echo '<pre>'.print_r($langstrings, true).'</pre>';

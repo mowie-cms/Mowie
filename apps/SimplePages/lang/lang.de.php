@@ -89,3 +89,15 @@ $lang['sp_stream_page_edited'] = '{user} hat die Seite "{extra}" bearbeitet.';
 $lang['sp_stream_page_created'] = '{user} hat die Seite "{extra}" erstellt.';
 $lang['sp_stream_page_deleted'] = '{user} hat die Seite "{extra}" gelöscht.';
 $lang['sp_stream_granted_permissions'] = '{user} hat Berechtigungen an "{extra}" vergeben.';
+
+//Permissions
+$lang['sp_perm_manage_pages_name'] = 'Seiten verwalten';
+$lang['sp_perm_manage_pages_description'] = '';
+$lang['sp_perm_admin_manage_name'] = 'Alle Seiten verwalten';
+$lang['sp_perm_admin_manage_description'] = 'Administrativ alle Seiten verwalten. Nutzer ohne diese Berechtigung dürfen nur ihnen zugewiesene Seiten bearbeiten.';
+$lang['sp_perm_create_new_name'] = 'Neue Seiten erstellen';
+$lang['sp_perm_create_new_description'] = 'Darf der Nutzer neue Seiten erstellen?';
+$lang['sp_perm_grant_permissions_name'] = 'Berechtigungen vergeben';
+$lang['sp_perm_grant_permissions_description'] = 'Anderen Nutzern erlauben, bestimmte Seiten zu bearbeiten.';
+$lang['sp_perm_view_dashboard_name'] = 'Dashboard ansehen';
+$lang['sp_perm_view_dashboard_description'] = 'Auf dem Dashboard eine Liste von Seiten einsehen.';

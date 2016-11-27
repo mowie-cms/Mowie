@@ -2,50 +2,50 @@
   "permissions": [
     {
       "key": "view_dashboard",
-      "name": "Relevante Informationen auf dem Dashboard ansehen.",
-      "description": "",
+      "name": "system_perm_view_dashboard_name",
+      "description": "system_perm_view_dashboard_description",
       "critical": false
     },
     {
       "key": "manage_system",
-      "name": "Systemeinstellungen vornehmen.",
-      "description": "",
+      "name": "system_perm_manage_system_name",
+      "description": "system_perm_manage_system_description",
       "critical": true
     },
     {
       "key": "construction",
-      "name": "Baustellenzustand ändern",
-      "description": "Im Baustellenzustand wird Anstelle der Seite ein Text angezeigt.",
+      "name": "system_perm_construction_name",
+      "description": "system_perm_construction_description",
       "critical": true
     },
     {
       "key": "update",
-      "name": "Systemupdate durchführen",
-      "description": "Nach neuen Versionen des Systems suchen und updaten.",
+      "name": "system_perm_update_name",
+      "description": "system_perm_update_description",
       "critical": true
     },
     {
       "key": "db_dump",
-      "name": "Datenbanbackup herunterladen",
-      "description": "Ein komplettes Backup der Datenbank herunterladen.",
+      "name": "system_perm_db_dump_name",
+      "description": "system_perm_db_dump_description",
       "critical": false
     },
     {
       "key": "manage_admins",
-      "name": "Administratoren verwalten",
-      "description": "",
+      "name": "system_perm_manage_admins_name",
+      "description": "system_perm_manage_admins_description",
       "critical": true
     },
     {
       "key": "manage_groups",
-      "name": "Admingruppen verwalten",
-      "description": "",
+      "name": "system_perm_manage_groups_name",
+      "description": "system_perm_manage_groups_description",
       "critical": true
     },
     {
       "key": "edit_permissions",
-      "name": "Adminberechtigungen verwalten",
-      "description": "",
+      "name": "system_perm_edit_permissions_name",
+      "description": "system_perm_edit_permissions_description",
       "critical": true
     }
   ]

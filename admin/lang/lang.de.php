@@ -240,3 +240,21 @@ $lang['stream_deleted_user'] = '{user} hat einen Nutzer gelöscht.';
 $lang['stream_created_group'] = '{user} hat eine neue Gruppe erstellt.';
 $lang['stream_system_update'] = '{user} hat das System geupdated.';
 $lang['stream_app_update'] = '{user} hat die App "{extra}" geupdated.';
+
+//Permissions
+$lang['system_perm_view_dashboard_name'] = 'Relevante Informationen auf dem Dashboard ansehen.';
+$lang['system_perm_view_dashboard_description'] = '';
+$lang['system_perm_manage_system_name'] = 'Systemeinstellungen vornehmen.';
+$lang['system_perm_manage_system_description'] = '';
+$lang['system_perm_construction_name'] = 'Baustellenzustand ändern';
+$lang['system_perm_construction_description'] = 'Im Baustellenzustand wird Anstelle der Seite ein Text angezeigt.';
+$lang['system_perm_update_name'] = 'Systemupdate durchführen';
+$lang['system_perm_update_description'] = 'Nach neuen Versionen des Systems suchen und updaten.';
+$lang['system_perm_db_dump_name'] = 'Datenbanbackup herunterladen';
+$lang['system_perm_db_dump_description'] = 'Ein komplettes Backup der Datenbank herunterladen.';
+$lang['system_perm_manage_admins_name'] = 'Administratoren verwalten';
+$lang['system_perm_manage_admins_description'] = '';
+$lang['system_perm_manage_groups_name'] = 'Admingruppen verwalten';
+$lang['system_perm_manage_groups_description'] = '';
+$lang['system_perm_edit_permissions_name'] = 'Adminberechtigungen verwalten';
+$lang['system_perm_edit_permissions_description'] = '';

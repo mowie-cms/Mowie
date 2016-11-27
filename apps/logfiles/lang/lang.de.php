@@ -19,3 +19,7 @@ $lang['log_views_total'] = 'Aufrufe insgesamt.';
 $lang['log_file_not_found'] = 'Logfile nicht gefunden';
 $lang['log_total_pageviews'] = 'Gesamte Seitenaufrufe';
 $lang['log_show_full_logs'] = 'Gesamte Logdateien für %1$s %2$s anzeigen';
+
+//Permissions
+$lang['logfiles_perm_view_logfiles_name'] = 'Logfiles ansehen';
+$lang['logfiles_perm_view_logfiles_description'] = '';

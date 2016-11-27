@@ -329,7 +329,7 @@ echo '
 						<li id="mw-menu-admin-users"><a
 								href="<?php echo $GLOBALS['MCONF']['home_uri']; ?>admin/users.php"<?php
 							if ($title == $GLOBALS['lang']->get('admins_list')) echo ' class="active"';
-							?>><i class="fa fa-group"></i> <?php echo $GLOBALS['lang']->get('admins_list'); ?></a></li>
+							?>><i class="fa fa-id-card-o"></i> <?php echo $GLOBALS['lang']->get('admins_list'); ?></a></li>
 						<li id="mw-menu-admin-roles"><a
 								href="<?php echo $GLOBALS['MCONF']['home_uri']; ?>admin/roles.php"<?php
 							if ($title == $GLOBALS['lang']->get('admins_groups')) echo ' class="active"';
@@ -338,7 +338,7 @@ echo '
 						<li id="mw-menu-admin-permissions"><a
 								href="<?php echo $GLOBALS['MCONF']['home_uri']; ?>admin/permissions.php"<?php
 							if ($title == $GLOBALS['lang']->get('admins_permissions')) echo ' class="active"';
-							?>><i class="fa fa-group"></i> <?php echo $GLOBALS['lang']->get('admins_permissions'); ?>
+							?>><i class="fa fa-exchange"></i> <?php echo $GLOBALS['lang']->get('admins_permissions'); ?>
 							</a>
 						</li>
 						<li id="mw-menu-admin-new_user"><a

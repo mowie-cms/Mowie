@@ -242,3 +242,21 @@ $lang['stream_deleted_user'] = '{user} deleted the user "{extra}".';
 $lang['stream_created_group'] = '{user} created a new group.';
 $lang['stream_system_update'] = '{user} updated the system';
 $lang['stream_app_update'] = '{user} updated the app "{extra}".';
+
+//Permissions
+$lang['system_perm_view_dashboard_name'] = 'View relevant information on the Dashboard';
+$lang['system_perm_view_dashboard_description'] = '';
+$lang['system_perm_manage_system_name'] = 'Make System-wide Settings';
+$lang['system_perm_manage_system_description'] = '';
+$lang['system_perm_construction_name'] = 'Put The Site In Construction Mode';
+$lang['system_perm_construction_description'] = 'While in Construction Mode, the site will show a message.';
+$lang['system_perm_update_name'] = 'Systemupdate';
+$lang['system_perm_update_description'] = 'Search for newer versions of the system and upgrade.';
+$lang['system_perm_db_dump_name'] = 'Download a database backup';
+$lang['system_perm_db_dump_description'] = 'Download a full database backup.';
+$lang['system_perm_manage_admins_name'] = 'Manage Administrators';
+$lang['system_perm_manage_admins_description'] = '';
+$lang['system_perm_manage_groups_name'] = 'Manage Admin-Roles';
+$lang['system_perm_manage_groups_description'] = '';
+$lang['system_perm_edit_permissions_name'] = 'Manage Admin-Permissions';
+$lang['system_perm_edit_permissions_description'] = '';

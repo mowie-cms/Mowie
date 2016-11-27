@@ -89,3 +89,15 @@ $lang['sp_stream_page_edited'] = '{user} edited the page "{extra}".';
 $lang['sp_stream_page_created'] = '{user} created the page "{extra}".';
 $lang['sp_stream_page_deleted'] = '{user} deleted the page "{extra}".';
 $lang['sp_stream_granted_permissions'] = '{user} granted permissions to "{extra}".';
+
+//Permissions
+$lang['sp_perm_manage_pages_name'] = 'Manage Pages';
+$lang['sp_perm_manage_pages_description'] = '';
+$lang['sp_perm_admin_manage_name'] = 'Manage All Pages';
+$lang['sp_perm_admin_manage_description'] = 'Manage all pages. Users without this setting can only edit pages they are allowed to edit.';
+$lang['sp_perm_create_new_name'] = 'Create New Pages';
+$lang['sp_perm_create_new_description'] = '';
+$lang['sp_perm_grant_permissions_name'] = 'Grant Page-Permissions';
+$lang['sp_perm_grant_permissions_description'] = 'Allow other users to grant permissions on pages.';
+$lang['sp_perm_view_dashboard_name'] = 'View Dashboard';
+$lang['sp_perm_view_dashboard_description'] = 'See a list of pages on the dashboard.';

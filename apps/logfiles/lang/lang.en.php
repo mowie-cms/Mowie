@@ -19,3 +19,7 @@ $lang['log_views_total'] = 'views in total.';
 $lang['log_file_not_found'] = 'Logfile not found';
 $lang['log_total_pageviews'] = 'Total pageviews';
 $lang['log_show_full_logs'] = 'Show all logfiles from %1$s %2$s';
+
+//Permissions
+$lang['logfiles_perm_view_logfiles_name'] = 'View Logfiles';
+$lang['logfiles_perm_view_logfiles_description'] = '';

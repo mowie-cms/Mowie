@@ -75,6 +75,9 @@ if (hasPerm('edit_permissions'))
 			if (file_exists($appUri . '/' . $app . '/permissions.json'))
 			{
 				require $appUri . '/' . $app . '/config.php';
+
+				$lang->setLangFolder( $appUri  . $app .'/lang/');
+
 				$permsTotal[$_CONF['app_name']] = json_decode(file_get_contents($appUri . '/' . $app . '/permissions.json'), true);
 				$permsTotal[$_CONF['app_name']] = $permsTotal[$_CONF['app_name']]['permissions'];
 			}
@@ -90,9 +93,9 @@ if (hasPerm('edit_permissions'))
 			foreach ($perms as $perm)
 			{
 				$critical = '';
-				if ($perm['critical'] == true) $critical = '<span class="critical fa fa-warning" title="'.$lang->get('admins_perms_critical').'"></span>';
+				if ($perm['critical'] == true) $critical = '<span data-toggle="tooltip" class="critical fa fa-warning" title="'.$lang->get('admins_perms_critical').'"></span>';
 
-				echo '<tr data-toggle="tooltip" title="' . $perm['description'] . '"><td>' . $critical . $perm['name'] . '</td>';
+				echo '<tr data-toggle="tooltip" title="' . $lang->get($perm['description']) . '"><td>' . $critical . $lang->get($perm['name']) . '</td>';
 				foreach ($role_names as $lvl => $name)
 				{
 					$disable = '';

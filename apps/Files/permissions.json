@@ -2,25 +2,25 @@
   "permissions": [
     {
       "key": "manage_files",
-      "name": "Dateien verwalten",
-      "description": "Dateien ansehen & verwalten",
+      "name": "file_perm_manage_files_name",
+      "description": "Manage and view Files",
       "critical": false
     },
     {
       "key": "upload",
-      "name": "Dateien hochladen",
+      "name": "Upload Files",
       "description": "",
       "critical": false
     },
     {
       "key": "create_folder",
-      "name": "Neuen Ordner erstellen",
+      "name": "Create a new Directory",
       "description": "",
       "critical": false
     },
     {
       "key": "delete",
-      "name": "Dateien löschen",
+      "name": "Delete Files",
       "description": "",
       "critical": false
     }

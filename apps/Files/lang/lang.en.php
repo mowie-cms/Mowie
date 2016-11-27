@@ -51,3 +51,10 @@ $lang['files_stream_deleted_folder'] = '{user} deleted the folder "{extra}".';
 $lang['files_stream_deleted_file'] = '{user} deleted the file "{extra}".';
 $lang['files_stream_uploaded'] = '{user} uploaded the file "{extra}".';
 $lang['files_stream_created_folder'] = '{user} created the folder "{extra}".';
+
+//Permissions
+$lang['file_perm_manage_files_name'] = 'Manage Files';
+$lang['file_perm_manage_files_description'] = 'Manage and view Files';
+$lang['file_perm_upload_name'] = 'Upload Files';
+$lang['file_perm_create_folder_name'] = 'Create a new Directory';
+$lang['file_perm_delete_name'] = 'Delete Files';

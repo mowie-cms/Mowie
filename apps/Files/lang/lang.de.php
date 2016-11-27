@@ -35,7 +35,7 @@ $lang['files_create_dir_success'] = 'Der neue Ordner wurde erfolgreich erstellt.
 $lang['files_create_dir_fail'] = 'Fehler beim Erstellen des Ordners.';
 $lang['files_delete_file'] = 'löschen';
 $lang['files_delete_dir_confirm'] = 'Ordner wirklich löschen? Dies wird den gesamten Ordner mit Inhalt löschen! <b>Dieser Vorgang kann nicht rückgängig gemacht werden!</b>';
-$lang['files_delete_file_confirm'] = 'Datei wirklich löschen? <b>Dieser Vorgang kann nicht rückgängig gemacht werden!';
+$lang['files_delete_file_confirm'] = 'Datei wirklich löschen? <b>Dieser Vorgang kann nicht rückgängig gemacht werden!</b>';
 $lang['files_deleting_folder'] = 'Lösche Ordner...';
 $lang['files_deleting_file'] = 'Lösche Datei...';
 $lang['files_delete_dir_success'] = 'Der Ordner wurde erfolgreich gelöscht.';
@@ -51,3 +51,10 @@ $lang['files_stream_deleted_folder'] = '{user} hat den Ordner "{extra}" gelösch
 $lang['files_stream_deleted_file'] = '{user} hat die Datei "{extra}" gelöscht.';
 $lang['files_stream_uploaded'] = '{user} hat die Datei "{extra}" hochgeladen.';
 $lang['files_stream_created_folder'] = '{user} hat den Ordner "{extra}" erstellt.';
+
+//Permissions
+$lang['file_perm_manage_files_name'] = 'Dateien verwalten';
+$lang['file_perm_manage_files_description'] = 'Dateien ansehen & verwalten';
+$lang['file_perm_upload_name'] = 'Dateien hochladen';
+$lang['file_perm_create_folder_name'] = 'Neuen Ordner erstellen';
+$lang['file_perm_delete_name'] = 'Dateien löschen';

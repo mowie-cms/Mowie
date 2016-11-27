@@ -2,7 +2,7 @@
   "permissions": [
     {
       "key": "view_logfiles",
-      "name": "Logfiles ansehen",
+      "name": "View Logfiles",
       "description": "",
       "critical": false
     }

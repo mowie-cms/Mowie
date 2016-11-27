@@ -2,32 +2,32 @@
   "permissions": [
     {
       "key": "manage_pages",
-      "name": "Seiten verwalten",
-      "description": "",
+      "name": "sp_perm_manage_pages_name",
+      "description": "sp_perm_manage_pages_description",
       "critical": false
     },
     {
       "key": "admin_manage",
-      "name": "Alle Seiten verwalten",
-      "description": "Administrativ alle Seiten verwalten. Nutzer ohne diese Berechtigung dürfen nur ihnen zugewiesene Seiten bearbeiten.",
+      "name": "sp_perm_admin_manage_name",
+      "description": "sp_perm_admin_manage_description",
       "critical": false
     },
     {
       "key": "create_new",
-      "name": "Neue Seiten erstellen",
-      "description": "Darf der Nutzer neue Seiten erstellen?",
+      "name": "sp_perm_create_new_name",
+      "description": "sp_perm_create_new_description",
       "critical": false
     },
     {
       "key": "grant_permissions",
-      "name": "Berechtigungen vergeben",
-      "description": "Anderen Nutzern erlauben, bestimmte Seiten zu bearbeiten.",
+      "name": "sp_perm_grant_permissions_name",
+      "description": "sp_perm_grant_permissions_description",
       "critical": true
     },
     {
       "key": "view_dashboard",
-      "name": "Dashboard ansehen",
-      "description": "Auf dem Dashboard eine Liste von Seiten einsehen.",
+      "name": "sp_perm_view_dashboard_name",
+      "description": "sp_perm_view_dashboard_description",
       "critical": false
     }
   ]
