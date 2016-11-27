@@ -128,7 +128,6 @@ function is_loggedin()
 {
 	if (isset($_SESSION['user'], $_SESSION['token']))
 	{
-
 		$GLOBALS['db']->setCol('system_loggedin');
 		$GLOBALS['db']->data['token'] = $_SESSION['token'];
 		$GLOBALS['db']->data['user'] = $_SESSION['userid'];
@@ -141,14 +140,13 @@ function is_loggedin()
 			{
 				if ($token == $_SESSION['token'])
 				{
-					//Session nach 30 min inaktivität löschen
+					//last request was more than 30 minutes ago
 					if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800))
 					{
 						$GLOBALS['db']->setCol('system_loggedin');
 						$GLOBALS['db']->data['token'] = $_SESSION['token'];
 						$GLOBALS['db']->delete();
 
-						// last request was more than 30 minutes ago
 						session_unset();     // unset $_SESSION variable for the run-time
 						session_destroy();   // destroy session data in storage
 
