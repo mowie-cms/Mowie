@@ -1,0 +1,225 @@
+/*Files*/
+table#filesList {
+    min-width: calc(100% + 20px);
+    display: table;
+    box-shadow: none;
+    margin: 5px -10px;
+    border-left: 0;
+    border-right: 0;
+}
+
+table#filesList td {
+    padding: 5px 10px;
+}
+
+table#filesList a {
+    color: #212121;
+}
+
+table#filesList thead{
+    border-bottom: 1px solid #E0E0E0;
+}
+
+table#filesList thead th{
+    cursor: pointer;
+}
+
+table#filesList thead th:after{
+    font-family: 'FontAwesome' !important;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    content: "\f0dc";
+    padding-left: 6px;
+}
+
+table#filesList thead th.headerSortDown:after{
+    content: "\f0de";
+}
+
+table#filesList thead th.headerSortUp:after{
+    content: "\f0dd";
+}
+
+.upbtninput {
+    position: fixed;
+    top: -100px;
+}
+
+.overlay {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 99;
+}
+
+.window {
+    width: 100%;
+    max-width: 984px;
+    left: calc((50vw - 366px));
+    top: 40px;
+    background: #fff;
+    padding: 10px 10px 20px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+    z-index: 1;
+    border-radius: 2px;
+    position: fixed;
+    overflow: auto;
+    max-height: calc(100vh - 80px);
+    height: auto;
+}
+
+.window .head {
+    margin: -10px -10px 20px;
+    padding: 10px 10px;
+    background: #eaeaea;
+    border-radius: 2px 2px 0 0;
+    -moz-user-select: -moz-none;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: default;
+    position: fixed;
+    width: 984px;
+}
+
+.window .head .closeMsg {
+    color: #212121;
+}
+
+.window .head .closeMsg:hover {
+    color: #5d5d5d;
+}
+
+.window #content {
+    margin-top: 60px;
+}
+
+.window-confirm, .window-confirm .head {
+    width: 350px;
+    text-align: center;
+    left: calc(50vw - 175px);
+}
+
+.window-confirm .head {
+    margin: -10px -10px 10px 0;
+    text-align: left;
+}
+
+.select {
+    width: 95%;
+}
+
+.select:focus {
+    background: #fff;
+    border-bottom: 1px solid #4CAF50;
+}
+
+.window textarea {
+    width: calc(100% - 10px);
+    height: 400px;
+    font-family: monospace;
+    max-width: 100%;
+    resize: none;
+}
+
+.window textarea:focus {
+    background: #fff;
+    border-bottom: 1px solid #4CAF50;
+}
+
+.progbar_btm {
+    background: #4CAF50;
+    height: 4px;
+    margin-top: 2px;
+}
+
+/*dropFileArea*/
+#dropFileArea{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 999;
+    background: rgba(250,250,250,0.6);
+}
+
+.dropmsgcontainer{
+    width: 400px;
+    text-align: center;
+    bottom: 20px;
+    position: fixed;
+    left: calc(50vw - 215px);
+}
+
+.dropmsg{
+    background: #2196F3;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 2px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+}
+
+.dropicon{
+    font-size: 90px;
+    text-shadow: 0 2px 2px rgba(0, 0, 0, .14), 0 3px 1px rgba(0, 0, 0, .2), 0 1px 5px rgba(0, 0, 0, .12);
+    height: 110px;
+    -moz-animation: bounce 2s infinite;
+    -webkit-animation: bounce 2s infinite;
+    animation: bounce 2s infinite;
+}
+
+@-webkit-keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        padding-bottom:0;
+    }
+    40% {
+        padding-bottom:15px;
+    }
+    60% {
+        padding-bottom:10px;
+    }
+}
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        padding-bottom:0;
+    }
+    40% {
+        padding-bottom:15px;
+    }
+    60% {
+        padding-bottom:10px;
+    }
+}
+
+/*Bild ZooomIN*/
+.imgContaienr {
+    margin: 10px -10px;
+    overflow: auto;
+    height: 500px;
+}
+
+.imgContaienr img {
+    margin: 0 auto;
+    display: block;
+    cursor: zoom-in;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+img.zoomedin {
+    max-height: inherit;
+    max-width: inherit;
+    cursor: zoom-out;
+}

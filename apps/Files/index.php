@@ -16,7 +16,7 @@ function checkFolder($dir)
 	$dir = str_replace('../', '', $dir);
 	$parts = explode('/', $dir);
 	//print_r($parts);
-	if ($parts[0] == 'Files')
+	if ($parts[1] == 'Files')
 	{
 		return true;
 	} else
@@ -61,21 +61,36 @@ if (isset($_GET['json']))
 				header('Location: index.php?json&folder=' . str_replace(end($folders), '', str_replace('/..', '', $get_url)), true, 301);
 			}
 			$dir = $get_url;
-			if (strpos(substr($dir, 0, 6), 'Files/') !== false) $dir = substr($dir, 6);
+			//echo substr($dir, 0, 14);
+			//var_dump(strpos(substr($dir, 0, 14), 'content/Files/'));
+			if (strpos(substr($dir, 0, 14), 'content/Files/') !== false) $dir = substr($dir, 14);
 			$dir = str_replace('..', '', $dir);
-			$dir = '../../Files/' . str_replace('../', '', $dir) . '/';
+			//echo $dir.'|';
+			$dir = '../../content/Files/' . str_replace('../', '', $dir) . '/';
 			//echo $dir;
 		} else
 		{
-			$dir = '../../Files/';
+			$dir = '../../content/Files/';
 		}
+
+		$dir = str_replace('//', '/', $dir);
+
+		//If the folder doesn't exist, create it
+        if($dir == '../../content/Files/')
+        {
+            if(!file_exists($dir))
+            {
+                if(!mkdir($dir)) echo 'An Error occured while trying to create '.$dir.'. Please make sure the webserver is allowed to write to /content.';
+            }
+        }
+
 		$files['url'] = $dir;
 		$files['displayUrl'] = str_replace('../', '', cleanUrl($dir));
 
 		//Verzeichnisse
 		//Wenn man nicht im root-verzeichnis ist, soll .. als ordner angezeigt werden, um auch zurückzukommen
-		//if($dir != '../../Files/') $files['files'][] = ['name' => '..', 'date' => '', 'type' => 'Ordner', 'size' => '', 'icon' => 'folder'];
-		if (cleanUrl($dir) != '../../Files/') $files['files'][] = ['name' => '..', 'date' => '', 'type' => 'Ordner', 'size' => '-', 'icon' => 'folder'];
+		//if($dir != '../../content/Files/') $files['files'][] = ['name' => '..', 'date' => '', 'type' => 'Ordner', 'size' => '', 'icon' => 'folder'];
+		if (cleanUrl($dir) != '../../content/Files/') $files['files'][] = ['name' => '..', 'date' => '', 'type' => 'Ordner', 'size' => '-', 'icon' => 'folder'];
 
 		$handle = opendir($dir) or die (http_response_code(404));
 		while (false !== ($datei = readdir($handle)))
@@ -328,9 +343,9 @@ else
 					url: webUri + 'apps/Files/index.php?ajax&json&folder=' + folder,
 					dataType: 'json',
 					success: function (data) {
-						msgDo('&nbsp;');
-						if (folder == '') folder = 'Files';
-						if (data.displayUrl == 'Files/') {
+					    msgDo('&nbsp;');
+						if (folder == '') folder = 'content/Files/';
+						if (data.displayUrl == 'content/Files/') {
 							$('#delFolder').hide();
 						}
 						else {
@@ -341,12 +356,13 @@ else
 						}
 
 						$('#files').html('<h3 id="displayUrl">' + data.displayUrl + '</h3><table id="filesList" width="100%"><thead><tr><th><?php echo $lang->get('files_filename'); ?></th><th><?php echo $lang->get('files_last_modified'); ?></th><th><?php echo $lang->get('files_filetype'); ?></th><th><?php echo $lang->get('files_filesize'); ?></th></tr></thead><tbody id="filesContent"></tbody></table><div id="extra"></div>');
+						var i = 0;
 						$.each(data.files, function () {
 							/*if (this.type == 'Ordner') {
 								var name = '<a href="#folder=' + data.displayUrl + this.name + '"><i class="fa fa-' + this.icon + '"></i>  ' + this.name;
 							} else// onclick="openFile(\'' + this.name + '\', \'' + this.icon + '\', \'' + webUri + data.displayUrl + this.name + '\');"*/
 							if (this.name == '..') {
-								var name = '<a onclick="openFile(\'..\', \'' + this.icon + '\', \'' + webUri + data.displayUrl + this.name + '\');"><i class="fa fa-' + this.icon + '"></i>  ' + this.name;
+								var name = '<a onclick="openFile(\'..\', \'' + this.icon + '\', \'' + webUri + data.displayUrl + this.name + '\');"><i class="fa fa-' + this.icon + '"></i>  ' + this.name + ' [<?php echo $lang->get('back')?>]';
 							} else {
 								var name = '<a onclick="openFile(\'' + this.name + '\', \'' + this.icon + '\', \'' + webUri + data.displayUrl + this.name + '\');"><i class="fa fa-' + this.icon + '"></i>  ' + this.name;
 							}
@@ -357,7 +373,13 @@ else
 							}
 							//$('#filesContent').append('<tr><td>' + name + '</td><td>' + this.date + '</td><td>' + this.type + '</td><td>' + this.size + '</td></tr>');
 							filesContent += '<tr' + static_folder + '><td>' + name + '</td><td>' + this.date + '</td><td>' + this.type + '</td><td>' + this.size + '</td></tr>';
+							i++;
 						});
+
+						//If the folder is empty
+                        if(i<2) {
+                            $('#files').append('<div style="text-align: center"><?php echo $lang->get('files_folder_empty'); ?></div>');
+                        }
 					},
 					timeout: 5000,
 					error: function (jqXHR, status, errorThrown) {

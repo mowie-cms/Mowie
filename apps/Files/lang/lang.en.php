@@ -45,6 +45,7 @@ $lang['files_too_large_file'] = 'This file is too big!';
 $lang['files_processing'] = 'Processing file...';
 $lang['files_upload_finished'] = 'Upload finished.';
 $lang['files_upload_failed'] = 'Upload failed.';
+$lang['files_folder_empty'] = 'This Folder is empty. Upload Files to fill it!';
 
 //Stream Messages
 $lang['files_stream_deleted_folder'] = '{user} deleted the folder "{extra}".';

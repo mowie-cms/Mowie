@@ -45,6 +45,7 @@ $lang['files_too_large_file'] = 'Die ausgewählte Datei ist zu groß!';
 $lang['files_processing'] = 'Datei wird verarbeitet...';
 $lang['files_upload_finished'] = 'Upload abgeschlossen.';
 $lang['files_upload_failed'] = 'Upload fehlgeschlagen.';
+$lang['files_folder_empty'] = 'Dieser Ordner ist leer. Lade Dateien hoch, um in zu füllen!';
 
 //Stream Messages
 $lang['files_stream_deleted_folder'] = '{user} hat den Ordner "{extra}" gelöscht.';
