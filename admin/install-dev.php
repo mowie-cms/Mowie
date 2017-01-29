@@ -191,23 +191,12 @@ ALTER TABLE `' . $_POST['db_prefix'] . 'system_roles`
 			exit;
 		}
 		//htacces
-		$htacces = 'ErrorDocument 404 ' . $_POST['general_home_url'] . 'index.php
-<Ifapps mod_rewrite.c>
-<Ifapps mod_env.c>
-SetEnv gp_rewrite U9sL2S2
-</Ifapps>
-RewriteEngine On
-RewriteBase "' . $_POST['general_home_url'] . '"
-RewriteRule ^index\.php$ - [L]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-<Ifapps mod_cache.c>
-RewriteRule /?(.*) "' . $_POST['general_home_url'] . 'index.php?$1" [qsa,L]
-</Ifapps>
-<Ifapps !mod_cache.c>
-RewriteRule . "' . $_POST['general_home_url'] . 'index.php" [L]
-</Ifapps>
-</Ifapps>';
+		$htacces = 'RewriteEngine On
+
+RewriteRule ^(admin|inc|apps|content)($|/) - [L]
+RewriteRule !favicon\.ico - [C]
+RewriteRule !index\.php - [C]
+RewriteRule ^(.*)$ /index.php?$1 [QSA,L]';
 		if (file_put_contents('../.htaccess', $htacces))
 		{
 			echo msg('succes', '.htaccess was successfully set.<br/>');

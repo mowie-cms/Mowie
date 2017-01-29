@@ -9,34 +9,20 @@ class apps
 {
 	private $apps;
 
-	public function __construct($depth = null)
+	public function __construct()
 	{
 		//Find the app directory
 		$i = 1;
 		$appdir = 'apps/';
-		if (isset($depth))
-		{
-			$count = $depth;
-		} else
-		{
-			if ($GLOBALS['MCONF']['home_uri'] == '/')
-			{
-				$rel = explode('/', $_SERVER['SCRIPT_NAME']);
-				$i++;
-			} else
-			{
-				$rel = explode('/', str_replace($GLOBALS['MCONF']['home_uri'], '', $_SERVER['SCRIPT_NAME']));
-			}
-			$count = count($rel);
-			//print_r($rel);exit;
-			//if (strpos($_SERVER['REQUEST_URI'], '/apps/') !== false && $count !== 1) $count = $count - 1; $appdir = '';
-		}
-		$i = 1;
-		while ($i < $count)
+
+		while(!file_exists($appdir) && $i<21)
 		{
 			$appdir = '../' . $appdir;
 			$i++;
 		}
+
+		//When the appdir wasn't found after 20 iterations, throw an error to prevent endless searching
+		if(!file_exists($appdir)) echo 'Could not find App dir.';
 
 		//Loop through the apps
 		if ($handle = opendir($appdir))
@@ -59,6 +45,7 @@ class apps
 		}
 	}
 
+	//Returns an Array with all the apps
 	public function getApps()
 	{
 		return $this->apps;
