@@ -337,7 +337,11 @@ if (hasPerm('manage_admins') || $uid == $_SESSION['userid'])
 							$db->setCol('system_show_stream');
 							$db->data['user'] = $_SESSION['userid'];
 							$db->get();
-							$loglevel = json_decode($db->data[0]['level']);
+							$loglevel = [];
+							if(isset($db->data[0]))
+							{
+								$loglevel = json_decode($db->data[0]['level']);
+							}
 							?>
 							<input type="checkbox" name="level_1" id="level_1"<?php if(in_array(1, $loglevel)) echo ' checked="checked"';?>/>
 							<label for="level_1"><i></i> <?php echo $lang->get('user_settings_log_level_1'); ?></label><div style="clear: both;"></div>
