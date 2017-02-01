@@ -182,7 +182,7 @@ function printHeader($title)
 		$title = $GLOBALS['lang']->get('login');
 	}
 
-	if (isset($_REQUEST['direct']))
+	if (isset($_REQUEST['direct'])) //Send just the Content of the current page
 	{
 		if (!is_loggedin())
 		{
@@ -190,7 +190,7 @@ function printHeader($title)
 			echo 'Login First.';
 			exit;
 		}
-	} elseif (isset($_GET['title']))
+	} elseif (isset($_GET['title'])) //Send the Title to the Router
 	{
 		if (!is_loggedin())
 		{
@@ -203,9 +203,48 @@ function printHeader($title)
 			echo $title;
 			exit;
 		}
-	} else
+	} elseif (isset($_GET['css'])) //Send extra CSS Files for Apps
+    {
+		header('Content-Type: application/json');
+        $app = str_replace(substr(
+			substr(
+				$_SERVER['REQUEST_URI'],
+				(strpos($_SERVER['REQUEST_URI'],
+						'/apps/') + 6)
+			),
+			strpos(
+				substr(
+					$_SERVER['REQUEST_URI'],
+					(
+						strpos(
+							$_SERVER['REQUEST_URI'],
+							'/apps/'
+						) + 6
+					)
+				),
+				'/'
+			)
+		), '',
+            substr(
+                substr($_SERVER['REQUEST_URI'], (strpos($_SERVER['REQUEST_URI'], '/apps/') + 6)), 0
+        ));
+
+		$appInfo = $GLOBALS['apps']->getApp($app);
+		if(isset($appInfo['css']))
+		{
+		    echo json_encode(['css' => true, 'css_files' => $appInfo['css']]);
+		}
+		else
+        {
+			echo json_encode(['css' => false]);
+        }
+
+        exit;
+    }
+
+	else
 	{
-		//Get Apps, build app-menu (We're building the menu here and output it later because we want the name of the current app to use ist for App-CSS)
+		//Get Apps, build app-menu (We're building the menu here and output it later because we want the name of the current app to use it for App-CSS)
 		$appmenu = '';
 		$apps = $GLOBALS['apps']->getApps();
 		$appCurr = '';

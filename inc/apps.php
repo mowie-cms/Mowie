@@ -63,4 +63,14 @@ class apps
 		}
 		return false;
 	}
+
+	//Returns informations about an app
+	public function getApp($app)
+	{
+		//print_r($this->apps[$app]);
+		if(array_key_exists($app, $this->apps))
+		{
+			return $this->apps[$app];
+		}
+	}
 }

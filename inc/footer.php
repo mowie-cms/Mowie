@@ -57,6 +57,19 @@ if (!isset($_GET['direct']))
 			})
 		}
 
+		//Add CSS
+        function addcss(css){
+            var head = document.getElementsByTagName('head')[0];
+            var s = document.createElement('style');
+            s.setAttribute('type', 'text/css');
+            if (s.styleSheet) {   // IE
+                s.styleSheet.cssText = css;
+            } else {                // the world
+                s.appendChild(document.createTextNode(css));
+            }
+            head.appendChild(s);
+        }
+
 		//showStream
 		function showStream()
 		{
@@ -176,6 +189,16 @@ if (!isset($_GET['direct']))
 								if (topitems[3] == 'roles' || topitems[3] == 'users' || topitems[3] == 'permissions' || topitems[3] == 'new_user') {
 									$('#' + 'mw-menu-admin-users-top').addClass('active');
 								}
+
+								//Get CSS
+                                $.get(ctx.pathname + '?css' + query, function (data) {
+                                    if(data.css) {
+                                        for(var i = 0; i < data.css_files.length; i++) {
+                                            var cssFile = data.css_files[i];
+                                            addcss(cssFile);
+                                        }
+                                    }
+                                });
 							}
 						}).fail(function (e) {
 							if (e.status == 404) {
