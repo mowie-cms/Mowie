@@ -91,6 +91,10 @@ tinymce();
 				require $appUri . $app . '/config.php';
 				if (isset($_CONF['general_conf']) && $_CONF['general_conf'] != '' && file_exists($appUri . $app . '/' . $_CONF['general_conf']))
 				{
+					if(file_exists($appUri . $app . '/lang/') && is_dir($appUri . $app . '/lang/'))
+					{
+						$lang->setLangFolder($appUri . $app . '/lang/');
+					}
 					echo '<i class="divider"></i>';
 					require $appUri . $app . '/' . $_CONF['general_conf'];
 				}

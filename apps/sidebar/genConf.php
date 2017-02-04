@@ -29,7 +29,9 @@ else
 	$db->get();
 
 	$active = '';
-	if(!$db->data[0]['active']) $active = ' selected';
+	if(isset($db->data[0])) {
+	    if(!$db->data[0]['active']) $active = ' selected';
+	}
 	?>
 	<p>
 		<input type="checkbox" name="active" value="y" id="activeswitch" onchange="toggleTextField()"/>
