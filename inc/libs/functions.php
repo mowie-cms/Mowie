@@ -232,7 +232,7 @@ function printHeader($title)
 		$appInfo = $GLOBALS['apps']->getApp($app);
 		if(isset($appInfo['css']))
 		{
-		    echo json_encode(['css' => true, 'css_files' => $appInfo['css']]);
+		    echo json_encode(['css' => true, 'css_files' => $appInfo['css'], 'fullUri' => $GLOBALS['MCONF']['web_uri'].'apps/'.$app.'/']);
 		}
 		else
         {
