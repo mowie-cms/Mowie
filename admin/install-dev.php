@@ -124,6 +124,28 @@ CREATE TABLE `' . $_POST['db_prefix'] . 'system_roles` (
   `name` text COLLATE utf8_unicode_ci NOT NULL,
   `permissions` longtext COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+CREATE TABLE `' . $_POST['db_prefix'] . 'system_show_stream` (
+  `id` int(11) NOT NULL,
+  `user` int(11) NOT NULL,
+  `level` text CHARACTER SET latin1 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+CREATE TABLE `' . $_POST['db_prefix'] . 'system_stream` (
+  `id` int(11) NOT NULL,
+  `time` text CHARACTER SET latin1 NOT NULL,
+  `user` text CHARACTER SET latin1 NOT NULL,
+  `lvl` text CHARACTER SET latin1 NOT NULL,
+  `message` longtext CHARACTER SET latin1 NOT NULL,
+  `extra` text CHARACTER SET latin1 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+ALTER TABLE `' . $_POST['db_prefix'] . 'system_show_stream`
+  ADD PRIMARY KEY (`id`);
+ALTER TABLE `' . $_POST['db_prefix'] . 'system_stream`
+  ADD PRIMARY KEY (`id`);
+ALTER TABLE `' . $_POST['db_prefix'] . 'system_show_stream`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+ALTER TABLE `' . $_POST['db_prefix'] . 'system_stream`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 ALTER TABLE `' . $_POST['db_prefix'] . 'system_admins`
   ADD PRIMARY KEY (`id`);
