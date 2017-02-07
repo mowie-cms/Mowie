@@ -120,6 +120,7 @@ if ($apps->appExists('SimplePages'))
             //Create Dropdowns
             var parents = '<?php echo $parents;?>';
             var pages = '<?php echo $pages;?>';
+            //Make Language Strings available in JS
             var lang = {
                 nav_saved_success: '<?php echo $lang->get('nav_saved_success') ?>',
                 nav_saved_fail: '<?php echo $lang->get('nav_saved_fail') ?>',
