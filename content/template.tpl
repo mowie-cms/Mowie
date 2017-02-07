@@ -12,6 +12,7 @@
     <div class="container">
         {$menu}
     <div class="seite">
+        {$navTree}
         {$sidebar}
         {$content}
         {$test}

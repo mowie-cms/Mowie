@@ -1,0 +1,123 @@
+.pseudo-table{
+    display: table;
+
+    box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, .14);
+    border: 1px solid #E0E0E0;
+    border-collapse: collapse;
+    white-space: nowrap;
+    width: 100%;
+    margin: 15px 0;
+    overflow: auto;
+}
+
+.pseudo-table .row{
+    display: table-row;
+
+    padding: 0 5px;
+    cursor: hand;
+}
+
+.pseudo-table .row{
+    border-bottom: 1px solid #E0E0E0;
+    padding: 0 5px 0 0;
+    transition: 0.1s ease;
+    -webkit-transition: 0.1s ease;
+
+    margin: 0 -15px 0 0 !important;
+}
+
+.pseudo-table .row:hover{
+    background: #EEEEEE;
+}
+
+.pseudo-table .row:last-child{
+    border-bottom: 0;
+}
+
+.pseudo-table .top{
+    text-align: left;
+    padding: 10px;
+    background: rgb(246, 246, 246);
+}
+
+.pseudo-table .col{
+    display: table-cell;
+
+    padding: 10px 5px 10px 10px;
+}
+
+.sortable-placeholder{
+    width: 100%;
+    height: 41px;
+}
+
+.row{
+    cursor: default;
+}
+
+.col i{
+    cursor: move;
+}
+
+/*Window*/
+.overlay {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 99;
+}
+
+.window {
+    width: 100%;
+    max-width: 984px;
+    left: calc((50vw - 366px));
+    top: 40px;
+    background: #fff;
+    padding: 10px 10px 20px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+    z-index: 1;
+    border-radius: 2px;
+    position: fixed;
+    overflow: auto;
+    max-height: calc(100vh - 80px);
+    height: auto;
+}
+
+.window .head {
+    margin: -10px -10px 20px;
+    padding: 10px 10px;
+    background: #eaeaea;
+    border-radius: 2px 2px 0 0;
+    -moz-user-select: -moz-none;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: default;
+    position: fixed;
+    width: 984px;
+}
+
+.window .head .closeMsg {
+    color: #212121;
+}
+
+.window .head .closeMsg:hover {
+    color: #5d5d5d;
+}
+
+.window #content {
+    margin-top: 60px;
+}
+
+.window-confirm, .window-confirm .head {
+    width: 350px;
+    text-align: center;
+    left: calc(50vw - 175px);
+}
+
+.window-confirm .head {
+    margin: -10px -10px 10px 0;
+    text-align: left;
+}

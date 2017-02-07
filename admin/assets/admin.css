@@ -325,6 +325,7 @@ hr{
 a.del i {
     font-size: 20px;
     vertical-align: sub;
+    cursor: pointer;
 }
 
 a.del {
@@ -438,7 +439,7 @@ a.del:hover {
     }
 }
 
-/*Tabelle*/
+/*Table*/
 table {
     box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, .14);
     border: 1px solid #E0E0E0;

@@ -11,7 +11,6 @@ $GLOBALS['lang']->set('Manage Permissions', 'sp_manage_permissions', 'en');
 $GLOBALS['lang']->set('Create New Page', 'sp_create_new', 'en');
 
 $_CONF['app_name'] = 'SimplePages';
-$_CONF['app_desc'] = 'Wird benutzt, um Einfache statische Seitn zu erzeugen und zu verwalten.';
 $_CONF['app_build'] = 2;
 $_CONF['app_version'] = 'v0.9 Beta';
 $_CONF['base_url'] = '/'; //Basisurl des moduls, wenn es über das Frontend aufgerufen wird

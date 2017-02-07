@@ -1,0 +1,10 @@
+{
+  "permissions": [
+    {
+      "key": "edit_nav",
+      "name": "Edit the Navigation",
+      "description": "",
+      "critical": false
+    }
+  ]
+}

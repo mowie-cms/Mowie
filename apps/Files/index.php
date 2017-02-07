@@ -461,6 +461,14 @@ else
 				}, 300);
 			}
 
+            window.onclick = function(event) {
+                if(event.target.parentElement != null) {
+                    if (event.target.parentElement.id == 'extra') {
+                        closeW();
+                    }
+                }
+            }
+
 			function uploadFileBtn() {
 				$("#upbutton").click();
 			}
