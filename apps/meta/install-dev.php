@@ -6,7 +6,7 @@ if(isset($_POST['submit']))
   `content` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;'))
 	{
-		echo msg('succes', 'Meta was installed successfully.');
+		echo msg('success', 'Meta was installed successfully.');
 	}
 	else
 	{

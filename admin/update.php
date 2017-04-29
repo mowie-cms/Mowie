@@ -192,7 +192,7 @@ if (isset($_GET['update']))
 										$upRem = $systemSubDir . $file;
 										if (copy($upNeu, $upRem))
 										{
-											echo msg('succes', sprintf($lang->get('update_item_succss'), $file));
+											echo msg('success', sprintf($lang->get('update_item_succss'), $file));
 											$isUp = true;
 										} else
 										{
@@ -218,12 +218,12 @@ if (isset($_GET['update']))
 									{
 										if(isset($_GET['appUpdate']))
 										{
-											echo msg('succes', sprintf($lang->get('update_app_succss'), $_CONF['app_name']) . ' <a href="general_config.php">' . $lang->get('back') . '</a>');
+											echo msg('success', sprintf($lang->get('update_app_succss'), $_CONF['app_name']) . ' <a href="general_config.php">' . $lang->get('back') . '</a>');
 											stream_message('{user} updated the app "{extra}".', 2, $_CONF['app_name']);
 										}
 										else
 										{
-											echo msg('succes', $lang->get('update_succss') . ' <a href="general_config.php">' . $lang->get('back') . '</a>');
+											echo msg('success', $lang->get('update_succss') . ' <a href="general_config.php">' . $lang->get('back') . '</a>');
 											stream_message('{user} updated the system.', 2);
 										}
 									} else

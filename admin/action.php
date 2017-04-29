@@ -43,7 +43,7 @@ if (hasPerm('manage_system'))
 				if (file_put_contents('../inc/System/construction2.txt', $_POST['constr_message']))
 				{
 					copy('../inc/System/construction2.txt', '../inc/System/construction.txt');
-					echo msg('succes', $lang->get('action_construction_message_success') . ' <a href="general_config.php">' . $lang->get('back') . '</a>');
+					echo msg('success', $lang->get('action_construction_message_success') . ' <a href="general_config.php">' . $lang->get('back') . '</a>');
 					stream_message('{user} edited the construction-mode message.', 2);
 				} else
 				{
@@ -73,7 +73,7 @@ if (hasPerm('manage_system'))
 					{
 						if (copy('../inc/System/construction2.txt', '../inc/System/construction.txt'))
 						{
-							echo msg('succes', $lang->get('action_construction_success') . ' <a href="general_config.php">' . $lang->get('back') . '</a>');
+							echo msg('success', $lang->get('action_construction_success') . ' <a href="general_config.php">' . $lang->get('back') . '</a>');
 							stream_message('{user} put the site into construction mode.', 2);
 						} else
 						{
@@ -99,7 +99,7 @@ if (hasPerm('manage_system'))
 					{
 						if (unlink('../inc/System/construction.txt'))
 						{
-							echo msg('succes', $lang->get('action_construction_removed_success') . ' <a href="general_config.php">' . $lang->get('back') . '</a>');
+							echo msg('success', $lang->get('action_construction_removed_success') . ' <a href="general_config.php">' . $lang->get('back') . '</a>');
 							stream_message('{user} put the site into production mode.', 2);
 						} else
 						{
@@ -134,7 +134,7 @@ if (hasPerm('manage_system'))
 			$titel = $_POST['titel'];
 			if (file_put_contents('../inc/System/page_title.txt', $titel))
 			{
-				echo msg('succes', $lang->get('action_change_page_title_success'));
+				echo msg('success', $lang->get('action_change_page_title_success'));
 				stream_message('{user} edited the page title.', 2);
 			} else
 			{

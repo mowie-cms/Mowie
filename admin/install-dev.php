@@ -198,7 +198,7 @@ ALTER TABLE `' . $_POST['db_prefix'] . 'system_roles`
 		//Page title
 		if (file_put_contents('../inc/System/page_title.txt', $_POST['general_page_title']))
 		{
-			echo msg('succes', 'Page Title was successfully set.<br/>');
+			echo msg('success', 'Page Title was successfully set.<br/>');
 		} else
 		{
 			echo msg('fail', 'Error setting page title.');
@@ -223,7 +223,7 @@ RewriteRule ^(.*)$ /index.php?$1 [QSA,L]
 </Files>';
 			if (file_put_contents('../.htaccess', $htacces))
 			{
-				echo msg('succes', '.htaccess was successfully set.<br/>');
+				echo msg('success', '.htaccess was successfully set.<br/>');
 			} else
 			{
 				echo msg('fail', 'Error setting up .htaccess.<br/>');
@@ -249,7 +249,7 @@ RewriteRule ^(.*)$ /index.php?$1 [QSA,L]
 		$configfile = Yaml::dump($CONFIG);
 		if (file_put_contents('../inc/config.yml', $configfile))
 		{
-			echo msg('succes', 'Configfile was successfully created.');
+			echo msg('success', 'Configfile was successfully created.');
 		} else
 		{
 			echo msg('fail', 'Error creating configfile.');

@@ -40,7 +40,7 @@ if (hasPerm('grant_permissions'))
 					$db->data['lastedit'] = time();
 					if ($db->insert())
 					{
-						echo msg('succes', $lang->get('sp_grant_permissions_success'));
+						echo msg('success', $lang->get('sp_grant_permissions_success'));
 						stream_message('{user} granted permissions to "{extra}".', 3, getUserByID($_POST['user']). ' ('.$_POST['user'].')');
 					} else
 					{

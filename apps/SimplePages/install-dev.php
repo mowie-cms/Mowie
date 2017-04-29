@@ -60,7 +60,7 @@ confirmationUser = '.$db->data[0]['id'];
 		}
 
 		file_put_contents('backend/confirm.ini', $confirmIni, FILE_USE_INCLUDE_PATH);
-		echo msg('succes', 'SimplePages was installed successfully.');
+		echo msg('success', 'SimplePages was installed successfully.');
 	}
 	else
 	{

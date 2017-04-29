@@ -88,11 +88,11 @@ if (hasPerm('manage_pages'))
 						$id = $db->lastID();
 						if($confirmationRequierd && ($_SESSION['userid'] != $confirmationUser))
 						{
-							echo msg('succes', sprintf($lang->get('sp_edit_created'), $_POST['title']).' '.sprintf($lang->get('sp_edit_edited_need_confirm'), getUserByID($confirmationUser)).' <a href="management.php">'.$lang->get('back').'</a>');
+							echo msg('success', sprintf($lang->get('sp_edit_created'), $_POST['title']).' '.sprintf($lang->get('sp_edit_edited_need_confirm'), getUserByID($confirmationUser)).' <a href="management.php">'.$lang->get('back').'</a>');
 						}
 						else
 						{
-							echo msg('succes', sprintf($lang->get('sp_edit_created'), $_POST['title']).' <a href="management.php">'.$lang->get('back').'</a>');
+							echo msg('success', sprintf($lang->get('sp_edit_created'), $_POST['title']).' <a href="management.php">'.$lang->get('back').'</a>');
 						}
 						stream_message('{user} created the page "{extra}".', 3, $_POST['title'].' ('.$id.')');
 					}
@@ -113,7 +113,7 @@ if (hasPerm('manage_pages'))
 				{
 					if ($db->insert())
 					{
-						echo msg('succes', sprintf($lang->get('sp_edit_edited'), $_POST['title']).' '.sprintf($lang->get('sp_edit_edited_need_confirm'), getUserByID($confirmationUser)).' <a href="management.php">'.$lang->get('back').'</a>');
+						echo msg('success', sprintf($lang->get('sp_edit_edited'), $_POST['title']).' '.sprintf($lang->get('sp_edit_edited_need_confirm'), getUserByID($confirmationUser)).' <a href="management.php">'.$lang->get('back').'</a>');
 						stream_message('{user} edited the page "{extra}".', 3, $_POST['title'].' ('.$id.')');
 					}
 					else
@@ -125,7 +125,7 @@ if (hasPerm('manage_pages'))
 				{
 					if ($db->update(['id' => $_GET['id']]))
 					{
-						echo msg('succes', sprintf($lang->get('sp_edit_edited'), $_POST['title']).' <a href="management.php">'.$lang->get('back').'</a>');
+						echo msg('success', sprintf($lang->get('sp_edit_edited'), $_POST['title']).' <a href="management.php">'.$lang->get('back').'</a>');
 						stream_message('{user} edited the page "{extra}".', 3, $_POST['title'].' ('.$id.')');
 					}
 					else
@@ -165,7 +165,7 @@ if (hasPerm('manage_pages'))
 					$db->data['id'] = $_GET['id'];
 					if ($db->delete())
 					{
-						echo msg('succes', $lang->get('sp_edit_delete_success').' <a href="management.php">'.$lang->get('back').'</a>');
+						echo msg('success', $lang->get('sp_edit_delete_success').' <a href="management.php">'.$lang->get('back').'</a>');
 						stream_message('{user} deleted the page "{extra}".', 3, $_GET['id']);
 					}
 					else

@@ -1,17 +1,17 @@
 <?php
 //msg
-function msg($typ, $msg = null)
+function msg($type, $msg = null)
 {
 	$out = [];
 	$msg = str_replace('{back}', '<a onclick="history.back(-1)">Zurück</a>', $msg);
-	if ($typ == 'succes' || $typ == 'success')
+	if ($type === 'success')
 	{
 		if (!isset($msg)) $msg = 'Die Operation wurde erfolgreich durchgeführt.';
 		$out['type'] = 'success';
 		$out['msg'] = $msg;
 
 		return '<div class="message-success">' . $msg . '</div>';
-	} elseif ($typ == 'fail')
+	} elseif ($type === 'fail' || $type === 'error')
 	{
 		if (!isset($msg)) $msg = 'Fehler. ' . $GLOBALS['texte'][2];
 
@@ -58,7 +58,7 @@ function rrmdir($dir)
 }
 
 //Tinymce
-function tinymce($css = '../../css/tinymce.css', $edit_area = '#editor')
+function tinymce($edit_area = '#editor')
 {
 	if (!isset($_GET['json']))
 	{

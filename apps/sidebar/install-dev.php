@@ -8,7 +8,7 @@ if(isset($_POST['submit']))
 INSERT INTO `' . $_POST['db_prefix'] . 'sidebar_sidebar` (`active`, `content`) VALUES
 (0, \'\');'))
 	{
-		echo msg('succes', 'Sidebar was installed successfully.');
+		echo msg('success', 'Sidebar was installed successfully.');
 	}
 	else
 	{
