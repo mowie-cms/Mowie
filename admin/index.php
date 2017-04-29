@@ -4,9 +4,9 @@ require_once '../inc/autoload_adm.php';
 printHeader($lang->get('dashboard_title'));
 
 //Delete installation files
-if (file_exists('install-dev.php'))
+if (file_exists('install.php'))
 {
-	if (unlink('install-dev.php'))
+	if (unlink('install.php'))
 	{
 		echo msg('info', $lang->get('delete_config_success'));
 	}

@@ -288,11 +288,11 @@ RewriteRule ^(.*)$ /index.php?$1 [QSA,L]
 			<h2>Website</h2>
 			<span>Page Title</span><input type="text" placeholder="Page Title" name="general_page_title"/><br/>
 			<span>Website Url</span><input type="text" placeholder="Website Url" name="general_webUrl"
-										   value="http://<?php echo $_SERVER['SERVER_NAME'] . str_replace('admin/install-dev.php', '', $_SERVER['REQUEST_URI']); ?>"/><br/>
+										   value="http://<?php echo $_SERVER['SERVER_NAME'] . str_replace('admin/install.php', '', $_SERVER['REQUEST_URI']); ?>"/><br/>
 			<span>&nbsp;</span><a onclick="fadeInput('more');" style="display: block;">More Options</a><br/>
 			<div id="more" style="display: none;">
 				<span>Home Url</span><input type="text" placeholder="Home Url" name="general_home_url"
-											value="<?php echo str_replace('admin/install-dev.php', '', $_SERVER['REQUEST_URI']); ?>"/><br/>
+											value="<?php echo str_replace('admin/install.php', '', $_SERVER['REQUEST_URI']); ?>"/><br/>
 				<span>Phpmyadmin Url (optional)</span><input type="text" placeholder="Phpmyadmin Url" name="general_pma"/><br/>
 				<span>Editor CSS (optional)</span><input type="text" placeholder="Editor CSS" name="general_editor_css"/><br/>
 				<span>Template</span><input type="text" placeholder="Template" name="general_template"

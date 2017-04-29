@@ -21,7 +21,7 @@ $_CONF['menu'] = ['<i class="fa fa-th-list"></i>  '.$GLOBALS['lang']->get('sp_ma
 	'<i class="fa fa-file"></i>  '.$GLOBALS['lang']->get('sp_create_new') => 'backend/edit.php?new']; //Ein Array mit menüpunkten im adminbereich
 $_CONF['dashboard'] = 'backend/dashboard.php';
 $_CONF['type'] = 'page';
-$_CONF['install'] = 'install-dev.php';
+$_CONF['install'] = 'install.php';
 
 $confirmationRequierd = false;
 $iniFile = 'confirm.ini';
