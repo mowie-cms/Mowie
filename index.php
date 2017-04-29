@@ -108,5 +108,5 @@ if (file_exists('inc/config.yml'))
 	}
 } else
 {
-	header('Location: admin/install.php');
+	header('Location: admin/install-dev.php');
 }

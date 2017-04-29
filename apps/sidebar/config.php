@@ -6,4 +6,4 @@ $_CONF['app_version'] = 'v0.9 Beta';
 $_CONF['base_file'] = 'sidebar.php';
 $_CONF['type'] = 'static';
 $_CONF['general_conf'] = 'genConf.php';
-$_CONF['install'] = 'install.php';
+$_CONF['install'] = 'install-dev.php';
