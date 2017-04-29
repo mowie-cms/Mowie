@@ -7,9 +7,8 @@ class page extends Smarty
 	private $baseUrl;
 	private $responseCode;
 	private $title;
-	private $tplAssign = [];
-	private $templateFile;
 	private $domain;
+	private $template;
 
 	//url fkt
 	public function setUrl($url)
@@ -68,53 +67,15 @@ class page extends Smarty
 		return $this->title;
 	}
 
-	//templatekram
-	/*public function assign($key, $value, $add = false)
+	//Template
+	public function setTemplate($template)
 	{
-		if (array_key_exists($key, $this->tplAssign) && $add)
-		{
-			$this->tplAssign[$key] .= $value;
-		}elseif (array_key_exists($key, $this->tplAssign) && !$add)
-		{
-			$this->tplAssign[$key] = $value;
-		} elseif (!array_key_exists($key, $this->tplAssign))
-		{
-			$this->tplAssign[$key] = $value;
-		}
-	}*/
-
-	public function getTplAssign()
-	{
-		return $this->tplAssign;
+	 	$this->template = $template;
 	}
 
-	//Template Parsen
-	public function setTemplateFile($templateFile)
+	public function getTemplate()
 	{
-		$this->templateFile = $templateFile;
-	}
-
-	public function parseTpl()
-	{
-		$tplFile = file_get_contents($this->templateFile);
-		$tplKeys = $this->getTplAssign();
-		function page_key($key)
-		{
-			$tplKeys = $GLOBALS['page']->getTplAssign();
-			$key_tpl = $key[0];
-			$key_tpl = str_replace('{', '', $key_tpl);
-			$key_tpl = str_replace('}', '', $key_tpl);
-			if (array_key_exists($key_tpl, $tplKeys))
-			{
-				return $tplKeys[$key_tpl];
-			}
-			else
-			{
-				return '';
-			}
-		}
-
-		echo preg_replace_callback('/{[A-Za-z0-9_:,\-\|]+}/', 'page_key', $tplFile);
+		return $this->template;
 	}
 
 	public function getDomain()

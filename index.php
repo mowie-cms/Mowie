@@ -90,7 +90,7 @@ if (file_exists('inc/config.yml'))
 			$page->setContent(file_get_contents('inc/System/404.txt'));
 		}
 
-		//Copyright bauen
+		//Build Copyright
 		$founded = date('Y', filemtime('inc/config.yml'));
 		$copy = $founded;
 		if ($founded != date('Y'))
@@ -99,11 +99,12 @@ if (file_exists('inc/config.yml'))
 		}
 		$page->assign('copyright', $copy);
 
-		// dat ganze ausgeben
+		//Finally render everything
 		http_response_code($page->getResponseCode());
 		$page->assign($MCONF['tpl_title'], $page->getTitle() . ' | ' . $MCONF['title']);
 		$page->assign($MCONF['tpl_content'], $page->getContent());
 		$page->assign($MCONF['tpl_webUri'], $MCONF['web_uri']);
+		$page->assign('template', $page->getTemplate());
 		$page->display($MCONF['template']);
 	}
 } else
