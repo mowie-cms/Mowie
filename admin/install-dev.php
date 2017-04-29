@@ -18,15 +18,15 @@ $lang->setLangFolder('lang/');
 ?>
 <html>
 <head>
-    <title>Installation</title>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-    <link rel="stylesheet" href="assets/admin.css" type="text/css">
-    <script src="assets/js/jquery.min.js"></script>
-    <script>
+	<title>Installation</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+	<link rel="stylesheet" href="assets/admin.css" type="text/css">
+	<script src="assets/js/jquery.min.js"></script>
+	<script>
         function fadeInput(input) {
             $('#' + input).fadeToggle(200);
         }
-    </script>
+	</script>
 </head>
 <body style="background: url('assets/bglogin.jpg') no-repeat center fixed;">
 <img src="assets/Logo.svg" alt="Mowie" class="install-logo"/>
@@ -97,7 +97,7 @@ if (isset($_POST['submit']))
 		}
 
 		//Database
-		$db = new db($_POST['db_host'], $_POST['db_name'], $_POST['db_user'], $_POST['db_pw1'], $_POST['db_prefix']);
+		$db = new db($_POST['db_host'], $_POST['db_name'], $_POST['db_user'], $_POST['db_pw'], $_POST['db_prefix']);
 
 		//Create Tables
 		if ($db->query('SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -264,11 +264,11 @@ RewriteRule ^(.*)$ /index.php?$1 [QSA,L]
 {
 	?>
 
-    <div class="install-container">
-        <form action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="post" class="form">
-            <h2>Language</h2>
-            <span>Select your language:</span>
-            <select name="lang">
+	<div class="install-container">
+		<form action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="post" class="form">
+			<h2>Language</h2>
+			<span>Select your language:</span>
+			<select name="lang">
 				<?php
 				$langs = $lang->getAll();
 				foreach ($langs as $lang_code => $lang_detail)
@@ -276,52 +276,52 @@ RewriteRule ^(.*)$ /index.php?$1 [QSA,L]
 					echo '<option value="' . $lang_code . '">' . $lang_detail['Lang'] . '</option>';
 				}
 				?>
-            </select><br/><br/>
+			</select><br/><br/>
 
-            <h2>Mysql</h2>
-            <span>Host</span><input type="text" placeholder="Host" name="db_host" value="localhost"/><br/>
-            <span>Database</span><input type="text" placeholder="Database" name="db_name"/><br/>
-            <span>Username</span><input type="text" placeholder="Username" name="db_user" value="root"/><br/>
-            <span>Password</span><input type="password" placeholder="Password" name="db_pw"/><br/>
-            <span>Table prefix (optional)</span><input type="text" placeholder="Table prefix" name="db_prefix"/><br/><br/>
+			<h2>Mysql</h2>
+			<span>Host</span><input type="text" placeholder="Host" name="db_host" value="localhost"/><br/>
+			<span>Database</span><input type="text" placeholder="Database" name="db_name"/><br/>
+			<span>Username</span><input type="text" placeholder="Username" name="db_user" value="root"/><br/>
+			<span>Password</span><input type="password" placeholder="Password" name="db_pw"/><br/>
+			<span>Table prefix (optional)</span><input type="text" placeholder="Table prefix" name="db_prefix"/><br/><br/>
 
-            <h2>Website</h2>
-            <span>Page Title</span><input type="text" placeholder="Page Title" name="general_page_title"/><br/>
-            <span>Website Url</span><input type="text" placeholder="Website Url" name="general_webUrl"
-                                           value="http://<?php echo $_SERVER['SERVER_NAME'] . str_replace('admin/install-dev.php', '', $_SERVER['REQUEST_URI']); ?>"/><br/>
-            <span>&nbsp;</span><a onclick="fadeInput('more');" style="display: block;">More Options</a><br/>
-            <div id="more" style="display: none;">
-                <span>Home Url</span><input type="text" placeholder="Home Url" name="general_home_url"
-                                            value="<?php echo str_replace('admin/install-dev.php', '', $_SERVER['REQUEST_URI']); ?>"/><br/>
-                <span>Phpmyadmin Url (optional)</span><input type="text" placeholder="Phpmyadmin Url" name="general_pma"/><br/>
-                <span>Editor CSS (optional)</span><input type="text" placeholder="Editor CSS" name="general_editor_css"/><br/>
-                <span>Template</span><input type="text" placeholder="Template" name="general_template"
-                                            value="content/template.tpl"/><br/>
-            </div>
-            <h2>Mail</h2>
-            <span>&nbsp;</span><input type="checkbox" name="mail_smtp" id="mail_smtp"
-                                      onchange="fadeInput('mailInput');"/><label for="mail_smtp"><i></i>
-                Use SMTP</label>
+			<h2>Website</h2>
+			<span>Page Title</span><input type="text" placeholder="Page Title" name="general_page_title"/><br/>
+			<span>Website Url</span><input type="text" placeholder="Website Url" name="general_webUrl"
+										   value="http://<?php echo $_SERVER['SERVER_NAME'] . str_replace('admin/install-dev.php', '', $_SERVER['REQUEST_URI']); ?>"/><br/>
+			<span>&nbsp;</span><a onclick="fadeInput('more');" style="display: block;">More Options</a><br/>
+			<div id="more" style="display: none;">
+				<span>Home Url</span><input type="text" placeholder="Home Url" name="general_home_url"
+											value="<?php echo str_replace('admin/install-dev.php', '', $_SERVER['REQUEST_URI']); ?>"/><br/>
+				<span>Phpmyadmin Url (optional)</span><input type="text" placeholder="Phpmyadmin Url" name="general_pma"/><br/>
+				<span>Editor CSS (optional)</span><input type="text" placeholder="Editor CSS" name="general_editor_css"/><br/>
+				<span>Template</span><input type="text" placeholder="Template" name="general_template"
+											value="content/template.tpl"/><br/>
+			</div>
+			<h2>Mail</h2>
+			<span>&nbsp;</span><input type="checkbox" name="mail_smtp" id="mail_smtp"
+									  onchange="fadeInput('mailInput');"/><label for="mail_smtp"><i></i>
+				Use SMTP</label>
 
-            <br/>
-            <div id="mailInput" style="display: none">
-                <span>SMTP-Host</span><input type="text" placeholder="SMTP-Host" name="mail_host"/><br/>
-                <span>SMTP-Username</span><input type="text" placeholder="SMTP-Username" name="mail_user"/><br/>
-                <span>SMTP-Password</span><input type="text" placeholder="SMTP-Password" name="mail_pass"/><br/>
-                <span>Security</span>
-                <input type="radio" name="mail_secure" id="mail_ssl"/><label for="mail_ssl"><i></i> Use SSL</label>
-                <input type="radio" name="mail_secure" id="mail_tls"/><label for="mail_tls"><i></i> Use TLS</label>
-                <br/>
-                <span>Port</span><input type="number" placeholder="Port" name="mail_port"/>
+			<br/>
+			<div id="mailInput" style="display: none">
+				<span>SMTP-Host</span><input type="text" placeholder="SMTP-Host" name="mail_host"/><br/>
+				<span>SMTP-Username</span><input type="text" placeholder="SMTP-Username" name="mail_user"/><br/>
+				<span>SMTP-Password</span><input type="text" placeholder="SMTP-Password" name="mail_pass"/><br/>
+				<span>Security</span>
+				<input type="radio" name="mail_secure" id="mail_ssl"/><label for="mail_ssl"><i></i> Use SSL</label>
+				<input type="radio" name="mail_secure" id="mail_tls"/><label for="mail_tls"><i></i> Use TLS</label>
+				<br/>
+				<span>Port</span><input type="number" placeholder="Port" name="mail_port"/>
 
-                <br/>
-            </div>
+				<br/>
+			</div>
 
-            <h2>First Adminuser</h2>
-            <span>Name</span><input type="text" placeholder="Name" name="admin_name"/><br/>
-            <span>Email-Adress</span><input type="email" placeholder="Email-Adress" name="admin_mail"/><br/>
-            <span>Password</span><input type="password" placeholder="Password" name="admin_pw1"/><br/>
-            <span>Confirm Password</span><input type="password" placeholder="Confirm Password" name="admin_pw2"/><br/>
+			<h2>First Adminuser</h2>
+			<span>Name</span><input type="text" placeholder="Name" name="admin_name"/><br/>
+			<span>Email-Adress</span><input type="email" placeholder="Email-Adress" name="admin_mail"/><br/>
+			<span>Password</span><input type="password" placeholder="Password" name="admin_pw1"/><br/>
+			<span>Confirm Password</span><input type="password" placeholder="Confirm Password" name="admin_pw2"/><br/>
 			<?php
 			//Apps
 			$apps = new apps(2);
@@ -335,10 +335,10 @@ RewriteRule ^(.*)$ /index.php?$1 [QSA,L]
 				}
 			}
 			?>
-            <p style="text-align: center"><input type="submit" value="Install" name="submit"/></p>
-        </form>
+			<p style="text-align: center"><input type="submit" value="Install" name="submit"/></p>
+		</form>
 
-    </div>
+	</div>
 	<?php
 }
 ?>

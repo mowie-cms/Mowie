@@ -78,6 +78,6 @@ else
 	<div id="confirmationUser" style="display:none;">
 		<span>Confirmation User:</span> <input type="text" name="confirmationUser" placeholder="Confirmation User"/>
 	</div>
-<?php
+	<?php
 }
 ?>
