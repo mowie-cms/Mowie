@@ -2,6 +2,16 @@
 error_reporting(E_ALL);
 require_once '../inc/autoload_adm.php';
 
+//Get Langstrings
+foreach ($apps->getApps() as $appname => $appdetail)
+{
+	$path = '../apps/'.$appname. '/lang/';
+	if (file_exists($path) && is_dir($path))
+	{
+		$lang->setLangFolder($path);
+	}
+}
+
 //Get Stream as JSON
 if(isset($_GET['getStream']) && is_loggedin())
 {
@@ -40,6 +50,7 @@ printHeader('Stream');
 
 echo '<div class="main">';
 
+//Get Stream Messages
 $db->setCol('system_stream');
 $db->get(null, null, 'id', 'DESC', 200);
 foreach ($db->data as $stream)
