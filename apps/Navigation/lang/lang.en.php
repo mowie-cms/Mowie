@@ -36,3 +36,8 @@ $lang['nav_create_success'] = 'The new item was successfully created.';
 $lang['nav_create_fail'] = 'An error occured while saving the new item.';
 $lang['nav_update_success'] = 'The item was successfully updated.';
 $lang['nav_update_fail'] = 'An error occured while updating the item.';
+
+//Stream
+$lang['nav_stream_edited'] = '{user} edited a nav entry ({extra})';
+$lang['nav_stream_deleted'] = '{user} deleted a nav entry ({extra})';
+$lang['nav_stream_created'] = '{user} created a nav entry ({extra})';

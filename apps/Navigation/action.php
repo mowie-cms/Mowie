@@ -15,8 +15,10 @@ if(is_loggedin())
 			{
 				$db->data['nav_order'] = $order;
 				$success = $db->update(['id' => $id]);
-				//echo 'order: '.$order.' | ID: '.$id."\n";
 			}
+
+			//Stream Message
+			stream_message('{user} edited a nav entry ({extra})', 3, $id);
 		}
 	}
 
@@ -55,13 +57,15 @@ if(is_loggedin())
 				$db->get();
 				findChilds($db->data);
 
-				//print_r($childs);
 				$db->setCol('nav_nav');
 				foreach ($childs as $child)
 				{
 					$db->data['id'] = $child;
 					$success = $db->delete();
 				}
+
+				//Stream Message
+				stream_message('{user} deleted a nav entry ({extra})', 3, $_POST['id']);
 			}
 		}
 	}
@@ -80,6 +84,9 @@ if(is_loggedin())
 					$db->data['page'] = $_POST['page'];
 					$db->data['parent'] = $_POST['parent'];
 					$success = $db->insert();
+
+					//Stream Message
+					stream_message('{user} created a nav entry ({extra})', 3, $_POST['page']);
 				}
 			}
 		}
@@ -95,6 +102,9 @@ if(is_loggedin())
 				$db->setCol('nav_nav');
 				$db->data['parent'] = $_POST['parent'];
 				$success = $db->update(['id' => $_POST['id']]);
+
+				//Stream Message
+				stream_message('{user} edited a nav entry ({extra})', 3, $_POST['id']);
 			}
 		}
 	}

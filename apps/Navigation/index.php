@@ -139,10 +139,7 @@ if (hasPerm('edit_nav'))
             nav_create_fail: '<?php echo $lang->get('nav_create_fail') ?>',
             nav_update_success: '<?php echo $lang->get('nav_update_success') ?>',
             nav_update_fail: '<?php echo $lang->get('nav_update_fail') ?>',
-            not_found: '<?php echo $lang->get('404_not_found') ?>',
-            nav_saved_success: '<?php echo $lang->get('nav_saved_success') ?>',
-            nav_saved_success: '<?php echo $lang->get('nav_saved_success') ?>',
-
+            not_found: '<?php echo $lang->get('404_not_found') ?>'
         };
     </script>
 	<?php

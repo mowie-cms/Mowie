@@ -36,3 +36,8 @@ $lang['nav_create_success'] = 'Der neue Menüeintrag wurde erfolgreich angelegt.
 $lang['nav_create_fail'] = 'Beim Anlegen des neuen Menüeintrags trat ein Fehler auf.';
 $lang['nav_update_success'] = 'Der Menüeintrag wurde erfolgreich geändert.';
 $lang['nav_update_fail'] = 'Beim Ändern des Menüeintrags trat ein Fehler auf.';
+
+//Stream
+$lang['nav_stream_edited'] = '{user} hat einen Menüeintrag geändert ({extra})';
+$lang['nav_stream_deleted'] = '{user} hat einen Menüeintrag gelöscht ({extra})';
+$lang['nav_stream_created'] = '{user} hat einen Menüeintrag hinzugefügt ({extra})';
