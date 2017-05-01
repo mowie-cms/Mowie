@@ -87,7 +87,6 @@ tinymce();
 			$appUri = '../apps/';
 			foreach ($apps->getApps() as $app => $appconf)
 			{
-
 				require $appUri . $app . '/config.php';
 				if (isset($_CONF['general_conf']) && $_CONF['general_conf'] != '' && file_exists($appUri . $app . '/' . $_CONF['general_conf']))
 				{

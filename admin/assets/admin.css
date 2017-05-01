@@ -1373,6 +1373,59 @@ header .stream{
     display: block;
 }
 
+/*Confirm Window*/
+.overlay {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 99;
+}
+
+.window-confirm, .window-confirm .head {
+    text-align: center;
+    left: calc(50vw - 175px);
+    width: 100%;
+    max-width: 350px;
+    top: 40px;
+    background: #fff;
+    padding: 10px 10px 20px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+    z-index: 1;
+    border-radius: 2px;
+    position: fixed;
+    overflow: auto;
+    max-height: calc(100vh - 80px);
+    height: auto;
+}
+
+.window-confirm .head {
+    margin: -10px -10px 10px 0;
+    text-align: left;
+    padding: 10px 10px;
+    background: #eaeaea;
+    border-radius: 2px 2px 0 0;
+    -moz-user-select: -moz-none;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: default;
+    position: fixed;
+}
+
+.window-confirm .head .closeMsg {
+    color: #212121;
+}
+
+.window-confirm .head .closeMsg:hover {
+    color: #5d5d5d;
+}
+
+.window-confirm #content {
+    margin-top: 30px;
+}
+
 @media screen and (max-width: 450px) {
     header .options span.usr_info {
         display: none;

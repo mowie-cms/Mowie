@@ -275,6 +275,7 @@ if (hasPerm('manage_admins') || $uid == $_SESSION['userid'])
 				?>
 				<div class="main">
 					<form action="<?php echo $_SERVER['REQUEST_URI']?>" class="form" method="post">
+                        <input type="hidden" name="askPW" value="askPW">
 						<p><span><?php echo $lang->get('username'); ?>:</span><input name="username"
 																					 value="<?php echo $db->data[0]['username'] ?>"/>
 						</p>

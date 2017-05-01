@@ -88,6 +88,14 @@ $lang['general_database'] = 'Datenbank';
 $lang['general_create_backup'] = 'Datenbank Backup erstellen';
 $lang['general_go_phpmyadmin'] = 'Zu phpmyadmin';
 
+//Legitimation
+$lang['legitimate_title'] = 'Legitimierung benötigt';
+$lang['legitimate_text'] = 'Dieser Vorgang benötigt eine Passwortbestätigung.';
+$lang['legitimate_confirm'] = 'Bestätigen';
+$lang['legitimate_abort'] = 'Abbrechen';
+$lang['legitimate_error'] = 'Beim Legitimieren ist ein Fehler aufgetreten.';
+$lang['legitimate_fail'] = 'Falsches Passwort.';
+
 /*
  * Manage Admins
  */
