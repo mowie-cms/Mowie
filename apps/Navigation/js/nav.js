@@ -7,6 +7,7 @@ $(function () {
     $("#sortable").sortable({
         axis: "y",
         cursor: "move",
+        items: 'div:not(.top).row',
         placeholder: "sortable-placeholder",
         over: function (event, ui) {
             console.log(event, ui)
@@ -37,7 +38,6 @@ $(function () {
             });
         }
     });
-    $("#sortable").disableSelection();
 });
 
 //Delete
@@ -77,40 +77,62 @@ function del(id) {
 
 //Create menuitem
 function createItem() {
-    $('#extra').html('<div class="overlay" style="display:none;"><div class="window window-confirm"><div class="head">' + lang.nav_create + '<a onclick="closeW();" class="closeMsg"><i class="fa fa-close"></i></a></div><div id="content"><p><input type="text" name="nav_title" id="nav_title" placeholder="' + lang.nav_create_title + '"/></p><p>' + lang.nav_create_page + ': <select name="nav_page" id="nav_page">' + pages + '</select></p><p>' + lang.nav_create_parents + ': <select name="nav_parent" id="nav_parent">' + parents + '</select></p><p><a class="button" id="createConfirm"><i class="fa fa-plus"></i>&nbsp;&nbsp;' + lang.nav_create_create + '</a><a onclick="closeW();" class="button btn_del">' + lang.nav_create_abort + '</a></p></div></div></div>');
+    $('#extra').html('<div class="overlay" style="display:none;"><div class="window window-confirm"><div class="head">' + lang.nav_create + '<a onclick="closeW();" class="closeMsg"><i class="fa fa-close"></i></a></div><div id="content"><p><input type="text" name="nav_title" id="nav_title" placeholder="' + lang.nav_create_title + '"/></p><p>' + lang.nav_create_page + ' <input type="checkbox" id="externalCheck"/><label for="externalCheck"><i></i>' + lang.nav_create_external + ' </label> <select name="nav_page" id="nav_page">' + pages + '</select><input type="text" name="nav_external" id="nav_external" style="display: none;" placeholder="' + lang.nav_create_external_input + '"/></p><p>' + lang.nav_create_parents + ': <select name="nav_parent" id="nav_parent">' + parents + '</select></p><p><a class="button" id="createConfirm"><i class="fa fa-plus"></i>&nbsp;&nbsp;' + lang.nav_create_create + '</a><a onclick="closeW();" class="button btn_del">' + lang.nav_create_abort + '</a></p></div></div></div>');
     $(".overlay").fadeIn(250);
 
+    //Check for checked
+    $('#externalCheck').change(function () {
+        if (this.checked) {
+            $('#nav_page').hide();
+            $('#nav_external').show().focus();
+            $('#nav_title').attr('placeholder', lang.nav_create_title_noptoption);
+        } else {
+            $('#nav_page').show();
+            $('#nav_external').hide();
+            $('#nav_title').attr('placeholder', lang.nav_create_title);
+        }
+    });
+
+    //Send
     $('#createConfirm').click(function () {
-        closeW();
-        $.ajax({
-            url: 'action.php?create',
-            type: 'POST',
-            cache: false,
-            data: 'title=' + $('#nav_title').val() + '&page=' + $('#nav_page').val() + '&parent=' + $('#nav_parent').val(),
-            success: function (result) { // On success, display a message...
-                if (result == 'success') {
-                    showMsg(lang.nav_create_success);
-                } else {
+
+        var external = $('#nav_external').val();
+        var sendReady = true;
+        if ($('#externalCheck').is(':checked')) {
+            if ($('#nav_title').val() == '') {
+                sendReady = false;
+                showMsg(lang.nav_create_external_needs_title);
+            }
+        }
+
+        //Send
+        if (sendReady) {
+            $.ajax({
+                url: 'action.php?create',
+                type: 'POST',
+                cache: false,
+                data: 'title=' + $('#nav_title').val() + '&page=' + $('#nav_page').val() + '&parent=' + $('#nav_parent').val() + '&external=' + external,
+                success: function (result) { // On success, display a message...
+                    if (result == 'success') {
+                        showMsg(lang.nav_create_success);
+                        reloadNav();//...and reload the content. We do this to display everything properly including their childs
+                    } else if(result == 'url_invalid') {
+                        showMsg(lang.nav_create_external_url_invalid);
+                        $('#nav_external').focus();
+                    } else {
+                        showMsg(lang.nav_create_fail);
+                        reloadNav();//...and reload the content. We do this to display everything properly including their childs
+                    }
+
+                    $('.spinner-container').hide(); //Hide the Loader
+                },
+                error: function (xhr, status, error) {
                     showMsg(lang.nav_create_fail);
                 }
-
-                //...and reload the content. We do this to display everything including their childs
-                reloadNav();
-
-                $('.spinner-container').hide(); //Hide the Loader
-            },
-            error: function (xhr, status, error) {
-                showMsg(lang.nav_create_fail);
-            }
-        });
+            });
+        }
     });
 }
-
-//Update
-/*$('#parentChange').on('change', function() {
- console.log('faa');
- console.log(this.dataset);
- });*/
 
 function update(id) {
     var newParent = $('#parentChange_' + id).val();
@@ -154,14 +176,15 @@ function reloadNav() {
 
 //Close Window
 function closeW() {
+    console.log('close');
     $(".overlay").fadeOut(200);
     setTimeout(function () {
         $('#extra').html('');
     }, 300);
 }
 
-window.onclick = function(event) {
-    if(event.target.parentElement != null) {
+window.onclick = function (event) {
+    if (event.target.parentElement != null) {
         if (event.target.parentElement.id == 'extra') {
             closeW();
         }

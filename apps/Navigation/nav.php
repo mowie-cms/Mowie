@@ -9,16 +9,23 @@ function buildNav($nav)
 	{
 		//Get the Page URL
 		$pageUrl = '#';
-		$db->setCol('simplePages_pages');
-		$db->data['id'] = $site['page'];
-		$db->get();
-		if(!empty($db->data)) $pageUrl = $db->data[0]['alias'];
+		if ($site['external'] === '')
+		{
+			$db->setCol('simplePages_pages');
+			$db->data['id'] = $site['page'];
+			$db->get();
+			if (!empty($db->data)) $pageUrl = $GLOBALS['MCONF']['web_uri'].$db->data[0]['alias'];
+		}
+		else
+		{
+			$pageUrl = $site['external'];
+		}
 
 		//Get the page title
 		$title = $site['title'];
 		if($title == '') $title = $db->data[0]['title'];
 
-		$navTree .= '<li><a href="'.$GLOBALS['MCONF']['web_uri'].$pageUrl.'">'.$title.'</a>';
+		$navTree .= '<li><a href="'.$pageUrl.'">'.$title.'</a>';
 
 		//Look for childs
 		$db->setCol('nav_nav');

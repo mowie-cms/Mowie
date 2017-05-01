@@ -11,7 +11,6 @@ $lang['__Lang__'] = 'English (English)';
 $lang['__LangCode__'] = 'en';
 $lang['__Countrycode__'] = 'en';
 
-$lang['nav_needs_SimplePages'] = 'This App needs SimplePages to work.';
 $lang['nav_id'] = 'ID';
 $lang['nav_pageTitle'] = 'Title';
 $lang['nav_page'] = 'Page';
@@ -28,6 +27,7 @@ $lang['nav_delete_confirm_yes'] = 'Delete!';
 $lang['nav_delete_confirm_abort'] = 'Cancel';
 $lang['nav_create'] = 'Create a new item';
 $lang['nav_create_title'] = 'Title (Optional)';
+$lang['nav_create_title_noptoption'] = 'Title';
 $lang['nav_create_create'] = 'Create';
 $lang['nav_create_abort'] = 'Cancel';
 $lang['nav_create_parents'] = 'Child of';
@@ -36,6 +36,10 @@ $lang['nav_create_success'] = 'The new item was successfully created.';
 $lang['nav_create_fail'] = 'An error occured while saving the new item.';
 $lang['nav_update_success'] = 'The item was successfully updated.';
 $lang['nav_update_fail'] = 'An error occured while updating the item.';
+$lang['nav_create_external'] = 'External';
+$lang['nav_create_external_input'] = 'External URL';
+$lang['nav_create_external_needs_title'] = 'Please provide a title when creating an external nav entry.';
+$lang['nav_create_external_url_invalid'] = 'The provided URL is invalid.';
 
 //Stream
 $lang['nav_stream_edited'] = '{user} edited a nav entry ({extra})';

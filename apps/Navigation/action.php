@@ -79,14 +79,27 @@ if(is_loggedin())
 			{
 				if (is_numeric(intval($_POST['page'])) && is_numeric(intval($_POST['parent'])) && is_string(strval($_POST['title'])))
 				{
-					$db->setCol('nav_nav');
-					$db->data['title'] = $_POST['title'];
-					$db->data['page'] = $_POST['page'];
-					$db->data['parent'] = $_POST['parent'];
-					$success = $db->insert();
+					$pageval = $_POST['page'];
+					$send_ready = true;
+					if($_POST['external'] !== ''){
+						if (filter_var($_POST['external'], FILTER_VALIDATE_URL) === false) {
+							$send_ready = false;
+							echo 'url_invalid';
+						}
+					} $pageval = 0;
 
-					//Stream Message
-					stream_message('{user} created a nav entry ({extra})', 3, $_POST['page']);
+					if($send_ready)
+					{
+						$db->setCol('nav_nav');
+						$db->data['title'] = $_POST['title'];
+						$db->data['page'] = $pageval;
+						$db->data['external'] = $_POST['external'];
+						$db->data['parent'] = $_POST['parent'];
+						$success = $db->insert();
+
+						//Stream Message
+						stream_message('{user} created a nav entry ({extra})', 3, $_POST['page']);
+					}
 				}
 			}
 		}
@@ -97,7 +110,7 @@ if(is_loggedin())
 	{
 		if(isset($_POST['id'], $_POST['parent']))
 		{
-			if (is_numeric(intval($_POST['id'])) && is_numeric(intval($_POST['parent'])))
+			if (is_numeric(intval($_POST['id'])) && is_numeric(intval($_POST['parent'])) && $_POST['parent'] != $_POST['id'])
 			{
 				$db->setCol('nav_nav');
 				$db->data['parent'] = $_POST['parent'];
