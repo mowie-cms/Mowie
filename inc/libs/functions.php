@@ -188,6 +188,11 @@ function printHeader($title)
 		$title = $lang->get('login');
 	}
 
+	//Get Current App dir
+    $appDir = '';
+    $paths = explode('/', str_replace($MCONF['home_uri'], '', $_SERVER['REQUEST_URI']));
+    if($paths[0] == 'apps' && isset($paths[1]))	$appDir = $paths[1];
+
 	if (isset($_REQUEST['direct'])) //Send just the Content of the current page
 	{
 		if (!is_loggedin())
@@ -212,43 +217,18 @@ function printHeader($title)
 	} elseif (isset($_GET['css'])) //Send extra CSS Files for Apps
 	{
 		header('Content-Type: application/json');
-		$app = str_replace(substr(
-			substr(
-				$_SERVER['REQUEST_URI'],
-				(strpos($_SERVER['REQUEST_URI'],
-						'/apps/') + 6)
-			),
-			strpos(
-				substr(
-					$_SERVER['REQUEST_URI'],
-					(
-						strpos(
-							$_SERVER['REQUEST_URI'],
-							'/apps/'
-						) + 6
-					)
-				),
-				'/'
-			)
-		), '',
-			substr(
-				substr($_SERVER['REQUEST_URI'], (strpos($_SERVER['REQUEST_URI'], '/apps/') + 6)), 0
-			));
 
-		$appInfo = $apps->getApp($app);
-		if(isset($appInfo['css']))
+		$appInfo = $apps->getAppByPath($appDir);
+		if (isset($appInfo['css']))
 		{
-			echo json_encode(['css' => true, 'css_files' => $appInfo['css'], 'fullUri' => $MCONF['web_uri'].'apps/'.$app.'/']);
-		}
-		else
+			echo json_encode(['css' => true, 'css_files' => $appInfo['css'], 'fullUri' => $MCONF['web_uri'] . 'apps/' . $appDir . '/']);
+		} else
 		{
 			echo json_encode(['css' => false]);
 		}
 
 		exit;
-	}
-
-	else
+	} else
 	{
 		//Get Apps, build app-menu (We're building the menu here and output it later because we want the name of the current app to use it for App-CSS)
 		$appmenu = '';
@@ -306,11 +286,11 @@ function printHeader($title)
 	</script>
 ';
 		//Get App-CSS and output it
-		if(isset($appsLoop[$appCurr]['css']))
+		if (isset($appsLoop[$appCurr]['css']))
 		{
 			foreach ($appsLoop[$appCurr]['css'] as $style)
 			{
-				echo '	<link rel="stylesheet" href="' . $MCONF['web_uri'] . 'apps/'.$appCurr.'/'.$style.'" type="text/css"/>';
+				echo '	<link rel="stylesheet" href="' . $MCONF['web_uri'] . 'apps/' . $appCurr . '/' . $style . '" type="text/css"/>';
 			}
 		}
 
@@ -332,7 +312,7 @@ function printHeader($title)
     	<label for="options_menu">
 			<p><span class="usr_info">';
 			//<img src="http://www.gravatar.com/avatar/' . md5(strtolower(trim($_SESSION['mail']))) . '?s=40&d=mm" alt=""/>
-			echo '<img src="http://www.gravatar.com/avatar/' . md5(strtolower(trim($_SESSION['mail']))) . '?s=40&d=mm" alt=""/>  '.$_SESSION['user'] . '</span>  <span class="fa fa-chevron-down"></span></p>
+			echo '<img src="http://www.gravatar.com/avatar/' . md5(strtolower(trim($_SESSION['mail']))) . '?s=40&d=mm" alt=""/>  ' . $_SESSION['user'] . '</span>  <span class="fa fa-chevron-down"></span></p>
 			<ul>
 				<li><a href="' . $MCONF['web_uri'] . 'admin/user_settings.php"><span class="fa fa-gear"></span> ' . $lang->get('settings') . '</a></li>
 				<li><a href="' . $MCONF['web_uri'] . 'admin/logout.php" rel="external"><span class="fa fa-sign-out"></span> ' . $lang->get('logout') . '</a></li>
@@ -410,37 +390,6 @@ function printHeader($title)
 <div class="loader-overlay"></div>
 <div id="loader">
 ';
-
-			//Check App dependencies
-			if(!$apps->checkDependencies($appCurr))
-			{
-			    foreach($apps->unresolvedDependencies as $dependency_type => $dependency)
-                {
-                    //Apps
-                    if($dependency_type == 'apps')
-                    {
-                        foreach ($dependency as $depApp)
-						{
-							echo msg('info', sprintf($lang->get('general_needs_other_app'), $depApp));
-						}
-                    }
-
-                    //Mowie-Version
-					if($dependency_type == 'mowie-version')
-					{
-							echo msg('info', sprintf($lang->get('general_needs_other_version'), $dependency));
-					}
-
-                    //Mowie-Version
-					if($dependency_type == 'php')
-					{
-							echo msg('info', sprintf($lang->get('general_needs_other_php'), $dependency));
-					}
-                }
-
-				exit;
-			}
-
 		} else
 		{
 			?>
@@ -452,9 +401,9 @@ function printHeader($title)
 							<?php
 							//Lang
 							$langs = $lang->getLangs();
-							foreach ($langs as $lang)
+							foreach ($langs as $langS)
 							{
-								echo '<a onclick="changeLang(\'' . $lang['LangCode'] . '\')">' . $lang['Lang'] . '</a>';
+								echo '<a onclick="changeLang(\'' . $langS['LangCode'] . '\')">' . $langS['Lang'] . '</a>';
 							} ?>
                         </div>
                     </div>
@@ -469,7 +418,7 @@ function printHeader($title)
                             <input type="text" id="2fa" autocomplete="off"
                                    placeholder="<?php echo $lang->get('2fa_code'); ?>"><br/>
                         </div>
-                        <a href="reset-pw.php"><?php echo $lang->get('reset_pass_lost');?></a><br/>
+                        <a href="reset-pw.php"><?php echo $lang->get('reset_pass_lost'); ?></a><br/>
                         <input type="submit" value="<?php echo $lang->get('login'); ?>"/>
                     </form>
                     <div id="msg"></div>
@@ -529,7 +478,41 @@ function printHeader($title)
             </html><?php
 			exit;
 		}
+
 	}
+
+
+	//Check App dependencies
+	$appCurr = $apps->getAppByPath($appDir);
+	if (!$apps->checkDependencies($appCurr['app_name']) && is_loggedin())
+	{
+		foreach ($apps->unresolvedDependencies as $dependency_type => $dependency)
+		{
+			//Apps
+			if ($dependency_type == 'apps')
+			{
+				foreach ($dependency as $depApp)
+				{
+					echo msg('info', sprintf($lang->get('general_needs_other_app'), $depApp));
+				}
+			}
+
+			//Mowie-Version
+			if ($dependency_type == 'mowie-version')
+			{
+				echo msg('info', sprintf($lang->get('general_needs_other_version'), $dependency));
+			}
+
+			//Mowie-Version
+			if ($dependency_type == 'php')
+			{
+				echo msg('info', sprintf($lang->get('general_needs_other_php'), $dependency));
+			}
+		}
+
+		exit;
+	}
+
 }
 
 // Returns a file size limit in bytes based on the PHP upload_max_filesize
@@ -724,8 +707,7 @@ function mmail($mailaddr, $subject, $message, $from, $html = false)
 		$mail->Body = $message;
 
 		return $mail->send();
-	}
-	else
+	} else
 	{
 		$header = 'From: ' . $from . "\n";
 		if ($html) $header .= "Content-Type: text/html\n";
@@ -743,11 +725,10 @@ function remote_file_exists($url)
 	$retcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 	curl_close($ch);
 
-	if($retcode == 200)
+	if ($retcode == 200)
 	{
 		return true;
-	}
-	else
+	} else
 	{
 		return false;
 	}
@@ -756,8 +737,8 @@ function remote_file_exists($url)
 //New Message to the stream
 function stream_message($msg, $lvl, $extra = '', $time = null, $user = null)
 {
-	if(!isset($time)) $time = time();
-	if(!isset($user)) $user = $_SESSION['userid'];
+	if (!isset($time)) $time = time();
+	if (!isset($user)) $user = $_SESSION['userid'];
 
 	global $db;
 	$db->setCol('system_stream');

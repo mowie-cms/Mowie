@@ -36,7 +36,8 @@ class apps
 					if (file_exists($appUri . '/config.php'))
 					{
 						require $appUri . '/config.php';
-						$this->apps[$app] = $_CONF;
+						$this->apps[$_CONF['app_name']] = $_CONF;
+						$this->apps[$_CONF['app_name']]['app_path'] = $app;
 						//print_r($_CONF);
 						$_CONF = [];
 					}
@@ -55,9 +56,9 @@ class apps
 	//has app?
 	public function appExists($name)
 	{
-		foreach ($this->apps as $appDir => $app)
+		foreach ($this->apps as $app_name => $app)
 		{
-			if($app['app_name'] == $name)
+			if($app_name == $name)
 			{
 				return true;
 			}
@@ -68,11 +69,24 @@ class apps
 	//Returns informations about an app
 	public function getApp($app)
 	{
-		//print_r($this->apps[$app]);
-		if(array_key_exists($app, $this->apps))
+		if($this->appExists($app))
 		{
 			return $this->apps[$app];
 		}
+		return false;
+	}
+
+	//Get app by path
+	public function getAppByPath($path)
+	{
+		foreach ($this->apps as $app_name => $app)
+		{
+			if($app['app_path'] == $path)
+			{
+				return $this->getApp($app_name);
+			}
+		}
+		return false;
 	}
 
 	//Check for app dependencies
