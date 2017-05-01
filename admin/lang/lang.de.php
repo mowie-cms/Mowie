@@ -73,6 +73,9 @@ $lang['general_inactive'] = 'Nicht aktiviert';
 $lang['general_activate'] = 'Aktivieren';
 $lang['general_deactivate'] = 'Deaktivieren';
 $lang['general_save_changes'] = 'Änderungen speichern';
+$lang['general_needs_other_app'] = 'Diese App benötgt die andere App "%1$s" um ordnungsgemäß zu funktionieren.';
+$lang['general_needs_other_version'] = 'Diese App benötigt mindestens Mowie in Version %1$s.';
+$lang['general_needs_other_php'] = 'Diese App benötigt mindestens PHP in Version %1$s.';
 
 //General Config
 $lang['general_config'] = 'Systemkonfiguration';

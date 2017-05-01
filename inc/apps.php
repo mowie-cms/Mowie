@@ -8,6 +8,7 @@
 class apps
 {
 	private $apps;
+	public $unresolvedDependencies;
 
 	public function __construct()
 	{
@@ -15,13 +16,13 @@ class apps
 		$i = 1;
 		$appdir = 'apps/';
 
+		//When the appdir wasn't found after 20 iterations, throw an error to prevent endless searching
 		while(!file_exists($appdir) && $i<21)
 		{
 			$appdir = '../' . $appdir;
 			$i++;
 		}
 
-		//When the appdir wasn't found after 20 iterations, throw an error to prevent endless searching
 		if(!file_exists($appdir)) echo 'Could not find App dir.';
 
 		//Loop through the apps
@@ -72,5 +73,49 @@ class apps
 		{
 			return $this->apps[$app];
 		}
+	}
+
+	//Check for app dependencies
+	public function checkDependencies($app)
+	{
+		$appconf = $this->getApp($app);
+		$dep = true;
+		if(isset($appconf['dependencies']))
+		{
+			//Min System Build
+			if(isset($appconf['dependencies']['mowie-version']))
+			{
+				if(!version_compare($GLOBALS['MCONF']['version'], $appconf['dependencies']['mowie-version'], '>='))
+				{
+					$this->unresolvedDependencies['mowie-version'] = $appconf['dependencies']['mowie-version'];
+					$dep = false;
+				}
+			}
+
+			//Required Apps
+			if(isset($appconf['dependencies']['apps']))
+			{
+				foreach ($appconf['dependencies']['apps'] as $dep_app)
+				{
+					if (!$this->appExists($dep_app))
+					{
+						$this->unresolvedDependencies['apps'][] = $dep_app;
+						$dep = false;
+					}
+				}
+			}
+
+			//Required PHP-Version
+			if(isset($appconf['dependencies']['php']))
+			{
+				if(!version_compare(PHP_VERSION, $appconf['dependencies']['php'], '>='))
+				{
+					$this->unresolvedDependencies['php'] = $appconf['dependencies']['php'];
+					$dep = false;
+				}
+			}
+		}
+
+		return $dep;
 	}
 }

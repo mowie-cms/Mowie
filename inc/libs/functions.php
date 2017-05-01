@@ -177,9 +177,15 @@ function is_loggedin()
 //Print header
 function printHeader($title)
 {
+
+	//Globals
+	global $apps;
+	global $MCONF;
+	global $lang;
+
 	if (!is_loggedin())
 	{
-		$title = $GLOBALS['lang']->get('login');
+		$title = $lang->get('login');
 	}
 
 	if (isset($_REQUEST['direct'])) //Send just the Content of the current page
@@ -204,9 +210,9 @@ function printHeader($title)
 			exit;
 		}
 	} elseif (isset($_GET['css'])) //Send extra CSS Files for Apps
-    {
+	{
 		header('Content-Type: application/json');
-        $app = str_replace(substr(
+		$app = str_replace(substr(
 			substr(
 				$_SERVER['REQUEST_URI'],
 				(strpos($_SERVER['REQUEST_URI'],
@@ -225,30 +231,30 @@ function printHeader($title)
 				'/'
 			)
 		), '',
-            substr(
-                substr($_SERVER['REQUEST_URI'], (strpos($_SERVER['REQUEST_URI'], '/apps/') + 6)), 0
-        ));
+			substr(
+				substr($_SERVER['REQUEST_URI'], (strpos($_SERVER['REQUEST_URI'], '/apps/') + 6)), 0
+			));
 
-		$appInfo = $GLOBALS['apps']->getApp($app);
+		$appInfo = $apps->getApp($app);
 		if(isset($appInfo['css']))
 		{
-		    echo json_encode(['css' => true, 'css_files' => $appInfo['css'], 'fullUri' => $GLOBALS['MCONF']['web_uri'].'apps/'.$app.'/']);
+			echo json_encode(['css' => true, 'css_files' => $appInfo['css'], 'fullUri' => $MCONF['web_uri'].'apps/'.$app.'/']);
 		}
 		else
-        {
+		{
 			echo json_encode(['css' => false]);
-        }
+		}
 
-        exit;
-    }
+		exit;
+	}
 
 	else
 	{
 		//Get Apps, build app-menu (We're building the menu here and output it later because we want the name of the current app to use it for App-CSS)
 		$appmenu = '';
-		$apps = $GLOBALS['apps']->getApps();
+		$appsLoop = $apps->getApps();
 		$appCurr = '';
-		foreach ($apps as $app => $appconf)
+		foreach ($appsLoop as $app => $appconf)
 		{
 			if (isset($appconf['menu_top']) && $appconf['menu_top'] !== '')
 			{
@@ -261,11 +267,11 @@ function printHeader($title)
 
 				if (array_key_exists('menu_top', $appconf['menu']))
 				{
-					$appmenu .= "\n" . '<li' . $now . ' id="mw-menu-apps-' . $app . '-top"><a href="' . $GLOBALS['MCONF']['home_uri'] . 'apps/' . $app . '/' . $appconf['menu']['menu_top'] . '">' . $appconf['menu_top'] . '</a>' . "\n";
+					$appmenu .= "\n" . '<li' . $now . ' id="mw-menu-apps-' . $app . '-top"><a href="' . $MCONF['home_uri'] . 'apps/' . $app . '/' . $appconf['menu']['menu_top'] . '">' . $appconf['menu_top'] . '</a>' . "\n";
 				} else
 				{
 					$first_itm = array_keys($appconf['menu']);
-					$appmenu .= "\n" . '<li' . $now . ' id="mw-menu-apps-' . $app . '-top"><a href="' . $GLOBALS['MCONF']['home_uri'] . 'apps/' . $app . '/' . $appconf['menu'][$first_itm[0]] . '">' . $appconf['menu_top'] . '<i class="fa fa-chevron-right sub_menu"></i></a>' . "\n" . '<ul>';
+					$appmenu .= "\n" . '<li' . $now . ' id="mw-menu-apps-' . $app . '-top"><a href="' . $MCONF['home_uri'] . 'apps/' . $app . '/' . $appconf['menu'][$first_itm[0]] . '">' . $appconf['menu_top'] . '<i class="fa fa-chevron-right sub_menu"></i></a>' . "\n" . '<ul>';
 					foreach ($appconf['menu'] as $app_name => $app_name_url)
 					{
 						$now = '';
@@ -273,7 +279,7 @@ function printHeader($title)
 						{
 							$now = ' class="active"';
 						}
-						$appmenu .= '<li' . $now . ' id="mw-menu-apps-' . $app . '-' . str_replace(['.php', '?', '&'], '', str_replace('/', '-', $app_name_url)) . '"><a href="' . $GLOBALS['MCONF']['home_uri'] . 'apps/' . $app . '/' . $app_name_url . '">' . $app_name . '</a></li>' . "\n";
+						$appmenu .= '<li' . $now . ' id="mw-menu-apps-' . $app . '-' . str_replace(['.php', '?', '&'], '', str_replace('/', '-', $app_name_url)) . '"><a href="' . $MCONF['home_uri'] . 'apps/' . $app . '/' . $app_name_url . '">' . $app_name . '</a></li>' . "\n";
 					}
 					$appmenu .= '</ul></li>' . "\n";
 				}
@@ -281,34 +287,34 @@ function printHeader($title)
 			}
 		}
 
-		//<link rel="stylesheet prefetch" href="' . $GLOBALS['MCONF']['web_uri'] . 'css/video-js.css" type="text/css"/>
+		//<link rel="stylesheet prefetch" href="' . $MCONF['web_uri'] . 'css/video-js.css" type="text/css"/>
 		echo '<!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>' . $title . ' | ' . $GLOBALS['lang']->get('admin_title') . ' | ' . $GLOBALS['MCONF']['title'] . '</title>
-    <link rel="shourtcut icon" href="' . $GLOBALS['MCONF']['web_uri'] . 'favicon.ico"/>
-    <link rel="stylesheet" href="' . $GLOBALS['MCONF']['web_uri'] . 'admin/assets/bootstrap.min.css" type="text/css"/>
-    <link rel="stylesheet" href="' . $GLOBALS['MCONF']['web_uri'] . 'admin/assets/admin.css" type="text/css"/>
+    <title>' . $title . ' | ' . $lang->get('admin_title') . ' | ' . $MCONF['title'] . '</title>
+    <link rel="shourtcut icon" href="' . $MCONF['web_uri'] . 'favicon.ico"/>
+    <link rel="stylesheet" href="' . $MCONF['web_uri'] . 'admin/assets/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="' . $MCONF['web_uri'] . 'admin/assets/admin.css" type="text/css"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-	<script src="' . $GLOBALS['MCONF']['web_uri'] . 'admin/assets/js/jquery.min.js"></script>
+	<script src="' . $MCONF['web_uri'] . 'admin/assets/js/jquery.min.js"></script>
 	
-	<script src="' . $GLOBALS['MCONF']['web_uri'] . 'admin/assets/js/page.js"></script>
-	<script src="' . $GLOBALS['MCONF']['web_uri'] . 'admin/assets/js/page.bodyparser.js"></script>
+	<script src="' . $MCONF['web_uri'] . 'admin/assets/js/page.js"></script>
+	<script src="' . $MCONF['web_uri'] . 'admin/assets/js/page.bodyparser.js"></script>
 	<script>
-	page.base(\'' . $GLOBALS['MCONF']['home_uri'] . '\');
+	page.base(\'' . $MCONF['home_uri'] . '\');
 	</script>
 ';
-	//Get App-CSS and output it
-		if(isset($apps[$appCurr]['css']))
+		//Get App-CSS and output it
+		if(isset($appsLoop[$appCurr]['css']))
 		{
-			foreach ($apps[$appCurr]['css'] as $style)
+			foreach ($appsLoop[$appCurr]['css'] as $style)
 			{
-				echo '	<link rel="stylesheet" href="' . $GLOBALS['MCONF']['web_uri'] . 'apps/'.$appCurr.'/'.$style.'" type="text/css"/>';
+				echo '	<link rel="stylesheet" href="' . $MCONF['web_uri'] . 'apps/'.$appCurr.'/'.$style.'" type="text/css"/>';
 			}
 		}
 
-echo '
+		echo '
 </head>
 <body>';
 		if (is_loggedin())
@@ -328,8 +334,8 @@ echo '
 			//<img src="http://www.gravatar.com/avatar/' . md5(strtolower(trim($_SESSION['mail']))) . '?s=40&d=mm" alt=""/>
 			echo '<img src="http://www.gravatar.com/avatar/' . md5(strtolower(trim($_SESSION['mail']))) . '?s=40&d=mm" alt=""/>  '.$_SESSION['user'] . '</span>  <span class="fa fa-chevron-down"></span></p>
 			<ul>
-				<li><a href="' . $GLOBALS['MCONF']['web_uri'] . 'admin/user_settings.php"><span class="fa fa-gear"></span> ' . $GLOBALS['lang']->get('settings') . '</a></li>
-				<li><a href="' . $GLOBALS['MCONF']['web_uri'] . 'admin/logout.php" rel="external"><span class="fa fa-sign-out"></span> ' . $GLOBALS['lang']->get('logout') . '</a></li>
+				<li><a href="' . $MCONF['web_uri'] . 'admin/user_settings.php"><span class="fa fa-gear"></span> ' . $lang->get('settings') . '</a></li>
+				<li><a href="' . $MCONF['web_uri'] . 'admin/logout.php" rel="external"><span class="fa fa-sign-out"></span> ' . $lang->get('logout') . '</a></li>
 			</ul>
     	</label>
     </div>
@@ -339,52 +345,52 @@ echo '
 <input type="checkbox" id="show-menu" role="button">
 <nav id="topnav">
     <header>
-    	<a href="' . $GLOBALS['MCONF']['home_uri'] . 'admin/"><img src="' . $GLOBALS['MCONF']['web_uri'] . 'admin/assets/Logo.svg" alt="Mowie CMS"/></a>
+    	<a href="' . $MCONF['home_uri'] . 'admin/"><img src="' . $MCONF['web_uri'] . 'admin/assets/Logo.svg" alt="Mowie CMS"/></a>
     </header>
-    <ul id="menulist"><li><a href="' . $GLOBALS['MCONF']['home_uri'] . '" target="_blank"><i class="fa fa-external-link"></i>  ' . $GLOBALS['lang']->get('main_page') . '</a></li>
+    <ul id="menulist"><li><a href="' . $MCONF['home_uri'] . '" target="_blank"><i class="fa fa-external-link"></i>  ' . $lang->get('main_page') . '</a></li>
     <li';
-			if ($title == $GLOBALS['lang']->get('dashboard_title')) echo ' class="active"';
-			echo ' id="mw-menu-admin-"><a href="' . $GLOBALS['MCONF']['home_uri'] . 'admin/"><i class="fa fa-dashboard"></i>  ' . $GLOBALS['lang']->get('dashboard') . '</a></li>';
+			if ($title == $lang->get('dashboard_title')) echo ' class="active"';
+			echo ' id="mw-menu-admin-"><a href="' . $MCONF['home_uri'] . 'admin/"><i class="fa fa-dashboard"></i>  ' . $lang->get('dashboard') . '</a></li>';
 
 			if (hasPerm('manage_system', 'System'))
 			{
 				echo '<li';
-				if ($title == $GLOBALS['lang']->get('general_config')) echo ' class="active"';
-				echo ' id="mw-menu-admin-general_config"><a href="' . $GLOBALS['MCONF']['home_uri'] . 'admin/general_config.php"><i
+				if ($title == $lang->get('general_config')) echo ' class="active"';
+				echo ' id="mw-menu-admin-general_config"><a href="' . $MCONF['home_uri'] . 'admin/general_config.php"><i
 				class="fa fa-sliders"></i>
-			' . $GLOBALS['lang']->get('general_config') . '</a></li>';
+			' . $lang->get('general_config') . '</a></li>';
 			}
 			if (hasPerm('manage_admins', 'System'))
 			{
 				?>
-				<li<?php
-				if ($title == $GLOBALS['lang']->get('admins_list') || $title == $GLOBALS['lang']->get('admins_create_new') || $title == $GLOBALS['lang']->get('admins_groups') || $title == $GLOBALS['lang']->get('admins_permissions')) echo ' class="active"';
-				?> id="mw-menu-admin-users-top"><a href="<?php echo $GLOBALS['MCONF']['home_uri']; ?>admin/users.php"><i
-							class="fa fa-group"></i>
-						<?php echo $GLOBALS['lang']->get('admins_title'); ?><i class="fa fa-chevron-right sub_menu"></i></a>
-					<ul>
-						<li id="mw-menu-admin-users"><a
-								href="<?php echo $GLOBALS['MCONF']['home_uri']; ?>admin/users.php"<?php
-							if ($title == $GLOBALS['lang']->get('admins_list')) echo ' class="active"';
-							?>><i class="fa fa-id-card-o"></i> <?php echo $GLOBALS['lang']->get('admins_list'); ?></a></li>
-						<li id="mw-menu-admin-roles"><a
-								href="<?php echo $GLOBALS['MCONF']['home_uri']; ?>admin/roles.php"<?php
-							if ($title == $GLOBALS['lang']->get('admins_groups')) echo ' class="active"';
-							?>><i class="fa fa-group"></i> <?php echo $GLOBALS['lang']->get('admins_groups'); ?></a>
-						</li>
-						<li id="mw-menu-admin-permissions"><a
-								href="<?php echo $GLOBALS['MCONF']['home_uri']; ?>admin/permissions.php"<?php
-							if ($title == $GLOBALS['lang']->get('admins_permissions')) echo ' class="active"';
-							?>><i class="fa fa-exchange"></i> <?php echo $GLOBALS['lang']->get('admins_permissions'); ?>
-							</a>
-						</li>
-						<li id="mw-menu-admin-new_user"><a
-								href="<?php echo $GLOBALS['MCONF']['home_uri']; ?>admin/new_user.php"<?php
-							if ($title == $GLOBALS['lang']->get('admins_create_new')) echo ' class="active"';
-							?>><i class="fa fa-user-plus"></i> <?php echo $GLOBALS['lang']->get('admins_create_new'); ?>
-							</a></li>
-					</ul>
-				</li>
+                <li<?php
+				if ($title == $lang->get('admins_list') || $title == $lang->get('admins_create_new') || $title == $lang->get('admins_groups') || $title == $lang->get('admins_permissions')) echo ' class="active"';
+				?> id="mw-menu-admin-users-top"><a href="<?php echo $MCONF['home_uri']; ?>admin/users.php"><i
+                                class="fa fa-group"></i>
+						<?php echo $lang->get('admins_title'); ?><i class="fa fa-chevron-right sub_menu"></i></a>
+                    <ul>
+                        <li id="mw-menu-admin-users"><a
+                                    href="<?php echo $MCONF['home_uri']; ?>admin/users.php"<?php
+							if ($title == $lang->get('admins_list')) echo ' class="active"';
+							?>><i class="fa fa-id-card-o"></i> <?php echo $lang->get('admins_list'); ?></a></li>
+                        <li id="mw-menu-admin-roles"><a
+                                    href="<?php echo $MCONF['home_uri']; ?>admin/roles.php"<?php
+							if ($title == $lang->get('admins_groups')) echo ' class="active"';
+							?>><i class="fa fa-group"></i> <?php echo $lang->get('admins_groups'); ?></a>
+                        </li>
+                        <li id="mw-menu-admin-permissions"><a
+                                    href="<?php echo $MCONF['home_uri']; ?>admin/permissions.php"<?php
+							if ($title == $lang->get('admins_permissions')) echo ' class="active"';
+							?>><i class="fa fa-exchange"></i> <?php echo $lang->get('admins_permissions'); ?>
+                            </a>
+                        </li>
+                        <li id="mw-menu-admin-new_user"><a
+                                    href="<?php echo $MCONF['home_uri']; ?>admin/new_user.php"<?php
+							if ($title == $lang->get('admins_create_new')) echo ' class="active"';
+							?>><i class="fa fa-user-plus"></i> <?php echo $lang->get('admins_create_new'); ?>
+                            </a></li>
+                    </ul>
+                </li>
 				<?php
 			}
 
@@ -393,10 +399,10 @@ echo '
 			echo '</ul>
 <div class="copy"> © 2016 <a href="http://mowie.cc">Mowie</a></div><div class="langselect"><a id="langselectbtn"><i class="fa fa-globe"></i> </a><div class="langs">';
 			//Lang
-			$langs = $GLOBALS['lang']->getLangs();
-			foreach ($langs as $lang)
+			$langs = $lang->getLangs();
+			foreach ($langs as $langS)
 			{
-				echo '<a onclick="changeLang(\'' . $lang['LangCode'] . '\')">' . $lang['Lang'] . '</a>';
+				echo '<a onclick="changeLang(\'' . $langS['LangCode'] . '\')">' . $langS['Lang'] . '</a>';
 			}
 			echo '</div></div></nav>
 <label for="show-menu" class="mobile-overlay"></label>
@@ -404,92 +410,123 @@ echo '
 <div class="loader-overlay"></div>
 <div id="loader">
 ';
+
+			//Check App dependencies
+			if(!$apps->checkDependencies($appCurr))
+			{
+			    foreach($apps->unresolvedDependencies as $dependency_type => $dependency)
+                {
+                    //Apps
+                    if($dependency_type == 'apps')
+                    {
+                        foreach ($dependency as $depApp)
+						{
+							echo msg('info', sprintf($lang->get('general_needs_other_app'), $depApp));
+						}
+                    }
+
+                    //Mowie-Version
+					if($dependency_type == 'mowie-version')
+					{
+							echo msg('info', sprintf($lang->get('general_needs_other_version'), $dependency));
+					}
+
+                    //Mowie-Version
+					if($dependency_type == 'php')
+					{
+							echo msg('info', sprintf($lang->get('general_needs_other_php'), $dependency));
+					}
+                }
+
+				exit;
+			}
+
 		} else
 		{
 			?>
-			<div class="login_wrapper">
-				<img src="<?php echo $GLOBALS['MCONF']['web_uri']; ?>admin/assets/Logo.svg" alt="Mowie"/>
-				<div class="login_container">
-					<div class="langselect"><a id="langselectbtn"><i class="fa fa-globe"></i> </a>
-						<div class="langs">
+            <div class="login_wrapper">
+                <img src="<?php echo $MCONF['web_uri']; ?>admin/assets/Logo.svg" alt="Mowie"/>
+                <div class="login_container">
+                    <div class="langselect"><a id="langselectbtn"><i class="fa fa-globe"></i> </a>
+                        <div class="langs">
 							<?php
 							//Lang
-							$langs = $GLOBALS['lang']->getLangs();
+							$langs = $lang->getLangs();
 							foreach ($langs as $lang)
 							{
 								echo '<a onclick="changeLang(\'' . $lang['LangCode'] . '\')">' . $lang['Lang'] . '</a>';
 							} ?>
-						</div>
-					</div>
-					<h1><?php echo $GLOBALS['lang']->get('login'); ?></h1>
-					<form action="<?php echo $GLOBALS['MCONF']['web_uri']; ?>admin/login.php" method="post"
-						  id="login">
-						<input type="text" placeholder="<?php echo $GLOBALS['lang']->get('username'); ?>" id="username"
-							   autofocus/><br/>
-						<input type="password" placeholder="<?php echo $GLOBALS['lang']->get('password'); ?>"
-							   id="pw"/><br/>
-						<div id="2faContainer" style="display: none">
-							<input type="text" id="2fa" autocomplete="off"
-								   placeholder="<?php echo $GLOBALS['lang']->get('2fa_code'); ?>"><br/>
-						</div>
-						<a href="reset-pw.php"><?php echo $GLOBALS['lang']->get('reset_pass_lost');?></a><br/>
-						<input type="submit" value="<?php echo $GLOBALS['lang']->get('login'); ?>"/>
-					</form>
-					<div id="msg"></div>
-				</div>
-				<p style="text-align: center;color: #fff;text-shadow: 1px 1px 1px #555;">&copy; 2016 <a
-						href="http://mowie.cc" style="color: #fff;">Mowie</a></p>
-			</div>
-			<script>
-				$("#login").submit(function () {
-					if ($('#username').val() == '' || $('#pw').val() == '') {
-						$('#msg').html('<?php echo $GLOBALS['lang']->get('all_fields');?>');
-					}
-					else {
-						$('#msg').html('<div class="spinner-container"><svg class="spinner" style="width:41px;height:40px;" viewBox="0 0 44 44"><circle class="path" cx="22" cy="22" r="20" fill="none" stroke-width="4"></circle> </svg> </div>');
+                        </div>
+                    </div>
+                    <h1><?php echo $lang->get('login'); ?></h1>
+                    <form action="<?php echo $MCONF['web_uri']; ?>admin/login.php" method="post"
+                          id="login">
+                        <input type="text" placeholder="<?php echo $lang->get('username'); ?>" id="username"
+                               autofocus/><br/>
+                        <input type="password" placeholder="<?php echo $lang->get('password'); ?>"
+                               id="pw"/><br/>
+                        <div id="2faContainer" style="display: none">
+                            <input type="text" id="2fa" autocomplete="off"
+                                   placeholder="<?php echo $lang->get('2fa_code'); ?>"><br/>
+                        </div>
+                        <a href="reset-pw.php"><?php echo $lang->get('reset_pass_lost');?></a><br/>
+                        <input type="submit" value="<?php echo $lang->get('login'); ?>"/>
+                    </form>
+                    <div id="msg"></div>
+                </div>
+                <p style="text-align: center;color: #fff;text-shadow: 1px 1px 1px #555;">&copy; 2016 <a
+                            href="http://mowie.cc" style="color: #fff;">Mowie</a></p>
+            </div>
+            <script>
+                $("#login").submit(function () {
+                    if ($('#username').val() == '' || $('#pw').val() == '') {
+                        $('#msg').html('<?php echo $lang->get('all_fields');?>');
+                    }
+                    else {
+                        $('#msg').html('<div class="spinner-container"><svg class="spinner" style="width:41px;height:40px;" viewBox="0 0 44 44"><circle class="path" cx="22" cy="22" r="20" fill="none" stroke-width="4"></circle> </svg> </div>');
 
-						$.ajax({
-							type: 'POST',
-							url: '<?php echo $GLOBALS['MCONF']['web_uri']; ?>admin/login.php',
-							data: "username=" + $('#username').val() + "&pw=" + $('#pw').val() + "&2fa=" + $('#2fa').val(),
-							success: function (msg) {
-								console.log(msg);
-								if (msg == 'success') {
-									location.reload();
-								}
-								else if (msg == '2fa') {
-									$('#2faContainer').show();
-									$('#msg').hide();
-								}
-								else if (msg == '2fafail') {
-									$('#msg').html('<div class="message-fail"><?php echo $GLOBALS['lang']->get('error_2fa');?></div>');
-								}
-								else {
-									$('#msg').html('<div class="message-fail"><?php echo $GLOBALS['lang']->get('wrong_username_or_pass');?></div>');
-								}
-							}
-						});
-					}
-					return false;
-				});
+                        $.ajax({
+                            type: 'POST',
+                            url: '<?php echo $MCONF['web_uri']; ?>admin/login.php',
+                            data: "username=" + $('#username').val() + "&pw=" + $('#pw').val() + "&2fa=" + $('#2fa').val(),
+                            success: function (msg) {
+                                console.log(msg);
+                                if (msg == 'success') {
+                                    location.reload();
+                                }
+                                else if (msg == '2fa') {
+                                    $('#2faContainer').show();
+                                    $('#msg').hide();
+                                }
+                                else if (msg == '2fafail') {
+                                    $('#msg').html('<div class="message-fail"><?php echo $lang->get('error_2fa');?></div>');
+                                }
+                                else {
+                                    $('#msg').html('<div class="message-fail"><?php echo $lang->get('wrong_username_or_pass');?></div>');
+                                }
+                            }
+                        });
+                    }
+                    return false;
+                });
 
-				//Change current Language
-				$('#langselectbtn').click(function () {
-					$('.langs').fadeToggle(100);
-				});
+                //Change current Language
+                $('#langselectbtn').click(function () {
+                    $('.langs').fadeToggle(100);
+                });
 
-				function changeLang(lang) {
-					$('#msg').html('<div class="spinner-container"><svg class="spinner" style="width:41px;height:40px;" viewBox="0 0 44 44"><circle class="path" cx="22" cy="22" r="20" fill="none" stroke-width="4"></circle> </svg> </div>');
-					$.get('<?php echo $GLOBALS['MCONF']['home_uri'];?>admin/lang.php?set=' + lang, function (data) {
-						console.log(data);
-						if (data == 1) {
-							location.reload();
-						}
-					})
-				}
-			</script>
-			</body>
-			</html><?php
+                function changeLang(lang) {
+                    $('#msg').html('<div class="spinner-container"><svg class="spinner" style="width:41px;height:40px;" viewBox="0 0 44 44"><circle class="path" cx="22" cy="22" r="20" fill="none" stroke-width="4"></circle> </svg> </div>');
+                    $.get('<?php echo $MCONF['home_uri'];?>admin/lang.php?set=' + lang, function (data) {
+                        console.log(data);
+                        if (data == 1) {
+                            location.reload();
+                        }
+                    })
+                }
+            </script>
+            </body>
+            </html><?php
 			exit;
 		}
 	}

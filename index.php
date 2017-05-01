@@ -36,47 +36,52 @@ if (file_exists('inc/config.yml'))
 		foreach ($apps->getApps() as $app => $appconf)
 		{
 			$appUri = 'apps/' . $app . '/';
-			//If the App should run from one domain only
-			if ((isset($appconf['domain']) && $page->getDomain() == $appconf['domain']) || !isset($appconf['domain']) || (isset($appconf['domain']) && $appconf['domain'] === ''))
+
+			//Check App dependencies
+			if($apps->checkDependencies($appconf['app_name']))
 			{
-				//If we have an alias which equals the current url, execute it
-				if (isset($appconf['alias']))
+				//If the App should run from one domain only
+				if ((isset($appconf['domain']) && $page->getDomain() == $appconf['domain']) || !isset($appconf['domain']) || (isset($appconf['domain']) && $appconf['domain'] === ''))
 				{
-					if (array_key_exists($page->getUrl(), $appconf['alias']))
+					//If we have an alias which equals the current url, execute it
+					if (isset($appconf['alias']))
 					{
-						require $appUri . $appconf['alias'][$page->getUrl()];
-					}
-				}
-
-				//If we have a type
-				if (isset($appconf['type']))
-				{
-					//Page for (more or less) dynamic content
-					if ($appconf['type'] == 'page')
-					{
-						//If we have a base_url_file and the current url equals base_url, execute base_url_file
-						if (isset($appconf['base_url_file']))
+						if (array_key_exists($page->getUrl(), $appconf['alias']))
 						{
-							if ($appconf['base_url'] == $page->getUrl())
-							{
-								require $appUri . $appconf['base_url_file'];
-							}
-						}
-
-						//if we have a base_url and a base_file which exists and the current baseUrl equals base_url, execute base_file
-						if (isset($appconf['base_url']) && file_exists($appUri . '/' . $appconf['base_file']))
-						{
-							if ($appconf['base_url'] == $page->getBaseUrl())
-							{
-								require $appUri . $appconf['base_file'];
-							}
+							require $appUri . $appconf['alias'][$page->getUrl()];
 						}
 					}
 
-					//Static
-					if ($appconf['type'] == 'static' && isset($appconf['base_file']) && file_exists($appUri . '/' . $appconf['base_file']))
+					//If we have a type
+					if (isset($appconf['type']))
 					{
-						require $appUri . $appconf['base_file'];
+						//Page for (more or less) dynamic content
+						if ($appconf['type'] == 'page')
+						{
+							//If we have a base_url_file and the current url equals base_url, execute base_url_file
+							if (isset($appconf['base_url_file']))
+							{
+								if ($appconf['base_url'] == $page->getUrl())
+								{
+									require $appUri . $appconf['base_url_file'];
+								}
+							}
+
+							//if we have a base_url and a base_file which exists and the current baseUrl equals base_url, execute base_file
+							if (isset($appconf['base_url']) && file_exists($appUri . '/' . $appconf['base_file']))
+							{
+								if ($appconf['base_url'] == $page->getBaseUrl())
+								{
+									require $appUri . $appconf['base_file'];
+								}
+							}
+						}
+
+						//Static
+						if ($appconf['type'] == 'static' && isset($appconf['base_file']) && file_exists($appUri . '/' . $appconf['base_file']))
+						{
+							require $appUri . $appconf['base_file'];
+						}
 					}
 				}
 			}

@@ -34,12 +34,5 @@ if(file_exists($iniFile))
 {
 	$config = parse_ini_file($iniFile);
 	$confirmationRequierd = $config['confirmationRequierd'];
-	//$confirmationUserMail = $config['confirmationUserMail'];
 	$confirmationUser = $config['confirmationUser'];
-
-	//Get the user's email
-	/*$db->setCol('system_admins');
-	$db->data['id'] = $confirmationUser;
-	$db->get();
-	if(isset($db->data[0]))	$confirmationUserMail = $db->data[0]['mail'];*/
 }
