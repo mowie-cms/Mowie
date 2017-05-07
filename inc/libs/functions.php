@@ -10,19 +10,31 @@ function msg($type, $msg = null)
 		$out['type'] = 'success';
 		$out['msg'] = $msg;
 
-		return '<div class="message-success">' . $msg . '</div>';
+		return '<div class="message">
+        <div class="icon-success"></div>
+        <div class="msg">' . $msg . '</div>
+        <div style="clear: both"></div>
+    </div>';
 	} elseif ($type === 'fail' || $type === 'error')
 	{
 		if (!isset($msg)) $msg = 'Fehler. ' . $GLOBALS['texte'][2];
 
 		$out['type'] = 'fail';
 		$out['msg'] = $msg;
-		return '<div class="message-fail">' . $msg . '</div>';
+		return '<div class="message">
+        <div class="icon-fail"></div>
+        <div class="msg">' . $msg . '</div>
+        <div style="clear: both"></div>
+    </div>';
 	} else
 	{
 		$out['type'] = 'info';
 		$out['msg'] = $msg;
-		return '<div class="message-info">' . $msg . '</div>';
+		return '<div class="message">
+        <div class="icon-info"></div>
+        <div class="msg">' . $msg . '</div>
+        <div style="clear: both"></div>
+    </div>';
 	}
 
 	if (isset($_GET['json']))

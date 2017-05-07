@@ -1230,18 +1230,36 @@ header .stream{
 }
 
 /*Msgs*/
-[class^="message-"], [class*=" message-"] {
+.message{
     width: calc(100% - 95px);
-    max-width: 280px;
-    padding: 10px 15px 10px 80px;
+    max-width: 360px;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
     border-radius: 2px;
     margin: 10px auto;
     background: #fff;
-    min-height: 44px;
+    min-height: 65px;
+
+    position: relative;
 }
 
-[class^="message-"]:before, [class*=" message-"]:before {
+.message .msg{
+    padding: 10px 15px 10px 80px;
+    box-sizing: border-box;
+}
+
+.message [class^="icon-"], .message [class*=" icon-"]{
+    border-radius: 2px 0 0 2px;
+
+    display: block;
+    width: 68px;
+    float: left;
+
+    top: 0;
+    position: absolute;
+    bottom: 0;
+}
+
+.message [class^="icon-"]:before, .message [class*=" icon-"]:before {
     /* use !important to prevent issues with browser extensions that change fonts */
     font-family: 'FontAwesome' !important;
     font-style: normal;
@@ -1255,30 +1273,34 @@ header .stream{
     -moz-osx-font-smoothing: grayscale;
 
     font-size: 45px;
-    margin: -10px 10px -8px -80px;
     color: #fff;
     padding: 7px 15px 8px;
-    border-radius: 2px 0 0 2px;
-
-    min-height: 49px;
-    display: block;
-    width: 37px;
-    float: left;
+    top: calc(50% - 30px);
+    position: absolute;
 }
 
-.message-success:before {
-    content: "\f058";
+.message .icon-success{
     background: #4CAF50;
 }
 
-.message-fail:before {
-    content: "\f057";
+.message .message-fail {
     background: #F44336;
 }
 
-.message-info:before {
-    content: "\f05a";
+.message .message-info {
     background: #2280db;
+}
+
+.message .icon-success:before {
+    content: "\f058";
+}
+
+.message .message-fail:before {
+    content: "\f057";
+}
+
+.message .message-info:before {
+    content: "\f05a";
 }
 
 /*icons*/
