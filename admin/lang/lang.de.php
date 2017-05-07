@@ -105,6 +105,7 @@ $lang['admins_title'] = 'Administratoren';
 $lang['admins_list'] = 'Benutzerliste';
 $lang['admins_groups'] = 'Benutzergruppen';
 $lang['admins_permissions'] = 'Berechtigungen';
+$lang['admins_group'] = 'Gruppe';
 $lang['admins_create_new'] = 'Neuen Benutzer anlegen';
 //Admin List
 $lang['admins_id'] = 'ID';
@@ -191,7 +192,7 @@ $lang['user_settings_log_level_3'] = 'Änderungen';
 $lang['user_settings_log_level_4'] = 'Generelle Mitteilungen';
 $lang['user_settings_log_level_fail'] = 'Fehler beim Speichern des Log-Levels.';
 $lang['user_settings_log_level_success'] = 'Die Änderungen des Log-Levels wurden erfolgreich gespeichert.';
-$lang['user_settings_none'] = 'keine <a href="%1$s">Einstellungen</a>';
+$lang['user_settings_none'] = 'Keine. <a href="%1$s">Ändern</a>';
 
 //Mail
 $lang['mail_write'] = 'Email schreiben';

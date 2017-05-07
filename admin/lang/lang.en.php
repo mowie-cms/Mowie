@@ -98,6 +98,7 @@ $lang['admins_title'] = 'Administrators';
 $lang['admins_list'] = 'Userlist';
 $lang['admins_groups'] = 'Usergroups';
 $lang['admins_permissions'] = 'Permissions';
+$lang['admins_group'] = 'Group';
 $lang['admins_create_new'] = 'Create New User';
 //Admin List
 $lang['admins_id'] = 'ID';
