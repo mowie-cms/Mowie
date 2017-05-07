@@ -191,6 +191,7 @@ $lang['user_settings_log_level_3'] = 'Änderungen';
 $lang['user_settings_log_level_4'] = 'Generelle Mitteilungen';
 $lang['user_settings_log_level_fail'] = 'Fehler beim Speichern des Log-Levels.';
 $lang['user_settings_log_level_success'] = 'Die Änderungen des Log-Levels wurden erfolgreich gespeichert.';
+$lang['user_settings_none'] = 'keine <a href="%1$s">Einstellungen</a>';
 
 //Mail
 $lang['mail_write'] = 'Email schreiben';

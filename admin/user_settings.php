@@ -41,15 +41,15 @@ if (hasPerm('manage_admins') || $uid == $_SESSION['userid'])
 		} else
 		{
 			?>
-			<div class="main">
-				<form action="<?php echo $_SERVER['REQUEST_URI']?>" method="post">
-					<input type="password" name="pw_new"
-						   placeholder="<?php echo $lang->get('user_settings_new_pass'); ?>" autofocus/><br/>
-					<input type="password" name="pw_new2"
-						   placeholder="<?php echo $lang->get('user_settings_new_pass_confirm'); ?>"/><br/>
-					<input type="submit" value="<?php echo $lang->get('confirm'); ?>"/>
-				</form>
-			</div>
+            <div class="main">
+                <form action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="post">
+                    <input type="password" name="pw_new"
+                           placeholder="<?php echo $lang->get('user_settings_new_pass'); ?>" autofocus/><br/>
+                    <input type="password" name="pw_new2"
+                           placeholder="<?php echo $lang->get('user_settings_new_pass_confirm'); ?>"/><br/>
+                    <input type="submit" value="<?php echo $lang->get('confirm'); ?>"/>
+                </form>
+            </div>
 			<?php
 		}
 	} elseif (isset($_GET['pw_u']))
@@ -68,14 +68,14 @@ if (hasPerm('manage_admins') || $uid == $_SESSION['userid'])
 				{
 					echo '<div class="main"><p>' . $lang->get('user_settings_new_pass') . '</p>';
 					?>
-					<form action="<?php echo parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);?>?pw_new" method="post">
-						<input type="password" name="pw_new"
-							   placeholder="<?php echo $lang->get('user_settings_new_pass'); ?>" autofocus/><br/>
-						<input type="password" name="pw_new2"
-							   placeholder="<?php echo $lang->get('user_settings_new_pass_confirm'); ?>"/><br/>
-						<input type="submit" value="<?php echo $lang->get('confirm'); ?>"/>
-					</form>
-					</div>
+                    <form action="<?php echo parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH); ?>?pw_new" method="post">
+                        <input type="password" name="pw_new"
+                               placeholder="<?php echo $lang->get('user_settings_new_pass'); ?>" autofocus/><br/>
+                        <input type="password" name="pw_new2"
+                               placeholder="<?php echo $lang->get('user_settings_new_pass_confirm'); ?>"/><br/>
+                        <input type="submit" value="<?php echo $lang->get('confirm'); ?>"/>
+                    </form>
+                    </div>
 					<?php
 				} else
 				{
@@ -85,17 +85,17 @@ if (hasPerm('manage_admins') || $uid == $_SESSION['userid'])
 		} else
 		{
 			?>
-			<div class="main">
-			<form action="<?php echo $_SERVER['REQUEST_URI']?>" method="post">
-				<input type="password" name="pw" autofocus
-					   placeholder="<?php echo $lang->get('user_settings_enter_current_pass'); ?>"/><br/>
-				<input type="submit" value="<?php echo $lang->get('confirm'); ?>"/>
-			</form>
-			</div>
+            <div class="main">
+                <form action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="post">
+                    <input type="password" name="pw" autofocus
+                           placeholder="<?php echo $lang->get('user_settings_enter_current_pass'); ?>"/><br/>
+                    <input type="submit" value="<?php echo $lang->get('confirm'); ?>"/>
+                </form>
+            </div>
 			<?php
 		}
 	}//Sessions
-	elseif (isset($_GET['sessions']))
+    elseif (isset($_GET['sessions']))
 	{
 		$db->setCol('system_loggedin');
 		if (isset($_POST['smbt']))
@@ -122,13 +122,13 @@ if (hasPerm('manage_admins') || $uid == $_SESSION['userid'])
 			echo '</table>';
 
 			?>
-			<form action="<?php echo $_SERVER['REQUEST_URI']?>" method="post"><input type="submit" name="smbt"
-												 value="<?php echo $lang->get('user_settings_current_sessions_logout_all'); ?>"/>
-			</form></div>
+            <form action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="post"><input type="submit" name="smbt"
+                                                                                      value="<?php echo $lang->get('user_settings_current_sessions_logout_all'); ?>"/>
+            </form></div>
 			<?php
 		}
 	}//2-Faktor-Atentifizierung
-	elseif (isset($_GET['2fa']))
+    elseif (isset($_GET['2fa']))
 	{
 		echo '<div class="main">';
 		require_once '../inc/libs/2fa.php';
@@ -156,13 +156,13 @@ if (hasPerm('manage_admins') || $uid == $_SESSION['userid'])
 			} else
 			{
 				?>
-				<p><?php echo $lang->get('user_settings_2fa_deactivate_confirm'); ?></p>
-				<p>
-				<form action="<?php echo $_SERVER['REQUEST_URI']?>" method="post" style="text-align: center;">
-					<input type="submit" name="confirm" value="<?php echo $lang->get('general_yes'); ?>"/>
-					<a onclick="history.back();" class="button btn_del"><?php echo $lang->get('general_no'); ?></a>
-				</form>
-				</p>
+                <p><?php echo $lang->get('user_settings_2fa_deactivate_confirm'); ?></p>
+                <p>
+                <form action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="post" style="text-align: center;">
+                    <input type="submit" name="confirm" value="<?php echo $lang->get('general_yes'); ?>"/>
+                    <a onclick="history.back();" class="button btn_del"><?php echo $lang->get('general_no'); ?></a>
+                </form>
+                </p>
 				<?php
 			}
 		}//Ansonsten mgl zum aktivieren/Einrichten anzeigen
@@ -197,14 +197,14 @@ if (hasPerm('manage_admins') || $uid == $_SESSION['userid'])
 				$qrCodeUrl = $authenticator->getSecretUrl($title, $secret, $website);
 				echo '<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&format=svg&data=' . $qrCodeUrl . '" alt=""/></p>';
 				?>
-				<p><?php echo $lang->get('user_settings_2fa_confirm_code'); ?>:</p>
-				<form action="<?php echo $_SERVER['REQUEST_URI']?>" method="post">
-					<p><input type="text" placeholder="<?php echo $lang->get('user_settings_2fa_enter_code'); ?>"
-							  name="2fatest" autocomplete="off"/>
-						<input type="hidden" name="secret" value="<?php echo $secret; ?>"/>
-						<input type="submit" name="smbt" value="<?php echo $lang->get('user_settings_2fa_test'); ?>"/>
-					</p>
-				</form>
+                <p><?php echo $lang->get('user_settings_2fa_confirm_code'); ?>:</p>
+                <form action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="post">
+                    <p><input type="text" placeholder="<?php echo $lang->get('user_settings_2fa_enter_code'); ?>"
+                              name="2fatest" autocomplete="off"/>
+                        <input type="hidden" name="secret" value="<?php echo $secret; ?>"/>
+                        <input type="submit" name="smbt" value="<?php echo $lang->get('user_settings_2fa_test'); ?>"/>
+                    </p>
+                </form>
 				<?php
 			}
 		}
@@ -228,39 +228,36 @@ if (hasPerm('manage_admins') || $uid == $_SESSION['userid'])
 			//Log-Level
 			$loglevel = '';
 			$loglevelA = [];
-			if(isset($_POST['level_1']) && $_POST['level_1'] == 'true') $loglevelA[] = 1;
-			if(isset($_POST['level_2']) && $_POST['level_2'] == 'true') $loglevelA[] = 2;
-			if(isset($_POST['level_3']) && $_POST['level_3'] == 'true') $loglevelA[] = 3;
-			if(isset($_POST['level_4']) && $_POST['level_4'] == 'true') $loglevelA[] = 4;
+			if (isset($_POST['level_1']) && $_POST['level_1'] == 'true') $loglevelA[] = 1;
+			if (isset($_POST['level_2']) && $_POST['level_2'] == 'true') $loglevelA[] = 2;
+			if (isset($_POST['level_3']) && $_POST['level_3'] == 'true') $loglevelA[] = 3;
+			if (isset($_POST['level_4']) && $_POST['level_4'] == 'true') $loglevelA[] = 4;
 			$loglevel = json_encode($loglevelA);
 
 			//Get the current status
 			$db->setCol('system_show_stream');
 			$db->data['user'] = $_SESSION['userid'];
 			$db->get();
-			if(isset($db->data[0]))//If we already have stream settings saved, update them
+			if (isset($db->data[0]))//If we already have stream settings saved, update them
 			{
 				$db->setCol('system_show_stream');
-				$db->data['level']  = $loglevel;
-				if($db->update(['user' => $_SESSION['userid']]))
+				$db->data['level'] = $loglevel;
+				if ($db->update(['user' => $_SESSION['userid']]))
 				{
 					echo msg('success', $lang->get('user_settings_log_level_success') . ' {back}');
-				}
-				else
+				} else
 				{
 					echo msg('fail', $lang->get('user_settings_log_level_fail') . ' {back}');
 				}
-			}
-			else //Otherwise insert them
+			} else //Otherwise insert them
 			{
 				$db->setCol('system_show_stream');
 				$db->data['user'] = $_SESSION['userid'];
-				$db->data['level']  = $loglevel;
-				if($db->insert())
+				$db->data['level'] = $loglevel;
+				if ($db->insert())
 				{
 					echo msg('success', $lang->get('user_settings_log_level_success'));
-				}
-				else
+				} else
 				{
 					echo msg('fail', $lang->get('user_settings_log_level_fail'));
 				}
@@ -273,32 +270,39 @@ if (hasPerm('manage_admins') || $uid == $_SESSION['userid'])
 			if ($db->data[0]['username'] !== '')
 			{
 				?>
-				<div class="main">
-					<form action="<?php echo $_SERVER['REQUEST_URI']?>" class="form" method="post">
+                <div class="main">
+                    <form action="<?php echo $_SERVER['REQUEST_URI'] ?>" class="form" method="post">
                         <input type="hidden" name="askPW" value="askPW">
-						<p><span><?php echo $lang->get('username'); ?>:</span><input name="username"
-																					 value="<?php echo $db->data[0]['username'] ?>"/>
-						</p>
-						<p><span><?php echo $lang->get('admins_mail'); ?>:</span><input name="mail"
-																						value="<?php echo $db->data[0]['mail'] ?>"/>
-						</p>
-						<p><span><?php echo $lang->get('password'); ?>:</span><a
-								href="user_settings.php?uid=<?php echo $db->data[0]['id'];
-								if ($db->data[0]['id'] == $_SESSION['userid'])
-								{
-									echo '&pw_u';
-								} else
-								{
-									echo '&pw_new';
-								}
-								?>"><?php echo $lang->get('user_settings_settings_pass'); ?></a></p>
-						<p><span><?php echo $lang->get('admins_roles_group'); ?>:</span><?php
+                        <p><span><?php echo $lang->get('username'); ?>:</span><input name="username"
+                                                                                     value="<?php echo $db->data[0]['username'] ?>"/>
+                        </p>
+                        <p><span><?php echo $lang->get('admins_mail'); ?>:</span><input name="mail"
+                                                                                        value="<?php echo $db->data[0]['mail'] ?>"/>
+                        </p>
+                        <p><span><?php echo $lang->get('password'); ?>:</span><a
+                                    href="user_settings.php?uid=<?php echo $db->data[0]['id'];
+									if ($db->data[0]['id'] == $_SESSION['userid'])
+									{
+										echo '&pw_u';
+									} else
+									{
+										echo '&pw_new';
+									}
+									?>"><?php echo $lang->get('user_settings_settings_pass'); ?></a></p>
+                        <p><span><?php echo $lang->get('admins_roles_group'); ?>:</span><?php
 							$lvl = $db->data[0]['lvl'];
 							$db->setCol('system_roles');
 							$db->data['id'] = $lvl;
 							$db->get();
-							echo $db->data[0]['name'] ?></p>
-						<p><span><?php echo $lang->get('user_settings_last_login'); ?>:</span><?php
+							if (isset($db->data[0]['name']))
+							{
+								echo $db->data[0]['name'];
+							}
+							else
+							{
+							    echo '<i>'.sprintf($lang->get('user_settings_none'), $MCONF['web_uri']. 'admin/roles.php').'</i>';
+							} ?></p>
+                        <p><span><?php echo $lang->get('user_settings_last_login'); ?>:</span><?php
 							$db->setCol('system_loggedin');
 							$db->data['user'] = $uid;
 							$db->get();
@@ -319,7 +323,7 @@ if (hasPerm('manage_admins') || $uid == $_SESSION['userid'])
 							{
 							echo '  <a href="user_settings.php?sessions">' . $lang->get('user_settings_show_current_sessions') . '</a>';
 							?></p>
-						<p><span><?php echo $lang->get('user_settings_2fa'); ?>:</span><?php
+                        <p><span><?php echo $lang->get('user_settings_2fa'); ?>:</span><?php
 							$db->clear();
 							$db->setCol('system_admins');
 							$db->data['id'] = $_SESSION['userid'];
@@ -333,33 +337,40 @@ if (hasPerm('manage_admins') || $uid == $_SESSION['userid'])
 							}
 							}
 							?><br/></p>
-						<p><span><?php echo $lang->get('user_settings_log_level'); ?>:</span>
+                        <p><span><?php echo $lang->get('user_settings_log_level'); ?>:</span>
 							<?php
 							$db->setCol('system_show_stream');
 							$db->data['user'] = $_SESSION['userid'];
 							$db->get();
 							$loglevel = [];
-							if(isset($db->data[0]))
+							if (isset($db->data[0]))
 							{
 								$loglevel = json_decode($db->data[0]['level']);
 							}
 							?>
-							<input type="checkbox" name="level_1" id="level_1"<?php if(in_array(1, $loglevel)) echo ' checked="checked"';?>/>
-							<label for="level_1"><i></i> <?php echo $lang->get('user_settings_log_level_1'); ?></label><div style="clear: both;"></div>
-							<span>&nbsp;</span>
-							<input type="checkbox" name="level_2" id="level_2"<?php if(in_array(2, $loglevel)) echo ' checked="checked"';?>/>
-							<label for="level_2"><i></i> <?php echo $lang->get('user_settings_log_level_2'); ?></label><div style="clear: both;"></div>
-							<span>&nbsp;</span>
-							<input type="checkbox" name="level_3" id="level_3"<?php if(in_array(3, $loglevel)) echo ' checked="checked"';?>/>
-							<label for="level_3"><i></i> <?php echo $lang->get('user_settings_log_level_3'); ?></label><div style="clear: both;"></div>
-							<span>&nbsp;</span>
-							<input type="checkbox" name="level_4" id="level_4"<?php if(in_array(4, $loglevel)) echo ' checked="checked"';?>/>
-							<label for="level_4"><i></i> <?php echo $lang->get('user_settings_log_level_4'); ?></label>
-						</p>
-						<p><input type="submit" name="smbt" value="<?php echo $lang->get('general_save_changes'); ?>"/>
-						</p>
-					</form>
-				</div>
+                            <input type="checkbox" name="level_1"
+                                   id="level_1"<?php if (in_array(1, $loglevel)) echo ' checked="checked"'; ?>/>
+                            <label for="level_1"><i></i> <?php echo $lang->get('user_settings_log_level_1'); ?></label>
+                        <div style="clear: both;"></div>
+                        <span>&nbsp;</span>
+                        <input type="checkbox" name="level_2"
+                               id="level_2"<?php if (in_array(2, $loglevel)) echo ' checked="checked"'; ?>/>
+                        <label for="level_2"><i></i> <?php echo $lang->get('user_settings_log_level_2'); ?></label>
+                        <div style="clear: both;"></div>
+                        <span>&nbsp;</span>
+                        <input type="checkbox" name="level_3"
+                               id="level_3"<?php if (in_array(3, $loglevel)) echo ' checked="checked"'; ?>/>
+                        <label for="level_3"><i></i> <?php echo $lang->get('user_settings_log_level_3'); ?></label>
+                        <div style="clear: both;"></div>
+                        <span>&nbsp;</span>
+                        <input type="checkbox" name="level_4"
+                               id="level_4"<?php if (in_array(4, $loglevel)) echo ' checked="checked"'; ?>/>
+                        <label for="level_4"><i></i> <?php echo $lang->get('user_settings_log_level_4'); ?></label>
+                        </p>
+                        <p><input type="submit" name="smbt" value="<?php echo $lang->get('general_save_changes'); ?>"/>
+                        </p>
+                    </form>
+                </div>
 				<?php
 			}
 		}

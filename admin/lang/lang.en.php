@@ -184,6 +184,7 @@ $lang['user_settings_log_level_3'] = 'Edits';
 $lang['user_settings_log_level_4'] = 'General Messages';
 $lang['user_settings_log_level_fail'] = 'An error occured while saving Log-Levels.';
 $lang['user_settings_log_level_success'] = 'The Log-Levels were saved successfully.';
+$lang['user_settings_none'] = 'none <a href="%1$s">Settings</a>';
 
 //Mail
 $lang['mail_write'] = 'Write Email';
