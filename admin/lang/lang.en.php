@@ -21,6 +21,7 @@ $lang['error_2fa'] = 'Error with 2-Step Verification authentication';
 $lang['wrong_username_or_pass'] = 'Wrong username or password.';
 $lang['wrong_pass'] = 'Wrong password';
 $lang['404_not_found'] = 'The page you requested was not found.';
+$lang['error_occured'] = 'An error occured.';
 
 //Reset Password
 $lang['reset_pass_title'] = 'Reset Password';

@@ -3,38 +3,17 @@
 function msg($type, $msg = null)
 {
 	$out = [];
-	$msg = str_replace('{back}', '<a onclick="history.back(-1)">Zurück</a>', $msg);
+	$out['msg'] = str_replace('{back}', '<a onclick="history.back(-1)">'.$GLOBALS['lang']->get('back').'</a>', $msg);
 	if ($type === 'success')
 	{
-		if (!isset($msg)) $msg = 'Die Operation wurde erfolgreich durchgeführt.';
 		$out['type'] = 'success';
-		$out['msg'] = $msg;
-
-		return '<div class="message">
-        <div class="icon-success"></div>
-        <div class="msg">' . $msg . '</div>
-        <div style="clear: both"></div>
-    </div>';
 	} elseif ($type === 'fail' || $type === 'error')
 	{
-		if (!isset($msg)) $msg = 'Fehler. ' . $GLOBALS['texte'][2];
-
+	    if(!isset($msg)) $out['msg'] = $GLOBALS['lang']->get('error_occured');
 		$out['type'] = 'fail';
-		$out['msg'] = $msg;
-		return '<div class="message">
-        <div class="icon-fail"></div>
-        <div class="msg">' . $msg . '</div>
-        <div style="clear: both"></div>
-    </div>';
 	} else
 	{
 		$out['type'] = 'info';
-		$out['msg'] = $msg;
-		return '<div class="message">
-        <div class="icon-info"></div>
-        <div class="msg">' . $msg . '</div>
-        <div style="clear: both"></div>
-    </div>';
 	}
 
 	if (isset($_GET['json']))
@@ -44,7 +23,11 @@ function msg($type, $msg = null)
 
 	} else
 	{
-		return '<div class="message-' . $out['type'] . '">' . $out['msg'] . '</div>';
+		return '<div class="message">
+        <div class="icon-' . $out['type'] . '"></div>
+        <div class="msg">' . $out['msg'] . '</div>
+        <div style="clear: both"></div>
+    </div>';
 	}
 }
 

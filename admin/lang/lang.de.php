@@ -21,6 +21,7 @@ $lang['error_2fa'] = 'Fehler bei der Anmeldung in zwei Schritten.';
 $lang['wrong_username_or_pass'] = 'Benutzername oder Passwort falsch.';
 $lang['wrong_pass'] = 'Falsches Passwort';
 $lang['404_not_found'] = 'Die Seite wurde nicht gefunden.';
+$lang['error_occured'] = 'Es ist ein Fehler aufgetreten.';
 
 //Reset Password
 $lang['reset_pass_title'] = 'Passwort zurücksetzen';
