@@ -1,6 +1,5 @@
 <?php
 header('Charset: utf-8');
-header('Generator: Mowie_CMS');
 date_default_timezone_set('Europe/Berlin');
 
 //Parse Config

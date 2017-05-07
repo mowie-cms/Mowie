@@ -138,16 +138,17 @@ function calc_filesize($bytes)
 //User eingeloggt?
 function is_loggedin()
 {
+    global $db;
 	if (isset($_SESSION['user'], $_SESSION['token']))
 	{
-		$GLOBALS['db']->setCol('system_loggedin');
-		$GLOBALS['db']->data['token'] = $_SESSION['token'];
-		$GLOBALS['db']->data['user'] = $_SESSION['userid'];
-		$GLOBALS['db']->get();
-		if (isset($GLOBALS['db']->data[0]['token']))
+		$db->setCol('system_loggedin');
+		$db->data['token'] = $_SESSION['token'];
+		$db->data['user'] = $_SESSION['userid'];
+		$db->get();
+		if (isset($db->data[0]['token']))
 		{
-			$token = $GLOBALS['db']->data[0]['token'];
-			$GLOBALS['db']->clear();
+			$token = $db->data[0]['token'];
+			$db->clear();
 			if ($token != '')
 			{
 				if ($token == $_SESSION['token'])
@@ -155,9 +156,9 @@ function is_loggedin()
 					//last request was more than 30 minutes ago
 					if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800))
 					{
-						$GLOBALS['db']->setCol('system_loggedin');
-						$GLOBALS['db']->data['token'] = $_SESSION['token'];
-						$GLOBALS['db']->delete();
+						$db->setCol('system_loggedin');
+						$db->data['token'] = $_SESSION['token'];
+						$db->delete();
 
 						session_unset();     // unset $_SESSION variable for the run-time
 						session_destroy();   // destroy session data in storage
