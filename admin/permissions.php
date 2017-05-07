@@ -15,13 +15,17 @@ if (hasPerm('edit_permissions'))
 			{
 				$perm_full = $perm;
 				$perm = explode('_', $perm);
-				$permArr[$perm[0]][$perm[1]][] = str_replace($perm[0].'_'.$perm[1].'_', '', $perm_full);
+				//echo '<pre>'.print_r($perm, true).'</pre>';
+				if(isset($perm[1], $perm[0]))
+				{
+					$permArr[$perm[0]][$perm[1]][] = str_replace($perm[0] . '_' . $perm[1] . '_', '', $perm_full);
+				}
 			}
 		}
 
-		//print_r($permArr);
 		foreach ($permArr as $lvl => $perms)
 		{
+			$db->setCol('system_roles');
 			$db->data['permissions'] = json_encode($perms);
 			if ($db->update(['id' => $lvl]))
 			{
