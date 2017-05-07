@@ -72,13 +72,13 @@ if (hasPerm('edit_permissions'))
 		$appUri = '../apps/';
 		foreach ($apps->getApps() as $app => $appconf)
 		{
-			if (file_exists($appUri . '/' . $app . '/permissions.json'))
+			if (file_exists($appUri . '/' . $appconf['app_path'] . '/permissions.json'))
 			{
-				require $appUri . '/' . $app . '/config.php';
+				require $appUri . '/' . $appconf['app_path'] . '/config.php';
 
-				$lang->setLangFolder( $appUri  . $app .'/lang/');
+				$lang->setLangFolder( $appUri  . $appconf['app_path'] .'/lang/');
 
-				$permsTotal[$_CONF['app_name']] = json_decode(file_get_contents($appUri . '/' . $app . '/permissions.json'), true);
+				$permsTotal[$_CONF['app_name']] = json_decode(file_get_contents($appUri . '/' . $appconf['app_path'] . '/permissions.json'), true);
 				$permsTotal[$_CONF['app_name']] = $permsTotal[$_CONF['app_name']]['permissions'];
 			}
 		}

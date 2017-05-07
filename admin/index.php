@@ -17,7 +17,7 @@ foreach ($installedApps as $appuri => $installedApp)
 {
 	if(array_key_exists('install', $installedApp))
 	{
-		$appInstaller = '../apps/' . $appuri . '/' . $installedApp['install'];
+		$appInstaller = '../apps/' . $installedApp['app_path'] . '/' . $installedApp['install'];
 		if (file_exists($appInstaller))
 		{
 			if (unlink($appInstaller))
@@ -59,14 +59,13 @@ $apps = new apps();
 $appUri = '../apps/';
 foreach ($apps->getApps() as $app => $appconf)
 {
-
-	require $appUri . $app . '/config.php';
+	require $appUri . $appconf['app_path'] . '/config.php';
 	if (isset($_CONF['dashboard']) && $_CONF['dashboard'] != '')
 	{
-		if (file_exists($appUri . $app . '/' . $_CONF['dashboard']))
+		if (file_exists($appUri . $appconf['app_path'] . '/' . $_CONF['dashboard']))
 		{
 			echo '<div class="box">';
-			require $appUri . $app . '/' . $_CONF['dashboard'];
+			require $appUri . $appconf['app_path'] . '/' . $_CONF['dashboard'];
 			echo '</div>';
 		}
 	}

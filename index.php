@@ -35,7 +35,7 @@ if (file_exists('inc/config.yml'))
 		//Search apps and execute them if necessary
 		foreach ($apps->getApps() as $app => $appconf)
 		{
-			$appUri = 'apps/' . $app . '/';
+			$appUri = 'apps/' . $appconf['app_path'] . '/';
 
 			//Check App dependencies
 			if($apps->checkDependencies($appconf['app_name']))

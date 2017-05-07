@@ -87,15 +87,15 @@ tinymce();
 			$appUri = '../apps/';
 			foreach ($apps->getApps() as $app => $appconf)
 			{
-				require $appUri . $app . '/config.php';
-				if (isset($_CONF['general_conf']) && $_CONF['general_conf'] != '' && file_exists($appUri . $app . '/' . $_CONF['general_conf']))
+				require $appUri . $appconf['app_path'] . '/config.php';
+				if (isset($_CONF['general_conf']) && $_CONF['general_conf'] != '' && file_exists($appUri . $appconf['app_path'] . '/' . $_CONF['general_conf']))
 				{
-					if(file_exists($appUri . $app . '/lang/') && is_dir($appUri . $app . '/lang/'))
+					if(file_exists($appUri . $appconf['app_path'] . '/lang/') && is_dir($appUri . $appconf['app_path'] . '/lang/'))
 					{
-						$lang->setLangFolder($appUri . $app . '/lang/');
+						$lang->setLangFolder($appUri . $appconf['app_path'] . '/lang/');
 					}
 					echo '<i class="divider"></i>';
-					require $appUri . $app . '/' . $_CONF['general_conf'];
+					require $appUri . $appconf['app_path'] . '/' . $_CONF['general_conf'];
 				}
 
 			}

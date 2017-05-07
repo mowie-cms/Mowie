@@ -239,10 +239,10 @@ RewriteRule ^(.*)$ /index.php?$1 [QSA,L]
 		$appUri = '../apps/';
 		foreach ($apps->getApps() as $app => $appconf)
 		{
-			require $appUri . $app . '/config.php';
-			if (isset($_CONF['install']) && $_CONF['install'] != '' && file_exists($appUri . $app . '/' . $_CONF['install']))
+			require $appUri . $appconf['app_path'] . '/config.php';
+			if (isset($_CONF['install']) && $_CONF['install'] != '' && file_exists($appUri . $appconf['app_path'] . '/' . $_CONF['install']))
 			{
-				require $appUri . $app . '/' . $_CONF['install'];
+				require $appUri . $appconf['app_path'] . '/' . $_CONF['install'];
 			}
 		}
 		//Write Config
@@ -328,10 +328,10 @@ RewriteRule ^(.*)$ /index.php?$1 [QSA,L]
 			$appUri = '../apps/';
 			foreach ($apps->getApps() as $app => $appconf)
 			{
-				require $appUri . $app . '/config.php';
-				if (isset($_CONF['install']) && $_CONF['install'] != '' && file_exists($appUri . $app . '/' . $_CONF['install']))
+				require $appUri . $appconf['app_path'] . '/config.php';
+				if (isset($_CONF['install']) && $_CONF['install'] != '' && file_exists($appUri . $appconf['app_path'] . '/' . $_CONF['install']))
 				{
-					require $appUri . $app . '/' . $_CONF['install'];
+					require $appUri . $appconf['app_path'] . '/' . $_CONF['install'];
 				}
 			}
 			?>

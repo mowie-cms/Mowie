@@ -5,7 +5,7 @@ require_once '../inc/autoload_adm.php';
 //Get Langstrings
 foreach ($apps->getApps() as $appname => $appdetail)
 {
-	$path = '../apps/'.$appname. '/lang/';
+	$path = '../apps/'.$appdetail['app_path']. '/lang/';
 	if (file_exists($path) && is_dir($path))
 	{
 		$lang->setLangFolder($path);

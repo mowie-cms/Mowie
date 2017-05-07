@@ -247,11 +247,11 @@ function printHeader($title)
 
 				if (array_key_exists('menu_top', $appconf['menu']))
 				{
-					$appmenu .= "\n" . '<li' . $now . ' id="mw-menu-apps-' . $app . '-top"><a href="' . $MCONF['home_uri'] . 'apps/' . $app . '/' . $appconf['menu']['menu_top'] . '">' . $appconf['menu_top'] . '</a>' . "\n";
+					$appmenu .= "\n" . '<li' . $now . ' id="mw-menu-apps-' . $app . '-top"><a href="' . $MCONF['home_uri'] . 'apps/' . $appconf['app_path'] . '/' . $appconf['menu']['menu_top'] . '">' . $appconf['menu_top'] . '</a>' . "\n";
 				} else
 				{
 					$first_itm = array_keys($appconf['menu']);
-					$appmenu .= "\n" . '<li' . $now . ' id="mw-menu-apps-' . $app . '-top"><a href="' . $MCONF['home_uri'] . 'apps/' . $app . '/' . $appconf['menu'][$first_itm[0]] . '">' . $appconf['menu_top'] . '<i class="fa fa-chevron-right sub_menu"></i></a>' . "\n" . '<ul>';
+					$appmenu .= "\n" . '<li' . $now . ' id="mw-menu-apps-' . $app . '-top"><a href="' . $MCONF['home_uri'] . 'apps/' . $appconf['app_path'] . '/' . $appconf['menu'][$first_itm[0]] . '">' . $appconf['menu_top'] . '<i class="fa fa-chevron-right sub_menu"></i></a>' . "\n" . '<ul>';
 					foreach ($appconf['menu'] as $app_name => $app_name_url)
 					{
 						$now = '';
@@ -259,7 +259,7 @@ function printHeader($title)
 						{
 							$now = ' class="active"';
 						}
-						$appmenu .= '<li' . $now . ' id="mw-menu-apps-' . $app . '-' . str_replace(['.php', '?', '&'], '', str_replace('/', '-', $app_name_url)) . '"><a href="' . $MCONF['home_uri'] . 'apps/' . $app . '/' . $app_name_url . '">' . $app_name . '</a></li>' . "\n";
+						$appmenu .= '<li' . $now . ' id="mw-menu-apps-' . $app . '-' . str_replace(['.php', '?', '&'], '', str_replace('/', '-', $app_name_url)) . '"><a href="' . $MCONF['home_uri'] . 'apps/' . $appconf['app_path'] . '/' . $app_name_url . '">' . $app_name . '</a></li>' . "\n";
 					}
 					$appmenu .= '</ul></li>' . "\n";
 				}
@@ -286,11 +286,12 @@ function printHeader($title)
 	</script>
 ';
 		//Get App-CSS and output it
-		if (isset($appsLoop[$appCurr]['css']))
+        $app_css = $apps->getApp($appCurr);
+		if (isset($app_css['css']))
 		{
-			foreach ($appsLoop[$appCurr]['css'] as $style)
+			foreach ($app_css['css'] as $style)
 			{
-				echo '	<link rel="stylesheet" href="' . $MCONF['web_uri'] . 'apps/' . $appCurr . '/' . $style . '" type="text/css"/>';
+				echo '	<link rel="stylesheet" href="' . $MCONF['web_uri'] . 'apps/' . $app_css['app_path'] . '/' . $style . '" type="text/css"/>';
 			}
 		}
 
