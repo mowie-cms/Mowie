@@ -12,6 +12,7 @@ $lang['__Lang__'] = 'German (Deutsch)';
 $lang['__LangCode__'] = 'de';
 $lang['__Countrycode__'] = 'de_DE';
 
+$lang['log_title'] = 'Logfiles';
 $lang['log_detail_title'] = 'Logfile vom';
 $lang['log_detail_title_from'] = 'Logfiles von';
 $lang['log_filter_logs'] = 'Logs Filtern';

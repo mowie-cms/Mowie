@@ -175,9 +175,7 @@ function printHeader($title)
 {
 
 	//Globals
-	global $apps;
-	global $MCONF;
-	global $lang;
+	global $apps, $MCONF, $lang;
 
 	if (!is_loggedin())
 	{
@@ -226,6 +224,15 @@ function printHeader($title)
 		exit;
 	} else
 	{
+	    //Get apps-folder location
+		$appsPath = '../apps/';
+		$i = 0; // To prevent endless searching
+		while(!file_exists($appsPath) && $i < 31)
+		{
+			$appsPath = '../'.$appsPath;
+			$i++;
+		}
+
 		//Get Apps, build app-menu (We're building the menu here and output it later because we want the name of the current app to use it for App-CSS)
 		$appmenu = '';
 		$appsLoop = $apps->getApps();
@@ -234,6 +241,7 @@ function printHeader($title)
 		{
 			if (isset($appconf['menu_top']) && $appconf['menu_top'] !== '')
 			{
+				//Build the menu
 				$now = '';
 				if (strpos($_SERVER['REQUEST_URI'], $app) !== false)
 				{

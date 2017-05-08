@@ -1,24 +1,16 @@
 <?php
 //langstrings
-$GLOBALS['lang']->set('Seiten', 'sp_pages', 'de');
-$GLOBALS['lang']->set('Seitenverwaltung', 'sp_manage_pages', 'de');
-$GLOBALS['lang']->set('Berechtigungen verwalten', 'sp_manage_permissions', 'de');
-$GLOBALS['lang']->set('Neue Seite erstellen', 'sp_create_new', 'de');
 
-$GLOBALS['lang']->set('Pages', 'sp_pages', 'en');
-$GLOBALS['lang']->set('Manage Pages', 'sp_manage_pages', 'en');
-$GLOBALS['lang']->set('Manage Permissions', 'sp_manage_permissions', 'en');
-$GLOBALS['lang']->set('Create New Page', 'sp_create_new', 'en');
 
 $_CONF['app_name'] = 'SimplePages';
 $_CONF['app_build'] = 2;
 $_CONF['app_version'] = 'v0.9 Beta';
 $_CONF['base_url'] = '/'; //Basisurl des moduls, wenn es über das Frontend aufgerufen wird
 $_CONF['base_file'] = 'front/page.php'; //Datei, die angezeigt wird, wenn die basisurl aufgerufen wird
-$_CONF['menu_top'] = '<i class="fa fa-file-text"></i>  '.$GLOBALS['lang']->get('sp_pages'); //Name des Moduls, wie es im Adminbereich im Hauptmenü auftaucht
-$_CONF['menu'] = ['<i class="fa fa-th-list"></i>  '.$GLOBALS['lang']->get('sp_manage_pages') => 'backend/management.php',
-	'<i class="fa fa-lock"></i>  '.$GLOBALS['lang']->get('sp_manage_permissions') => 'backend/permissions.php',
-	'<i class="fa fa-file"></i>  '.$GLOBALS['lang']->get('sp_create_new') => 'backend/edit.php?new']; //Ein Array mit menüpunkten im adminbereich
+$_CONF['menu_top'] = '<i class="fa fa-file-text"></i>  '.$lang->get('sp_pages'); //Name des Moduls, wie es im Adminbereich im Hauptmenü auftaucht
+$_CONF['menu'] = ['<i class="fa fa-th-list"></i>  '.$lang->get('sp_manage_pages') => 'backend/management.php',
+	'<i class="fa fa-lock"></i>  '.$lang->get('sp_manage_permissions') => 'backend/permissions.php',
+	'<i class="fa fa-file"></i>  '.$lang->get('sp_create_new') => 'backend/edit.php?new']; //Ein Array mit menüpunkten im adminbereich
 $_CONF['dashboard'] = 'backend/dashboard.php';
 $_CONF['type'] = 'page';
 $_CONF['install'] = 'install.php';

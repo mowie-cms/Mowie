@@ -12,7 +12,7 @@ $lang['__Lang__'] = 'English (English)';
 $lang['__LangCode__'] = 'en';
 $lang['__Countrycode__'] = 'en';
 
-$lang['files_title'] = 'File';
+$lang['files_title'] = 'Files';
 $lang['files_drag_drop_area'] = 'Drag and drop Files here to upload in the current folder.';
 $lang['files_upload'] = 'Upload';
 $lang['files_create_dir'] = 'Create New Folder';

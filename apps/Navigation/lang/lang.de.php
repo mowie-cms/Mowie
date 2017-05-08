@@ -11,6 +11,7 @@ $lang['__Lang__'] = 'German (Deutsch)';
 $lang['__LangCode__'] = 'de';
 $lang['__Countrycode__'] = 'de_DE';
 
+$lang['nav_title'] = 'Navigation';
 $lang['nav_id'] = 'ID';
 $lang['nav_pageTitle'] = 'Titel';
 $lang['nav_page'] = 'Seite';

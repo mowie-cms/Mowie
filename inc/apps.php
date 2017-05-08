@@ -12,6 +12,7 @@ class apps
 
 	public function __construct()
 	{
+		global $lang;
 		//Find the app directory
 		$i = 1;
 		$appdir = 'apps/';
@@ -39,6 +40,12 @@ class apps
 					$appUri = $appdir . $app;
 					if (file_exists($appUri . '/config.php'))
 					{
+						//Get Langstrings to display menu correctly
+						if (file_exists($appUri . '/lang/') && is_dir($appUri . '/lang/'))
+						{
+							$lang->setLangFolder($appUri . '/lang/');
+						}
+
 						require $appUri . '/config.php';
 						$this->apps[$_CONF['app_name']] = $_CONF;
 						$this->apps[$_CONF['app_name']]['app_path'] = $app;
