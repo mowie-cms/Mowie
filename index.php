@@ -1,7 +1,7 @@
 <?php
 
 //Check if installed
-if (file_exists('inc/config.yml'))
+if (file_exists('config/config.yml'))
 {
 	//Require Libs
 	require_once 'inc/libs/Smarty/Smarty.class.php';
@@ -96,7 +96,7 @@ if (file_exists('inc/config.yml'))
 		}
 
 		//Build Copyright
-		$founded = date('Y', filemtime('inc/config.yml'));
+		$founded = date('Y', filemtime('config/config.yml'));
 		$copy = $founded;
 		if ($founded != date('Y'))
 		{

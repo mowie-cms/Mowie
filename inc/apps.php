@@ -16,14 +16,18 @@ class apps
 		$i = 1;
 		$appdir = 'apps/';
 
-		//When the appdir wasn't found after 20 iterations, throw an error to prevent endless searching
-		while(!file_exists($appdir) && $i<21)
+		//When the appdir wasn't found after 30 iterations, throw an error to prevent endless searching
+		while(!file_exists($appdir) && $i<31)
 		{
 			$appdir = '../' . $appdir;
 			$i++;
 		}
 
-		if(!file_exists($appdir)) echo 'Could not find App dir.';
+		if(!file_exists($appdir))
+		{
+			echo 'Could not find app dir. (Too many iterations)';
+			exit;
+		}
 
 		//Loop through the apps
 		if ($handle = opendir($appdir))

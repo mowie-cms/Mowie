@@ -5,9 +5,24 @@ date_default_timezone_set('Europe/Berlin');
 //Parse Config
 $config = [];
 
+//Get Folderdepth
+$cfg_path = 'config/config.yml';
+$i = 0; // To prevent endless searching
+while(!file_exists($cfg_path) && $i < 31)
+{
+	$cfg_path = '../'.$cfg_path;
+	$i++;
+}
+
+if(!file_exists($cfg_path))
+{
+	echo 'Could not find config file. (Too many iterations)';
+	exit;
+}
+
 require_once 'libs/YAML/autoload.php';
 use Symfony\Component\Yaml\Yaml;
-$config = Yaml::parse(file_get_contents('config.yml', FILE_USE_INCLUDE_PATH));
+$config = Yaml::parse(file_get_contents($cfg_path));
 if(file_exists(empty($config)))
 {
 	echo 'Error finding config file.';

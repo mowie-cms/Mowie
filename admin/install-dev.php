@@ -1,5 +1,5 @@
 <?php
-if (file_exists('../inc/config.yml'))
+if (file_exists('../config/config.yml'))
 {
 	header('Location: index.php');
 	exit;
@@ -247,7 +247,7 @@ RewriteRule ^(.*)$ /index.php?$1 [QSA,L]
 		}
 		//Write Config
 		$configfile = Yaml::dump($CONFIG);
-		if (file_put_contents('../inc/config.yml', $configfile))
+		if (file_put_contents('../config/config.yml', $configfile))
 		{
 			echo msg('success', 'Configfile was successfully created.');
 		} else

@@ -203,11 +203,11 @@ if (isset($_GET['update']))
 									//Update Version in Config File - only if we don't update an app
 									if (!isset($_GET['appUpdate']))
 									{
-										$config = Yaml::parse(file_get_contents('../inc/config.yml', FILE_USE_INCLUDE_PATH));
+										$config = Yaml::parse(file_get_contents('../config/config.yml', FILE_USE_INCLUDE_PATH));
 										$config['Versioning']['version'] = $version_remote->version;
 										$config['Versioning']['version_num'] = $version_remote->versionNum;
 										$configfile = Yaml::dump($config);
-										if (!file_put_contents('../inc/config.yml', $configfile))
+										if (!file_put_contents('../config/config.yml', $configfile))
 										{
 											echo msg('fail', $lang->get('general_config_fail'));
 										}
