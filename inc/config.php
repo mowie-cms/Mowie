@@ -1,6 +1,5 @@
 <?php
 header('Charset: utf-8');
-date_default_timezone_set('Europe/Berlin');
 
 //Parse Config
 $config = [];
@@ -36,16 +35,14 @@ $MCONF['db_usr'] = $config['Database']['db_usr'];
 $MCONF['db_pw'] = $config['Database']['db_pw'];
 $MCONF['db_prefix'] = $config['Database']['db_prefix'];
 
-require_once 'libs/db-mysql.php';
-$db = new db($MCONF['db_host'], $MCONF['db_name'], $MCONF['db_usr'], $MCONF['db_pw'], $MCONF['db_prefix']);
-
 //General
 $MCONF['web_uri'] = $config['General']['web_uri'];
 $MCONF['home_uri'] = $config['General']['home_uri'];
 $MCONF['phpmyadmin'] = $config['General']['phpmyadmin'];
 $MCONF['title'] = file_get_contents($MCONF['web_uri'].$config['General']['title']);
-$MCONF['log_uri'] = $config['General']['log_uri'];
 $MCONF['tinymce_css'] = $MCONF['web_uri'].$config['General']['tinymce_css'];
+$MCONF['timezone'] = $config['General']['timezone'];
+$MCONF['log_uri'] = $config['General']['log_uri'];
 
 //Templateing
 $MCONF['template'] = $config['Templating']['template'];
@@ -69,6 +66,13 @@ if($MCONF['smtp'] === true)
 	$MCONF['smtp_port'] = $config['Mail']['port'];
 }
 
-require_once 'libs/lang.class.php';
+//Set Timezone
+date_default_timezone_set($MCONF['timezone']);
 
+//DB init
+require_once 'libs/db-mysql.php';
+$db = new db($MCONF['db_host'], $MCONF['db_name'], $MCONF['db_usr'], $MCONF['db_pw'], $MCONF['db_prefix']);
+
+//Lang init
+require_once 'libs/lang.class.php';
 $lang = new lang();
