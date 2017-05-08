@@ -1,9 +1,9 @@
 <?php
-/*if (file_exists('../config/config.yml'))
+if (file_exists('../config/config.yml'))
 {
 	header('Location: index.php');
 	exit;
-}*/
+}
 session_name('adminsession');
 session_start();
 require_once '../inc/libs/functions.php';
