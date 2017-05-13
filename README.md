@@ -1,4 +1,6 @@
 # Mowie
+
+[![Join the chat at https://gitter.im/Mowie/Mowie](https://badges.gitter.im/Mowie/Mowie.svg)](https://gitter.im/Mowie/Mowie?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 A modular, powerful & good-looking CMS.
 
 This CMS is currently under heavy development. You can use it (it is quite stable) but expect bugs - and possible changes to the api.
