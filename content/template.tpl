@@ -19,7 +19,7 @@
         {$test2}
 	</div>
 	<div class="footer">
-      <p>&copy; 2015 | <a href="http://kola-entertainments.de" target="_blank">KoLa Entertainments</a> | <a href="{$website_uri}Impressum">Impressum</a></p>
+      <p>&copy; {$copyright} | <a href="http://kola-entertainments.de" target="_blank">KoLa Entertainments</a> | <a href="{$website_uri}Impressum">Impressum</a></p>
 	</div>
   </div>
 </body>

@@ -382,7 +382,7 @@ function printHeader($title)
 			echo $appmenu;
 
 			echo '</ul>
-<div class="copy"> © 2016 <a href="http://mowie.cc">Mowie</a></div><div class="langselect"><a id="langselectbtn"><i class="fa fa-globe"></i> </a><div class="langs">';
+<div class="copy"> © 2016-2017 <a href="http://mowie.cc" target="_blank">Mowie</a></div><div class="langselect"><a id="langselectbtn"><i class="fa fa-globe"></i> </a><div class="langs">';
 			//Lang
 			$langs = $lang->getLangs();
 			foreach ($langs as $langS)
@@ -428,8 +428,8 @@ function printHeader($title)
                     </form>
                     <div id="msg"></div>
                 </div>
-                <p style="text-align: center;color: #fff;text-shadow: 1px 1px 1px #555;">&copy; 2016 <a
-                            href="http://mowie.cc" style="color: #fff;">Mowie</a></p>
+                <p style="text-align: center;color: #fff;text-shadow: 1px 1px 1px #555;">&copy; 2016-2017 <a
+                            href="http://mowie.cc" style="color: #fff;" target="_blank">Mowie</a></p>
             </div>
             <script>
                 $("#login").submit(function () {

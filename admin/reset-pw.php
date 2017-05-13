@@ -140,8 +140,8 @@ else
 			</form>
 			<div id="msg"></div>
 		</div>
-		<p style="text-align: center;color: #fff;text-shadow: 1px 1px 1px #555;">&copy; 2016 <a
-				href="http://mowie.cc" style="color: #fff;">Mowie</a></p>
+		<p style="text-align: center;color: #fff;text-shadow: 1px 1px 1px #555;">&copy; 2017 <a
+				href="http://mowie.cc" style="color: #fff;" target="_blank">Mowie</a></p>
 	</div>
 	<script>
 		$("#pwreset").submit(function () {
