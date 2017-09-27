@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  web:
+    build: ./docker-dev/
+    image: mowie/mowiedev:latest
+    volumes:
+      - ./:/var/www
+    ports:
+      - 8081:80
+    depends_on:
+      - db
+  db:
+    image: mariadb:latest
+    volumes:
+      - ./.db-data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=1234
+      - MYSQL_DATABASE=mowie
