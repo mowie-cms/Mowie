@@ -170,6 +170,14 @@ function is_loggedin()
 	}
 }
 
+function str_replace_first($search, $replace, $subject)
+{
+	$search = '/'.preg_quote($search, '/').'/';
+
+	return preg_replace($search, $replace, $subject, 1);
+}
+
+
 //Print header
 function printHeader($title)
 {
@@ -184,7 +192,7 @@ function printHeader($title)
 
 	//Get Current App dir
     $appDir = '';
-    $paths = explode('/', str_replace($MCONF['home_uri'], '', $_SERVER['REQUEST_URI']));
+    $paths = explode('/', str_replace_first($MCONF['home_uri'], '', $_SERVER['REQUEST_URI']));
     if($paths[0] == 'apps' && isset($paths[1]))	$appDir = $paths[1];
 
 	if (isset($_REQUEST['direct'])) //Send just the Content of the current page
