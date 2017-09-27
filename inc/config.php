@@ -39,10 +39,9 @@ $MCONF['db_prefix'] = $config['Database']['db_prefix'];
 $MCONF['web_uri'] = $config['General']['web_uri'];
 $MCONF['home_uri'] = $config['General']['home_uri'];
 $MCONF['phpmyadmin'] = $config['General']['phpmyadmin'];
-$MCONF['title'] = file_get_contents($MCONF['web_uri'].$config['General']['title']);
+$MCONF['title'] = file_get_contents(str_replace('config/config.yml', '', $cfg_path).$config['General']['title']);
 $MCONF['tinymce_css'] = $MCONF['web_uri'].$config['General']['tinymce_css'];
 $MCONF['timezone'] = $config['General']['timezone'];
-$MCONF['log_uri'] = $config['General']['log_uri'];
 
 //Templateing
 $MCONF['template'] = $config['Templating']['template'];
