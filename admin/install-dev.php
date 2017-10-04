@@ -159,6 +159,10 @@ ALTER TABLE `' . $_POST['db_prefix'] . 'system_loggedin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 ALTER TABLE `' . $_POST['db_prefix'] . 'system_roles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+ALTER TABLE `' . $_POST['db_prefix'] . 'system_admins` 
+  ALTER COLUMN lvl SET DEFAULT 0;
+ALTER TABLE `' . $_POST['db_prefix'] . 'system_admins` 
+  ALTER COLUMN secret SET DEFAULT "";
 ')
 		)
 		{
