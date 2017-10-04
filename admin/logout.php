@@ -1,5 +1,8 @@
 <?php
-session_name('adminsession');session_start();
+session_name('adminsession');
+session_start();
+
+require_once '../vendor/autoload.php';
 require_once '../inc/config.php';
 require_once '../inc/libs/functions.php';
 
