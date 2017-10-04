@@ -1,34 +1,35 @@
 <?php
 require_once '../inc/autoload_adm.php';
-require_once '../inc/libs/YAML/autoload.php';
-use Symfony\Component\Yaml\Yaml;
-//Datenbank Backup
+
+use HGG\DbCmd\CmdBuilder\MySql;
+use HGG\DbCmd\DbCmd;
+
+// Full Database Backeup
 if (isset($_GET['dbbackup']) && is_loggedin() && hasPerm('db_dump'))
 {
-	include '../inc/libs/dbbackup.php';
-	$db = new DBBackup(array(
-		'driver' => 'mysql',
-		'host' => $MCONF['db_host'],
-		'user' => $MCONF['db_usr'],
-		'password' => $MCONF['db_pw'],
-		'database' => $MCONF['db_name'],
-		'db_prefix' => $MCONF['db_prefix']
-	));
-	$backup = $db->backup();
-	if ($backup['error'])
+	try
 	{
-		echo msg('fail', $lang->get('action_backup_fail'));
-	} else
-	{
+		$output = '';
+		$cmd = new DbCmd(new MySql());
+		$cmd->dumpDatabase($MCONF['db_usr'], $MCONF['db_pw'], $MCONF['db_host'], $MCONF['db_name'],
+			'.dbdump.tmp', array(), $output);
+
 		stream_message('{user} made a database-backup.', 4);
 		header("Cache-Control: public");
 		header("content-Description: File Transfer");
 		header('Content-Disposition: attachment; filename=Backup_' . str_replace(' ', '_', $MCONF['title']) . '_' . date('Y-m-d_h-d') . '.sql');
 		header("Content-Type: application/octet-stream; ");
 		header("Content-Transfer-Encoding: binary");
-		echo $backup['msg'];
-		exit;
+		readfile('.dbdump.tmp');
 	}
+	catch (\Exception $e)
+	{
+		echo msg('fail', $lang->get('action_backup_fail'));
+	}
+
+	exit;
+
+
 }
 if (hasPerm('manage_system'))
 {
