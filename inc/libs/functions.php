@@ -764,7 +764,7 @@ function remote_file_exists($url)
 function stream_message($msg, $lvl, $extra = '', $time = null, $user = null)
 {
 	if (!isset($time)) $time = time();
-	if (!isset($user)) $user = $_SESSION['userid'];
+	if(isset($_SESSION['userid']) && !isset($user)) $user = $_SESSION['userid'];
 
 	global $db;
 	$db->setCol('system_stream');

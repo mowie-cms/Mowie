@@ -43,13 +43,12 @@ if(isset($_POST['username']))
 					exit;
 				} else
 				{
-					require_once '../inc/libs/2fa.php';
-					$authenticator = new php2FA();
+					$auth = new \PragmaRX\Google2FA\Google2FA();
 
-					if ($authenticator->verifyCode($db->data[0]['secret'], $_POST['2fa'], 3))
+					if($auth->verify($_POST['2fa'], $db->data[0]['secret']))
 					{
 						echo 'success';
-						stream_message('{user} has logged in.', 4);
+						stream_message('{user} has logged in.', 4, null, null, $db->data[0]['id']);
 					} else
 					{
 						echo '2fafail';
