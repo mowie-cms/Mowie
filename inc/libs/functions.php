@@ -695,31 +695,44 @@ function smail($mailaddr, $subject, $message, $header)
 }
 
 //SMTP-Mailer
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 function mmail($mailaddr, $subject, $message, $from, $html = false)
 {
 	if ($GLOBALS['MCONF']['smtp'])
 	{
-		require_once 'PHP-mailer/class.phpmailer.php';
-		require_once 'PHP-mailer/class.smtp.php';
+        $sent = false;
 
-		$mail = new PHPMailer;
+        try
+		{
+			$mail = new PHPMailer;
 
-		$mail->isSMTP();
-		$mail->Host = $GLOBALS['MCONF']['smtp_host'];
-		$mail->SMTPAuth = true;
-		$mail->Username = $GLOBALS['MCONF']['smtp_user'];
-		$mail->Password = $GLOBALS['MCONF']['smtp_pass'];
-		$mail->SMTPSecure = $GLOBALS['MCONF']['smtp_secure'];
-		$mail->Port = $GLOBALS['MCONF']['smtp_port'];
+			//$mail->SMTPDebug = 2;
+			$mail->isSMTP();
+			$mail->Host = $GLOBALS['MCONF']['smtp_host'];
+			$mail->SMTPAuth = true;
+			$mail->Username = $GLOBALS['MCONF']['smtp_user'];
+			$mail->Password = $GLOBALS['MCONF']['smtp_pass'];
+			$mail->SMTPSecure = $GLOBALS['MCONF']['smtp_secure'];
+			$mail->Port = $GLOBALS['MCONF']['smtp_port'];
 
-		$mail->setFrom($from);
-		$mail->addAddress($mailaddr);
-		$mail->isHTML($html);
+			$mail->setFrom($from);
+			$mail->addAddress($mailaddr);
+			$mail->isHTML($html);
 
-		$mail->Subject = $subject;
-		$mail->Body = $message;
+			$mail->Subject = $subject;
+			$mail->Body = $message;
 
-		return $mail->send();
+			$sent = $mail->send();
+		}
+		catch (Exception $e)
+        {
+            echo 'Error. '.$e->getMessage();
+            $sent = false;
+        }
+
+        return $sent;
 	} else
 	{
 		$header = 'From: ' . $from . "\n";

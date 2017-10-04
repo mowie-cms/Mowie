@@ -17,6 +17,10 @@ while($i<$count)
 	$i++;
 }
 
+// Require Composer Libs
+require_once $path.'../../vendor/autoload.php';
+
+// Require Config
 require_once $path.'../../inc/config.php';
 
 //Language

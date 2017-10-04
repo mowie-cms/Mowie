@@ -4,7 +4,7 @@
 if (file_exists('config/config.yml'))
 {
 	//Require Libs
-	require_once 'inc/libs/Smarty/Smarty.class.php';
+	require_once 'vendor/autoload.php';
 	require_once 'inc/config.php';
 	require_once 'inc/libs/functions.php';
 	require_once 'inc/page.php';

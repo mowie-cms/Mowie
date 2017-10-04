@@ -19,7 +19,6 @@ if(!file_exists($cfg_path))
 	exit;
 }
 
-require_once 'libs/YAML/autoload.php';
 use Symfony\Component\Yaml\Yaml;
 $config = Yaml::parse(file_get_contents($cfg_path));
 if(file_exists(empty($config)))

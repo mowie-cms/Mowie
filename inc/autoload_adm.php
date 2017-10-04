@@ -1,6 +1,11 @@
 <?php
 session_name('adminsession');
 session_start();
+
+// Require Composer Libs
+require_once '../vendor/autoload.php';
+
+// Require Config
 require_once '../inc/config.php';
 
 //Language

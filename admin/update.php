@@ -104,7 +104,6 @@ if (isset($_GET['showChangelog']))
 			{
 				if (remote_file_exists(urldecode($_GET['server']) . $remoteSubDir . '/v' . $_GET['v'] . '/changelog.md'))
 				{
-					require_once '../inc/libs/Parsedown.php';
 					$Parsedown = new Parsedown();
 					echo $Parsedown->text(file_get_contents(urldecode($_GET['server']) . $remoteSubDir . '/v' . $_GET['v'] . '/changelog.md'));
 				}

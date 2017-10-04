@@ -6,11 +6,12 @@ if (file_exists('../config/config.yml'))
 }
 session_name('adminsession');
 session_start();
+
+require_once '../vendor/autoload.php';
 require_once '../inc/libs/functions.php';
 require_once '../inc/libs/lang.class.php';
 require_once '../inc/libs/db-mysql.php';
 require_once '../inc/apps.php';
-require_once '../inc/libs/YAML/autoload.php';
 use Symfony\Component\Yaml\Yaml;
 
 $lang = new lang();
