@@ -21,6 +21,7 @@ if (isset($_GET['dbbackup']) && is_loggedin() && hasPerm('db_dump'))
 		header("Content-Type: application/octet-stream; ");
 		header("Content-Transfer-Encoding: binary");
 		readfile('.dbdump.tmp');
+		unlink('.dbdump.tmp');
 	}
 	catch (\Exception $e)
 	{
