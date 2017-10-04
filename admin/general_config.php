@@ -75,10 +75,6 @@ tinymce();
 					<a href="action.php?dbbackup" class="button" download="download"><i
 							class="fa fa-database"></i> <?php echo $lang->get('general_create_backup'); ?>
 					</a>
-					<a href="<?php
-					echo $MCONF['phpmyadmin'];
-					?>" class="button" target="_blank"><?php echo $lang->get('general_go_phpmyadmin'); ?> <i
-							class="fa fa-external-link"></i></a>
 				</p>
 				<?php
 			}

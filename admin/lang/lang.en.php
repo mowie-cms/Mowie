@@ -85,7 +85,6 @@ $lang['general_edit_message'] = 'Edit Construction Message';
 $lang['general_version'] = 'Version';
 $lang['general_database'] = 'Database';
 $lang['general_create_backup'] = 'Create Database Backup';
-$lang['general_go_phpmyadmin'] = 'phpmyadmin';
 $lang['general_needs_other_app'] = 'This app needs the app "%1$s" to function properly.';
 $lang['general_needs_other_version'] = 'This app needs at least Mowie version %1$s.';
 $lang['general_needs_other_php'] = 'This app needs at least PHP version %1$s.';

@@ -87,7 +87,6 @@ $lang['general_start_construction_mode'] = 'Seite in Baustellenzustand versetzen
 $lang['general_edit_message'] = 'Meldung bearbeiten';
 $lang['general_database'] = 'Datenbank';
 $lang['general_create_backup'] = 'Datenbank Backup erstellen';
-$lang['general_go_phpmyadmin'] = 'Zu phpmyadmin';
 
 //Legitimation
 $lang['legitimate_title'] = 'Legitimierung benötigt';

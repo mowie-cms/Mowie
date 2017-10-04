@@ -53,7 +53,6 @@ if (isset($_POST['submit']))
 		$CONFIG = [];
 		$CONFIG['General']['web_uri'] = $_POST['general_webUrl'];
 		$CONFIG['General']['home_uri'] = $_POST['general_home_url'];
-		$CONFIG['General']['phpmyadmin'] = $_POST['general_pma'];
 		$CONFIG['General']['title'] = 'inc/System/page_title.txt';
 		$CONFIG['General']['tinymce_css'] = $_POST['general_editor_css'];
 		$CONFIG['General']['timezone'] = $_POST['general_timezone'];
@@ -419,7 +418,6 @@ RewriteRule ^(.*)$ /index.php?$1 [QSA,L]
 			<div id="more" style="display: none;">
 				<span>Home Url</span><input type="text" placeholder="Home Url" name="general_home_url"
 											value="<?php echo str_replace('admin/install.php', '', $_SERVER['REQUEST_URI']); ?>"/><br/>
-				<span>Phpmyadmin Url (optional)</span><input type="text" placeholder="Phpmyadmin Url" name="general_pma"/><br/>
 				<span>Editor CSS (optional)</span><input type="text" placeholder="Editor CSS" name="general_editor_css"/><br/>
 				<span>Template</span><input type="text" placeholder="Template" name="general_template"
 											value="content/template.tpl"/><br/>
