@@ -141,36 +141,46 @@ if (!isset($_GET['direct']))
 
                         //Confirm user password
                         if (needsPwConfirm) {
-                            $('#showMsg').html('<div class="overlay" style="display:none;"><div class="window-confirm"><div class="head"><?php echo $lang->get('legitimate_title')?><a onclick="closeW();" class="closeMsg"><i class="fa fa-close"></i></a></div><div id="content"></div></div></div>');
-                            $('#content').append('<p><?php echo $lang->get('legitimate_text')?></p><p><input type="password" placeholder="<?php echo $lang->get('password')?>" id="password_legitimate" autofocus/><input type="submit" value="<?php echo $lang->get('legitimate_confirm')?>" id="legitimateSmbt"/><a onclick="closeW();" class="button btn_del"><?php echo $lang->get('legitimate_abort')?></a></p><span id="sendMsg"></span>');
-                            $('#password_legitimate').focus();
-                            $(".overlay").fadeIn(250);
+                            // check if the user already entered his password
+                            $.get('login.php?checkSudo', function( data ) {
+                                if (data == 'false'){
+                                    $('#showMsg').html('<div class="overlay" style="display:none;"><div class="window-confirm"><div class="head"><?php echo $lang->get('legitimate_title')?><a onclick="closeW();" class="closeMsg"><i class="fa fa-close"></i></a></div><div id="content"></div></div></div>');
+                                    $('#content').append('<p><?php echo $lang->get('legitimate_text')?></p><p><input type="password" placeholder="<?php echo $lang->get('password')?>" id="password_legitimate" autofocus/><input type="submit" value="<?php echo $lang->get('legitimate_confirm')?>" id="legitimateSmbt"/><a onclick="closeW();" class="button btn_del"><?php echo $lang->get('legitimate_abort')?></a></p><span id="sendMsg"></span>');
+                                    $('#password_legitimate').focus();
+                                    $(".overlay").fadeIn(250);
 
-                            $('#legitimateSmbt').click(function () {
-                                $.ajax({
-                                    url: 'login.php?checkPassword',
-                                    type: 'POST',
-                                    cache: false,
-                                    data: 'pw=' + $('#password_legitimate').val(),
-                                    success: function (result) { // On success, display a message...
-                                        if (result == 'success') {
-                                            closeW();
+                                    $('#legitimateSmbt').click(function () {
+                                        $.ajax({
+                                            url: 'login.php?checkPassword',
+                                            type: 'POST',
+                                            cache: false,
+                                            data: 'pw=' + $('#password_legitimate').val(),
+                                            success: function (result) { // On success, display a message...
+                                                if (result == 'success') {
+                                                    closeW();
 
-                                            //Send the request
-                                            if (!isAjax) {
-                                                sendPost(ctx, requestData);
+                                                    //Send the request
+                                                    if (!isAjax) {
+                                                        sendPost(ctx, requestData);
+                                                    }
+                                                } else if (result == 'fail') {
+                                                    $('#sendMsg').html('<p style="color:red;"><?php echo $lang->get('legitimate_fail')?></p>');
+                                                } else {
+                                                    $('#sendMsg').html('<p style="color:red;"><?php echo $lang->get('legitimate_error')?></p>');
+                                                }
+                                            },
+                                            error: function (xhr, status, error) {
+                                                console.log(status, error);
+                                                showMsg('<?php echo $lang->get('legitimate_error')?>');
                                             }
-                                        } else if (result == 'fail') {
-                                            $('#sendMsg').html('<p style="color:red;"><?php echo $lang->get('legitimate_fail')?></p>');
-                                        } else {
-                                            $('#sendMsg').html('<p style="color:red;"><?php echo $lang->get('legitimate_error')?></p>');
-                                        }
-                                    },
-                                    error: function (xhr, status, error) {
-                                        console.log(status, error);
-                                        showMsg('<?php echo $lang->get('legitimate_error')?>');
+                                        });
+                                    });
+                                } else {
+                                    //Send the request
+                                    if (!isAjax) {
+                                        sendPost(ctx, requestData);
                                     }
-                                });
+                                }
                             });
                         } else {
                             if (!isAjax) {

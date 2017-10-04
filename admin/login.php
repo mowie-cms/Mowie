@@ -92,6 +92,7 @@ if(isset($_GET['checkPassword']))
 				if (password_verify($_POST['pw'], $db->data[0]['pass']))
 				{
 					echo 'success';
+					$_SESSION['sudomode'] = time();
 				}
 				else
 				{
@@ -102,6 +103,26 @@ if(isset($_GET['checkPassword']))
 			{
 				echo 'fail';
 			}
+		}
+	}
+	else
+	{
+		echo 'login first.';
+	}
+}
+
+// Check if the user already entered his password
+if (isset($_GET['checkSudo']))
+{
+	if(is_loggedin())
+	{
+		// Check if the user entered his password less then 10 minutes ago
+		if (isset($_SESSION['sudomode']) && $_SESSION['sudomode'] >= (time() - 600))
+		{
+			echo 'true';
+		} else
+		{
+			echo 'false';
 		}
 	}
 	else
