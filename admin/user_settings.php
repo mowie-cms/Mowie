@@ -132,9 +132,6 @@ if (hasPerm('manage_admins') || $uid == $_SESSION['userid'])
 	{
 		echo '<div class="main">';
 
-		require_once '../inc/libs/2fa.php';
-		$authenticator = new php2FA();
-
 		$auth = new \PragmaRX\Google2FA\Google2FA();
 
 		$db->clear();
@@ -197,12 +194,9 @@ if (hasPerm('manage_admins') || $uid == $_SESSION['userid'])
 			echo '<p>' . $lang->get('user_settings_2fa_activate_import_code') . '</p>';
 			$secret = $auth->generateSecretKey();
 			echo '<p><b>' . $lang->get('user_settings_2fa_key') . ':</b> ' . $secret . '<br/><br/>';
-			$website = $MCONF['title'] . ' - Admin';
-			$title = $_SESSION['user'];
-			$qrCodeUrl = $authenticator->getSecretUrl($title, $secret, $website);
 
 			$qrcode = $auth->getQRCodeInline(
-				$MCONF['title'],
+				$MCONF['title'] . ' - Admin',
 				$_SESSION['user'],
 				$secret,
 				250
