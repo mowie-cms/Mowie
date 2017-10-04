@@ -9,6 +9,12 @@ This CMS is currently under heavy development. You can use it (it is quite stabl
 # Installing
 To install the CMS, grab [the latest release](https://github.com/Mowie/Mowie/releases), unzip it on your webserver and open a webbrowser to the files on your server. It will guide you through all necessary steps to install.
 
+## Development
+
+There is a developer docker image with a `docker-compose.yml` file to quickly set up a development environment. 
+
+It will expose two ports on your local machine, `8081` for the site itself and `3361` to access the database from your local machine.
+
 # Documentation
 Comming Soon!
 
