@@ -53,7 +53,6 @@ if (isset($_POST['submit']))
 		$CONFIG = [];
 		$CONFIG['General']['web_uri'] = $_POST['general_webUrl'];
 		$CONFIG['General']['home_uri'] = $_POST['general_home_url'];
-		$CONFIG['General']['title'] = 'inc/System/page_title.txt';
 		$CONFIG['General']['tinymce_css'] = $_POST['general_editor_css'];
 		$CONFIG['General']['timezone'] = $_POST['general_timezone'];
 		$CONFIG['Database']['db_type'] = 'mysql';
@@ -196,7 +195,7 @@ ALTER TABLE `' . $_POST['db_prefix'] . 'system_roles`
 		}
 
 		//Page title
-		if (file_put_contents('../inc/System/page_title.txt', $_POST['general_page_title']))
+		if (file_put_contents('../content/.system/page_title.txt', $_POST['general_page_title']))
 		{
 			echo msg('success', 'Page Title was successfully set.<br/>');
 		} else

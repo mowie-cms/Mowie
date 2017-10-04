@@ -40,9 +40,9 @@ if (hasPerm('manage_system'))
 		{
 			if (isset($_POST['constr_message']))
 			{
-				if (file_put_contents('../inc/System/construction2.txt', $_POST['constr_message']))
+				if (file_put_contents('../content/.system/construction2.txt', $_POST['constr_message']))
 				{
-					copy('../inc/System/construction2.txt', '../inc/System/construction.txt');
+					copy('../content/.system/construction2.txt', '../content/.system/construction.txt');
 					echo msg('success', $lang->get('action_construction_message_success') . ' <a href="general_config.php">' . $lang->get('back') . '</a>');
 					stream_message('{user} edited the construction-mode message.', 2);
 				} else
@@ -57,7 +57,7 @@ if (hasPerm('manage_system'))
 					<h1><?php echo $lang->get('action_construction_message_edit'); ?></h1>
 					<form action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="post">
 						<textarea id="editor"
-								  name="constr_message"><?php require('../inc/System/construction2.txt'); ?></textarea>
+								  name="constr_message"><?php require('../content/.system/construction2.txt'); ?></textarea>
 						<input type="submit" value="<?php echo $lang->get('general_save_changes'); ?>"/>
 					</form>
 				</div>
@@ -67,11 +67,11 @@ if (hasPerm('manage_system'))
 		{
 			if (hasPerm('construction'))
 			{
-				if (!file_exists('../inc/System/construction.txt'))
+				if (!file_exists('../content/.system/construction.txt'))
 				{
 					if (isset($_GET['confirm']))
 					{
-						if (copy('../inc/System/construction2.txt', '../inc/System/construction.txt'))
+						if (copy('../content/.system/construction2.txt', '../content/.system/construction.txt'))
 						{
 							echo msg('success', $lang->get('action_construction_success') . ' <a href="general_config.php">' . $lang->get('back') . '</a>');
 							stream_message('{user} put the site into construction mode.', 2);
@@ -97,7 +97,7 @@ if (hasPerm('manage_system'))
 				{
 					if (isset($_GET['confirm']))
 					{
-						if (unlink('../inc/System/construction.txt'))
+						if (unlink('../content/.system/construction.txt'))
 						{
 							echo msg('success', $lang->get('action_construction_removed_success') . ' <a href="general_config.php">' . $lang->get('back') . '</a>');
 							stream_message('{user} put the site into production mode.', 2);
@@ -132,7 +132,7 @@ if (hasPerm('manage_system'))
 		if (hasPerm('edit_title'))
 		{
 			$titel = $_POST['titel'];
-			if (file_put_contents('../inc/System/page_title.txt', $titel))
+			if (file_put_contents('../content/.system/page_title.txt', $titel))
 			{
 				echo msg('success', $lang->get('action_change_page_title_success'));
 				stream_message('{user} edited the page title.', 2);

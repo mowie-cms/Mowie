@@ -23,7 +23,7 @@ tinymce();
 				?>
 				<p><span><?php echo $lang->get('general_construction_mode'); ?></span>
 					<?php
-					if (file_exists('../inc/System/construction.txt'))
+					if (file_exists('../content/.system/construction.txt'))
 					{
 						echo '<a href="action.php?construction" class="button">' . $lang->get('general_end_construction_mode') . '</a>';
 					} else

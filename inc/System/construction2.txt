@@ -1,8 +1,0 @@
-<h1>Baustelle</h1>
-<p>&nbsp;</p>
-<p>oder so</p>
-<p>&nbsp;</p>
-<p>(oder?)</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p><a href="/SelfCMS/Mowie-Github/admin/mowie.cc">mowie.cc</a></p>

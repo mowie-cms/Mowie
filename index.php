@@ -11,9 +11,9 @@ if (file_exists('config/config.yml'))
 	require_once 'inc/apps.php';
 
 	//Under Construction?
-	if (file_exists('inc/System/construction.txt'))
+	if (file_exists('content/.system/construction.txt'))
 	{
-		echo file_get_contents('inc/System/construction.txt');
+		echo file_get_contents('content/.system/construction.txt');
 	} else
 	{
 		//Page
@@ -92,7 +92,7 @@ if (file_exists('config/config.yml'))
 		if ($page->getResponseCode() == 404)
 		{
 			$page->setTitle('404');
-			$page->setContent(file_get_contents('inc/System/404.txt'));
+			$page->setContent(file_get_contents('content/.system/404.txt'));
 		}
 
 		//Build Copyright
