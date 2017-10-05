@@ -6,6 +6,8 @@
     "erusev/parsedown": "~1.6.3",
     "hgg/dbcmd": "~0.0.1",
     "pragmarx/google2fa": "~2.0.6",
-    "bacon/bacon-qr-code": "~1.0.1"
+    "bacon/bacon-qr-code": "~1.0.1",
+
+    "alchemy/zippy": "~0.4.8"
   }
 }
