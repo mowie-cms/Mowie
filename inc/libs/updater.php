@@ -13,6 +13,8 @@ class updater
 	private $updateServer;
 	private $updateDir;
 
+	private $newUpdateFiles;
+
 	/**
 	 * Every file/folder, including subdirectories which should not be updated or deleted after the update.
 	 * @var string
@@ -136,7 +138,7 @@ class updater
 
 	public function getChangelog($changelogUrl)
 	{
-		if($this->remote_file_exists($changelogUrl))
+		if ($this->remote_file_exists($changelogUrl))
 		{
 			return file_get_contents($changelogUrl);
 		}
@@ -156,7 +158,7 @@ class updater
 	 */
 	public function updateFolderIsWritable($updateFolder = '')
 	{
-		if($updateFolder == '') $updateFolder = $this->updateDir;
+		if ($updateFolder == '') $updateFolder = $this->updateDir;
 		if (is_dir($updateFolder))
 		{
 			if (is_writable($updateFolder))
@@ -182,7 +184,7 @@ class updater
 			}
 		}
 
-		if($updateFolder == $this->updateDir && !is_dir($this->updateDir))
+		if ($updateFolder == $this->updateDir && !is_dir($this->updateDir))
 		{
 			throw new \Exception('Update folder is not a folder!');
 		}
@@ -263,7 +265,19 @@ class updater
 		// Upzip the downloaded update
 		$zippy = Zippy::load();
 		$update = $zippy->open('.update.tmp.zip');
-		if(!$update->extract($this->updateDir))
+
+		foreach ($update as $file)
+		{
+			$name = $this->updateDir . '/' . $file->getLocation();
+			if ($file->isDir())
+			{
+				$name = substr($name, 0, strlen($name) - 1);
+			}
+
+			$this->newUpdateFiles[] = $name;
+		}
+
+		if (!$update->extract($this->updateDir))
 		{
 			throw new \Exception('Could not extract the update!');
 		}
@@ -274,10 +288,10 @@ class updater
 	 */
 	public function migrate()
 	{
-		if(file_exists($this->updateDir.'migrations.php'))
+		if (file_exists($this->updateDir . 'migrations.php'))
 		{
 			require_once $this->updateDir . 'migrations.php';
-			unlink($this->updateDir.'migrations.php');
+			unlink($this->updateDir . 'migrations.php');
 		}
 	}
 
@@ -293,17 +307,27 @@ class updater
 	 */
 	public function cleanup()
 	{
-		// cleanup downloaded zips
-		$success = unlink('.update.tmp.zip');
-		$success = unlink('.update-backup.zip');
-
 		// Delete all Files which don't exist anymore in the update. Ommit everything in $filesToNotUpdate
-		$diff = array_diff($this->getDirContents($this->updateDir), $update);
+		$diff = array_diff($this->getDirContents($this->updateDir), $this->newUpdateFiles);
 
 		foreach ($diff as $file)
 		{
-			$success = unlink($file);
+			if (is_dir($file))
+			{
+				$success = $this->rrmdir($file);
+			} else
+			{
+				// Empty files wont show up in the zip, which is why we check this here.
+				if(filesize($file) != 0)
+				{
+					$success = unlink($file);
+				}
+			}
 		}
+
+		// cleanup downloaded zips
+		$success = unlink('.update.tmp.zip');
+		$success = unlink('.update-backup.zip');
 
 		return $success;
 	}
@@ -351,7 +375,7 @@ class updater
 		{
 			$p = $this->str_replace_first($dir, '', $path);
 			$p = $this->str_replace_first('/', '', $p);
-			if($this->stringMatchesInArray($p, $this->thingsToNotUpdate))
+			if ($this->stringMatchesInArray($p, $this->thingsToNotUpdate))
 			{
 				unset($results[$in]);
 			}
@@ -374,7 +398,7 @@ class updater
 			$path = $dir . DIRECTORY_SEPARATOR . $value;
 
 			// Don't show the directory if it's hidden
-			if(substr( $value, 0, 1 ) !== "." )
+			if (substr($value, 0, 1) !== ".")
 			{
 				if (!is_dir($path))
 				{
@@ -399,14 +423,14 @@ class updater
 	{
 		foreach ($array as $item)
 		{
-			$itm = '/'.preg_quote($item, '/').'/';
-			if(preg_match($itm, $string))
+			$itm = '/' . preg_quote($item, '/') . '/';
+			if (preg_match($itm, $string))
 			{
 				return true;
 			}
 
 			//if it matches without a slash at the end
-			if(substr($item, 0, (strlen($item) - 1)) === $string)
+			if (substr($item, 0, (strlen($item) - 1)) === $string)
 			{
 				return true;
 			}
@@ -423,8 +447,33 @@ class updater
 	 */
 	private function str_replace_first($search, $replace, $subject)
 	{
-		$search = '/'.preg_quote($search, '/').'/';
+		$search = '/' . preg_quote($search, '/') . '/';
 
 		return preg_replace($search, $replace, $subject, 1);
+	}
+
+	/**
+	 * Deletes a non-empty folder
+	 * @param $dir
+	 * @return bool
+	 */
+	private function rrmdir($dir)
+	{
+		if (is_dir($dir))
+		{
+			$objects = scandir($dir);
+			foreach ($objects as $object)
+			{
+				if ($object != "." && $object != "..")
+				{
+					if (filetype($dir . "/" . $object) == "dir") $this->rrmdir($dir . "/" . $object); else unlink($dir . "/" . $object);
+				}
+			}
+			reset($objects);
+			return rmdir($dir);
+		} else
+		{
+			return false;
+		}
 	}
 }

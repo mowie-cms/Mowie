@@ -11,8 +11,7 @@ $update->thingsToNotUpdate = [
 	'config/',
 	'content/',
 	'vendor/',
-	'templates_c',
-	'docker-dev'
+	'templates_c'
 ];
 
 //Update-Checker
@@ -124,10 +123,10 @@ if (isset($_GET['update']))
 								if($update->cleanup())
 								{
 									// Update new Version in Config file
-									$conf = \Symfony\Component\Yaml\Yaml::parse(file_get_contents('../config.yml'));
+									$conf = \Symfony\Component\Yaml\Yaml::parse(file_get_contents('../config/config.yml'));
 									$conf['Versioning']['version'] = $update->getCurrentVersion();
 
-									$configfile = \Symfony\Component\Yaml\Yaml::dump($CONFIG);
+									$configfile = \Symfony\Component\Yaml\Yaml::dump($conf);
 									if (file_put_contents('../config/config.yml', $configfile))
 									{
 										// Disable Construction mode
