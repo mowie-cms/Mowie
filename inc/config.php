@@ -50,7 +50,7 @@ $MCONF['tpl_webUri'] = $config['Templating']['tpl_webUri'];
 //Versioning
 $MCONF['version'] = $config['Versioning']['version'];
 $MCONF['version_num'] = $config['Versioning']['version_num'];
-$MCONF['update_uri'] = $config['Versioning']['update_uri'];
+$MCONF['update_servers'] = $config['Versioning']['update_servers'];
 
 //Mailer
 $MCONF['smtp'] = $config['Mail']['smtp'];

@@ -203,8 +203,10 @@ $lang['action_construction_message_success'] = 'The construction-message was edi
 $lang['action_try_again_later'] = 'Error. Please try again later.';
 $lang['action_construction_message_edit'] = 'Edit Construction Message';
 $lang['action_construction_success'] = 'The website was set to construction mode successfully.';
+$lang['action_construction_error'] = 'An error occured while setting the site to construction mode.';
 $lang['action_construction_confirm'] = 'Are you sure you want to enable construction mode?';
 $lang['action_construction_removed_success'] = 'Construction Mode was successfully disabled.';
+$lang['action_construction_removed_error'] = 'An error occured while disabling construction mode.';
 $lang['action_construction_remove'] = 'Are you sure you want to disable construction mode?';
 $lang['action_change_page_title_success'] = 'Page Title was successfully edited.';
 
@@ -219,7 +221,7 @@ $lang['update_app_succss'] = '"%1$s" was updated successfully.';
 $lang['update_fail'] = 'An error occured while updating.';
 $lang['update_config_fail'] = 'An error occured while updating the config file.';
 $lang['update_fail_unzip'] = 'An error occured while unpacking the update.';
-$lang['update_md5_fake'] = 'The downloaded file has a wrong checksum.';
+$lang['update_wrong_hash'] = 'The downloaded file has a wrong checksum.';
 $lang['update_fail_copy'] = 'An error occured while downloading the update. <b>Hint:</b> The webserver needs writing permissions in the folder /admin!';
 $lang['update_version'] = 'Version';
 $lang['update_version_current'] = 'Installed Version';
@@ -227,6 +229,9 @@ $lang['update_new_version'] = 'New Version Available!';
 $lang['update_version_current_new'] = 'Installed Version is up-to-date';
 $lang['update_app_update_available'] = 'App-Update - New Version for "%1$s" available: %2$s';
 $lang['update_log'] = '{user} updated the System.';
+$lang['update_folder_not_writeable'] = 'The updatefolder is not writeable. Please make sure your webserver can write into the folder.';
+$lang['update_create_backup_error'] = 'An error occured while creating a backup.';
+$lang['update_cleanup_error'] = 'Beim Aufräumen ist ein Fehler aufgetreten.';
 
 //Stream Messages
 $lang['stream_saved_settings'] = '{user} changed it\'s username and/or email-adress.';

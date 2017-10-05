@@ -210,8 +210,10 @@ $lang['action_construction_message_success'] = 'Die Meldung wurde erfolgreich ge
 $lang['action_try_again_later'] = 'Fehler. Bitte versuchen Sie es später noch einmal.';
 $lang['action_construction_message_edit'] = 'Baustellen-Meldung bearbeiten';
 $lang['action_construction_success'] = 'Die Webseite wurde erfolgreich in den Baustellenzustand versetzt.';
+$lang['action_construction_error'] = 'Beim Versetzen in den Baustellenmodus trat ein Fehler auf.';
 $lang['action_construction_confirm'] = 'Wollen Sie die Webseite wirklich in den Baustellenzustand verstzten?';
 $lang['action_construction_removed_success'] = 'Der Baustellenzustand wurde erfolgreich aufgehoben.';
+$lang['action_construction_removed_error'] = 'Beim Aufheben des Baustellenzustandes ist ein Fehler aufgetreten.';
 $lang['action_construction_remove'] = 'Wollen Sie den Baustellenzustand wirklich aufheben?';
 $lang['action_change_page_title_success'] = 'Die Änderungen des Seitentitels wurden erfolgreich gespeichert.';
 
@@ -225,7 +227,7 @@ $lang['update_app_succss'] = '"%1$s" wurde erfolgreich upgedatet.';
 $lang['update_fail'] = 'Fehler beim Updaten.';
 $lang['update_config_fail'] = 'Beim Bearbeiten der Configdatei ist ein Fehler aufgetreten.';
 $lang['update_fail_unzip'] = 'Fehler beim Entpacken des Updates.';
-$lang['update_md5_fake'] = 'Die Heruntergeladene Datei ist vermutlich falsch.';
+$lang['update_wrong_hash'] = 'Die Heruntergeladene Datei ist vermutlich falsch.';
 $lang['update_fail_copy'] = 'Fehler beim Herunterladen des Updates. <b>Hinweis:</b> Der Nutzer, unter welchem der Webserver läuft, muss im Verzeichnis /admin Schreibrechte haben!';
 $lang['update_version'] = 'Version';
 $lang['update_version_current'] = 'Installierte Version';
@@ -233,6 +235,9 @@ $lang['update_new_version'] = 'Neue Version verfügbar!';
 $lang['update_version_current_new'] = 'Die installierte Version ist aktuell.';
 $lang['update_app_update_available'] = 'App-Update - Neue Version für "%1$s" verfügbar: %2$s';
 $lang['update_log'] = '{user} hat das System geupdated.';
+$lang['update_folder_not_writeable'] = 'Der Updateordner ist nicht schreibbar. Bitte stelle sicher, dass der Webserver Schreibrechte im Updateordner hat.';
+$lang['update_create_backup_error'] = 'Beim Erstellen eines Backups ist ein Fehler aufgetreten.';
+$lang['update_cleanup_error'] = 'Beim Aufräumen ist ein Fehler aufgetreten.';
 
 //Stream Messages
 $lang['stream_saved_settings'] = '{user} hat seinen Benutzername/Email-Adresse geändert.';

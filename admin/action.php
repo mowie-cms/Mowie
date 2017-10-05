@@ -79,7 +79,7 @@ if (hasPerm('manage_system'))
 							stream_message('{user} put the site into construction mode.', 2);
 						} else
 						{
-							echo msg('fail', $lang->get('action_try_again_later') . ' <a href="general_config.php">' . $lang->get('back') . '</a>');
+							echo msg('fail', $lang->get('action_construction_error') . ' <a href="general_config.php">' . $lang->get('back') . '</a>');
 						}
 					} else
 					{
@@ -105,7 +105,7 @@ if (hasPerm('manage_system'))
 							stream_message('{user} put the site into production mode.', 2);
 						} else
 						{
-							echo msg('fail', $lang->get('action_try_again_later') . ' <a href="general_config.php">' . $lang->get('back') . '</a>');
+							echo msg('fail', $lang->get('action_construction_removed_error') . ' <a href="general_config.php">' . $lang->get('back') . '</a>');
 						}
 					} else
 					{

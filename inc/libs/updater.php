@@ -12,7 +12,21 @@ class updater
 
 	private $updateServer;
 	private $updateDir;
+
+	/**
+	 * Every file/folder, including subdirectories which should not be updated or deleted after the update.
+	 * @var string
+	 */
 	public $thingsToNotUpdate;
+
+	public function __construct()
+	{
+		// Bypass memory error
+		ini_set('memory_limit', '-1');
+
+		// Bypass Max execution time
+		set_time_limit(0);
+	}
 
 	/**
 	 * Sets the server to use. Can be an array, in this case it will loop through all servers and check if there is an update
@@ -40,7 +54,7 @@ class updater
 	public function setCurrentVersion($version)
 	{
 		// Check if version string is properly formatted
-		if (preg_match('[0-9]+\.[0-9]+\.[0-9]+', $version))
+		if (preg_match('/[0-9]+\.[0-9]+\.[0-9]+/', $version))
 		{
 			$this->currentVersion = $version;
 		} else
@@ -77,6 +91,7 @@ class updater
 			$updateInfos = $this->getNewestVersionFromServer($server);
 			if (isset($updateInfos))
 			{
+				$this->newVersion = $updateInfos['version'];
 				if (version_compare($updateInfos['version'], $this->currentVersion, '>'))
 				{
 					$updateInfos['server'] = $server;
@@ -113,11 +128,19 @@ class updater
 		$updateInfosUrl = $server . 'update.json';
 		if ($this->remote_file_exists($updateInfosUrl))
 		{
-			$updateInfo = json_decode(file_get_contents($updateInfosUrl));
-			$this->newVersion = $updateInfo['version'];
+			$updateInfo = json_decode(urldecode(file_get_contents($updateInfosUrl)), true);
 			return $updateInfo;
 		}
 		return null;
+	}
+
+	public function getChangelog($changelogUrl)
+	{
+		if($this->remote_file_exists($changelogUrl))
+		{
+			return file_get_contents($changelogUrl);
+		}
+		return '';
 	}
 
 
@@ -131,18 +154,19 @@ class updater
 	 * @return bool
 	 * @throws \Exception
 	 */
-	public function updateFolderIsWritable()
+	public function updateFolderIsWritable($updateFolder = '')
 	{
-		if (is_dir($this->updateDir))
+		if($updateFolder == '') $updateFolder = $this->updateDir;
+		if (is_dir($updateFolder))
 		{
-			if (is_writable($this->updateDir))
+			if (is_writable($updateFolder))
 			{
-				$objects = scandir($this->updateDir);
+				$objects = scandir($updateFolder);
 				foreach ($objects as $object)
 				{
-					if ($object != "." && $object != "..")
+					if (is_dir($object) && $object != "." && $object != ".." && substr($object, 0, 1) != '.')
 					{
-						if (!$this->updateFolderIsWritable($this->updateDir . "/" . $object))
+						if (!$this->updateFolderIsWritable($updateFolder . "/" . $object))
 						{
 							return false;
 						} else
@@ -156,7 +180,9 @@ class updater
 			{
 				return false;
 			}
-		} else
+		}
+
+		if($updateFolder == $this->updateDir && !is_dir($this->updateDir))
 		{
 			throw new \Exception('Update folder is not a folder!');
 		}
@@ -200,7 +226,8 @@ class updater
 
 
 	/**
-	 * Creates a backup of the current state to use later in case something goes wrong
+	 * Creates a backup of the current state to use later in case we screw something up later
+	 * @return bool
 	 */
 	public function backupUpdateFolder()
 	{
@@ -208,6 +235,13 @@ class updater
 		$archive = $zippy->create('.update-backup.zip', array(
 			'folder' => $this->updateDir
 		), true);
+
+		// Check if the creation was successfull
+		if (file_exists('.update-backup.zip'))
+		{
+			return true;
+		}
+		return false;
 	}
 
 
@@ -236,7 +270,7 @@ class updater
 	}
 
 	/**
-	 * Executes the migration script found in the root update directory
+	 * Executes the migration script if found in the root update directory
 	 */
 	public function migrate()
 	{
