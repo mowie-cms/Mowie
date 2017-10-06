@@ -31,10 +31,6 @@ foreach ($installedApps as $appuri => $installedApp)
 if (hasPerm('view_dashboard'))
 {
 
-    echo msg('success', 'Success');
-    echo msg('fail', 'Fail');
-    echo msg('info', 'Info');
-
 	echo '<div class="cardsContainer cardsContainer-main"><div class="card-yellow" title="' . php_uname() . '"><span>' . substr(php_uname(), 0, strpos(php_uname(), ' ')) . '</span>' . $lang->get('os') . '</div>';
 	echo '<div class="card-green" title="' . $_SERVER['SERVER_SOFTWARE'] . '"><span>' . $_SERVER['SERVER_SOFTWARE'] . '</span>' . $lang->get('server_software') . '</div>';
 	echo '<div class="card-indigo" title="' . PHP_VERSION . '"><span>' . str_replace(substr(PHP_VERSION, strpos(PHP_VERSION, '-')), '', PHP_VERSION) . '</span>' . $lang->get('php_version') . '</div>';
