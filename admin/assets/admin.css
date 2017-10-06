@@ -1283,11 +1283,11 @@ header .stream{
     background: #4CAF50;
 }
 
-.message .message-fail {
+.message .icon-fail {
     background: #F44336;
 }
 
-.message .message-info {
+.message .icon-info {
     background: #2280db;
 }
 
@@ -1295,11 +1295,11 @@ header .stream{
     content: "\f058";
 }
 
-.message .message-fail:before {
+.message .icon-fail:before {
     content: "\f057";
 }
 
-.message .message-info:before {
+.message .icon-info:before {
     content: "\f05a";
 }
 
