@@ -3,12 +3,12 @@ require_once '../../inc/autoload.php';
 
 $success = false;
 
-if(is_loggedin())
+if (is_loggedin())
 {
 	//Save items
-	if(isset($_GET['save']))
+	if (isset($_GET['save']))
 	{
-		if(hasPerm('edit_nav'))
+		if (hasPerm('edit_nav'))
 		{
 			$db->setCol('nav_nav');
 			foreach ($_POST['navID'] as $order => $id)
@@ -23,9 +23,9 @@ if(is_loggedin())
 	}
 
 	//Delete Items
-	if(isset($_GET['del']))
+	if (isset($_GET['del']))
 	{
-		if(hasPerm('edit_nav'))
+		if (hasPerm('edit_nav'))
 		{
 			if (isset($_POST['id']) && is_numeric(intval($_POST['id'])))
 			{
@@ -71,9 +71,9 @@ if(is_loggedin())
 	}
 
 	//Create Items
-	if(isset($_GET['create']))
+	if (isset($_GET['create']))
 	{
-		if(hasPerm('edit_nav'))
+		if (hasPerm('edit_nav'))
 		{
 			if (isset($_POST['title'], $_POST['page'], $_POST['parent']))
 			{
@@ -81,14 +81,17 @@ if(is_loggedin())
 				{
 					$pageval = $_POST['page'];
 					$send_ready = true;
-					if($_POST['external'] !== ''){
-						if (filter_var($_POST['external'], FILTER_VALIDATE_URL) === false) {
+					if ($_POST['external'] !== '')
+					{
+						if (filter_var($_POST['external'], FILTER_VALIDATE_URL) === false)
+						{
 							$send_ready = false;
 							echo 'url_invalid';
 						}
-					} $pageval = 0;
+						$pageval = 0;
+					}
 
-					if($send_ready)
+					if ($send_ready)
 					{
 						$db->setCol('nav_nav');
 						$db->data['title'] = $_POST['title'];
@@ -106,9 +109,9 @@ if(is_loggedin())
 	}
 
 	//Update Parents
-	if(isset($_GET['update']))
+	if (isset($_GET['update']))
 	{
-		if(isset($_POST['id'], $_POST['parent']))
+		if (isset($_POST['id'], $_POST['parent']))
 		{
 			if (is_numeric(intval($_POST['id'])) && is_numeric(intval($_POST['parent'])) && $_POST['parent'] != $_POST['id'])
 			{
@@ -123,7 +126,7 @@ if(is_loggedin())
 	}
 }
 
-if($success)
+if ($success)
 {
 	echo 'success';
 }
