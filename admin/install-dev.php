@@ -66,7 +66,7 @@ if (isset($_POST['submit']))
 		$CONFIG['Templating']['tpl_title'] = 'title';
 		$CONFIG['Templating']['tpl_content'] = 'content';
 		$CONFIG['Templating']['tpl_webUri'] = 'website_uri';
-		$CONFIG['Versioning']['version'] = '0.97.0';
+		$CONFIG['Versioning']['version'] = '0.96.0';
 		$CONFIG['Versioning']['update_enabled'] = true;
 		$CONFIG['Versioning']['update_servers'][] = 'https://update.mowie.cc/';
 
