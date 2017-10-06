@@ -49,7 +49,7 @@ $MCONF['tpl_webUri'] = $config['Templating']['tpl_webUri'];
 
 //Versioning
 $MCONF['version'] = $config['Versioning']['version'];
-$MCONF['version_num'] = $config['Versioning']['version_num'];
+$MCONF['update_enabled'] = $config['Versioning']['update_enabled'];
 $MCONF['update_servers'] = $config['Versioning']['update_servers'];
 
 //Mailer

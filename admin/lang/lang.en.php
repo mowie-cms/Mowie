@@ -231,7 +231,8 @@ $lang['update_app_update_available'] = 'App-Update - New Version for "%1$s" avai
 $lang['update_log'] = '{user} updated the System.';
 $lang['update_folder_not_writeable'] = 'The updatefolder is not writeable. Please make sure your webserver can write into the folder.';
 $lang['update_create_backup_error'] = 'An error occured while creating a backup.';
-$lang['update_cleanup_error'] = 'Beim Aufräumen ist ein Fehler aufgetreten.';
+$lang['update_cleanup_error'] = 'An error occured during cleanup.';
+$lang['update_checking'] = 'Checking for updates...';
 
 //Stream Messages
 $lang['stream_saved_settings'] = '{user} changed it\'s username and/or email-adress.';

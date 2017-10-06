@@ -66,9 +66,9 @@ if (isset($_POST['submit']))
 		$CONFIG['Templating']['tpl_title'] = 'title';
 		$CONFIG['Templating']['tpl_content'] = 'content';
 		$CONFIG['Templating']['tpl_webUri'] = 'website_uri';
-		$CONFIG['Versioning']['version'] = '0.96';
-		$CONFIG['Versioning']['version_num'] = 9;
-		$CONFIG['Versioning']['update_servers'][] = 'https://cdn.kola-entertainments.de/cms/';
+		$CONFIG['Versioning']['version'] = '0.97';
+		$CONFIG['Versioning']['update_enabled'] = true;
+		$CONFIG['Versioning']['update_servers'][] = 'https://update.mowie.cc/';
 
 		$CONFIG['Mail']['smtp'] = false;
 		//Mail Settings

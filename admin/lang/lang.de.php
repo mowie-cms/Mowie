@@ -238,6 +238,7 @@ $lang['update_log'] = '{user} hat das System geupdated.';
 $lang['update_folder_not_writeable'] = 'Der Updateordner ist nicht schreibbar. Bitte stelle sicher, dass der Webserver Schreibrechte im Updateordner hat.';
 $lang['update_create_backup_error'] = 'Beim Erstellen eines Backups ist ein Fehler aufgetreten.';
 $lang['update_cleanup_error'] = 'Beim Aufräumen ist ein Fehler aufgetreten.';
+$lang['update_checking'] = 'Überprüfe auf Updates...';
 
 //Stream Messages
 $lang['stream_saved_settings'] = '{user} hat seinen Benutzername/Email-Adresse geändert.';
