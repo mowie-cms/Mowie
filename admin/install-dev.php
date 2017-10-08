@@ -219,6 +219,8 @@ RewriteRule !favicon\.ico - [C]
 RewriteRule !index\.php - [C]
 RewriteRule ^(.*)$ /index.php?$1 [QSA,L]
 
+DirectoryIndex index.php index.html
+
 # Disables download of configuration
 <Files ~ "\.(tpl|yml|ini)$">
     <IfModule mod_authz_core.c>
