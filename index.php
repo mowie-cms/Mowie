@@ -22,8 +22,9 @@ if (file_exists('config/config.yml'))
 		$page->error_reporting = E_ALL & ~E_NOTICE;
 
 		//Set Url
-		$page->setUrl(str_replace($MCONF['home_uri'], '', $_SERVER['REQUEST_URI']));
-		$base = explode('/', str_replace($MCONF['home_uri'], '', $_SERVER['REQUEST_URI']));
+		$url = str_replace_first($MCONF['home_uri'], '', $_SERVER['REQUEST_URI']);
+		$page->setUrl($url);
+		$base = explode('/', $url);
 		$page->setBaseUrl('/');
 		if (count($base) > 1)
 		{
