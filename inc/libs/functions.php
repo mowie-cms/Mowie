@@ -450,7 +450,7 @@ function printHeader($title)
                         $.ajax({
                             type: 'POST',
                             url: '<?php echo $MCONF['web_uri']; ?>admin/login.php',
-                            data: "username=" + $('#username').val() + "&pw=" + $('#pw').val() + "&2fa=" + $('#2fa').val(),
+                            data: "username=" + encodeURIComponent($('#username').val()) + "&pw=" + encodeURIComponent($('#pw').val()) + "&2fa=" + $('#2fa').val(),
                             success: function (msg) {
                                 console.log(msg);
                                 if (msg == 'success') {
