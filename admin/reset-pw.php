@@ -1,5 +1,5 @@
 <?php
-require_once '../vendor/autoload.php'
+require_once '../vendor/autoload.php';
 require_once '../inc/config.php';
 require_once '../inc/libs/functions.php';
 $lang->setLangFolder('lang/');
