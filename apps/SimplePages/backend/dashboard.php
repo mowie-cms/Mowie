@@ -8,6 +8,7 @@ if (hasPerm('view_dashboard'))
 	$lang->set('Pages you can edit', 'sp_edit_pages_to_edit', 'en');
 
 	//If pages are available for confirmation, show them
+	// TODO: Check if the config exists
 	$config = parse_ini_file('../apps/SimplePages/backend/confirm.ini');
 	if ($_SESSION['userid'] == $config['confirmationUser'])
 	{

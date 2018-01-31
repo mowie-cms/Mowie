@@ -19,7 +19,7 @@ $confirmationRequierd = false;
 $iniFile = 'confirm.ini';
 if(strpos($_SERVER['SCRIPT_FILENAME'], '/apps/') === false)
 {
-	$iniFile = '../SimplePages/backend/confirm.ini';
+	$iniFile = __DIR__.'/../SimplePages/backend/confirm.ini';
 }
 
 if(file_exists($iniFile))
