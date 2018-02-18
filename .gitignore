@@ -4,3 +4,4 @@ vendor/
 content/.system/page_title.txt
 content/Files/*
 config/*
+.db-data/
