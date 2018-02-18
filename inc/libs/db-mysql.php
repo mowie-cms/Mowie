@@ -154,6 +154,8 @@ class db
 				}
 				$stmt .= ') VALUES (' . $valCnt . ')';
 
+				echo $stmt;
+				print_r($vals);
 				$insert = $this->dbh->prepare($stmt);
 				return $insert->execute($vals);
 			}
