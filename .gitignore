@@ -5,3 +5,7 @@ content/.system/page_title.txt
 content/Files/*
 config/*
 .db-data/
+
+# install files
+admin/install.php
+apps/*/install.php
