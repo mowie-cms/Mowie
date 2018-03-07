@@ -122,7 +122,7 @@ CREATE TABLE `' . $_POST['db_prefix'] . 'system_loggedin` (
 CREATE TABLE `' . $_POST['db_prefix'] . 'system_roles` (
   `id` int(11) NOT NULL,
   `name` text COLLATE utf8_unicode_ci NOT NULL,
-  `permissions` longtext COLLATE utf8_unicode_ci NOT NULL DEFAULT \'{}\',
+  `permissions` longtext COLLATE utf8_unicode_ci NOT NULL DEFAULT \'{}\'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 CREATE TABLE `' . $_POST['db_prefix'] . 'system_show_stream` (
   `id` int(11) NOT NULL,
