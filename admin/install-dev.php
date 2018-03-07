@@ -96,6 +96,17 @@ if (isset($_POST['submit']))
 			exit;
 		}
 
+		// Creaete folders
+        if (!file_exists('../config/'))
+        {
+            mkdir('../config');
+        }
+
+        if (!file_exists('../content/.system/'))
+        {
+			mkdir('../content/.system/', null, true);
+        }
+
 		//Database
 		$db = new db($_POST['db_host'], $_POST['db_name'], $_POST['db_user'], $_POST['db_pw'], $_POST['db_prefix']);
 
