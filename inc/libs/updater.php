@@ -127,6 +127,16 @@ class updater
 	 */
 	public function getUpdateInfoFromServer($server)
 	{
+		/**
+		 * The update.json needs to have a form like this:
+		 * [
+		 * 	{
+		 * 		"version": "0.96.1",
+		 * 		"download": "v0.96.1.zip",
+		 * 		"hash": "3437df76568baa21f8d4d1dfe562bc23f723001b97fac9be05515f60330d463b"
+		 * 	}
+		 * ]
+		 */
 		$updateInfosUrl = $server . 'update.json';
 		if ($this->remote_file_exists($updateInfosUrl))
 		{
