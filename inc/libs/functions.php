@@ -436,7 +436,7 @@ function printHeader($title)
                     </form>
                     <div id="msg"></div>
                 </div>
-                <p style="text-align: center;color: #fff;text-shadow: 1px 1px 1px #555;">&copy; 2016-2017 <a
+                <p style="text-align: center;color: #fff;text-shadow: 1px 1px 1px #555;">&copy; 2016-2018 <a
                             href="http://mowie.cc" style="color: #fff;" target="_blank">Mowie</a></p>
             </div>
             <script>
