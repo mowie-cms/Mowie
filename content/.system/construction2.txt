@@ -1,4 +1,2 @@
-<h1 dir="ltr">Baustelle</h1>
-<p>oder so</p>
-<p>(oder?)</p>
+<h1>Maintenance</h1>
 <p><a href="http://mowie.cc">mowie.cc</a></p>
