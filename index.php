@@ -107,6 +107,7 @@ if (file_exists('config/config.yml'))
 
 		//Finally render everything
 		http_response_code($page->getResponseCode());
+		$page->assign('page_title', $page->getTitle());
 		$page->assign($MCONF['tpl_title'], $page->getTitle() . ' | ' . $MCONF['title']);
 		$page->assign($MCONF['tpl_content'], $page->getContent());
 		$page->assign($MCONF['tpl_webUri'], $MCONF['web_uri']);
